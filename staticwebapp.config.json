@@ -1,0 +1,20 @@
+{
+  "routes": [
+    { "route": "/", "rewrite": "/index.html" }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["*.{png,svg,json,webmanifest}"]
+  },
+  "mimeTypes": {
+    ".html": "text/html; charset=utf-8",
+    ".png": "image/png",
+    ".svg": "image/svg+xml",
+    ".json": "application/json"
+  },
+  "globalHeaders": {
+    "Cache-Control": "public, max-age=300",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  }
+}
