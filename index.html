@@ -2178,6 +2178,169 @@ body.dark .ed-body p, body.dark .ed-body li { color: #e0e0e0; }
 body.dark .ed-foot { border-top-color: #333; }
 body.dark .ed-btn { background: #2a2a2a; border-color: #404040; color: #e0e0e0; }
 
+/* ============ AGENT 365 ============ */
+.app-topbar.agent365 { background: linear-gradient(180deg, #1b4aa8 0%, #0a1f4a 100%); }
+.a365-body { flex: 1; overflow-y: auto; padding: 28px 36px; background: #f5f6f8; }
+.a365-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 22px; gap: 20px; }
+.a365-head h1 { font-size: 24px; font-weight: 300; color: var(--gray-160); letter-spacing: -0.5px; margin-bottom: 4px; }
+.a365-head p { font-size: 13px; color: var(--gray-130); max-width: 620px; }
+.a365-posture {
+  display: flex; align-items: center; gap: 14px;
+  background: #fff; border: 1px solid var(--gray-30); border-radius: 10px;
+  padding: 10px 18px;
+}
+.a365-posture-lbl { font-size: 11px; color: var(--gray-130); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; }
+.a365-posture-sub { font-size: 12px; color: #107c10; font-weight: 700; margin-top: 4px; }
+
+.a365-kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 18px; }
+.a365-kpi { background: #fff; border: 1px solid var(--gray-30); border-radius: 10px; padding: 14px 18px; position: relative; }
+.a365-kpi::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background: #1b4aa8; border-radius: 10px 0 0 10px; }
+.a365-kpi-lbl { font-size: 10px; color: var(--gray-130); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 4px; }
+.a365-kpi-v { font-size: 28pt; font-weight: 200; color: var(--gray-160); line-height: 1; letter-spacing: -1px; }
+.a365-kpi-s { font-size: 11px; color: var(--gray-130); margin-top: 6px; }
+.a365-kpi-s.good { color: #107c10; font-weight: 600; }
+.a365-kpi-s.warn { color: #c77700; font-weight: 600; }
+.a365-kpi-s.danger { color: #c50f1f; font-weight: 700; }
+
+.a365-tabs {
+  display: flex; gap: 2px;
+  border-bottom: 1px solid var(--gray-30);
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+.a365-tab {
+  padding: 9px 16px; font-size: 13px; color: var(--gray-130); cursor: pointer;
+  border-bottom: 2px solid transparent; transition: color 0.12s, border-color 0.12s;
+  position: relative;
+}
+.a365-tab:hover { color: var(--gray-160); }
+.a365-tab.active { color: #1b4aa8; border-bottom-color: #1b4aa8; font-weight: 700; }
+.a365-tab-count {
+  background: #c50f1f; color: #fff;
+  font-size: 10px; font-weight: 700;
+  padding: 1px 7px; border-radius: 9px;
+  margin-left: 6px;
+}
+
+.a365-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; margin-bottom: 18px; }
+.a365-card { background: #fff; border: 1px solid var(--gray-30); border-radius: 10px; padding: 18px 20px; }
+.a365-card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 14px; }
+.a365-card-title { font-size: 14px; font-weight: 700; color: var(--gray-160); }
+.a365-card-sub { font-size: 11.5px; color: var(--gray-90); margin-top: 2px; }
+.a365-card-actions { display: flex; gap: 6px; }
+.a365-side { display: flex; flex-direction: column; gap: 14px; }
+
+.a365-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.a365-table thead th {
+  text-align: left; padding: 10px; border-bottom: 1px solid var(--gray-30);
+  font-size: 11px; font-weight: 700; color: var(--gray-130);
+  text-transform: uppercase; letter-spacing: 0.8px;
+}
+.a365-table tbody tr { transition: background 0.12s; }
+.a365-table tbody tr:hover { background: #f7faff; }
+.a365-table tbody td { padding: 10px; border-bottom: 1px solid var(--gray-20); color: var(--gray-160); vertical-align: middle; }
+.a365-table tbody tr.a365-shadow { background: linear-gradient(90deg, #fef4f4, transparent 80%); }
+.a365-table tbody tr.a365-shadow:hover { background: linear-gradient(90deg, #fde7e7, transparent 80%); }
+.a-name { display: flex; align-items: center; gap: 10px; }
+.a-name > div { min-width: 0; }
+.a-name strong { display: block; color: var(--gray-160); font-size: 12.5px; }
+.a-name span { display: block; font-size: 11px; color: var(--gray-90); margin-top: 1px; }
+.a-name .ext-ico {
+  width: 22px; height: 22px; border-radius: 5px;
+  color: #fff; font-weight: 700; font-size: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+}
+.src-badge {
+  display: inline-block; font-size: 10.5px; font-weight: 600;
+  padding: 3px 8px; border-radius: 10px; white-space: nowrap;
+}
+.src-badge.ms { background: #eef3f8; color: #1b4aa8; border: 1px solid rgba(27,74,168,0.2); }
+.src-badge.partner { background: #fff4e0; color: #8a5c00; border: 1px solid rgba(199,119,0,0.2); }
+.src-badge.custom { background: #f2edfc; color: #4a1fa0; border: 1px solid rgba(74,31,160,0.2); }
+.src-badge.danger { background: #fdecec; color: #8e0000; border: 1px solid rgba(197,15,31,0.2); }
+.id-chip {
+  font-size: 10.5px; color: var(--gray-130);
+  background: var(--gray-20); padding: 3px 8px; border-radius: 10px; font-weight: 500;
+  white-space: nowrap;
+}
+.id-chip.danger { background: #fdecec; color: #8e0000; }
+.risk-dot {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  margin-right: 6px; vertical-align: 1px;
+}
+.risk-dot.low { background: #107c10; box-shadow: 0 0 0 2px rgba(16,124,16,0.15); }
+.risk-dot.med { background: #c77700; box-shadow: 0 0 0 2px rgba(199,119,0,0.15); }
+.risk-dot.high { background: #c50f1f; box-shadow: 0 0 0 2px rgba(197,15,31,0.15); animation: dotPulse 1.6s ease-in-out infinite; }
+
+.a365-feed { display: flex; flex-direction: column; gap: 6px; max-height: 340px; overflow-y: auto; }
+.a365-feed-row {
+  display: grid; grid-template-columns: 66px 130px 1fr;
+  gap: 10px; align-items: baseline;
+  padding: 7px 10px;
+  border-left: 3px solid var(--hoag-teal);
+  border-radius: 4px;
+  background: #fafafa;
+  font-size: 11.5px;
+}
+.a365-feed-row.bad { border-left-color: #c50f1f; background: #fef4f4; }
+.a365-feed-t { font-size: 10px; color: var(--gray-90); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.a365-feed-a { font-size: 11.5px; font-weight: 700; color: var(--gray-160); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.a365-feed-d { font-size: 11.5px; color: var(--gray-160); line-height: 1.4; }
+
+.a365-policies { display: flex; flex-direction: column; gap: 8px; }
+.a365-policy {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 2px; border-bottom: 1px dashed var(--gray-30);
+  font-size: 12.5px;
+}
+.a365-policy:last-child { border-bottom: none; }
+.a365-p-name { color: var(--gray-160); }
+
+.a365-incidents { margin-bottom: 14px; }
+.a365-inc-list { display: flex; flex-direction: column; gap: 8px; }
+.a365-inc {
+  display: grid; grid-template-columns: 60px 1fr auto;
+  gap: 14px; align-items: center;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 4px solid #c77700;
+  background: linear-gradient(90deg, #fff8e6, #fff);
+}
+.a365-inc.bad { border-left-color: #c50f1f; background: linear-gradient(90deg, #fdecec, #fff); }
+.a365-inc-sev {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.8px;
+  padding: 4px 8px; border-radius: 3px;
+  text-align: center;
+  color: #fff;
+  background: #c77700;
+}
+.a365-inc-sev.bad { background: #c50f1f; }
+.a365-inc-t { font-size: 13px; font-weight: 600; color: var(--gray-160); margin-bottom: 3px; }
+.a365-inc-s { font-size: 11.5px; color: var(--gray-130); }
+.a365-inc-actions { display: flex; gap: 6px; }
+
+.a365-note {
+  padding: 12px 16px;
+  background: #eef3f8; border-left: 3px solid #1b4aa8; border-radius: 4px;
+  font-size: 12px; color: var(--gray-130); line-height: 1.55;
+}
+
+/* Dark-mode overrides for Agent 365 */
+body.dark .a365-body { background: #1a1a1a; }
+body.dark .a365-posture, body.dark .a365-kpi, body.dark .a365-card {
+  background: #252525; border-color: #333333; color: #e0e0e0;
+}
+body.dark .a365-kpi-v, body.dark .a365-head h1, body.dark .a365-card-title, body.dark .a-name strong,
+body.dark .a365-feed-a, body.dark .a365-feed-d, body.dark .a365-p-name, body.dark .a365-inc-t { color: #f0f0f0; }
+body.dark .a365-table tbody tr:hover { background: #2d2d2d; }
+body.dark .a365-table tbody td, body.dark .a365-table thead th { border-bottom-color: #333; }
+body.dark .a365-tabs { border-bottom-color: #333; }
+body.dark .a365-feed-row { background: #1e1e1e; }
+body.dark .a365-feed-row.bad { background: #2a1616; }
+body.dark .a365-note { background: #1a2540; border-left-color: #3a72d0; color: #c0c0c0; }
+
 /* ============ ROLLOUT ROADMAP ============ */
 .app-topbar.roadmap { background: linear-gradient(180deg, #0090a8 0%, #005a67 100%); }
 .rm-body { flex: 1; overflow-y: auto; padding: 28px 36px; background: #f5f6f8; }
@@ -3931,6 +4094,18 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
         <div class="app-meta">Copilot usage &amp; ROI</div>
         <div class="badge" style="background:linear-gradient(135deg,#2a2a2a,#0a0a0a);box-shadow:0 2px 4px rgba(0,0,0,0.35);">2,847</div>
       </div>
+      <div class="app-tile" data-personas="cio" onclick="openApp('agent365')">
+        <div class="app-icon" style="filter:none;">
+          <div class="tile-logo-box" style="background:linear-gradient(135deg,#1b4aa8 0%,#0a1f4a 100%);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff">
+              <path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4zm0 5a3 3 0 100 6 3 3 0 000-6zm0 8c-2.7 0-5 1.5-5 3v1h10v-1c0-1.5-2.3-3-5-3z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="app-name">Agent 365</div>
+        <div class="app-meta">Govern &amp; monitor agents</div>
+        <div class="badge" style="background:linear-gradient(135deg,#1b4aa8,#0a1f4a);box-shadow:0 2px 4px rgba(27,74,168,0.4);">47</div>
+      </div>
 
       <!-- Maria (Charge Nurse) gets Microsoft Shifts -->
       <div class="app-tile" data-personas="maria" onclick="openApp('shifts')">
@@ -5308,6 +5483,303 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
     </div>
   </div>
 
+  <!-- ========== AGENT 365 (fleet governance) ========== -->
+  <div id="app-agent365" class="app-shell">
+    <div class="app-topbar agent365">
+      <div class="back" onclick="goHome()">☰</div>
+      <div class="app-title">
+        <svg class="app-title-logo" width="22" height="22" viewBox="0 0 24 24">
+          <rect width="24" height="24" rx="5" fill="#1b4aa8"/>
+          <path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4z" fill="#fff" transform="scale(0.75) translate(3 3)"/>
+        </svg>
+        Agent 365 — Enterprise agent governance
+      </div>
+      <div style="flex:1"></div>
+      <div class="right">
+        <div class="avatar" style="background:#c8a55b;color:#003865;">DK</div>
+      </div>
+    </div>
+    <div class="a365-body">
+      <div class="a365-head">
+        <div>
+          <h1>Agent fleet <span style="font-weight:400;color:var(--gray-90);">· Hoag tenant · live</span></h1>
+          <p>Every AI agent operating in your tenant — Microsoft, partner, or custom. One pane of glass for identity, access, cost, and risk.</p>
+        </div>
+        <div class="a365-posture">
+          <div class="a365-ring">
+            <svg width="84" height="84" viewBox="0 0 84 84">
+              <circle cx="42" cy="42" r="36" fill="none" stroke="#e0e0e0" stroke-width="6"/>
+              <circle cx="42" cy="42" r="36" fill="none" stroke="#107c10" stroke-width="6" stroke-dasharray="226" stroke-dashoffset="14" transform="rotate(-90 42 42)" stroke-linecap="round"/>
+              <text x="42" y="47" text-anchor="middle" font-size="22" font-weight="700" fill="#107c10">94</text>
+            </svg>
+          </div>
+          <div>
+            <div class="a365-posture-lbl">Governance score</div>
+            <div class="a365-posture-sub">▲ 3 pts this week</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="a365-kpis">
+        <div class="a365-kpi">
+          <div class="a365-kpi-lbl">Active agents</div>
+          <div class="a365-kpi-v">47</div>
+          <div class="a365-kpi-s">38 Microsoft · 9 partner · <span class="slabel internal" style="font-size:9px;vertical-align:1px;">MIXED FLEET</span></div>
+        </div>
+        <div class="a365-kpi">
+          <div class="a365-kpi-lbl">Invocations / 24h</div>
+          <div class="a365-kpi-v">128K</div>
+          <div class="a365-kpi-s good">▲ 14% vs yesterday</div>
+        </div>
+        <div class="a365-kpi">
+          <div class="a365-kpi-lbl">Blocked actions</div>
+          <div class="a365-kpi-v">12</div>
+          <div class="a365-kpi-s warn">2 policy violations · 10 DLP</div>
+        </div>
+        <div class="a365-kpi">
+          <div class="a365-kpi-lbl">Shadow agents</div>
+          <div class="a365-kpi-v" style="color:#c50f1f;">3</div>
+          <div class="a365-kpi-s danger">Unapproved · quarantined</div>
+        </div>
+        <div class="a365-kpi">
+          <div class="a365-kpi-lbl">Cost MTD</div>
+          <div class="a365-kpi-v">$8,240</div>
+          <div class="a365-kpi-s">$0.18 avg / invocation</div>
+        </div>
+      </div>
+
+      <div class="a365-tabs">
+        <span class="a365-tab active">Fleet</span>
+        <span class="a365-tab">Identity &amp; access</span>
+        <span class="a365-tab">Policies</span>
+        <span class="a365-tab">Incidents <span class="a365-tab-count">2</span></span>
+        <span class="a365-tab">Cost</span>
+        <span class="a365-tab">Logs</span>
+      </div>
+
+      <div class="a365-grid">
+        <!-- Fleet table -->
+        <div class="a365-card a365-fleet-card">
+          <div class="a365-card-head">
+            <div>
+              <div class="a365-card-title">Agent inventory</div>
+              <div class="a365-card-sub">All agents across Microsoft, partner, and custom sources</div>
+            </div>
+            <div class="a365-card-actions">
+              <span class="adm-f">All sources ▾</span>
+              <span class="adm-f">All owners ▾</span>
+              <span class="adm-f primary">⚙ Manage</span>
+            </div>
+          </div>
+          <table class="a365-table">
+            <thead>
+              <tr>
+                <th>Agent</th>
+                <th>Source</th>
+                <th>Owner</th>
+                <th>Identity</th>
+                <th>7-day runs</th>
+                <th>Risk</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoShield"/></svg><div><strong>Prior-Auth Sentinel</strong><span>Rev Cycle · prod</span></div></td>
+                <td><span class="src-badge ms">Copilot Studio</span></td>
+                <td>J. Okafor</td>
+                <td><span class="id-chip">🔐 Entra ID</span></td>
+                <td>12,482</td>
+                <td><span class="risk-dot low"></span>Low</td>
+                <td><span class="pill good">● Live</span></td>
+              </tr>
+              <tr>
+                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoBed"/></svg><div><strong>Hoag Bed Coordinator</strong><span>Nursing Ops · prod</span></div></td>
+                <td><span class="src-badge ms">Copilot Studio</span></td>
+                <td>M. Rodriguez</td>
+                <td><span class="id-chip">🔐 Entra ID</span></td>
+                <td>8,115</td>
+                <td><span class="risk-dot low"></span>Low</td>
+                <td><span class="pill good">● Live</span></td>
+              </tr>
+              <tr>
+                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoIntake"/></svg><div><strong>Oncology Intake Agent</strong><span>Oncology SL · prod</span></div></td>
+                <td><span class="src-badge ms">Copilot Studio</span></td>
+                <td>S. Chen</td>
+                <td><span class="id-chip">🔐 Entra ID</span></td>
+                <td>4,602</td>
+                <td><span class="risk-dot low"></span>Low</td>
+                <td><span class="pill good">● Live</span></td>
+              </tr>
+              <tr>
+                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoTrial"/></svg><div><strong>Clinical Trial Matcher</strong><span>Research · prod</span></div></td>
+                <td><span class="src-badge ms">Copilot Studio</span></td>
+                <td>Dr. J. Patel</td>
+                <td><span class="id-chip">🔐 Entra ID</span></td>
+                <td>2,310</td>
+                <td><span class="risk-dot low"></span>Low</td>
+                <td><span class="pill good">● Live</span></td>
+              </tr>
+              <tr>
+                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoReadmit"/></svg><div><strong>Readmission Watch</strong><span>Nursing · prod</span></div></td>
+                <td><span class="src-badge ms">Declarative agent</span></td>
+                <td>S. Chen</td>
+                <td><span class="id-chip">🔐 Entra ID</span></td>
+                <td>1,148</td>
+                <td><span class="risk-dot low"></span>Low</td>
+                <td><span class="pill good">● Live</span></td>
+              </tr>
+              <tr>
+                <td class="a-name"><span class="ext-ico" style="background:#ff5a3c;">E</span><div><strong>Epic Workspace agent</strong><span>Clinical · prod</span></div></td>
+                <td><span class="src-badge partner">Partner · Epic</span></td>
+                <td>Dr. R. Chen</td>
+                <td><span class="id-chip">🔐 Entra + Epic SSO</span></td>
+                <td>3,408</td>
+                <td><span class="risk-dot low"></span>Low</td>
+                <td><span class="pill good">● Live</span></td>
+              </tr>
+              <tr>
+                <td class="a-name"><span class="ext-ico" style="background:#00a1e0;">SF</span><div><strong>Agentforce (Salesforce)</strong><span>Patient Services · prod</span></div></td>
+                <td><span class="src-badge partner">Partner · Salesforce</span></td>
+                <td>L. Nguyen</td>
+                <td><span class="id-chip">🔐 Entra · federated</span></td>
+                <td>1,202</td>
+                <td><span class="risk-dot med"></span>Medium</td>
+                <td><span class="pill warn">● Attested</span></td>
+              </tr>
+              <tr>
+                <td class="a-name"><span class="ext-ico" style="background:#62d84e;">N</span><div><strong>Now Assist (ServiceNow)</strong><span>IT Help Desk · prod</span></div></td>
+                <td><span class="src-badge partner">Partner · ServiceNow</span></td>
+                <td>IT Ops</td>
+                <td><span class="id-chip">🔐 Entra · federated</span></td>
+                <td>845</td>
+                <td><span class="risk-dot low"></span>Low</td>
+                <td><span class="pill good">● Live</span></td>
+              </tr>
+              <tr>
+                <td class="a-name"><span class="ext-ico" style="background:#7441e8;">AO</span><div><strong>Hoag GPT (internal)</strong><span>IT · prod</span></div></td>
+                <td><span class="src-badge custom">Custom · Azure OpenAI</span></td>
+                <td>IT / AI team</td>
+                <td><span class="id-chip">🔐 Managed Identity</span></td>
+                <td>24,017</td>
+                <td><span class="risk-dot low"></span>Low</td>
+                <td><span class="pill good">● Live</span></td>
+              </tr>
+              <tr class="a365-shadow">
+                <td class="a-name"><span class="ext-ico" style="background:#c50f1f;">!</span><div><strong>"ClinicalGPT v2" <span class="slabel" style="background:#fdecec;color:#8e0000;border-color:#f2c3c3;margin-left:4px;">SHADOW</span></strong><span>Radiology · unapproved</span></div></td>
+                <td><span class="src-badge danger">Unknown · web</span></td>
+                <td>— (discovered)</td>
+                <td><span class="id-chip danger">⚠ No Entra</span></td>
+                <td>0</td>
+                <td><span class="risk-dot high"></span>High</td>
+                <td><span class="pill urgent">● Quarantined</span></td>
+              </tr>
+              <tr class="a365-shadow">
+                <td class="a-name"><span class="ext-ico" style="background:#c50f1f;">!</span><div><strong>"DocuMate Assistant" <span class="slabel" style="background:#fdecec;color:#8e0000;border-color:#f2c3c3;margin-left:4px;">SHADOW</span></strong><span>HR · unapproved</span></div></td>
+                <td><span class="src-badge danger">Unknown · browser ext</span></td>
+                <td>— (discovered)</td>
+                <td><span class="id-chip danger">⚠ No Entra</span></td>
+                <td>0</td>
+                <td><span class="risk-dot high"></span>High</td>
+                <td><span class="pill urgent">● Quarantined</span></td>
+              </tr>
+              <tr class="a365-shadow">
+                <td class="a-name"><span class="ext-ico" style="background:#c50f1f;">!</span><div><strong>"LabReader-X" <span class="slabel" style="background:#fdecec;color:#8e0000;border-color:#f2c3c3;margin-left:4px;">SHADOW</span></strong><span>Path Lab · unapproved</span></div></td>
+                <td><span class="src-badge danger">Unknown · SaaS</span></td>
+                <td>— (discovered)</td>
+                <td><span class="id-chip danger">⚠ No Entra</span></td>
+                <td>0</td>
+                <td><span class="risk-dot high"></span>High</td>
+                <td><span class="pill urgent">● Quarantined</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Right column: activity + controls -->
+        <div class="a365-side">
+          <div class="a365-card">
+            <div class="a365-card-head">
+              <div>
+                <div class="a365-card-title">Live activity</div>
+                <div class="a365-card-sub">Agent actions, streaming</div>
+              </div>
+              <span class="adm-live"><span class="adm-live-dot"></span>Live</span>
+            </div>
+            <div class="a365-feed" id="a365-feed">
+              <div class="a365-feed-row"><span class="a365-feed-t">just now</span><span class="a365-feed-a">Prior-Auth Sentinel</span><span class="a365-feed-d">Drafted packet for Garcia, E. (Blue Shield) → routed to Dr. Nguyen for sign-off</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">4s ago</span><span class="a365-feed-a">Hoag Bed Coordinator</span><span class="a365-feed-d">Queried 4W census (Epic feed · read-only)</span></div>
+              <div class="a365-feed-row bad"><span class="a365-feed-t">9s ago</span><span class="a365-feed-a">Agentforce (SF)</span><span class="a365-feed-d">⚠ Attempted to read a PHI-labeled field outside scope — <strong>DLP block</strong></span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">12s ago</span><span class="a365-feed-a">Oncology Intake</span><span class="a365-feed-d">Pre-staged orders for Garcia, E. (diagnostic mammo + BRCA panel)</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">18s ago</span><span class="a365-feed-a">Hoag GPT</span><span class="a365-feed-d">Summarized ACC-AHA 2021 Section 4.1 for Sarah Chen</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">22s ago</span><span class="a365-feed-a">Epic Workspace agent</span><span class="a365-feed-d">Flagged Castillo, P. labs — routed to Dr. Patel</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">28s ago</span><span class="a365-feed-a">Clinical Trial Matcher</span><span class="a365-feed-d">Screened 7 tumor-board patients · 2 candidates found</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">34s ago</span><span class="a365-feed-a">Readmission Watch</span><span class="a365-feed-d">Flagged 3 patients above 0.65 risk on 4W</span></div>
+              <div class="a365-feed-row bad"><span class="a365-feed-t">39s ago</span><span class="a365-feed-a">"ClinicalGPT v2"</span><span class="a365-feed-d">⚠ Unapproved endpoint contact attempt — <strong>Conditional Access blocked</strong></span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">45s ago</span><span class="a365-feed-a">Now Assist (SN)</span><span class="a365-feed-d">Resolved ticket HD-4412 (password reset)</span></div>
+            </div>
+          </div>
+
+          <div class="a365-card">
+            <div class="a365-card-head">
+              <div>
+                <div class="a365-card-title">Tenant-wide policies</div>
+                <div class="a365-card-sub">Applied to every agent</div>
+              </div>
+            </div>
+            <div class="a365-policies">
+              <div class="a365-policy"><div class="a365-p-name">Conditional Access for agents</div><div class="a365-p-val"><span class="pill good">Enforced</span></div></div>
+              <div class="a365-policy"><div class="a365-p-name">Entra ID required (no anonymous)</div><div class="a365-p-val"><span class="pill good">Enforced</span></div></div>
+              <div class="a365-policy"><div class="a365-p-name">Purview DLP on all prompts</div><div class="a365-p-val"><span class="pill good">Enforced</span></div></div>
+              <div class="a365-policy"><div class="a365-p-name">Cross-tenant access</div><div class="a365-p-val"><span class="pill urgent">Blocked</span></div></div>
+              <div class="a365-policy"><div class="a365-p-name">External API allowlist</div><div class="a365-p-val"><span class="pill good">42 entries</span></div></div>
+              <div class="a365-policy"><div class="a365-p-name">Just-in-time elevation</div><div class="a365-p-val"><span class="pill">Configured</span></div></div>
+              <div class="a365-policy"><div class="a365-p-name">Sensitivity-label respect</div><div class="a365-p-val"><span class="pill good">All 4 labels</span></div></div>
+              <div class="a365-policy"><div class="a365-p-name">Model residency</div><div class="a365-p-val"><span class="pill good">US West</span></div></div>
+              <div class="a365-policy"><div class="a365-p-name">Human-in-the-loop for writes</div><div class="a365-p-val"><span class="pill good">Required</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Incidents row -->
+      <div class="a365-card a365-incidents">
+        <div class="a365-card-head">
+          <div>
+            <div class="a365-card-title">Open incidents</div>
+            <div class="a365-card-sub">2 active · auto-triaged by Defender for AI</div>
+          </div>
+          <div class="a365-card-actions">
+            <span class="adm-f">All severity ▾</span>
+            <span class="adm-f primary">+ Create rule</span>
+          </div>
+        </div>
+        <div class="a365-inc-list">
+          <div class="a365-inc warn">
+            <div class="a365-inc-sev warn">MED</div>
+            <div class="a365-inc-main">
+              <div class="a365-inc-t">Agentforce reading PHI-labeled fields outside scope</div>
+              <div class="a365-inc-s">12 events in last 24h · Owner: L. Nguyen · Purview attestation requested</div>
+            </div>
+            <div class="a365-inc-actions"><button class="adm-f">Investigate</button><button class="adm-f primary">Pause agent</button></div>
+          </div>
+          <div class="a365-inc bad">
+            <div class="a365-inc-sev bad">HIGH</div>
+            <div class="a365-inc-main">
+              <div class="a365-inc-t">Shadow agent "ClinicalGPT v2" detected on 8 endpoints in Radiology</div>
+              <div class="a365-inc-s">Browser telemetry · Conditional Access blocked all attempts · Defender for Cloud Apps signal</div>
+            </div>
+            <div class="a365-inc-actions"><button class="adm-f">Notify manager</button><button class="adm-f primary">Deploy block-at-edge</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="a365-note">
+        <strong>What's new in this view:</strong> cross-vendor agent inventory. Your Microsoft agents, partner agents (Epic, Salesforce, ServiceNow), and in-house Azure-OpenAI custom agents all appear alongside each other — with the same identity, DLP, and Conditional Access controls. Shadow agents surface automatically via Defender telemetry.
+      </div>
+    </div>
+  </div>
+
   <!-- ========== CALENDAR EVENT DETAIL PANEL ========== -->
   <div id="event-detail" class="event-detail">
     <div class="ed-backdrop" onclick="closeEventDetail()"></div>
@@ -5802,6 +6274,7 @@ function openApp(app, context) {
   if (app === 'onedrive') renderOneDrive();
   if (app === 'dax') renderDaxWaveform();
   if (app === 'pages') setTimeout(startPagesCursors, 200);
+  if (app === 'agent365') startAgent365Feed();
   // Show tips per app
   const tips = {
     outlook: "In Outlook, click the Copilot logo (top-right) to triage your 147-message inbox. Or click any email to read it.",
@@ -5812,7 +6285,8 @@ function openApp(app, context) {
     onedrive: "In OneDrive, click the Copilot logo to find everything about a patient across 847 files in under a second.",
     admin: "The Admin Center shows Copilot adoption, ROI, and a live audit log of every prompt — governance your CIO can actually point at.",
     dax:   "Dragon Copilot ambiently listens to the patient-clinician conversation and drafts the SOAP note in real time.",
-    pages: "Copilot Pages is a collaborative AI canvas — numbers stay synced with the source Excel and deck."
+    pages: "Copilot Pages is a collaborative AI canvas — numbers stay synced with the source Excel and deck.",
+    agent365: "Agent 365 is the single pane of glass for every agent in your tenant — Microsoft, partner, or custom. Watch the live feed in the right column."
   };
   showTip(tips[app]);
 }
@@ -5945,6 +6419,51 @@ document.addEventListener('click', (e) => {
   const wrap = document.querySelector('.waffle-wrap');
   if (wrap && !wrap.contains(e.target)) closeWaffle();
 });
+
+// Agent 365 live-feed animator. Prepends a new activity row every 3–5s while the view is active.
+const A365_FEED_POOL = [
+  { bad:false, a:'Prior-Auth Sentinel', d:'Checked Anthem criteria for new inpatient stay · match 0.92' },
+  { bad:false, a:'Hoag Bed Coordinator', d:'Queried Epic bed-hold queue · 4 pending' },
+  { bad:true,  a:'Agentforce (SF)', d:'⚠ Tried to write a PHI field — <strong>DLP block</strong>' },
+  { bad:false, a:'Oncology Intake', d:'Requested UCI records for Okonkwo, D.' },
+  { bad:false, a:'Hoag GPT', d:'Summarized 4W overnight safety log for charge nurse' },
+  { bad:false, a:'Clinical Trial Matcher', d:'Re-scored 12 active patients against NCT criteria' },
+  { bad:false, a:'Epic Workspace agent', d:'Surfaced pending results for 3 patients' },
+  { bad:false, a:'Readmission Watch', d:'Added risk flag to Park, S. (0.71)' },
+  { bad:true,  a:'"DocuMate Assistant"', d:'⚠ Attempted external HTTPS POST — <strong>Conditional Access blocked</strong>' },
+  { bad:false, a:'Now Assist (SN)', d:'Routed ticket HD-4419 to laptop imaging queue' },
+  { bad:false, a:'Executive Readout Agent', d:'Drafted weekly one-pager for Monday board readout' },
+  { bad:false, a:'Prior-Auth Sentinel', d:'Sent peer-to-peer reminder to Dr. Nguyen' }
+];
+function startAgent365Feed() {
+  const feed = document.getElementById('a365-feed');
+  if (!feed) return;
+  if (feed._a365Timer) return; // already running
+  let i = 0;
+  feed._a365Timer = setInterval(() => {
+    if (currentApp !== 'agent365') return;
+    const item = A365_FEED_POOL[i % A365_FEED_POOL.length];
+    i++;
+    const row = document.createElement('div');
+    row.className = 'a365-feed-row' + (item.bad ? ' bad' : '');
+    row.style.animation = 'emailSlideIn 0.35s ease';
+    row.innerHTML = `
+      <span class="a365-feed-t">just now</span>
+      <span class="a365-feed-a">${item.a}</span>
+      <span class="a365-feed-d">${item.d}</span>
+    `;
+    feed.insertBefore(row, feed.firstChild);
+    // Re-stamp the timestamps on older rows so they drift from "just now" → "4s" → "9s" etc.
+    const rows = Array.from(feed.querySelectorAll('.a365-feed-row'));
+    rows.slice(1).forEach((r, idx) => {
+      const t = r.querySelector('.a365-feed-t');
+      const secs = (idx + 1) * 4 + Math.floor(Math.random() * 3);
+      if (t) t.textContent = secs < 60 ? secs + 's ago' : Math.floor(secs / 60) + 'm ago';
+    });
+    // Cap the list so it doesn't grow forever
+    while (feed.children.length > 20) feed.removeChild(feed.lastChild);
+  }, 3500 + Math.random() * 1200);
+}
 
 // Briefly overlay a skeleton loader on an app shell. Auto-removes itself.
 function showAppSkeleton(shell) {
