@@ -2326,6 +2326,14 @@ body.dark .ed-btn { background: #2a2a2a; border-color: #404040; color: #e0e0e0; 
   background: #eef3f8; border-left: 3px solid #1b4aa8; border-radius: 4px;
   font-size: 12px; color: var(--gray-130); line-height: 1.55;
 }
+.a365-code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 11.5px;
+  background: #f0f4fa; color: #1b4aa8;
+  padding: 3px 7px; border-radius: 4px;
+  border: 1px solid #d7e2f2;
+}
+body.dark .a365-code { background: #1a2540; color: #9ecbff; border-color: #2a3a5a; }
 
 /* Dark-mode overrides for Agent 365 */
 body.dark .a365-body { background: #1a1a1a; }
@@ -4096,11 +4104,27 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
       </div>
       <div class="app-tile" data-personas="cio" onclick="openApp('agent365')">
         <div class="app-icon" style="filter:none;">
-          <div class="tile-logo-box" style="background:linear-gradient(135deg,#1b4aa8 0%,#0a1f4a 100%);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff">
-              <path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4zm0 5a3 3 0 100 6 3 3 0 000-6zm0 8c-2.7 0-5 1.5-5 3v1h10v-1c0-1.5-2.3-3-5-3z"/>
-            </svg>
-          </div>
+          <svg width="48" height="48" viewBox="0 0 48 48" style="filter:drop-shadow(0 3px 8px rgba(0,0,0,0.22));">
+            <defs>
+              <linearGradient id="a365TileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%"  stop-color="#4a7bd0"/>
+                <stop offset="55%" stop-color="#1b4aa8"/>
+                <stop offset="100%" stop-color="#0a1f4a"/>
+              </linearGradient>
+            </defs>
+            <rect width="48" height="48" rx="11" fill="url(#a365TileGrad)"/>
+            <path d="M0 0h48v22Q24 11 0 22Z" fill="rgba(255,255,255,0.13)"/>
+            <rect x="0.5" y="0.5" width="47" height="47" rx="10.5" fill="none" stroke="rgba(255,255,255,0.22)"/>
+            <!-- Stylized "a" mark with a protective sweep -->
+            <path d="M15 32 L20 14 L28 14 L33 32 L28.6 32 L27.6 28 L20.4 28 L19.4 32 Z
+                     M21.4 24 L26.6 24 L24 15.5 Z"
+                  fill="#fff"/>
+            <!-- small shield accent bottom-right — governance cue -->
+            <g transform="translate(32 30)">
+              <path d="M0 0 L6 -2 L6 4 Q6 8 3 10 Q0 8 0 4 Z" fill="#7fb5ff" stroke="#fff" stroke-width="0.5"/>
+              <path d="M1.5 3.5 L3 5 L5 2" stroke="#1b4aa8" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </svg>
         </div>
         <div class="app-name">Agent 365</div>
         <div class="app-meta">Govern &amp; monitor agents</div>
@@ -5488,9 +5512,9 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
     <div class="app-topbar agent365">
       <div class="back" onclick="goHome()">☰</div>
       <div class="app-title">
-        <svg class="app-title-logo" width="22" height="22" viewBox="0 0 24 24">
-          <rect width="24" height="24" rx="5" fill="#1b4aa8"/>
-          <path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4z" fill="#fff" transform="scale(0.75) translate(3 3)"/>
+        <svg class="app-title-logo" width="22" height="22" viewBox="0 0 48 48">
+          <rect width="48" height="48" rx="11" fill="#1b4aa8"/>
+          <path d="M15 32 L20 14 L28 14 L33 32 L28.6 32 L27.6 28 L20.4 28 L19.4 32 Z M21.4 24 L26.6 24 L24 15.5 Z" fill="#fff"/>
         </svg>
         Agent 365 — Enterprise agent governance
       </div>
@@ -5549,14 +5573,16 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
       </div>
 
       <div class="a365-tabs">
-        <span class="a365-tab active">Fleet</span>
-        <span class="a365-tab">Identity &amp; access</span>
-        <span class="a365-tab">Policies</span>
-        <span class="a365-tab">Incidents <span class="a365-tab-count">2</span></span>
-        <span class="a365-tab">Cost</span>
-        <span class="a365-tab">Logs</span>
+        <span class="a365-tab active" data-a365-tab="fleet"    onclick="a365Tab('fleet')">Fleet</span>
+        <span class="a365-tab"        data-a365-tab="identity" onclick="a365Tab('identity')">Identity &amp; access</span>
+        <span class="a365-tab"        data-a365-tab="policies" onclick="a365Tab('policies')">Policies</span>
+        <span class="a365-tab"        data-a365-tab="incidents" onclick="a365Tab('incidents')">Incidents <span class="a365-tab-count">2</span></span>
+        <span class="a365-tab"        data-a365-tab="cost"     onclick="a365Tab('cost')">Cost</span>
+        <span class="a365-tab"        data-a365-tab="logs"     onclick="a365Tab('logs')">Logs</span>
       </div>
 
+      <!-- FLEET pane (default) -->
+      <div class="a365-pane" data-a365-pane="fleet">
       <div class="a365-grid">
         <!-- Fleet table -->
         <div class="a365-card a365-fleet-card">
@@ -5777,6 +5803,260 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
       <div class="a365-note">
         <strong>What's new in this view:</strong> cross-vendor agent inventory. Your Microsoft agents, partner agents (Epic, Salesforce, ServiceNow), and in-house Azure-OpenAI custom agents all appear alongside each other — with the same identity, DLP, and Conditional Access controls. Shadow agents surface automatically via Defender telemetry.
       </div>
+      </div><!-- /a365-pane fleet -->
+
+      <!-- IDENTITY & ACCESS pane -->
+      <div class="a365-pane" data-a365-pane="identity" style="display:none;">
+        <div class="a365-grid">
+          <div class="a365-card">
+            <div class="a365-card-head">
+              <div>
+                <div class="a365-card-title">Agent IDs · Microsoft Entra</div>
+                <div class="a365-card-sub">Every agent has its own non-human identity, governed like a service principal</div>
+              </div>
+              <div class="a365-card-actions">
+                <span class="adm-f">Filter by owner ▾</span>
+                <span class="adm-f primary">+ Provision ID</span>
+              </div>
+            </div>
+            <table class="a365-table">
+              <thead>
+                <tr><th>Agent</th><th>Entra Agent ID</th><th>Scopes granted</th><th>Last rotated</th><th>Conditional Access</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="a-name"><svg width="22" height="22"><use href="#agentLogoShield"/></svg><div><strong>Prior-Auth Sentinel</strong><span>Rev Cycle</span></div></td><td><code class="a365-code">ai-prior-auth-01</code></td><td><span class="src-badge ms">Graph.Files.Read</span> <span class="src-badge ms">Mail.Send</span></td><td>14 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
+                <tr><td class="a-name"><svg width="22" height="22"><use href="#agentLogoBed"/></svg><div><strong>Bed Coordinator</strong><span>Nursing Ops</span></div></td><td><code class="a365-code">ai-bed-coord-01</code></td><td><span class="src-badge ms">Graph.Read</span> <span class="src-badge partner">Epic.Census.Read</span></td><td>2 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
+                <tr><td class="a-name"><svg width="22" height="22"><use href="#agentLogoIntake"/></svg><div><strong>Intake Agent</strong><span>Oncology SL</span></div></td><td><code class="a365-code">ai-onc-intake-01</code></td><td><span class="src-badge ms">Graph.Files.ReadWrite</span> <span class="src-badge ms">Mail.Draft</span></td><td>21 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
+                <tr><td class="a-name"><svg width="22" height="22"><use href="#agentLogoTrial"/></svg><div><strong>Trial Matcher</strong><span>Research</span></div></td><td><code class="a365-code">ai-trial-match-01</code></td><td><span class="src-badge ms">Graph.Read</span> <span class="src-badge partner">NCT.Search</span></td><td>7 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
+                <tr><td class="a-name"><span class="ext-ico" style="background:#00a1e0;">SF</span><div><strong>Agentforce (Salesforce)</strong><span>Patient Services</span></div></td><td><code class="a365-code">ai-sf-agentforce-01</code></td><td><span class="src-badge partner">SF.Read</span> <span class="src-badge ms">Graph.Files.Read</span></td><td>45 d ago · <span style="color:#c77700;font-weight:600;">rotate recommended</span></td><td><span class="pill warn">Attested</span></td></tr>
+                <tr><td class="a-name"><span class="ext-ico" style="background:#ff5a3c;">E</span><div><strong>Epic Workspace agent</strong><span>Clinical</span></div></td><td><code class="a365-code">ai-epic-ws-01</code></td><td><span class="src-badge partner">Epic.Read</span></td><td>9 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="a365-side">
+            <div class="a365-card">
+              <div class="a365-card-head"><div><div class="a365-card-title">Identity health</div><div class="a365-card-sub">Last 30 days</div></div></div>
+              <div class="a365-policies">
+                <div class="a365-policy"><div class="a365-p-name">Agents with Entra ID</div><div class="a365-p-val"><span class="pill good">47 / 47</span></div></div>
+                <div class="a365-policy"><div class="a365-p-name">Secrets rotated &lt; 30 days</div><div class="a365-p-val"><span class="pill good">41 / 47</span></div></div>
+                <div class="a365-policy"><div class="a365-p-name">Least-privilege scope</div><div class="a365-p-val"><span class="pill good">45 / 47</span></div></div>
+                <div class="a365-policy"><div class="a365-p-name">Overprovisioned (flagged)</div><div class="a365-p-val"><span class="pill warn">2</span></div></div>
+                <div class="a365-policy"><div class="a365-p-name">Shadow (no Entra)</div><div class="a365-p-val"><span class="pill urgent">3 · quarantined</span></div></div>
+              </div>
+            </div>
+            <div class="a365-card">
+              <div class="a365-card-head"><div><div class="a365-card-title">Who can invoke what</div><div class="a365-card-sub">Role-to-agent mapping · top 6</div></div></div>
+              <div class="a365-feed" style="max-height:none;">
+                <div class="a365-feed-row"><span class="a365-feed-t">Nursing</span><span class="a365-feed-a">Bed Coord, Readmit</span><span class="a365-feed-d">428 users</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">Physicians</span><span class="a365-feed-a">Trial Matcher, Epic WS, Intake</span><span class="a365-feed-d">340 users</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">Rev Cycle</span><span class="a365-feed-a">Prior-Auth Sentinel</span><span class="a365-feed-d">62 users</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">Patient Svcs</span><span class="a365-feed-a">Agentforce</span><span class="a365-feed-d">48 users</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">IT</span><span class="a365-feed-a">Hoag GPT, Now Assist</span><span class="a365-feed-d">124 users</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">Research</span><span class="a365-feed-a">Trial Matcher</span><span class="a365-feed-d">22 users</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- POLICIES pane -->
+      <div class="a365-pane" data-a365-pane="policies" style="display:none;">
+        <div class="a365-grid">
+          <div class="a365-card">
+            <div class="a365-card-head">
+              <div>
+                <div class="a365-card-title">Tenant-wide policies</div>
+                <div class="a365-card-sub">Enforced across every agent · applied via Entra &amp; Purview</div>
+              </div>
+              <div class="a365-card-actions"><span class="adm-f">Import from template ▾</span><span class="adm-f primary">+ New policy</span></div>
+            </div>
+            <table class="a365-table">
+              <thead><tr><th>Policy</th><th>Scope</th><th>Enforcement</th><th>Violations 7d</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><strong>No PHI egress outside tenant</strong><div style="font-size:11px;color:var(--gray-90);">Purview DLP · US West only</div></td><td>All agents</td><td>Block + alert</td><td>0</td><td><span class="pill good">● Active</span></td></tr>
+                <tr><td><strong>Human-in-the-loop for writes</strong><div style="font-size:11px;color:var(--gray-90);">Email send, chart note, external API POST</div></td><td>All agents</td><td>Require approval</td><td>0</td><td><span class="pill good">● Active</span></td></tr>
+                <tr><td><strong>Conditional Access for agents</strong><div style="font-size:11px;color:var(--gray-90);">Require Entra Agent ID · no anonymous</div></td><td>All agents</td><td>Block</td><td>47</td><td><span class="pill good">● Active</span></td></tr>
+                <tr><td><strong>Sensitivity-label respect</strong><div style="font-size:11px;color:var(--gray-90);">PHI / Confidential / Internal / Public</div></td><td>All agents</td><td>Respect + audit</td><td>2</td><td><span class="pill good">● Active</span></td></tr>
+                <tr><td><strong>External API allowlist</strong><div style="font-size:11px;color:var(--gray-90);">42 approved endpoints · Defender-monitored</div></td><td>All agents</td><td>Block non-listed</td><td>9</td><td><span class="pill good">● Active</span></td></tr>
+                <tr><td><strong>Cross-tenant agent access</strong><div style="font-size:11px;color:var(--gray-90);">Prevent your agents from calling other tenants</div></td><td>All agents</td><td>Block</td><td>0</td><td><span class="pill good">● Active</span></td></tr>
+                <tr><td><strong>JIT elevation for chart writes</strong><div style="font-size:11px;color:var(--gray-90);">Short-lived elevation token per write</div></td><td>Clinical agents</td><td>Require</td><td>0</td><td><span class="pill good">● Active</span></td></tr>
+                <tr><td><strong>Model residency</strong><div style="font-size:11px;color:var(--gray-90);">Azure OpenAI · US West 2 only</div></td><td>All custom</td><td>Pin region</td><td>0</td><td><span class="pill good">● Active</span></td></tr>
+                <tr><td><strong>Cost guardrail per agent</strong><div style="font-size:11px;color:var(--gray-90);">Auto-pause above $500/day spike</div></td><td>All agents</td><td>Auto-pause</td><td>0</td><td><span class="pill">Monitor</span></td></tr>
+                <tr><td><strong>Prompt retention</strong><div style="font-size:11px;color:var(--gray-90);">Encrypted logs · 180-day retention</div></td><td>All agents</td><td>Store</td><td>—</td><td><span class="pill good">● Active</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="a365-side">
+            <div class="a365-card">
+              <div class="a365-card-head"><div><div class="a365-card-title">Compliance frameworks</div><div class="a365-card-sub">Mapped to your agent fleet</div></div></div>
+              <div class="a365-policies">
+                <div class="a365-policy"><div class="a365-p-name">HIPAA</div><div class="a365-p-val"><span class="pill good">✓ Aligned</span></div></div>
+                <div class="a365-policy"><div class="a365-p-name">HITRUST CSF v11</div><div class="a365-p-val"><span class="pill good">✓ Aligned</span></div></div>
+                <div class="a365-policy"><div class="a365-p-name">SOC 2 Type II</div><div class="a365-p-val"><span class="pill good">✓ Aligned</span></div></div>
+                <div class="a365-policy"><div class="a365-p-name">NIST AI RMF</div><div class="a365-p-val"><span class="pill good">✓ Aligned</span></div></div>
+                <div class="a365-policy"><div class="a365-p-name">Hoag AI Use policy</div><div class="a365-p-val"><span class="pill good">✓ Enforced</span></div></div>
+              </div>
+            </div>
+            <div class="a365-card">
+              <div class="a365-card-head"><div><div class="a365-card-title">Recent policy changes</div><div class="a365-card-sub">Audit trail</div></div></div>
+              <div class="a365-feed" style="max-height:none;">
+                <div class="a365-feed-row"><span class="a365-feed-t">2 d</span><span class="a365-feed-a">D. Kim</span><span class="a365-feed-d">Tightened "Human-in-the-loop for writes" to include chart-note draft approval</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">5 d</span><span class="a365-feed-a">IT Sec</span><span class="a365-feed-d">Added 3 domains to external API allowlist (Blue Shield, Anthem, UHC peer-to-peer)</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">9 d</span><span class="a365-feed-a">Purview</span><span class="a365-feed-d">Auto-label refresh — PHI detection rules updated</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">14 d</span><span class="a365-feed-a">D. Kim</span><span class="a365-feed-d">Enabled cost guardrail per agent ($500/day auto-pause)</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INCIDENTS pane -->
+      <div class="a365-pane" data-a365-pane="incidents" style="display:none;">
+        <div class="a365-card">
+          <div class="a365-card-head">
+            <div>
+              <div class="a365-card-title">All incidents · last 30 days</div>
+              <div class="a365-card-sub">Auto-triaged by Microsoft Defender for AI · routed to owners</div>
+            </div>
+            <div class="a365-card-actions">
+              <span class="adm-f">Severity: all ▾</span>
+              <span class="adm-f">Status: all ▾</span>
+              <span class="adm-f primary">+ Create rule</span>
+            </div>
+          </div>
+          <div class="a365-inc-list">
+            <div class="a365-inc bad">
+              <div class="a365-inc-sev bad">HIGH</div>
+              <div class="a365-inc-main">
+                <div class="a365-inc-t">Shadow agent "ClinicalGPT v2" detected on 8 endpoints (Radiology)</div>
+                <div class="a365-inc-s">Opened today · Defender for Cloud Apps · 23 attempted exfil blocks · Owner: IT Sec</div>
+              </div>
+              <div class="a365-inc-actions"><button class="adm-f">Investigate</button><button class="adm-f primary">Block at edge</button></div>
+            </div>
+            <div class="a365-inc warn">
+              <div class="a365-inc-sev warn">MED</div>
+              <div class="a365-inc-main">
+                <div class="a365-inc-t">Agentforce reading PHI-labeled fields outside scope</div>
+                <div class="a365-inc-s">Opened today · 12 events · Owner: L. Nguyen · Purview attestation requested</div>
+              </div>
+              <div class="a365-inc-actions"><button class="adm-f">Investigate</button><button class="adm-f primary">Pause agent</button></div>
+            </div>
+            <div class="a365-inc warn">
+              <div class="a365-inc-sev warn">MED</div>
+              <div class="a365-inc-main">
+                <div class="a365-inc-t">Hoag GPT approaching daily cost guardrail ($478 / $500)</div>
+                <div class="a365-inc-s">Opened 2d ago · token usage spike · no policy violation · monitoring</div>
+              </div>
+              <div class="a365-inc-actions"><button class="adm-f">Review prompts</button><button class="adm-f">Raise cap</button></div>
+            </div>
+            <div class="a365-inc" style="border-left-color:#107c10;background:linear-gradient(90deg,#eef9f1,#fff);">
+              <div class="a365-inc-sev" style="background:#107c10;">RESOLVED</div>
+              <div class="a365-inc-main">
+                <div class="a365-inc-t">Prior-Auth Sentinel hit rate-limit on Blue Shield peer-to-peer API</div>
+                <div class="a365-inc-s">Resolved 4d ago · backoff + retry logic pushed · Owner: J. Okafor</div>
+              </div>
+              <div class="a365-inc-actions"><button class="adm-f">Post-mortem</button></div>
+            </div>
+            <div class="a365-inc" style="border-left-color:#107c10;background:linear-gradient(90deg,#eef9f1,#fff);">
+              <div class="a365-inc-sev" style="background:#107c10;">RESOLVED</div>
+              <div class="a365-inc-main">
+                <div class="a365-inc-t">Intake Agent — misclassified urgent referral as routine</div>
+                <div class="a365-inc-s">Resolved 9d ago · instructions updated · manual re-review of 14 past triages · all clear</div>
+              </div>
+              <div class="a365-inc-actions"><button class="adm-f">Post-mortem</button></div>
+            </div>
+            <div class="a365-inc" style="border-left-color:#107c10;background:linear-gradient(90deg,#eef9f1,#fff);">
+              <div class="a365-inc-sev" style="background:#107c10;">RESOLVED</div>
+              <div class="a365-inc-main">
+                <div class="a365-inc-t">Shadow browser-extension AI flagged in Finance</div>
+                <div class="a365-inc-s">Resolved 18d ago · endpoint policy updated · all extensions re-reviewed · Owner: IT Sec</div>
+              </div>
+              <div class="a365-inc-actions"><button class="adm-f">Post-mortem</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COST pane -->
+      <div class="a365-pane" data-a365-pane="cost" style="display:none;">
+        <div class="a365-kpis" style="grid-template-columns:repeat(4,1fr);">
+          <div class="a365-kpi"><div class="a365-kpi-lbl">Cost MTD</div><div class="a365-kpi-v">$8,240</div><div class="a365-kpi-s">of $12,000 budget</div></div>
+          <div class="a365-kpi"><div class="a365-kpi-lbl">Invocations MTD</div><div class="a365-kpi-v">3.6M</div><div class="a365-kpi-s good">▲ 18% vs last month</div></div>
+          <div class="a365-kpi"><div class="a365-kpi-lbl">Avg / invocation</div><div class="a365-kpi-v">$0.18</div><div class="a365-kpi-s good">▼ 6% vs last month</div></div>
+          <div class="a365-kpi"><div class="a365-kpi-lbl">Projected EOM</div><div class="a365-kpi-v">$11,430</div><div class="a365-kpi-s good">Under budget</div></div>
+        </div>
+        <div class="a365-grid">
+          <div class="a365-card">
+            <div class="a365-card-head"><div><div class="a365-card-title">Spend by agent · MTD</div><div class="a365-card-sub">Top 8 · all others rolled up</div></div></div>
+            <div class="adm-uc" style="margin-top:8px;">
+              <div class="adm-uc-row"><span class="adm-uc-name">Hoag GPT (custom)</span><div class="adm-uc-bar"><span style="width:92%;background:#7441e8;"></span></div><span class="adm-uc-n">$3,120</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Prior-Auth Sentinel</span><div class="adm-uc-bar"><span style="width:58%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$1,642</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Bed Coordinator</span><div class="adm-uc-bar"><span style="width:42%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$1,088</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Intake Agent</span><div class="adm-uc-bar"><span style="width:28%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$712</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Epic Workspace</span><div class="adm-uc-bar"><span style="width:22%;background:#ff5a3c;"></span></div><span class="adm-uc-n">$548</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Agentforce (SF)</span><div class="adm-uc-bar"><span style="width:16%;background:#00a1e0;"></span></div><span class="adm-uc-n">$402</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Trial Matcher</span><div class="adm-uc-bar"><span style="width:12%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$310</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Now Assist</span><div class="adm-uc-bar"><span style="width:9%;background:#62d84e;"></span></div><span class="adm-uc-n">$218</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">All others (39)</span><div class="adm-uc-bar"><span style="width:7%;background:var(--gray-90);"></span></div><span class="adm-uc-n">$200</span></div>
+            </div>
+          </div>
+          <div class="a365-side">
+            <div class="a365-card">
+              <div class="a365-card-head"><div><div class="a365-card-title">Spend vs labor ROI</div><div class="a365-card-sub">Estimated · based on task-time baselines</div></div></div>
+              <div class="a365-policies">
+                <div class="a365-policy"><div class="a365-p-name">Agent spend MTD</div><div class="a365-p-val" style="color:var(--gray-160);font-weight:600;">$8,240</div></div>
+                <div class="a365-policy"><div class="a365-p-name">Labor ROI MTD</div><div class="a365-p-val" style="color:#107c10;font-weight:700;">$1,420,000</div></div>
+                <div class="a365-policy"><div class="a365-p-name">Ratio</div><div class="a365-p-val" style="color:#107c10;font-weight:700;">172×</div></div>
+                <div class="a365-policy"><div class="a365-p-name">Break-even point</div><div class="a365-p-val" style="color:#107c10;font-weight:700;">Day 1</div></div>
+              </div>
+            </div>
+            <div class="a365-card">
+              <div class="a365-card-head"><div><div class="a365-card-title">Optimization tips</div><div class="a365-card-sub">From Agent 365 recommendations</div></div></div>
+              <div class="a365-feed" style="max-height:none;">
+                <div class="a365-feed-row"><span class="a365-feed-t">−$420/mo</span><span class="a365-feed-a">Caching</span><span class="a365-feed-d">Hoag GPT — enable prompt caching for repeat clinical summaries</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">−$180/mo</span><span class="a365-feed-a">Model tier</span><span class="a365-feed-d">Intake Agent — route simple queries to cheaper model</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">−$90/mo</span><span class="a365-feed-a">Idle agents</span><span class="a365-feed-d">3 agents below 50 runs/wk — archive candidates</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOGS pane -->
+      <div class="a365-pane" data-a365-pane="logs" style="display:none;">
+        <div class="a365-card">
+          <div class="a365-card-head">
+            <div>
+              <div class="a365-card-title">Audit logs</div>
+              <div class="a365-card-sub">Every agent invocation · immutable · 180-day retention · exportable to Sentinel</div>
+            </div>
+            <div class="a365-card-actions">
+              <span class="adm-f">Agent: all ▾</span>
+              <span class="adm-f">User: all ▾</span>
+              <span class="adm-f">24h ▾</span>
+              <span class="adm-f primary">↓ Export CSV</span>
+            </div>
+          </div>
+          <table class="a365-table" style="font-size:12px;">
+            <thead><tr><th>Time</th><th>Agent</th><th>Invoked by</th><th>Prompt / action</th><th>Sources</th><th>Label</th><th>Outcome</th></tr></thead>
+            <tbody>
+              <tr><td>09:14:22</td><td>Bed Coordinator</td><td>M. Rodriguez</td><td>"What's the bed picture right now?"</td><td>Epic census · read</td><td>—</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:14:11</td><td>Prior-Auth Sentinel</td><td>J. Okafor</td><td>Scan pending PAs for Blue Shield</td><td>SharePoint · 14 docs</td><td>PHI</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:13:58</td><td>Intake Agent</td><td>S. Chen</td><td>Review 3 new referrals</td><td>Referrals folder</td><td>PHI</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:13:42</td><td>Hoag GPT</td><td>Dr. R. Chen</td><td>"Summarize ACC-AHA Section 4.1"</td><td>Reference · public</td><td>Public</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:13:20</td><td>Agentforce (SF)</td><td>L. Nguyen</td><td>Fetch patient engagement record</td><td>SF · CDP</td><td>PHI</td><td class="bad">✕ DLP block</td></tr>
+              <tr><td>09:12:58</td><td>Trial Matcher</td><td>Dr. J. Patel</td><td>Screen today's tumor board cases</td><td>NCT · OnCore</td><td>Confidential</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:12:41</td><td>Epic Workspace</td><td>Dr. R. Chen</td><td>Pending results for rounds list</td><td>Epic · FHIR</td><td>PHI</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:12:19</td><td>Readmission Watch</td><td>(scheduled)</td><td>Nightly rescoring</td><td>3 discharge summaries · Policy v4</td><td>PHI</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:11:47</td><td>"ClinicalGPT v2"</td><td>r.smith@hoag.org</td><td>Unapproved endpoint POST</td><td>—</td><td>—</td><td class="bad">✕ CA blocked</td></tr>
+              <tr><td>09:11:12</td><td>Now Assist</td><td>IT Ops</td><td>Resolve ticket HD-4412</td><td>ServiceNow</td><td>Internal</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:10:58</td><td>Bed Coordinator</td><td>M. Rodriguez</td><td>"Who's ready for discharge today?"</td><td>Epic census · read</td><td>PHI</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:10:30</td><td>Prior-Auth Sentinel</td><td>(scheduled)</td><td>Risk scan on 14 pending PAs</td><td>SharePoint · 14 docs</td><td>PHI</td><td class="ok">✓ OK</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -6419,6 +6699,19 @@ document.addEventListener('click', (e) => {
   const wrap = document.querySelector('.waffle-wrap');
   if (wrap && !wrap.contains(e.target)) closeWaffle();
 });
+
+// Switch between Agent 365 tabs (Fleet / Identity / Policies / Incidents / Cost / Logs)
+function a365Tab(key) {
+  document.querySelectorAll('#app-agent365 .a365-tab').forEach(t => {
+    t.classList.toggle('active', t.getAttribute('data-a365-tab') === key);
+  });
+  document.querySelectorAll('#app-agent365 .a365-pane').forEach(p => {
+    p.style.display = p.getAttribute('data-a365-pane') === key ? '' : 'none';
+  });
+  // Scroll back to top of the app body when switching tabs
+  const body = document.querySelector('#app-agent365 .a365-body');
+  if (body) body.scrollTop = 0;
+}
 
 // Agent 365 live-feed animator. Prepends a new activity row every 3–5s while the view is active.
 const A365_FEED_POOL = [
