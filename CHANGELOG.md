@@ -7,6 +7,15 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/) — group
 
 ---
 
+## 2026-04-21 — Fix: restore Copilot suggestion prompts
+
+### Fixed
+- **Recommended prompts were missing** from the Copilot panel welcome state in every app (Outlook, Teams, Word, Excel, PowerPoint, OneDrive, Home, agents, Agent 365). Root cause: when multi-turn chat was added, the old `<div class="copilot-input-message">` placeholder was replaced with a real `<textarea>`, but `renderCopilotWelcome()` still ran `document.querySelector('.copilot-input-message').textContent = …` on the now-missing element. The null-dereference threw, the function exited before rendering the 2-up suggestion grid, and the welcome view appeared blank.
+- Switched the placeholder-update to target the new textarea's `placeholder` attribute.
+- Added null-guards so a missing chip or textarea never blocks rendering the suggestion cards.
+
+---
+
 ## 2026-04-21 — Agent 365 tabs wired
 
 ### Changed

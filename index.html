@@ -7853,11 +7853,17 @@ function renderCopilotWelcome(app, context) {
   const body = document.getElementById('copilot-body');
   const ctx = APP_CONTEXT[ctxKey(app, context)];
   const suggestions = getSuggestions(app, context);
+  if (!ctx || !suggestions) return; // guard against missing app/context keys
 
   // Update input chip
-  document.getElementById('copilot-chip-text').textContent = ctx.chipText;
-  document.querySelector('#copilot-input-chip svg').outerHTML = ctx.chipIcon;
-  document.querySelector('.copilot-input-message').textContent = ctx.messagePlaceholder;
+  const chipText = document.getElementById('copilot-chip-text');
+  if (chipText) chipText.textContent = ctx.chipText;
+  const chipSvg = document.querySelector('#copilot-input-chip svg');
+  if (chipSvg && ctx.chipIcon) chipSvg.outerHTML = ctx.chipIcon;
+  // The old .copilot-input-message div was replaced by a real textarea when multi-turn chat
+  // was added — update the placeholder on the new input field instead.
+  const inputField = document.getElementById('copilot-input-field');
+  if (inputField) inputField.placeholder = ctx.messagePlaceholder;
 
   // Body: welcome heading + suggestion grid (context chip lives only in input pill at bottom)
   body.innerHTML = `
