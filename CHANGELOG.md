@@ -1,6 +1,6 @@
 # Changelog
 
-Every user-visible change to the Hoag · Microsoft 365 + Copilot demo.
+Every user-visible change to the Easy Health · Microsoft 365 + Copilot demo.
 Newest on top.
 
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/) — grouped under **Added / Changed / Fixed / Removed** with a date header.
@@ -52,8 +52,8 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/) — group
 ## 2026-04-21 — Initial deploy to Azure Static Web Apps
 
 ### Added
-- **Deploy folder** at `hoag-m365-demo/` with `index.html` + 8 product logo PNGs + `staticwebapp.config.json` + `README.md`.
-- **GitHub repo** `jlynch160/hoag-copilot-rounds` created (public).
+- **Deploy folder** at `easyhealth-m365-demo/` with `index.html` + 8 product logo PNGs + `staticwebapp.config.json` + `README.md`.
+- **GitHub repo** `jlynch160/easyhealth-copilot-rounds` created (public).
 - **Azure Static Web Apps** workflow (`.github/workflows/azure-static-web-apps-*.yml`) auto-added by Azure on app creation.
 
 ### Baseline feature set (before the repo existed, captured here for completeness)

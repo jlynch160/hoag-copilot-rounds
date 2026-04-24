@@ -1,4 +1,4 @@
-# Hoag · Microsoft 365 + Copilot demo
+# Easy Health · Microsoft 365 + Copilot demo
 
 Single-file static demo. Drop this folder on any static host and you're live.
 
@@ -10,15 +10,15 @@ Single-file static demo. Drop this folder on any static host and you're live.
 
 ## Deploy options
 
-### 1. Azure Static Web Apps (best for the Hoag / Microsoft narrative) — 5 min
+### 1. Azure Static Web Apps (best for the Easy Health / Microsoft narrative) — 5 min
 
 1. Push this folder to a new GitHub repo.
 2. Azure portal → Create a resource → Static Web App.
 3. Build details: App location `/`, Output location `/` (no build step).
 4. Azure creates a GitHub Action automatically. First deploy takes ~2 min.
-5. Free tier supports a custom domain (`demo.hoag.ai` or similar).
+5. Free tier supports a custom domain (`demo.easyhealth.ai` or similar).
 
-**Why this one for Hoag:** the demo is telling a Microsoft story — hosting it on Azure reinforces it, and Purview/Entra governance claims you make in the demo are actually enforceable on this platform.
+**Why this one for Easy Health:** the demo is telling a Microsoft story — hosting it on Azure reinforces it, and Purview/Entra governance claims you make in the demo are actually enforceable on this platform.
 
 ### 2. Netlify Drop (fastest — 60 seconds, no account required for preview)
 

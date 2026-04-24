@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hoag — Microsoft 365</title>
+<title>Easy Health — Microsoft 365</title>
 <style>
 /* ============ BASE ============ */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; width: 100%; overflow: hidden; font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif; color: #201f1e; -webkit-font-smoothing: antialiased; }
 body { background: #faf9f8; }
 
-/* Hoag palette */
+/* Easy Health palette */
 :root {
-  --hoag-blue: #003865;
-  --hoag-teal: #0090a8;
-  --hoag-gold: #c8a55b;
+  --easyhealth-blue: #003865;
+  --easyhealth-teal: #0090a8;
+  --easyhealth-gold: #c8a55b;
   --ms-blue: #0078d4;
   --ms-blue-dark: #005a9e;
   --copilot-purple: #6264a7;
@@ -65,7 +65,7 @@ body { background: #faf9f8; }
 .signin-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
 .signin-logo .hlogo {
   width: 40px; height: 40px; border-radius: 6px;
-  background: linear-gradient(135deg, #004f8c 0%, var(--hoag-blue) 100%);
+  background: linear-gradient(135deg, #004f8c 0%, var(--easyhealth-blue) 100%);
   display: flex; align-items: center; justify-content: center;
   color: #fff; font-weight: 700; font-size: 20px; letter-spacing: -0.5px; font-family: Georgia, serif;
   box-shadow: 0 2px 6px rgba(0,56,101,0.3);
@@ -145,7 +145,7 @@ body { background: #faf9f8; }
   box-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.08);
   z-index: 10; position: relative;
 }
-.topbar::after { /* thin gold underline in Hoag brand */
+.topbar::after { /* thin gold underline in Easy Health brand */
   content: ''; position: absolute; left: 0; right: 0; bottom: 0;
   height: 1px; background: linear-gradient(90deg, transparent, rgba(200,165,91,0.6), transparent);
 }
@@ -196,7 +196,7 @@ body { background: #faf9f8; }
   border-top: 1px solid var(--gray-30); margin-top: 6px;
 }
 .waffle-foot a {
-  font-size: 12px; color: var(--hoag-blue); font-weight: 600;
+  font-size: 12px; color: var(--easyhealth-blue); font-weight: 600;
   text-decoration: none; cursor: pointer;
 }
 .waffle-foot a:hover { text-decoration: underline; }
@@ -204,7 +204,7 @@ body { background: #faf9f8; }
 .topbar .brand .hlogo {
   width: 28px; height: 28px; border-radius: 5px;
   background: linear-gradient(135deg, #fff 0%, #f3f2f1 100%);
-  color: var(--hoag-blue);
+  color: var(--easyhealth-blue);
   display: flex; align-items: center; justify-content: center;
   font-weight: 700; font-size: 14px; font-family: Georgia, serif; letter-spacing: -0.5px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2), inset 0 0 0 1px rgba(255,255,255,0.5);
@@ -228,7 +228,7 @@ body { background: #faf9f8; }
 .topbar .avatar {
   width: 32px; height: 32px; border-radius: 50%;
   background: linear-gradient(135deg, #d4b673 0%, #c8a55b 100%);
-  color: var(--hoag-blue);
+  color: var(--easyhealth-blue);
   font-weight: 700; font-size: 13px;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; margin-left: 4px;
@@ -302,7 +302,7 @@ body { background: #faf9f8; }
   box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
 .persona-item .pname { font-size: 13px; font-weight: 600; color: var(--gray-160); }
-.persona-item .pname .pc { color: var(--hoag-teal); font-weight: 600; font-size: 11px; margin-left: 4px; }
+.persona-item .pname .pc { color: var(--easyhealth-teal); font-weight: 600; font-size: 11px; margin-left: 4px; }
 .persona-item .prole { font-size: 11.5px; color: var(--gray-130); margin-top: 1px; }
 .persona-foot {
   padding: 10px 14px;
@@ -388,12 +388,12 @@ body { background: #faf9f8; }
   border-bottom: 1px solid rgba(0,56,101,0.08);
 }
 .home-hero h1 {
-  font-size: 36px; font-weight: 300; color: var(--hoag-blue);
+  font-size: 36px; font-weight: 300; color: var(--easyhealth-blue);
   margin-bottom: 10px; letter-spacing: -0.5px;
 }
 .home-hero h1 strong { font-weight: 600; color: var(--gray-160); }
 .home-hero p { color: var(--gray-130); font-size: 14px; line-height: 1.55; max-width: 640px; }
-.home-hero p strong { color: var(--hoag-blue); font-weight: 600; }
+.home-hero p strong { color: var(--easyhealth-blue); font-weight: 600; }
 .home-hero .stamp { font-size: 12px; color: var(--gray-90); text-align: right; }
 .home-hero .stamp .stamp-date { font-weight: 600; color: var(--gray-160); display: block; margin-bottom: 2px; }
 .home-section-title {
@@ -403,7 +403,7 @@ body { background: #faf9f8; }
 }
 .home-section-title::before {
   content: ''; width: 3px; height: 14px; border-radius: 2px;
-  background: linear-gradient(180deg, var(--hoag-teal), var(--hoag-blue));
+  background: linear-gradient(180deg, var(--easyhealth-teal), var(--easyhealth-blue));
 }
 .home-section-title .count { color: var(--gray-90); font-weight: 500; text-transform: none; letter-spacing: 0; font-size: 12px; }
 
@@ -461,7 +461,7 @@ body { background: #faf9f8; }
 }
 .recent-card::before {
   content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-  background: var(--hoag-teal); opacity: 0; transition: opacity 0.15s;
+  background: var(--easyhealth-teal); opacity: 0; transition: opacity 0.15s;
 }
 .recent-card:hover {
   box-shadow: 0 4px 12px rgba(0,56,101,0.08);
@@ -471,7 +471,7 @@ body { background: #faf9f8; }
 .recent-card:hover::before { opacity: 1; }
 .recent-card .rc-title { font-size: 13px; font-weight: 600; color: var(--gray-160); margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .recent-card .rc-meta { font-size: 11px; color: var(--gray-90); display: flex; justify-content: space-between; align-items: center; }
-.recent-card .rc-meta span:first-child { font-weight: 600; color: var(--hoag-blue); text-transform: uppercase; letter-spacing: 0.5px; font-size: 10px; }
+.recent-card .rc-meta span:first-child { font-weight: 600; color: var(--easyhealth-blue); text-transform: uppercase; letter-spacing: 0.5px; font-size: 10px; }
 
 /* Custom agents */
 .agent-grid {
@@ -518,7 +518,7 @@ body { background: #faf9f8; }
   background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
 }
 .agent-build-card:hover {
-  border-color: var(--hoag-blue);
+  border-color: var(--easyhealth-blue);
   background: linear-gradient(135deg, #eef3f8 0%, #ffffff 100%);
 }
 .agent-build-icon {
@@ -526,19 +526,19 @@ body { background: #faf9f8; }
   flex-shrink: 0; align-self: flex-start;
   display: flex; align-items: center; justify-content: center;
   background: #fff;
-  color: var(--hoag-blue);
+  color: var(--easyhealth-blue);
   border: 1px solid rgba(0,120,212,0.2);
 }
 
 /* New-agent shine for just-published agents */
 .agent-card.just-published {
   animation: newAgentPulse 1.4s ease-out;
-  border-color: var(--hoag-teal);
+  border-color: var(--easyhealth-teal);
   box-shadow: 0 0 0 3px rgba(0,144,168,0.18), 0 8px 24px rgba(0,56,101,0.12);
 }
 .agent-card .just-badge {
   position: absolute; top: 10px; right: 10px;
-  background: linear-gradient(135deg, var(--hoag-teal), #007889);
+  background: linear-gradient(135deg, var(--easyhealth-teal), #007889);
   color: #fff; font-size: 9px; font-weight: 700;
   padding: 3px 8px; border-radius: 10px;
   text-transform: uppercase; letter-spacing: 0.8px;
@@ -626,9 +626,9 @@ body { background: #faf9f8; }
 }
 .abm-step.done { color: #107c10; }
 .abm-step.done .abm-step-num { background: #107c10; color: #fff; }
-.abm-step.active { color: var(--hoag-blue); background: #eef3f8; font-weight: 600; }
+.abm-step.active { color: var(--easyhealth-blue); background: #eef3f8; font-weight: 600; }
 .abm-step.active .abm-step-num {
-  background: var(--hoag-blue); color: #fff;
+  background: var(--easyhealth-blue); color: #fff;
   box-shadow: 0 0 0 3px rgba(0,56,101,0.15);
 }
 
@@ -655,7 +655,7 @@ body { background: #faf9f8; }
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .abm-prompt-box:focus-within {
-  border-color: var(--hoag-blue);
+  border-color: var(--easyhealth-blue);
   box-shadow: 0 0 0 3px rgba(0,56,101,0.1);
   background: #fff;
 }
@@ -677,7 +677,7 @@ body { background: #faf9f8; }
   padding: 12px 14px; cursor: pointer; background: #fff;
   transition: all 0.15s;
 }
-.abm-template-card:hover { border-color: var(--hoag-blue); background: #f7faff; }
+.abm-template-card:hover { border-color: var(--easyhealth-blue); background: #f7faff; }
 .abm-template-card .abm-t-head {
   display: flex; align-items: center; gap: 8px;
   font-size: 13px; font-weight: 600; color: var(--gray-160);
@@ -685,7 +685,7 @@ body { background: #faf9f8; }
 }
 .abm-template-card .abm-t-ico {
   width: 22px; height: 22px; border-radius: 6px;
-  background: linear-gradient(135deg, var(--hoag-teal), var(--hoag-blue));
+  background: linear-gradient(135deg, var(--easyhealth-teal), var(--easyhealth-blue));
   color: #fff; display: flex; align-items: center; justify-content: center;
   font-size: 11px; font-weight: 700;
 }
@@ -717,7 +717,7 @@ body { background: #faf9f8; }
   transition: transform 0.15s;
 }
 .abm-logo-opt:hover { transform: scale(1.1); }
-.abm-logo-opt.active { border-color: var(--hoag-blue); box-shadow: 0 0 0 2px rgba(0,56,101,0.18); }
+.abm-logo-opt.active { border-color: var(--easyhealth-blue); box-shadow: 0 0 0 2px rgba(0,56,101,0.18); }
 
 .abm-field { margin-bottom: 18px; }
 .abm-field label {
@@ -733,7 +733,7 @@ body { background: #faf9f8; }
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .abm-field input[type=text]:focus {
-  border-color: var(--hoag-blue); box-shadow: 0 0 0 3px rgba(0,56,101,0.1);
+  border-color: var(--easyhealth-blue); box-shadow: 0 0 0 3px rgba(0,56,101,0.1);
 }
 .abm-field .abm-readonly {
   padding: 10px 12px; background: #faf9f8; border-radius: 6px;
@@ -749,7 +749,7 @@ body { background: #faf9f8; }
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .abm-field .abm-textarea-tall:focus {
-  border-color: var(--hoag-blue); box-shadow: 0 0 0 3px rgba(0,56,101,0.1);
+  border-color: var(--easyhealth-blue); box-shadow: 0 0 0 3px rgba(0,56,101,0.1);
 }
 
 /* Starter-prompt rows */
@@ -771,7 +771,7 @@ body { background: #faf9f8; }
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .abm-starter-row input:focus {
-  border-color: var(--hoag-blue); box-shadow: 0 0 0 3px rgba(0,56,101,0.1);
+  border-color: var(--easyhealth-blue); box-shadow: 0 0 0 3px rgba(0,56,101,0.1);
 }
 
 /* Step 3 — knowledge */
@@ -784,7 +784,7 @@ body { background: #faf9f8; }
   background: #fff; cursor: pointer; transition: all 0.15s;
 }
 .abm-source:hover { border-color: rgba(0,56,101,0.3); background: #f7faff; }
-.abm-source.selected { border-color: var(--hoag-blue); background: linear-gradient(135deg, #f0f6fc, #fff); }
+.abm-source.selected { border-color: var(--easyhealth-blue); background: linear-gradient(135deg, #f0f6fc, #fff); }
 .abm-source .abm-check {
   width: 18px; height: 18px; border-radius: 4px;
   border: 1.5px solid var(--gray-60);
@@ -793,7 +793,7 @@ body { background: #faf9f8; }
   transition: all 0.15s;
 }
 .abm-source.selected .abm-check {
-  background: var(--hoag-blue); border-color: var(--hoag-blue); color: #fff;
+  background: var(--easyhealth-blue); border-color: var(--easyhealth-blue); color: #fff;
 }
 .abm-source .abm-src-ico {
   width: 36px; height: 36px; border-radius: 8px;
@@ -816,7 +816,7 @@ body { background: #faf9f8; }
   cursor: pointer; transition: all 0.15s;
 }
 .abm-tool:hover { border-color: rgba(0,56,101,0.3); }
-.abm-tool.selected { border-color: var(--hoag-blue); background: linear-gradient(135deg, #f0f6fc, #fff); }
+.abm-tool.selected { border-color: var(--easyhealth-blue); background: linear-gradient(135deg, #f0f6fc, #fff); }
 .abm-tool .abm-tool-ico {
   width: 28px; height: 28px; border-radius: 6px;
   display: flex; align-items: center; justify-content: center;
@@ -833,7 +833,7 @@ body { background: #faf9f8; }
   width: 14px; height: 14px; border-radius: 50%; background: #fff;
   transition: left 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.25);
 }
-.abm-tool.selected .abm-toggle { background: var(--hoag-blue); }
+.abm-tool.selected .abm-toggle { background: var(--easyhealth-blue); }
 .abm-tool.selected .abm-toggle::after { left: 18px; }
 
 /* Step 5 — test */
@@ -875,10 +875,10 @@ body { background: #faf9f8; }
 }
 .abm-msg.agent .abm-msg-header {
   display: flex; align-items: center; gap: 6px;
-  font-size: 11px; font-weight: 600; color: var(--hoag-blue);
+  font-size: 11px; font-weight: 600; color: var(--easyhealth-blue);
   margin-bottom: 4px;
 }
-.abm-msg.agent strong { color: var(--hoag-blue); }
+.abm-msg.agent strong { color: var(--easyhealth-blue); }
 
 /* Step 6 — publish */
 .abm-publish-hero {
@@ -886,7 +886,7 @@ body { background: #faf9f8; }
 }
 .abm-publish-hero svg { filter: drop-shadow(0 8px 20px rgba(0,144,168,0.35)); margin-bottom: 14px; }
 .abm-publish-hero h3 { font-size: 24px; font-weight: 300; letter-spacing: -0.5px; }
-.abm-publish-hero h3 strong { font-weight: 600; color: var(--hoag-blue); }
+.abm-publish-hero h3 strong { font-weight: 600; color: var(--easyhealth-blue); }
 .abm-publish-hero .abm-pub-sub {
   font-size: 13.5px; color: var(--gray-130);
   margin: 8px 0 18px; line-height: 1.55; max-width: 540px; margin-left: auto; margin-right: auto;
@@ -916,7 +916,7 @@ body { background: #faf9f8; }
   display: flex; align-items: center; gap: 8px;
 }
 .abm-footer .abm-status .dot-live {
-  width: 7px; height: 7px; border-radius: 50%; background: var(--hoag-teal);
+  width: 7px; height: 7px; border-radius: 50%; background: var(--easyhealth-teal);
   box-shadow: 0 0 0 3px rgba(0,144,168,0.2);
   animation: dotPulse 1.8s ease-in-out infinite;
 }
@@ -1129,7 +1129,7 @@ body { background: #faf9f8; }
 .outlook-reading { flex: 1; overflow-y: auto; padding: 24px 32px; }
 .outlook-reading .rs-subject { font-size: 20px; font-weight: 600; margin-bottom: 14px; }
 .outlook-reading .rs-from { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--gray-30); }
-.outlook-reading .rs-avatar { width: 36px; height: 36px; border-radius: 50%; background: #c8a55b; color: var(--hoag-blue); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+.outlook-reading .rs-avatar { width: 36px; height: 36px; border-radius: 50%; background: #c8a55b; color: var(--easyhealth-blue); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; }
 .outlook-reading .rs-meta .n { font-size: 13px; font-weight: 600; }
 .outlook-reading .rs-meta .t { font-size: 11px; color: var(--gray-130); }
 .outlook-reading .rs-body { font-size: 14px; line-height: 1.7; color: var(--gray-160); }
@@ -1153,7 +1153,7 @@ body { background: #faf9f8; }
 .rs-btn.primary:hover { background: var(--ms-blue-dark); }
 .rs-btn.copilot {
   background: linear-gradient(135deg, #eef3f8, #ffffff);
-  color: var(--hoag-blue);
+  color: var(--easyhealth-blue);
   border: 1px solid rgba(0,56,101,0.2); font-weight: 600;
   position: relative;
 }
@@ -1207,7 +1207,7 @@ body { background: #faf9f8; }
 .teams-channel-group { padding: 8px 0; border-bottom: 1px solid var(--gray-30); }
 .teams-team { padding: 8px 12px; font-size: 13px; font-weight: 600; color: var(--gray-160); display: flex; align-items: center; gap: 8px; cursor: pointer; }
 .teams-team:hover { background: var(--gray-30); }
-.teams-team .ticon { width: 28px; height: 28px; border-radius: 4px; background: var(--hoag-blue); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+.teams-team .ticon { width: 28px; height: 28px; border-radius: 4px; background: var(--easyhealth-blue); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
 .teams-channel { padding: 6px 12px 6px 48px; font-size: 13px; color: var(--gray-130); cursor: pointer; }
 .teams-channel:hover { background: var(--gray-30); }
 .teams-channel.active { background: #e1dfdd; font-weight: 600; color: var(--gray-160); }
@@ -1239,7 +1239,7 @@ body { background: #faf9f8; }
 .meeting-card .mc-badge { background: #d13438; color: #fff; font-size: 10px; padding: 3px 8px; border-radius: 10px; font-weight: 600; letter-spacing: 0.3px; }
 .meeting-card .mc-badge.recording { background: var(--gray-160); }
 .meeting-card .mc-attendees { display: flex; gap: -4px; margin-top: 10px; }
-.meeting-card .mc-att { width: 26px; height: 26px; border-radius: 50%; background: #c8a55b; color: var(--hoag-blue); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-right: -6px; border: 2px solid #fff; }
+.meeting-card .mc-att { width: 26px; height: 26px; border-radius: 50%; background: #c8a55b; color: var(--easyhealth-blue); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-right: -6px; border: 2px solid #fff; }
 .meeting-card .mc-actions { margin-top: 14px; display: flex; gap: 8px; }
 .meeting-card .mc-actions button {
   background: var(--copilot-gradient);
@@ -1285,8 +1285,8 @@ body { background: #faf9f8; }
 .doc-body { flex: 1; background: #faf9f8; overflow-y: auto; padding: 32px 20px; display: flex; justify-content: center; }
 
 .word-page { width: 816px; background: #fff; box-shadow: var(--shadow-md); padding: 72px 80px; min-height: 1056px; font-family: "Calibri", "Segoe UI", sans-serif; font-size: 11pt; line-height: 1.5; color: #2a2a2a; }
-.word-page h1 { font-size: 24pt; color: var(--hoag-blue); margin-bottom: 12pt; font-weight: 400; }
-.word-page h2 { font-size: 14pt; color: var(--hoag-blue); margin: 14pt 0 6pt; font-weight: 400; }
+.word-page h1 { font-size: 24pt; color: var(--easyhealth-blue); margin-bottom: 12pt; font-weight: 400; }
+.word-page h2 { font-size: 14pt; color: var(--easyhealth-blue); margin: 14pt 0 6pt; font-weight: 400; }
 .word-page p { margin-bottom: 10pt; }
 .word-page ul, .word-page ol { margin: 8pt 0 10pt 24pt; }
 .word-page li { margin-bottom: 4pt; }
@@ -1570,7 +1570,7 @@ body { background: #faf9f8; }
   border-radius: 3px; cursor: pointer;
 }
 .od-nav-item:hover { background: var(--gray-20); }
-.od-nav-item.active { background: #deecf9; font-weight: 600; color: var(--hoag-blue); }
+.od-nav-item.active { background: #deecf9; font-weight: 600; color: var(--easyhealth-blue); }
 .od-nav-ico { width: 18px; text-align: center; font-size: 14px; }
 .od-nav-label {
   font-size: 10px; color: var(--gray-90); text-transform: uppercase; letter-spacing: 1px;
@@ -1601,7 +1601,7 @@ body { background: #faf9f8; }
 .od-tb-btn:hover { background: var(--gray-20); }
 .od-tb-right { display: flex; gap: 2px; }
 .od-tb-view { padding: 6px 10px; cursor: pointer; color: var(--gray-130); border-radius: 3px; }
-.od-tb-view.active { color: var(--hoag-blue); font-weight: 600; }
+.od-tb-view.active { color: var(--easyhealth-blue); font-weight: 600; }
 .od-tb-view:hover { background: var(--gray-20); }
 
 .od-table {
@@ -1893,7 +1893,7 @@ body.dark .toast .toast-text { color: #b0b0b0; }
   background: #fff; border-radius: 10px;
   box-shadow: 0 12px 32px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.08);
   padding: 12px 14px 12px 14px;
-  border-left: 4px solid var(--hoag-blue);
+  border-left: 4px solid var(--easyhealth-blue);
   display: flex; gap: 12px; align-items: flex-start;
   font-size: 13px; color: var(--gray-160);
   animation: toastIn 0.28s cubic-bezier(0.4,0,0.2,1);
@@ -1920,7 +1920,7 @@ body.dark .toast .toast-text { color: #b0b0b0; }
 .toast .toast-ico {
   width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  background: var(--gray-20); color: var(--hoag-blue);
+  background: var(--gray-20); color: var(--easyhealth-blue);
   font-size: 13px; font-weight: 700;
 }
 .toast.success .toast-ico { background: #e6f4ea; color: #107c10; }
@@ -1961,7 +1961,7 @@ body.dark .toast .toast-text { color: #b0b0b0; }
   box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,0,0,0.06);
   display: none;
   animation: tourIn 0.3s cubic-bezier(0.4,0,0.2,1);
-  border-top: 4px solid var(--hoag-teal);
+  border-top: 4px solid var(--easyhealth-teal);
 }
 .tour-coach.open { display: block; }
 @keyframes tourIn {
@@ -1969,7 +1969,7 @@ body.dark .toast .toast-text { color: #b0b0b0; }
   to   { opacity: 1; transform: translateY(0); }
 }
 .tour-stepnum {
-  font-size: 10px; font-weight: 700; color: var(--hoag-teal);
+  font-size: 10px; font-weight: 700; color: var(--easyhealth-teal);
   text-transform: uppercase; letter-spacing: 1.2px;
   margin-bottom: 6px;
 }
@@ -1988,8 +1988,8 @@ body.dark .toast .toast-text { color: #b0b0b0; }
   flex: 1; height: 3px; border-radius: 2px; background: var(--gray-30);
   transition: background 0.3s;
 }
-.tour-progress .tp-dot.done { background: var(--hoag-teal); }
-.tour-progress .tp-dot.active { background: linear-gradient(90deg, var(--hoag-teal) 60%, var(--gray-30) 60%); }
+.tour-progress .tp-dot.done { background: var(--easyhealth-teal); }
+.tour-progress .tp-dot.active { background: linear-gradient(90deg, var(--easyhealth-teal) 60%, var(--gray-30) 60%); }
 .tour-actions { display: flex; justify-content: space-between; gap: 8px; }
 .tour-btn {
   padding: 8px 16px; font-family: inherit; font-size: 12.5px; font-weight: 600;
@@ -1998,7 +1998,7 @@ body.dark .toast .toast-text { color: #b0b0b0; }
 .tour-btn.ghost { background: transparent; border: none; color: var(--gray-130); }
 .tour-btn.ghost:hover { color: var(--gray-160); }
 .tour-btn.primary {
-  background: linear-gradient(135deg, var(--hoag-teal) 0%, #00778b 100%);
+  background: linear-gradient(135deg, var(--easyhealth-teal) 0%, #00778b 100%);
   color: #fff; border: none;
   box-shadow: 0 3px 10px rgba(0,144,168,0.3);
 }
@@ -3130,7 +3130,7 @@ body.dark .en-card-title { color: #f3f2f1; }
 }
 .ed-btn.copilot {
   background: linear-gradient(135deg, #eef3f8, #fff);
-  color: var(--hoag-blue); border-color: rgba(0,56,101,0.25);
+  color: var(--easyhealth-blue); border-color: rgba(0,56,101,0.25);
 }
 
 /* Dark mode for event detail */
@@ -3240,7 +3240,7 @@ body.dark .ed-btn { background: #2a2a2a; border-color: #404040; color: #e0e0e0; 
   display: grid; grid-template-columns: 66px 130px 1fr;
   gap: 10px; align-items: baseline;
   padding: 7px 10px;
-  border-left: 3px solid var(--hoag-teal);
+  border-left: 3px solid var(--easyhealth-teal);
   border-radius: 4px;
   background: #fafafa;
   font-size: 11.5px;
@@ -3323,7 +3323,7 @@ body.dark .a365-note { background: #1a2540; border-left-color: #3a72d0; color: #
 }
 .rm-sum-item { text-align: center; padding: 0 10px; }
 .rm-sum-item + .rm-sum-item { border-left: 1px solid var(--gray-30); }
-.rm-sum-v { font-size: 19pt; font-weight: 300; color: var(--hoag-teal); letter-spacing: -0.5px; line-height: 1; }
+.rm-sum-v { font-size: 19pt; font-weight: 300; color: var(--easyhealth-teal); letter-spacing: -0.5px; line-height: 1; }
 .rm-sum-l { font-size: 10px; color: var(--gray-130); font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-top: 4px; }
 
 .rm-timeline {
@@ -3342,7 +3342,7 @@ body.dark .a365-note { background: #1a2540; border-left-color: #3a72d0; color: #
   margin: 18px auto 6px;
 }
 .rm-m-dot.done { border-color: #107c10; background: #107c10; }
-.rm-m-dot.active { border-color: var(--hoag-teal); background: #fff; animation: rmPulse 2s ease-in-out infinite; box-shadow: 0 0 0 4px rgba(0,144,168,0.2); }
+.rm-m-dot.active { border-color: var(--easyhealth-teal); background: #fff; animation: rmPulse 2s ease-in-out infinite; box-shadow: 0 0 0 4px rgba(0,144,168,0.2); }
 @keyframes rmPulse {
   0%, 100% { box-shadow: 0 0 0 4px rgba(0,144,168,0.2); }
   50%      { box-shadow: 0 0 0 8px rgba(0,144,168,0.1); }
@@ -3356,12 +3356,12 @@ body.dark .a365-note { background: #1a2540; border-left-color: #3a72d0; color: #
   padding: 20px 24px; border-left: 4px solid var(--gray-40);
 }
 .rm-wave.done { border-left-color: #107c10; }
-.rm-wave.active { border-left-color: var(--hoag-teal); background: linear-gradient(135deg, #f1fbfb, #fff); }
+.rm-wave.active { border-left-color: var(--easyhealth-teal); background: linear-gradient(135deg, #f1fbfb, #fff); }
 .rm-wave-head { display: flex; align-items: center; gap: 18px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--gray-30); }
 .rm-wave-num {
   flex-shrink: 0;
   width: 54px; height: 54px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--hoag-teal), #005a67);
+  background: linear-gradient(135deg, var(--easyhealth-teal), #005a67);
   color: #fff; font-size: 12px; font-weight: 700;
   display: flex; align-items: center; justify-content: center;
   text-transform: uppercase; letter-spacing: 0.5px;
@@ -3376,7 +3376,7 @@ body.dark .a365-note { background: #1a2540; border-left-color: #3a72d0; color: #
   color: var(--gray-130); display: inline-block; margin-top: 3px;
 }
 .rm-status.done { color: #107c10; }
-.rm-status.active { color: var(--hoag-teal); }
+.rm-status.active { color: var(--easyhealth-teal); }
 .rm-wave-body {
   display: grid; grid-template-columns: 1.2fr 1.4fr 1.4fr 1fr;
   gap: 22px;
@@ -3423,7 +3423,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .studio-row { display: grid; grid-template-columns: 2.5fr 1.2fr 1.8fr 1fr 0.9fr; padding: 14px 18px; border-bottom: 1px solid var(--gray-30); align-items: center; font-size: 13px; color: var(--gray-160); }
 .studio-row:last-child { border-bottom: none; }
 .studio-row.head { background: #faf9f8; font-size: 11px; font-weight: 700; color: var(--gray-130); text-transform: uppercase; letter-spacing: 0.8px; }
-.studio-note { font-size: 12px; color: var(--gray-130); padding: 14px 18px; background: #eef3f8; border-left: 3px solid var(--hoag-blue); border-radius: 4px; line-height: 1.55; }
+.studio-note { font-size: 12px; color: var(--gray-130); padding: 14px 18px; background: #eef3f8; border-left: 3px solid var(--easyhealth-blue); border-radius: 4px; line-height: 1.55; }
 
 /* ============ OUTLOOK CALENDAR ============ */
 .cal-mini {
@@ -3442,7 +3442,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 }
 .cal-mini-grid .cm-d:hover { background: var(--gray-20); }
 .cal-mini-grid .cm-d.muted { color: var(--gray-90); }
-.cal-mini-grid .cm-d.today { background: var(--hoag-blue); color: #fff; font-weight: 700; }
+.cal-mini-grid .cm-d.today { background: var(--easyhealth-blue); color: #fff; font-weight: 700; }
 .cal-mini-legend { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--gray-30); display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: var(--gray-160); }
 .cal-mini-legend > div { display: flex; align-items: center; gap: 8px; }
 .cal-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
@@ -3457,7 +3457,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .cal-day-sub { font-size: 11.5px; color: var(--gray-130); margin-top: 2px; }
 .cal-view-switch { display: flex; gap: 2px; }
 .cal-view-switch .cvs { padding: 5px 12px; font-size: 12px; color: var(--gray-130); cursor: pointer; border-radius: 4px; }
-.cal-view-switch .cvs.active { background: var(--hoag-blue); color: #fff; font-weight: 600; }
+.cal-view-switch .cvs.active { background: var(--easyhealth-blue); color: #fff; font-weight: 600; }
 .cal-view-switch .cvs:hover:not(.active) { background: var(--gray-20); }
 
 .cal-timeline { flex: 1; overflow-y: auto; position: relative; padding: 8px 0; }
@@ -3496,7 +3496,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
   margin-top: 6px;
   background: #fff; border: 1px solid rgba(0,56,101,0.25);
   padding: 4px 9px; border-radius: 10px;
-  font-size: 11px; font-weight: 600; color: var(--hoag-blue);
+  font-size: 11px; font-weight: 600; color: var(--easyhealth-blue);
   align-self: flex-start; cursor: pointer;
   transition: background 0.15s;
 }
@@ -3527,7 +3527,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .adm-filter { display: flex; gap: 8px; }
 .adm-f { padding: 7px 14px; border: 1px solid var(--gray-30); border-radius: 6px; font-size: 12px; background: #fff; color: var(--gray-160); cursor: pointer; }
 .adm-f:hover { border-color: var(--gray-60); }
-.adm-f.primary { background: var(--hoag-blue); color: #fff; border-color: var(--hoag-blue); }
+.adm-f.primary { background: var(--easyhealth-blue); color: #fff; border-color: var(--easyhealth-blue); }
 
 .adm-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 22px; }
 .adm-kpi { background: #fff; border: 1px solid var(--gray-30); border-radius: 10px; padding: 18px 20px; }
@@ -3548,7 +3548,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .adm-chart { display: flex; gap: 5px; align-items: flex-end; height: 140px; padding-top: 20px; border-bottom: 1px solid var(--gray-30); }
 .adm-bar { flex: 1; background: linear-gradient(180deg, #0078d4, #004b8d); border-radius: 3px 3px 0 0; position: relative; min-height: 4px; transition: opacity 0.15s; }
 .adm-bar:hover { opacity: 0.85; }
-.adm-bar-val { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: 700; color: var(--hoag-blue); white-space: nowrap; }
+.adm-bar-val { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: 700; color: var(--easyhealth-blue); white-space: nowrap; }
 .adm-chart-x { display: flex; justify-content: space-between; font-size: 10px; color: var(--gray-90); margin-top: 6px; }
 
 .adm-uc { display: flex; flex-direction: column; gap: 8px; }
@@ -3561,8 +3561,8 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .adm-dept { display: flex; flex-direction: column; gap: 10px; }
 .adm-dept-row { display: grid; grid-template-columns: 180px 1fr 42px; align-items: center; gap: 10px; font-size: 12px; color: var(--gray-160); }
 .adm-dept-bar { height: 10px; background: var(--gray-20); border-radius: 5px; overflow: hidden; }
-.adm-dept-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--hoag-teal), var(--hoag-blue)); border-radius: 5px; }
-.adm-dept-row strong { font-weight: 700; color: var(--hoag-blue); text-align: right; font-size: 12px; }
+.adm-dept-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--easyhealth-teal), var(--easyhealth-blue)); border-radius: 5px; }
+.adm-dept-row strong { font-weight: 700; color: var(--easyhealth-blue); text-align: right; font-size: 12px; }
 
 .adm-gov { display: flex; flex-direction: column; gap: 8px; }
 .adm-gov-row { display: flex; justify-content: space-between; font-size: 12.5px; padding: 3px 0; border-bottom: 1px dashed var(--gray-30); }
@@ -3571,8 +3571,8 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .adm-gov-v { color: var(--gray-160); font-weight: 600; }
 
 .adm-audit .adm-card-head { margin-bottom: 10px; }
-.adm-live { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: var(--hoag-teal); text-transform: uppercase; letter-spacing: 0.8px; }
-.adm-live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--hoag-teal); box-shadow: 0 0 0 3px rgba(0,144,168,0.2); animation: dotPulse 1.8s ease-in-out infinite; }
+.adm-live { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: var(--easyhealth-teal); text-transform: uppercase; letter-spacing: 0.8px; }
+.adm-live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--easyhealth-teal); box-shadow: 0 0 0 3px rgba(0,144,168,0.2); animation: dotPulse 1.8s ease-in-out infinite; }
 .adm-audit-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .adm-audit-table th { text-align: left; padding: 8px 10px; font-size: 11px; color: var(--gray-130); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; border-bottom: 1px solid var(--gray-30); }
 .adm-audit-table td { padding: 9px 10px; border-bottom: 1px solid var(--gray-20); color: var(--gray-160); }
@@ -3627,7 +3627,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .dax-note-actions { display: flex; gap: 6px; }
 .dax-btn { background: #fff; border: 1px solid var(--gray-40); font-family: inherit; font-size: 12px; font-weight: 500; padding: 6px 12px; border-radius: 4px; cursor: pointer; color: var(--gray-160); }
 .dax-btn:hover { background: var(--gray-20); }
-.dax-btn.primary { background: var(--hoag-blue); color: #fff; border-color: var(--hoag-blue); font-weight: 600; }
+.dax-btn.primary { background: var(--easyhealth-blue); color: #fff; border-color: var(--easyhealth-blue); font-weight: 600; }
 .dax-btn.primary:hover { background: #002d52; }
 
 /* ============ COPILOT PAGES ============ */
@@ -3674,7 +3674,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .pages-ai {
   font-weight: 700; color: #0f9d58; text-transform: uppercase; letter-spacing: 0.8px;
 }
-.pages-block.suggestion .pages-ai { color: var(--hoag-blue); }
+.pages-block.suggestion .pages-ai { color: var(--easyhealth-blue); }
 .pages-ai-src { color: var(--gray-90); }
 
 .pages-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 6px; }
@@ -3690,7 +3690,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
   color: var(--gray-160);
 }
 .pages-btn:hover { background: var(--gray-20); }
-.pages-btn.primary { background: var(--hoag-blue); color: #fff; border-color: var(--hoag-blue); }
+.pages-btn.primary { background: var(--easyhealth-blue); color: #fff; border-color: var(--easyhealth-blue); }
 .pages-btn.primary:hover { background: #002d52; }
 
 .pages-table { border: 1px solid var(--gray-30); border-radius: 8px; overflow: hidden; margin: 10px 0 18px; }
@@ -3750,7 +3750,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .ppt-main-slide::after {
   content: ''; position: absolute; left: 0; right: 0; bottom: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--hoag-blue) 0%, var(--hoag-teal) 50%, var(--hoag-gold) 100%);
+  background: linear-gradient(90deg, var(--easyhealth-blue) 0%, var(--easyhealth-teal) 50%, var(--easyhealth-gold) 100%);
   z-index: 2;
 }
 .ppt-main-slide .slide-brand {
@@ -3761,7 +3761,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
   z-index: 2;
 }
 .ppt-main-slide .slide-brand .bdot {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--hoag-gold);
+  width: 6px; height: 6px; border-radius: 50%; background: var(--easyhealth-gold);
 }
 .ppt-main-slide .slide-pagenum {
   position: absolute; right: 32px; bottom: 18px;
@@ -3790,11 +3790,11 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .slide-title .eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
   font-size: 11px; font-weight: 700; letter-spacing: 2px;
-  color: var(--hoag-gold); text-transform: uppercase;
+  color: var(--easyhealth-gold); text-transform: uppercase;
   padding: 6px 0; position: relative; z-index: 1;
 }
 .slide-title .eyebrow::before {
-  content: ''; width: 28px; height: 2px; background: var(--hoag-gold);
+  content: ''; width: 28px; height: 2px; background: var(--easyhealth-gold);
 }
 .slide-title h1 {
   font-size: 54pt; font-weight: 200; color: #fff;
@@ -3830,10 +3830,10 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 }
 .slide-content .slide-header::after {
   content: ''; position: absolute; left: 0; bottom: -2px;
-  width: 60px; height: 2px; background: var(--hoag-teal);
+  width: 60px; height: 2px; background: var(--easyhealth-teal);
 }
 .slide-content h2 {
-  font-size: 28pt; color: var(--hoag-blue); font-weight: 300;
+  font-size: 28pt; color: var(--easyhealth-blue); font-weight: 300;
   letter-spacing: -0.5px;
 }
 .slide-content h2 strong { font-weight: 600; }
@@ -3845,12 +3845,12 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
   display: flex; align-items: flex-start; gap: 14px;
   padding: 14px 18px;
   background: linear-gradient(135deg, #f6f9fc 0%, #eef3f8 100%);
-  border-left: 3px solid var(--hoag-teal);
+  border-left: 3px solid var(--easyhealth-teal);
   border-radius: 0 8px 8px 0;
 }
 .agenda-item .anum {
   width: 28px; height: 28px; border-radius: 50%;
-  background: var(--hoag-blue); color: #fff;
+  background: var(--easyhealth-blue); color: #fff;
   font-size: 12pt; font-weight: 700;
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
@@ -3869,13 +3869,13 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 }
 .kpi-card::before {
   content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-  background: var(--hoag-teal);
+  background: var(--easyhealth-teal);
 }
 .kpi-card.good::before { background: #107c10; }
 .kpi-card.warn::before { background: #c77700; }
 .kpi-card.flat::before { background: var(--gray-90); }
 .kpi-label { font-size: 10pt; color: var(--gray-130); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 8px; }
-.kpi-value { font-size: 36pt; font-weight: 200; color: var(--hoag-blue); letter-spacing: -1px; line-height: 1; }
+.kpi-value { font-size: 36pt; font-weight: 200; color: var(--easyhealth-blue); letter-spacing: -1px; line-height: 1; }
 .kpi-value .unit { font-size: 16pt; color: var(--gray-90); font-weight: 400; margin-left: 4px; }
 .kpi-delta {
   display: inline-flex; align-items: center; gap: 4px;
@@ -3893,11 +3893,11 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
   display: flex; align-items: flex-end; gap: 3px; height: 40px; margin-top: 12px;
 }
 .minichart .bar {
-  flex: 1; background: linear-gradient(180deg, var(--hoag-teal), var(--hoag-blue));
+  flex: 1; background: linear-gradient(180deg, var(--easyhealth-teal), var(--easyhealth-blue));
   border-radius: 2px 2px 0 0; min-height: 6px;
   opacity: 0.85;
 }
-.minichart .bar.last { opacity: 1; background: linear-gradient(180deg, var(--hoag-gold), #9a7d3e); }
+.minichart .bar.last { opacity: 1; background: linear-gradient(180deg, var(--easyhealth-gold), #9a7d3e); }
 
 /* QUALITY matrix */
 .quality-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -3914,7 +3914,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .q-card.warn .q-dot { background: #c77700; box-shadow: 0 0 0 3px rgba(199,119,0,0.2); }
 .q-card.flat .q-dot { background: var(--gray-90); box-shadow: 0 0 0 3px rgba(161,159,157,0.2); }
 .q-card .q-name { font-size: 10pt; color: var(--gray-130); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; }
-.q-card .q-big { font-size: 28pt; font-weight: 300; color: var(--hoag-blue); margin: 6px 0 4px; letter-spacing: -0.5px; }
+.q-card .q-big { font-size: 28pt; font-weight: 300; color: var(--easyhealth-blue); margin: 6px 0 4px; letter-spacing: -0.5px; }
 .q-card .q-delta { font-size: 11pt; font-weight: 700; }
 .q-card .q-note { font-size: 9.5pt; color: var(--gray-90); margin-top: 4px; line-height: 1.3; }
 
@@ -3935,15 +3935,15 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 }
 .win-card .win-icon {
   width: 48px; height: 48px; border-radius: 12px;
-  background: linear-gradient(135deg, var(--hoag-blue), var(--hoag-teal));
+  background: linear-gradient(135deg, var(--easyhealth-blue), var(--easyhealth-teal));
   color: #fff;
   display: flex; align-items: center; justify-content: center;
   font-size: 22px; margin-bottom: 14px;
   box-shadow: 0 4px 10px rgba(0,56,101,0.25);
 }
-.win-card .win-headline { font-size: 14pt; font-weight: 600; color: var(--hoag-blue); line-height: 1.3; margin-bottom: 8px; }
+.win-card .win-headline { font-size: 14pt; font-weight: 600; color: var(--easyhealth-blue); line-height: 1.3; margin-bottom: 8px; }
 .win-card .win-detail { font-size: 11pt; color: var(--gray-130); line-height: 1.45; }
-.win-card .win-tag { display: inline-block; font-size: 9pt; font-weight: 700; color: var(--hoag-teal); text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; }
+.win-card .win-tag { display: inline-block; font-size: 9pt; font-weight: 700; color: var(--easyhealth-teal); text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; }
 
 /* MAY FOCUS slide */
 .focus-list { display: flex; flex-direction: column; gap: 14px; }
@@ -3957,7 +3957,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 }
 .focus-row .fnum {
   width: 44px; height: 44px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--hoag-gold), #9a7d3e);
+  background: linear-gradient(135deg, var(--easyhealth-gold), #9a7d3e);
   color: #fff; font-size: 16pt; font-weight: 700;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 2px 6px rgba(200,165,91,0.35);
@@ -3965,7 +3965,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .focus-row .ftext { font-size: 13pt; font-weight: 600; color: #1a1a1a; line-height: 1.35; }
 .focus-row .ftext em { display: block; font-style: normal; font-size: 10.5pt; color: var(--gray-130); font-weight: 400; margin-top: 3px; }
 .focus-row .fowner {
-  font-size: 10pt; font-weight: 600; color: var(--hoag-blue);
+  font-size: 10pt; font-weight: 600; color: var(--easyhealth-blue);
   padding: 4px 10px; background: #eef3f8; border-radius: 12px;
   white-space: nowrap;
 }
@@ -3980,7 +3980,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 }
 .thumb::after { /* brand bar */
   content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
-  background: linear-gradient(90deg, var(--hoag-blue), var(--hoag-teal), var(--hoag-gold));
+  background: linear-gradient(90deg, var(--easyhealth-blue), var(--easyhealth-teal), var(--easyhealth-gold));
 }
 .thumb.title {
   background: linear-gradient(135deg, #002b52 0%, #004d8a 100%);
@@ -3989,13 +3989,13 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .thumb.title .th-t { font-size: 9px; font-weight: 600; line-height: 1.1; }
 .thumb.title .th-s { font-size: 6px; opacity: 0.7; margin-top: 3px; }
 .thumb.content { background: #fff; }
-.thumb.content .th-h { font-size: 7px; color: var(--hoag-blue); font-weight: 600; margin-bottom: 4px; border-bottom: 1px solid #e0e0e0; padding-bottom: 2px; }
+.thumb.content .th-h { font-size: 7px; color: var(--easyhealth-blue); font-weight: 600; margin-bottom: 4px; border-bottom: 1px solid #e0e0e0; padding-bottom: 2px; }
 .thumb .th-row { display: flex; gap: 3px; }
-.thumb .th-box { flex: 1; background: #f3f6fa; border-left: 1.5px solid var(--hoag-teal); padding: 3px 4px; border-radius: 2px; font-size: 5px; }
-.thumb .th-box .th-n { color: var(--hoag-blue); font-weight: 700; font-size: 7px; }
+.thumb .th-box { flex: 1; background: #f3f6fa; border-left: 1.5px solid var(--easyhealth-teal); padding: 3px 4px; border-radius: 2px; font-size: 5px; }
+.thumb .th-box .th-n { color: var(--easyhealth-blue); font-weight: 700; font-size: 7px; }
 .thumb .th-agenda { display: flex; flex-direction: column; gap: 2px; }
 .thumb .th-ai { display: flex; gap: 4px; align-items: center; }
-.thumb .th-ai .th-d { width: 6px; height: 6px; border-radius: 50%; background: var(--hoag-blue); color: #fff; font-size: 4px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.thumb .th-ai .th-d { width: 6px; height: 6px; border-radius: 50%; background: var(--easyhealth-blue); color: #fff; font-size: 4px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
 .thumb.empty {
   background: repeating-linear-gradient(45deg, #fafafa 0, #fafafa 6px, #f2f2f2 6px, #f2f2f2 12px);
   display: flex; align-items: center; justify-content: center; flex-direction: column;
@@ -4024,7 +4024,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 }
 .slide-empty-inner { max-width: 520px; padding: 40px 20px; position: relative; z-index: 1; }
 .slide-empty .se-title {
-  font-size: 22pt; font-weight: 300; color: var(--hoag-blue);
+  font-size: 22pt; font-weight: 300; color: var(--easyhealth-blue);
   margin: 20px 0 10px; letter-spacing: -0.5px;
 }
 .slide-empty .se-sub {
@@ -4382,13 +4382,13 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
   display: inline-flex; align-items: center; justify-content: center;
   min-width: 18px; height: 16px; padding: 0 4px;
   margin: 0 2px;
-  background: #eef3f8; color: var(--hoag-blue);
+  background: #eef3f8; color: var(--easyhealth-blue);
   border-radius: 3px; font-size: 10px; font-weight: 700;
   cursor: pointer; transition: all 0.12s;
   vertical-align: 1px;
   border: 1px solid rgba(0,56,101,0.12);
 }
-.cite:hover { background: var(--hoag-blue); color: #fff; transform: translateY(-1px); }
+.cite:hover { background: var(--easyhealth-blue); color: #fff; transform: translateY(-1px); }
 
 /* Source-preview side sheet */
 .source-sheet {
@@ -4450,7 +4450,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 }
 .source-sheet .ss-foot button:hover { background: var(--gray-20); }
 .source-sheet .ss-foot .ss-open-btn {
-  background: var(--hoag-blue); color: #fff; border-color: var(--hoag-blue);
+  background: var(--easyhealth-blue); color: #fff; border-color: var(--easyhealth-blue);
 }
 .source-sheet .ss-foot .ss-open-btn:hover { background: #002d52; }
 .copilot-message.assistant .bubble ol { margin: 6px 0 8px 20px; }
@@ -4579,7 +4579,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 
 /* Demo tip tooltip */
 .demo-tip { position: fixed; bottom: 20px; left: 20px; background: var(--gray-160); color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 12px; max-width: 320px; z-index: 200; box-shadow: var(--shadow-lg); animation: tipIn 0.3s ease; }
-.demo-tip .tip-head { font-weight: 700; color: var(--hoag-gold); margin-bottom: 4px; font-size: 11px; letter-spacing: 0.5px; }
+.demo-tip .tip-head { font-weight: 700; color: var(--easyhealth-gold); margin-bottom: 4px; font-size: 11px; letter-spacing: 0.5px; }
 .demo-tip .tip-close { position: absolute; top: 4px; right: 8px; cursor: pointer; color: rgba(255,255,255,0.6); }
 @keyframes tipIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
 
@@ -4646,7 +4646,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
   transition: color 0.12s, border-color 0.12s;
 }
 .tsx-tab:hover { color: var(--gray-160); }
-.tsx-tab.active { color: var(--hoag-blue); border-bottom-color: var(--hoag-blue); }
+.tsx-tab.active { color: var(--easyhealth-blue); border-bottom-color: var(--easyhealth-blue); }
 
 .tsx-body { flex: 1; overflow-y: auto; padding: 22px 28px 24px; background: #fff; }
 .tsx-pane { display: none; animation: tsxFade 0.25s ease; }
@@ -4666,11 +4666,11 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
   display: inline-block; padding: 3px 8px; margin: 2px 3px;
   background: #eef3f8; border: 1px solid rgba(0,56,101,0.15);
   border-radius: 5px; font-family: Consolas, Menlo, monospace;
-  font-size: 12px; color: var(--hoag-blue); font-weight: 600;
+  font-size: 12px; color: var(--easyhealth-blue); font-weight: 600;
 }
 .tsx-formula .tsxf-line {
   font-family: Consolas, Menlo, monospace; font-size: 13px;
-  color: var(--hoag-blue); font-weight: 600;
+  color: var(--easyhealth-blue); font-weight: 600;
   background: #eef3f8; padding: 8px 12px; border-radius: 6px;
   margin: 10px 0 6px; letter-spacing: 0.2px;
 }
@@ -4718,7 +4718,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
   padding: 3px 9px; border-radius: 10px; font-size: 11.5px;
   white-space: nowrap;
 }
-.tsx-log-row.baseline .tsx-log-min { background: #eef3f8; color: var(--hoag-blue); }
+.tsx-log-row.baseline .tsx-log-min { background: #eef3f8; color: var(--easyhealth-blue); }
 
 /* Benchmarks table */
 .tsx-bench {
@@ -4756,9 +4756,9 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .tsx-method::before {
   content: ''; position: absolute; left: 0; top: 16px; bottom: 16px;
   width: 3px; border-radius: 0 3px 3px 0;
-  background: var(--hoag-blue);
+  background: var(--easyhealth-blue);
 }
-.tsx-method.m2::before { background: var(--hoag-teal); }
+.tsx-method.m2::before { background: var(--easyhealth-teal); }
 .tsx-method.m3::before { background: #c8a55b; }
 .tsx-method-head {
   display: flex; align-items: center; gap: 10px;
@@ -4766,11 +4766,11 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 }
 .tsx-method-num {
   width: 22px; height: 22px; border-radius: 50%;
-  background: var(--hoag-blue); color: #fff;
+  background: var(--easyhealth-blue); color: #fff;
   display: flex; align-items: center; justify-content: center;
   font-size: 11px; font-weight: 700; flex-shrink: 0;
 }
-.tsx-method.m2 .tsx-method-num { background: var(--hoag-teal); }
+.tsx-method.m2 .tsx-method-num { background: var(--easyhealth-teal); }
 .tsx-method.m3 .tsx-method-num { background: #c8a55b; }
 .tsx-method h4 { font-size: 14px; font-weight: 600; color: var(--gray-160); margin: 0; }
 .tsx-method .tsx-m-badge {
@@ -4778,14 +4778,14 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
   font-size: 10px; font-weight: 700; letter-spacing: 0.6px;
   text-transform: uppercase;
   padding: 3px 8px; border-radius: 10px;
-  background: #eef3f8; color: var(--hoag-blue);
+  background: #eef3f8; color: var(--easyhealth-blue);
 }
-.tsx-method.m2 .tsx-m-badge { background: #e7f6f9; color: var(--hoag-teal); }
+.tsx-method.m2 .tsx-m-badge { background: #e7f6f9; color: var(--easyhealth-teal); }
 .tsx-method.m3 .tsx-m-badge { background: #faf1dd; color: #8a6e36; }
 .tsx-method p { font-size: 12.5px; color: var(--gray-160); line-height: 1.55; margin: 0 0 8px; }
 .tsx-method ul { margin: 4px 0 8px 18px; padding: 0; font-size: 12.5px; color: var(--gray-160); line-height: 1.6; }
 .tsx-method ul li { margin-bottom: 2px; }
-.tsx-method ul li b { color: var(--hoag-blue); font-weight: 600; }
+.tsx-method ul li b { color: var(--easyhealth-blue); font-weight: 600; }
 
 .tsx-path {
   display: inline-flex; align-items: center; gap: 6px;
@@ -5066,11 +5066,11 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
     <div class="signin-logo">
       <div class="hlogo">H</div>
       <svg class="signin-m365" width="28" height="28"><use href="#logoM365"/></svg>
-      <div class="htext">HOAG · Microsoft 365</div>
+      <div class="htext">EASY HEALTH · Microsoft 365</div>
     </div>
     <h1>Sign in</h1>
-    <p>Use your Hoag.org credentials to continue</p>
-    <input id="signin-email" class="signin-input" type="email" value="sarah.chen@hoag.org" autocomplete="off" />
+    <p>Use your Easy Health.org credentials to continue</p>
+    <input id="signin-email" class="signin-input" type="email" value="sarah.chen@easyhealth.org" autocomplete="off" />
     <div class="signin-row">
       <button class="signin-btn secondary" onclick="document.getElementById('signin-email').value=''">Back</button>
       <button class="signin-btn" onclick="signInNext()">Next</button>
@@ -5086,11 +5086,11 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
     <div class="signin-logo">
       <div class="hlogo">H</div>
       <svg class="signin-m365" width="28" height="28"><use href="#logoM365"/></svg>
-      <div class="htext">HOAG · Microsoft 365</div>
+      <div class="htext">EASY HEALTH · Microsoft 365</div>
     </div>
     <div class="signin-back-row" onclick="signInBackToEmail()">
       <span class="sbr-arrow">←</span>
-      <span id="signin-email-echo">sarah.chen@hoag.org</span>
+      <span id="signin-email-echo">sarah.chen@easyhealth.org</span>
     </div>
     <h1>Enter password</h1>
     <p>Because you're accessing sensitive info, you need to verify your password.</p>
@@ -5108,11 +5108,11 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
     <div class="signin-logo">
       <div class="hlogo">H</div>
       <svg class="signin-m365" width="28" height="28"><use href="#logoM365"/></svg>
-      <div class="htext">HOAG · Microsoft 365</div>
+      <div class="htext">EASY HEALTH · Microsoft 365</div>
     </div>
     <div class="signin-back-row" onclick="signInBackToEmail()">
       <span class="sbr-arrow">←</span>
-      <span id="signin-email-echo2">sarah.chen@hoag.org</span>
+      <span id="signin-email-echo2">sarah.chen@easyhealth.org</span>
     </div>
     <h1>Approve sign-in request</h1>
     <p>Open your <strong>Microsoft Authenticator</strong> app and enter the number shown below.</p>
@@ -5129,7 +5129,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
     </div>
   </div>
 
-  <div class="signin-footer">© 2026 Hoag Memorial Hospital Presbyterian · Microsoft 365 · Terms of use · Privacy &amp; cookies</div>
+  <div class="signin-footer">© 2026 Easy Health Memorial Hospital Presbyterian · Microsoft 365 · Terms of use · Privacy &amp; cookies</div>
 </div>
 
 <!-- ============ DESKTOP ============ -->
@@ -5251,7 +5251,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
       </div>
       <div class="stamp">
         <span class="stamp-date">Tuesday, April 21, 2026</span>
-        Hoag Memorial Hospital Presbyterian
+        Easy Health Memorial Hospital Presbyterian
       </div>
     </div>
 
@@ -5416,7 +5416,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
     <div class="recent-grid" id="recent-grid"></div>
 
     <div class="home-section-title" style="margin-top:44px;" id="agent-title">
-      Custom agents <span class="count">· Built for Hoag in Copilot Studio</span>
+      Custom agents <span class="count">· Built for Easy Health in Copilot Studio</span>
     </div>
     <div class="agent-grid" id="agent-grid">
       <!-- Filled by renderAgents() per persona; the "Build your own" card is always appended. -->
@@ -5426,7 +5426,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
       <div class="agent-card" onclick="toggleCopilot('agent','bedcoord'); setTimeout(()=>runCopilotByKey('agent','status'),400);">
         <svg class="agent-logo" width="52" height="52"><use href="#agentLogoBed"/></svg>
         <div class="agent-meta">
-          <div class="agent-name">Hoag Bed Coordinator</div>
+          <div class="agent-name">Easy Health Bed Coordinator</div>
           <div class="agent-desc">House-wide bed status, pending admits, and discharge readiness across 5 units.</div>
           <div class="agent-pill"><span class="dot"></span>Live · last sync 2 min ago</div>
         </div>
@@ -5451,7 +5451,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
         <svg class="agent-logo" width="52" height="52"><use href="#agentLogoTrial"/></svg>
         <div class="agent-meta">
           <div class="agent-name">Clinical Trial Matcher</div>
-          <div class="agent-desc">Cross-references today's tumor board patients against open NCT trials at Hoag + UCI.</div>
+          <div class="agent-desc">Cross-references today's tumor board patients against open NCT trials at Easy Health + UCI.</div>
           <div class="agent-pill good"><span class="dot good"></span>2 tumor-board patients may qualify</div>
         </div>
       </div>
@@ -5462,7 +5462,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
         <div class="agent-meta">
           <div class="agent-name">Build your own agent</div>
           <div class="agent-desc">Describe what you want, point it at your SharePoint or OneDrive, and it's ready in a few minutes — no code.</div>
-          <div class="agent-pill" style="background:linear-gradient(135deg,#eef3f8,#e4efff);color:var(--hoag-blue);">
+          <div class="agent-pill" style="background:linear-gradient(135deg,#eef3f8,#e4efff);color:var(--easyhealth-blue);">
             <svg width="12" height="12" style="flex-shrink:0;"><use href="#copilotLogo"/></svg>
             Included with Microsoft 365 Copilot
           </div>
@@ -5540,7 +5540,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             <span class="cm-d">26</span><span class="cm-d">27</span><span class="cm-d">28</span><span class="cm-d">29</span><span class="cm-d">30</span><span class="cm-d muted">1</span><span class="cm-d muted">2</span>
           </div>
           <div class="cal-mini-legend">
-            <div><span class="cal-dot" style="background:#0078d4;"></span>Hoag calendar</div>
+            <div><span class="cal-dot" style="background:#0078d4;"></span>Easy Health calendar</div>
             <div><span class="cal-dot" style="background:#c8a55b;"></span>Oncology SL</div>
             <div><span class="cal-dot" style="background:#107c10;"></span>Personal</div>
           </div>
@@ -5725,8 +5725,8 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
       <div class="word-page" id="word-content">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16pt;">
           <div style="font-size:10pt;color:#777;">
-            HOAG MEMORIAL HOSPITAL PRESBYTERIAN<br/>
-            One Hoag Drive, Newport Beach, CA 92663<br/>
+            EASY HEALTH<br/>
+            One Easy Health Drive, Newport Beach, CA 92663<br/>
             Appeals &amp; Grievances Department
           </div>
           <div class="slabel-bar phi" title="Microsoft Purview sensitivity label">
@@ -6094,7 +6094,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
 
   <div id="tour-coach" class="tour-coach">
     <div class="tour-stepnum"><span id="tour-step-i">1</span> / <span id="tour-step-n">8</span></div>
-    <div class="tour-title" id="tour-title">Welcome to Hoag's Microsoft 365 + Copilot demo</div>
+    <div class="tour-title" id="tour-title">Welcome to Easy Health's Microsoft 365 + Copilot demo</div>
     <div class="tour-text" id="tour-text">Let me walk you through Sarah Chen's morning. The whole tour is about 2 minutes.</div>
     <div class="tour-progress" id="tour-progress"></div>
     <div class="tour-actions">
@@ -6119,7 +6119,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
     <div class="admin-body">
       <div class="admin-head">
         <div>
-          <h1>Copilot at Hoag <span class="adm-period">· Last 30 days</span></h1>
+          <h1>Copilot at Easy Health <span class="adm-period">· Last 30 days</span></h1>
           <p>Adoption, ROI, and compliance across <strong>2,847 licensed users</strong> and 11 service lines.</p>
         </div>
         <div class="adm-filter">
@@ -6572,7 +6572,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
       <div class="adm-chrome">
         <div class="adm-dir-picker" title="Switch directory">
           <small>DIRECTORY</small>
-          <div>Hoag Memorial Hospital ▾</div>
+          <div>Easy Health Memorial Hospital ▾</div>
         </div>
         <div class="adm-chrome-btn copilot-glow" title="Security Copilot">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a3 3 0 00-3 3v1H7a2 2 0 00-2 2v4a7 7 0 0014 0V8a2 2 0 00-2-2h-2V5a3 3 0 00-3-3z"/></svg>
@@ -6654,7 +6654,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
         <div class="pv-page-title">
           <div>
             <h1>Home</h1>
-            <p>Your compliance posture across Hoag's Microsoft 365 tenant — data, users, and AI.</p>
+            <p>Your compliance posture across Easy Health's Microsoft 365 tenant — data, users, and AI.</p>
           </div>
           <div class="pv-page-meta">
             <div class="pv-live">Live</div>
@@ -6699,7 +6699,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             </div>
           </div>
           <div class="pv-card">
-            <div class="adm-card-head"><div class="adm-card-title">DLP — last 48 events</div><div class="adm-card-sub">All blocked or contained · no data left Hoag tenant</div></div>
+            <div class="adm-card-head"><div class="adm-card-title">DLP — last 48 events</div><div class="adm-card-sub">All blocked or contained · no data left Easy Health tenant</div></div>
             <div class="pv-events">
               <div class="pv-event bad"><div class="pv-ev-t">12 min ago</div><div class="pv-ev-user">J. Okonkwo</div><div class="pv-ev-desc">Tried to forward PHI to personal gmail</div><div class="pv-ev-status">✕ Blocked</div></div>
               <div class="pv-event"><div class="pv-ev-t">2 h ago</div><div class="pv-ev-user">IT Help Desk</div><div class="pv-ev-desc">Attempted to paste patient list into ChatGPT</div><div class="pv-ev-status">✕ Blocked</div></div>
@@ -6796,7 +6796,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
 
         <div class="pv-ah-grid">
           <div class="pv-card">
-            <div class="adm-card-head"><div class="adm-card-title">Shadow AI discovery <span class="pill" style="margin-left:8px;background:#eef3f8;color:#2c5ba8;">via Defender for Cloud Apps</span></div><div class="adm-card-sub">AI apps being accessed from managed Hoag devices — not yet governed by your policies</div></div>
+            <div class="adm-card-head"><div class="adm-card-title">Shadow AI discovery <span class="pill" style="margin-left:8px;background:#eef3f8;color:#2c5ba8;">via Defender for Cloud Apps</span></div><div class="adm-card-sub">AI apps being accessed from managed Easy Health devices — not yet governed by your policies</div></div>
             <div class="pv-shadow">
               <div class="pv-shadow-row">
                 <div class="pv-shadow-logo" style="background:#10a37f;">GPT</div>
@@ -7327,19 +7327,19 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
           <div class="pv-card">
             <div class="adm-card-head"><div class="adm-card-title">Live audit stream</div><div class="adm-card-sub">Unified Audit Log · every Copilot interaction · tamper-evident</div></div>
             <div class="pv-audit-feed">
-              <div class="pv-audit-line"><span class="pv-audit-t">13:42:18</span><span class="pv-audit-u">s.chen@hoag.org</span><span class="pv-audit-d">Copilot.Word · prompt accepted · label=<span class="ok">PHI</span> · grounded(4 docs)</span></div>
-              <div class="pv-audit-line"><span class="pv-audit-t">13:42:17</span><span class="pv-audit-u">d.kim@hoag.org</span><span class="pv-audit-d">Purview.DLP · policy="PHI to external" · action=<span class="bad">block</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:18</span><span class="pv-audit-u">s.chen@easyhealth.org</span><span class="pv-audit-d">Copilot.Word · prompt accepted · label=<span class="ok">PHI</span> · grounded(4 docs)</span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:17</span><span class="pv-audit-u">d.kim@easyhealth.org</span><span class="pv-audit-d">Purview.DLP · policy="PHI to external" · action=<span class="bad">block</span></span></div>
               <div class="pv-audit-line"><span class="pv-audit-t">13:42:15</span><span class="pv-audit-u">Agent/ReadmitWatch</span><span class="pv-audit-d">Copilot.Studio · tool_call=sharepoint.search · scope=<span class="ok">oncology-policies/*</span></span></div>
-              <div class="pv-audit-line"><span class="pv-audit-t">13:42:14</span><span class="pv-audit-u">j.park@hoag.org</span><span class="pv-audit-d">Copilot.Teams · meeting_recap · attendees=7 · label=<span class="ok">Confidential</span></span></div>
-              <div class="pv-audit-line"><span class="pv-audit-t">13:42:12</span><span class="pv-audit-u">m.ruiz@hoag.org</span><span class="pv-audit-d">Copilot.Outlook · reply_drafted · tone=empathetic · label=<span class="ok">PHI</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:14</span><span class="pv-audit-u">j.park@easyhealth.org</span><span class="pv-audit-d">Copilot.Teams · meeting_recap · attendees=7 · label=<span class="ok">Confidential</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:12</span><span class="pv-audit-u">m.ruiz@easyhealth.org</span><span class="pv-audit-d">Copilot.Outlook · reply_drafted · tone=empathetic · label=<span class="ok">PHI</span></span></div>
               <div class="pv-audit-line"><span class="pv-audit-t">13:42:10</span><span class="pv-audit-u">Agent/PriorAuth</span><span class="pv-audit-d">Copilot.Studio · tool_call=epic.get_labs · consent=<span class="ok">clinical_role</span></span></div>
-              <div class="pv-audit-line"><span class="pv-audit-t">13:42:08</span><span class="pv-audit-u">l.thomas@hoag.org</span><span class="pv-audit-d">Purview.Labels · file=DischargeSummary.docx · auto_label=<span class="ok">PHI</span> · confidence=0.97</span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:08</span><span class="pv-audit-u">l.thomas@easyhealth.org</span><span class="pv-audit-d">Purview.Labels · file=DischargeSummary.docx · auto_label=<span class="ok">PHI</span> · confidence=0.97</span></div>
               <div class="pv-audit-line"><span class="pv-audit-t">13:42:06</span><span class="pv-audit-u">endpoint.JP-LAPTOP</span><span class="pv-audit-d">Defender.CloudApps · chatgpt.com paste attempt · <span class="bad">blocked</span></span></div>
-              <div class="pv-audit-line"><span class="pv-audit-t">13:42:04</span><span class="pv-audit-u">r.patel@hoag.org</span><span class="pv-audit-d">Copilot.Excel · pivot_generated · rows=441 · label=<span class="warn">Confidential</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:04</span><span class="pv-audit-u">r.patel@easyhealth.org</span><span class="pv-audit-d">Copilot.Excel · pivot_generated · rows=441 · label=<span class="warn">Confidential</span></span></div>
               <div class="pv-audit-line"><span class="pv-audit-t">13:42:02</span><span class="pv-audit-u">Agent/ClinicalTrialMatch</span><span class="pv-audit-d">PromptShield · detected=<span class="bad">indirect_injection</span> · response=<span class="bad">suppressed</span></span></div>
-              <div class="pv-audit-line"><span class="pv-audit-t">13:42:00</span><span class="pv-audit-u">s.chen@hoag.org</span><span class="pv-audit-d">Copilot.Word · save · label=<span class="ok">PHI</span> · retention=<span class="ok">7y</span></span></div>
-              <div class="pv-audit-line"><span class="pv-audit-t">13:41:58</span><span class="pv-audit-u">admin@hoag.org</span><span class="pv-audit-d">Purview.Policy · edited="Block PHI to external" · threshold=1.0</span></div>
-              <div class="pv-audit-line"><span class="pv-audit-t">13:41:55</span><span class="pv-audit-u">j.okonkwo@hoag.org</span><span class="pv-audit-d">Outlook.Send · recipient=<span class="bad">personal gmail</span> · label=PHI · <span class="bad">blocked</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:00</span><span class="pv-audit-u">s.chen@easyhealth.org</span><span class="pv-audit-d">Copilot.Word · save · label=<span class="ok">PHI</span> · retention=<span class="ok">7y</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:41:58</span><span class="pv-audit-u">admin@easyhealth.org</span><span class="pv-audit-d">Purview.Policy · edited="Block PHI to external" · threshold=1.0</span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:41:55</span><span class="pv-audit-u">j.okonkwo@easyhealth.org</span><span class="pv-audit-d">Outlook.Send · recipient=<span class="bad">personal gmail</span> · label=PHI · <span class="bad">blocked</span></span></div>
               <div class="pv-audit-line"><span class="pv-audit-t">13:41:53</span><span class="pv-audit-u">Agent/ExecReadout</span><span class="pv-audit-d">Copilot.Studio · published_report · audience=board · label=<span class="warn">Confidential</span></span></div>
             </div>
             <div style="font-size:11px;color:var(--gray-130);margin-top:8px;">Scrolls in real time. Every event is cryptographically chained — tampering invalidates the chain and pages the SOC.</div>
@@ -7356,7 +7356,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 <div>Status</div>
               </div>
               <div class="pv-ed-case">
-                <div class="pv-ed-name">Matter 2026-CV-0091<small>Patient vs. Hoag · alleged misdiagnosis · 14 custodians</small></div>
+                <div class="pv-ed-name">Matter 2026-CV-0091<small>Patient vs. Easy Health · alleged misdiagnosis · 14 custodians</small></div>
                 <div>Litigation</div>
                 <div class="pv-dlp-n">2.4M</div>
                 <div class="pv-cm-due">2026-02-11</div>
@@ -7418,7 +7418,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
       <div class="adm-chrome">
         <div class="adm-dir-picker" title="Switch directory">
           <small>DIRECTORY</small>
-          <div>Hoag Memorial Hospital ▾</div>
+          <div>Easy Health Memorial Hospital ▾</div>
         </div>
         <div class="adm-chrome-btn copilot-glow" title="Copilot for Security">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a3 3 0 00-3 3v1H7a2 2 0 00-2 2v4a7 7 0 0014 0V8a2 2 0 00-2-2h-2V5a3 3 0 00-3-3z"/></svg>
@@ -7557,7 +7557,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             <div class="en-title">
               <div>
                 <h1>Microsoft 365 Copilot — permissions &amp; consent</h1>
-                <p>Every Microsoft Graph scope the Copilot service can call on behalf of a Hoag user, who granted admin consent, and when. Missing consent = Copilot silently fails for that capability.</p>
+                <p>Every Microsoft Graph scope the Copilot service can call on behalf of a Easy Health user, who granted admin consent, and when. Missing consent = Copilot silently fails for that capability.</p>
               </div>
               <div class="en-meta">
                 <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">API permissions</div>
@@ -7581,9 +7581,9 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 <div class="en-agent-field"><div class="lbl">Application (client) ID</div><div class="v mono">fb78d390-0c51-40cd-8e17-fdbfab77341b</div></div>
                 <div class="en-agent-field"><div class="lbl">Object ID</div><div class="v mono">8a74c284-92f7-4a5e-b02c-9e1f75213a84</div></div>
                 <div class="en-agent-field"><div class="lbl">Publisher</div><div class="v">Microsoft Corporation <span class="en-pill info" style="margin-left:6px;">Verified</span></div></div>
-                <div class="en-agent-field"><div class="lbl">Directory</div><div class="v">Hoag Memorial Hospital Presbyterian</div></div>
+                <div class="en-agent-field"><div class="lbl">Directory</div><div class="v">Easy Health Memorial Hospital Presbyterian</div></div>
                 <div class="en-agent-field"><div class="lbl">Sign-in audience</div><div class="v">Organizational directory — single tenant</div></div>
-                <div class="en-agent-field"><div class="lbl">Admin consent</div><div class="v green">Granted tenant-wide · 2026-02-14 by dk.chen@hoag.org</div></div>
+                <div class="en-agent-field"><div class="lbl">Admin consent</div><div class="v green">Granted tenant-wide · 2026-02-14 by dk.chen@easyhealth.org</div></div>
                 <div class="en-agent-field"><div class="lbl">User assignment required</div><div class="v">Yes · restricted to "Copilot-licensed" group (2,834 members)</div></div>
               </div>
             </div>
@@ -7733,28 +7733,28 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
               <div class="en-overshare-row danger">
                 <div class="en-os-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 20h20L12 2z"/><path d="M12 9v5M12 17h.01" stroke-linecap="round"/></svg></div>
                 <div><b>/sites/HR-Total-Rewards</b><div style="color:#605e5c;font-size:11px;margin-top:1px;">Folder "Compensation Letters" shared <b>Everyone except external</b> · contains 2026 salary packets for 124 leaders</div></div>
-                <div style="font-size:11px;color:#605e5c;">Owner: a.morales@hoag</div>
+                <div style="font-size:11px;color:#605e5c;">Owner: a.morales@easyhealth</div>
                 <div style="font-size:11px;color:#605e5c;">1,247 files</div>
                 <div><span class="en-pill bad">Fix before Wave 3</span></div>
               </div>
               <div class="en-overshare-row danger">
                 <div class="en-os-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 20h20L12 2z"/><path d="M12 9v5M12 17h.01" stroke-linecap="round"/></svg></div>
                 <div><b>/sites/Legal-M&amp;A</b><div style="color:#605e5c;font-size:11px;margin-top:1px;">Site shared <b>All clinical staff</b> · contains draft acquisition docs labeled PHI + Confidential</div></div>
-                <div style="font-size:11px;color:#605e5c;">Owner: r.garcia@hoag</div>
+                <div style="font-size:11px;color:#605e5c;">Owner: r.garcia@easyhealth</div>
                 <div style="font-size:11px;color:#605e5c;">84 files</div>
                 <div><span class="en-pill bad">Fix before Wave 3</span></div>
               </div>
               <div class="en-overshare-row">
                 <div class="en-os-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg></div>
                 <div><b>/sites/Oncology-PolicyArchive</b><div style="color:#605e5c;font-size:11px;margin-top:1px;">Retired policy drafts shared broadly · low PHI risk but confusing to Copilot (outdated content)</div></div>
-                <div style="font-size:11px;color:#605e5c;">Owner: k.lee@hoag</div>
+                <div style="font-size:11px;color:#605e5c;">Owner: k.lee@easyhealth</div>
                 <div style="font-size:11px;color:#605e5c;">342 files</div>
                 <div><span class="en-pill warn">Recommend label + lock</span></div>
               </div>
               <div class="en-overshare-row">
                 <div class="en-os-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg></div>
                 <div><b>/sites/RevenueCycle-Shared</b><div style="color:#605e5c;font-size:11px;margin-top:1px;">84% labeled PHI · 16% unlabeled · auto-label should finish covering by Apr 27</div></div>
-                <div style="font-size:11px;color:#605e5c;">Owner: j.ramos@hoag</div>
+                <div style="font-size:11px;color:#605e5c;">Owner: j.ramos@easyhealth</div>
                 <div style="font-size:11px;color:#605e5c;">8,812 files</div>
                 <div><span class="en-pill warn">Auto-labeling in progress</span></div>
               </div>
@@ -7785,8 +7785,8 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             </div>
             <div class="en-title">
               <div>
-                <h1>Hoag Memorial Hospital Presbyterian</h1>
-                <p>Tenant: <span style="font-family:Consolas,monospace;">hoag.onmicrosoft.com</span> · Tenant ID: <span style="font-family:Consolas,monospace;font-size:11px;">3f8a9e12-4b6c-4d1e-9a55-c2f7d8b09e41</span> · Region: West US 3 · License: <b>Microsoft Entra ID P2</b></p>
+                <h1>Easy Health Memorial Hospital Presbyterian</h1>
+                <p>Tenant: <span style="font-family:Consolas,monospace;">easyhealth.onmicrosoft.com</span> · Tenant ID: <span style="font-family:Consolas,monospace;font-size:11px;">3f8a9e12-4b6c-4d1e-9a55-c2f7d8b09e41</span> · Region: West US 3 · License: <b>Microsoft Entra ID P2</b></p>
               </div>
               <div class="en-meta">
                 <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Licensed users</div>
@@ -7887,7 +7887,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             <div class="en-title">
               <div>
                 <h1>All users</h1>
-                <p>2,847 licensed users across Hoag tenant. Showing 10 of 2,847. Anonymized names are for demo purposes — the real directory uses employee IDs federated from Workday.</p>
+                <p>2,847 licensed users across Easy Health tenant. Showing 10 of 2,847. Anonymized names are for demo purposes — the real directory uses employee IDs federated from Workday.</p>
               </div>
               <div class="en-meta">
                 <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Active directory sync</div>
@@ -7917,7 +7917,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
                   <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#c8a55b;color:#003865;">SC</div><div><strong>Sarah Chen</strong><small>Clinical · Oncology 4W</small></div></div>
-                  <div style="font-family:Consolas,monospace;font-size:11px;">s.chen@hoag.org</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">s.chen@easyhealth.org</div>
                   <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>FIDO2</span></div>
                   <div><span class="en-risk none">None</span></div>
                   <div style="font-family:Consolas,monospace;font-size:11px;">8 min ago</div>
@@ -7925,7 +7925,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
                   <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#7f68c7;">DK</div><div><strong>Dr. Ken Chen</strong><small>CIO · Executive team</small></div></div>
-                  <div style="font-family:Consolas,monospace;font-size:11px;">dk.chen@hoag.org</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">dk.chen@easyhealth.org</div>
                   <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>FIDO2</span></div>
                   <div><span class="en-risk none">None</span></div>
                   <div style="font-family:Consolas,monospace;font-size:11px;">2 min ago</div>
@@ -7933,7 +7933,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
                   <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#c50f1f;">JO</div><div><strong>J. Okonkwo</strong><small>Revenue cycle · billing</small></div></div>
-                  <div style="font-family:Consolas,monospace;font-size:11px;">j.okonkwo@hoag.org</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">j.okonkwo@easyhealth.org</div>
                   <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>Authenticator</span></div>
                   <div><span class="en-risk med">Medium</span></div>
                   <div style="font-family:Consolas,monospace;font-size:11px;">12 min ago</div>
@@ -7949,7 +7949,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
                   <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#0090a8;">LT</div><div><strong>L. Thomas, RN</strong><small>Clinical · 4W</small></div></div>
-                  <div style="font-family:Consolas,monospace;font-size:11px;">l.thomas@hoag.org</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">l.thomas@easyhealth.org</div>
                   <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>Authenticator</span></div>
                   <div><span class="en-risk none">None</span></div>
                   <div style="font-family:Consolas,monospace;font-size:11px;">24 min ago</div>
@@ -7957,7 +7957,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
                   <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#7f68c7;">JP</div><div><strong>Dr. J. Patel</strong><small>Clinical · Oncology</small></div></div>
-                  <div style="font-family:Consolas,monospace;font-size:11px;">j.patel@hoag.org</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">j.patel@easyhealth.org</div>
                   <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>FIDO2</span></div>
                   <div><span class="en-risk low">Low</span><small style="color:#605e5c;">Unfamiliar browser</small></div>
                   <div style="font-family:Consolas,monospace;font-size:11px;">32 min ago</div>
@@ -7965,7 +7965,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
                   <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#605e5c;">IT</div><div><strong>IT Help Desk (shared)</strong><small>Service account · break-glass</small></div></div>
-                  <div style="font-family:Consolas,monospace;font-size:11px;">svc-helpdesk@hoag.org</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">svc-helpdesk@easyhealth.org</div>
                   <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>FIDO2</span></div>
                   <div><span class="en-risk none">None</span></div>
                   <div style="font-family:Consolas,monospace;font-size:11px;">Never <small>break-glass only</small></div>
@@ -7973,7 +7973,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
                   <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#2c2a52;">AF</div><div><strong>Agentforce (Salesforce)</strong><small>Workload identity · BAA signed</small></div></div>
-                  <div style="font-family:Consolas,monospace;font-size:11px;">agentforce-wi@hoag.org</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">agentforce-wi@easyhealth.org</div>
                   <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>Cert</span></div>
                   <div><span class="en-risk none">None</span></div>
                   <div style="font-family:Consolas,monospace;font-size:11px;">4 min ago</div>
@@ -7981,7 +7981,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
                   <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#c19c00;">MR</div><div><strong>M. Ruiz</strong><small>Case management</small></div></div>
-                  <div style="font-family:Consolas,monospace;font-size:11px;">m.ruiz@hoag.org</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">m.ruiz@easyhealth.org</div>
                   <div><span class="en-mfa warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5M12 16h.01" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>SMS only</span></div>
                   <div><span class="en-risk low">Low</span></div>
                   <div style="font-family:Consolas,monospace;font-size:11px;">1 h ago</div>
@@ -7989,7 +7989,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
                   <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#605e5c;">FT</div><div><strong>F. Taylor</strong><small>Marketing (on extended leave)</small></div></div>
-                  <div style="font-family:Consolas,monospace;font-size:11px;">f.taylor@hoag.org</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">f.taylor@easyhealth.org</div>
                   <div><span class="en-mfa bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5M12 16h.01" stroke-linecap="round"/><path d="M12 2L2 20h20L12 2z"/></svg>Disabled</span></div>
                   <div><span class="en-risk none">—</span></div>
                   <div style="font-family:Consolas,monospace;font-size:11px;">87 d ago</div>
@@ -8227,21 +8227,21 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                   </div>
                   <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
                     <div style="font-family:Consolas,monospace;font-size:11px;">13:42:04</div>
-                    <div><strong>j.okonkwo@hoag.org</strong><small>Revenue cycle</small></div>
+                    <div><strong>j.okonkwo@easyhealth.org</strong><small>Revenue cycle</small></div>
                     <div>Atypical travel<small>LA → Manila in 2h</small></div>
                     <div><span class="en-risk high">High</span></div>
                     <div><span class="en-pill ok">Blocked · CA-006</span></div>
                   </div>
                   <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
                     <div style="font-family:Consolas,monospace;font-size:11px;">13:38:22</div>
-                    <div><strong>j.patel@hoag.org</strong><small>Oncology</small></div>
+                    <div><strong>j.patel@easyhealth.org</strong><small>Oncology</small></div>
                     <div>Unfamiliar sign-in properties<small>First-time browser (Arc)</small></div>
                     <div><span class="en-risk low">Low</span></div>
                     <div><span class="en-pill info">MFA challenge · passed</span></div>
                   </div>
                   <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
                     <div style="font-family:Consolas,monospace;font-size:11px;">13:24:11</div>
-                    <div><strong>m.ruiz@hoag.org</strong><small>Case management</small></div>
+                    <div><strong>m.ruiz@easyhealth.org</strong><small>Case management</small></div>
                     <div>Anonymous IP (Tor)<small>185.220.101.33</small></div>
                     <div><span class="en-risk med">Medium</span></div>
                     <div><span class="en-pill warn">MFA + password change</span></div>
@@ -8255,28 +8255,28 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                   </div>
                   <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
                     <div style="font-family:Consolas,monospace;font-size:11px;">11:48:30</div>
-                    <div><strong>r.walker@hoag.org</strong><small>Finance</small></div>
+                    <div><strong>r.walker@easyhealth.org</strong><small>Finance</small></div>
                     <div>Leaked credentials<small>Match in recent public dump</small></div>
                     <div><span class="en-risk med">Medium</span></div>
                     <div><span class="en-pill warn">Password reset required</span></div>
                   </div>
                   <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
                     <div style="font-family:Consolas,monospace;font-size:11px;">10:34:18</div>
-                    <div><strong>t.nguyen@hoag.org</strong><small>IT</small></div>
+                    <div><strong>t.nguyen@easyhealth.org</strong><small>IT</small></div>
                     <div>Password spray<small>Source: 3 distinct IPs</small></div>
                     <div><span class="en-risk high">High</span></div>
                     <div><span class="en-pill ok">Blocked at gateway</span></div>
                   </div>
                   <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
                     <div style="font-family:Consolas,monospace;font-size:11px;">09:55:12</div>
-                    <div><strong>k.obrien@hoag.org</strong><small>Research</small></div>
+                    <div><strong>k.obrien@easyhealth.org</strong><small>Research</small></div>
                     <div>Unusual sign-in properties<small>ASN change · new device ID</small></div>
                     <div><span class="en-risk low">Low</span></div>
                     <div><span class="en-pill info">MFA · passed</span></div>
                   </div>
                   <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
                     <div style="font-family:Consolas,monospace;font-size:11px;">08:22:04</div>
-                    <div><strong>b.chen@hoag.org</strong><small>Pharmacy</small></div>
+                    <div><strong>b.chen@easyhealth.org</strong><small>Pharmacy</small></div>
                     <div>Malicious IP address<small>Defender TI match</small></div>
                     <div><span class="en-risk high">High</span></div>
                     <div><span class="en-pill ok">Blocked · CA-006</span></div>
@@ -8517,7 +8517,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
 
                 <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
                   <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#0078d4;">RW</div><div><strong>Readmission Watch</strong><small>Entra Agent ID · Copilot Studio · oncology scope</small></div></div>
-                  <div>Hoag (internal)</div>
+                  <div>Easy Health (internal)</div>
                   <div><span class="en-perm">Sites.Selected</span><span class="en-perm">Files.Read.Selected</span></div>
                   <div style="font-family:Consolas,monospace;font-weight:600;">312</div>
                   <div>4W unit<small>28 nurses</small></div>
@@ -8526,7 +8526,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
 
                 <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
                   <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#0078d4;">PA</div><div><strong>Prior-Auth Assistant</strong><small>Entra Agent ID · revenue cycle scope</small></div></div>
-                  <div>Hoag (internal)</div>
+                  <div>Easy Health (internal)</div>
                   <div><span class="en-perm">Sites.Selected</span><span class="en-perm">Mail.Send.Shared</span></div>
                   <div style="font-family:Consolas,monospace;font-weight:600;">184</div>
                   <div>Billing team<small>42 users</small></div>
@@ -8535,7 +8535,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
 
                 <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
                   <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#0078d4;">CT</div><div><strong>Clinical Trial Match</strong><small>Entra Agent ID · Azure OpenAI backed</small></div></div>
-                  <div>Hoag (internal)</div>
+                  <div>Easy Health (internal)</div>
                   <div><span class="en-perm">Sites.Selected</span><span class="en-perm">patient/read</span></div>
                   <div style="font-family:Consolas,monospace;font-weight:600;">42</div>
                   <div>Research<small>18 users</small></div>
@@ -8623,7 +8623,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-signin-row">
                   <div class="en-t">13:42:31</div>
-                  <div><strong>s.chen@hoag.org</strong></div>
+                  <div><strong>s.chen@easyhealth.org</strong></div>
                   <div>Microsoft 365 Copilot</div>
                   <div><span class="en-pill ok">Success</span><small style="color:#605e5c;margin-left:4px;">MFA · CA-001,004</small></div>
                   <div class="en-geo">Newport Beach, CA<small>206.51.18.42</small></div>
@@ -8631,7 +8631,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-signin-row">
                   <div class="en-t">13:42:18</div>
-                  <div><strong>j.okonkwo@hoag.org</strong></div>
+                  <div><strong>j.okonkwo@easyhealth.org</strong></div>
                   <div>Outlook on the web</div>
                   <div><span class="en-pill ok">Success</span><small style="color:#605e5c;margin-left:4px;">Passwordless</small></div>
                   <div class="en-geo">Newport Beach, CA<small>206.51.18.128</small></div>
@@ -8639,7 +8639,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-signin-row">
                   <div class="en-t">13:42:04</div>
-                  <div><strong>j.okonkwo@hoag.org</strong></div>
+                  <div><strong>j.okonkwo@easyhealth.org</strong></div>
                   <div>ChatGPT (consumer)</div>
                   <div><span class="en-pill bad">Blocked</span><small style="color:#605e5c;margin-left:4px;">CA-010 · public AI blocklist</small></div>
                   <div class="en-geo">Newport Beach, CA<small>206.51.18.128</small></div>
@@ -8655,7 +8655,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-signin-row">
                   <div class="en-t">13:41:42</div>
-                  <div><strong>m.ruiz@hoag.org</strong></div>
+                  <div><strong>m.ruiz@easyhealth.org</strong></div>
                   <div>Outlook on the web</div>
                   <div><span class="en-pill warn">MFA challenged</span><small style="color:#605e5c;margin-left:4px;">CA-007 · anonymous IP</small></div>
                   <div class="en-geo">Anonymous proxy<small>185.220.101.33</small></div>
@@ -8663,7 +8663,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-signin-row">
                   <div class="en-t">13:41:27</div>
-                  <div><strong>l.thomas@hoag.org</strong></div>
+                  <div><strong>l.thomas@easyhealth.org</strong></div>
                   <div>Epic EHR (SMART launch)</div>
                   <div><span class="en-pill ok">Success</span><small style="color:#605e5c;margin-left:4px;">Compliant device · CA-003</small></div>
                   <div class="en-geo">Newport Beach, CA<small>206.51.19.15</small></div>
@@ -8671,7 +8671,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-signin-row">
                   <div class="en-t">13:41:11</div>
-                  <div><strong>svc-helpdesk@hoag.org</strong></div>
+                  <div><strong>svc-helpdesk@easyhealth.org</strong></div>
                   <div>Azure Portal</div>
                   <div><span class="en-pill bad">Blocked</span><small style="color:#605e5c;margin-left:4px;">CA-002 · legacy auth</small></div>
                   <div class="en-geo">Newport Beach, CA<small>206.51.18.50</small></div>
@@ -8687,7 +8687,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-signin-row">
                   <div class="en-t">13:40:34</div>
-                  <div><strong>j.patel@hoag.org</strong></div>
+                  <div><strong>j.patel@easyhealth.org</strong></div>
                   <div>Microsoft 365 Copilot</div>
                   <div><span class="en-pill warn">MFA challenged</span><small style="color:#605e5c;margin-left:4px;">CA-007 · unfamiliar browser</small></div>
                   <div class="en-geo">Newport Beach, CA<small>206.51.20.82</small></div>
@@ -8695,7 +8695,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-signin-row">
                   <div class="en-t">13:40:02</div>
-                  <div><strong>b.chen@hoag.org</strong></div>
+                  <div><strong>b.chen@easyhealth.org</strong></div>
                   <div>Outlook mobile</div>
                   <div><span class="en-pill bad">Blocked</span><small style="color:#605e5c;margin-left:4px;">CA-006 · malicious IP (Defender TI)</small></div>
                   <div class="en-geo">Unknown<small>45.142.214.91</small></div>
@@ -8703,7 +8703,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-signin-row">
                   <div class="en-t">13:39:41</div>
-                  <div><strong>dk.chen@hoag.org</strong></div>
+                  <div><strong>dk.chen@easyhealth.org</strong></div>
                   <div>Azure Portal · PIM activation</div>
                   <div><span class="en-pill ok">Success</span><small style="color:#605e5c;margin-left:4px;">FIDO2 · CA-008 · Global Admin</small></div>
                   <div class="en-geo">Newport Beach, CA<small>206.51.18.12</small></div>
@@ -8711,7 +8711,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
                 <div class="en-signin-row">
                   <div class="en-t">13:39:18</div>
-                  <div><strong>j.okonkwo@hoag.org</strong></div>
+                  <div><strong>j.okonkwo@easyhealth.org</strong></div>
                   <div>SharePoint Online</div>
                   <div><span class="en-pill ok">Success</span><small style="color:#605e5c;margin-left:4px;">Compliant device</small></div>
                   <div class="en-geo">Newport Beach, CA<small>206.51.18.128</small></div>
@@ -8736,7 +8736,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
       <div class="back" onclick="goHome()">☰</div>
       <div class="app-title">
         <svg class="app-title-logo" width="22" height="22" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#f2c811"/><path d="M3 21h4V9H3v12zm7 0h4V3h-4v18zm7 0h4v-8h-4v8z" fill="#fff" transform="scale(0.75) translate(3 3)"/></svg>
-        Power BI — Hoag Oncology Service Line
+        Power BI — Easy Health Oncology Service Line
       </div>
       <div style="flex:1"></div>
       <div class="right">
@@ -8819,7 +8819,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
     <div class="studio-body">
       <div class="studio-head">
         <div>
-          <h1>Hoag Copilot Studio <span style="font-weight:400;color:var(--gray-90);">· Production environment</span></h1>
+          <h1>Easy Health Copilot Studio <span style="font-weight:400;color:var(--gray-90);">· Production environment</span></h1>
           <p>For IT — the full-fat agent builder. Publish as standalone Teams bots, connect to Epic or Dataverse, trigger Power Automate flows.</p>
         </div>
         <div class="studio-actions">
@@ -8836,7 +8836,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
       <div class="studio-agents">
         <div class="studio-row head"><div>Agent</div><div>Channel</div><div>Connectors</div><div>Conversations (30d)</div><div>Status</div></div>
         <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoShield"/></svg><strong>Prior-Auth Sentinel</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Rev Cycle · prod</span></div><div>Teams + Web</div><div><span class="sb-pill">Epic</span><span class="sb-pill">Blue Shield API</span></div><div>12,482</div><div><span class="pill good">● Live</span></div></div>
-        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoBed"/></svg><strong>Hoag Bed Coordinator</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Nursing Ops · prod</span></div><div>Teams</div><div><span class="sb-pill">Epic census feed</span><span class="sb-pill">Dataverse</span></div><div>8,115</div><div><span class="pill good">● Live</span></div></div>
+        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoBed"/></svg><strong>Easy Health Bed Coordinator</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Nursing Ops · prod</span></div><div>Teams</div><div><span class="sb-pill">Epic census feed</span><span class="sb-pill">Dataverse</span></div><div>8,115</div><div><span class="pill good">● Live</span></div></div>
         <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoTrial"/></svg><strong>Clinical Trial Matcher</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Research · prod</span></div><div>Teams + Mobile</div><div><span class="sb-pill">NCT API</span><span class="sb-pill">OnCore</span></div><div>2,310</div><div><span class="pill good">● Live</span></div></div>
         <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoIntake"/></svg><strong>Oncology Intake Agent</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Oncology SL · prod</span></div><div>Web + Email</div><div><span class="sb-pill">Epic</span><span class="sb-pill">Power Automate</span></div><div>4,602</div><div><span class="pill good">● Live</span></div></div>
         <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoReadmit"/></svg><strong>Readmission Watch</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Nursing · staging</span></div><div>Teams</div><div><span class="sb-pill">Epic</span><span class="sb-pill">Dataverse</span></div><div>142</div><div><span class="pill warn">● Staging</span></div></div>
@@ -8866,7 +8866,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
     <div class="a365-body">
       <div class="a365-head">
         <div>
-          <h1>Agent fleet <span style="font-weight:400;color:var(--gray-90);">· Hoag tenant · live</span></h1>
+          <h1>Agent fleet <span style="font-weight:400;color:var(--gray-90);">· Easy Health tenant · live</span></h1>
           <p>Every AI agent operating in your tenant — Microsoft, partner, or custom. One pane of glass for identity, access, cost, and risk.</p>
         </div>
         <div class="a365-posture">
@@ -8960,7 +8960,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 <td><span class="pill good">● Live</span></td>
               </tr>
               <tr>
-                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoBed"/></svg><div><strong>Hoag Bed Coordinator</strong><span>Nursing Ops · prod</span></div></td>
+                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoBed"/></svg><div><strong>Easy Health Bed Coordinator</strong><span>Nursing Ops · prod</span></div></td>
                 <td><span class="src-badge ms">Copilot Studio</span></td>
                 <td>M. Rodriguez</td>
                 <td><span class="id-chip">🔐 Entra ID</span></td>
@@ -9023,7 +9023,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 <td><span class="pill good">● Live</span></td>
               </tr>
               <tr>
-                <td class="a-name"><span class="ext-ico" style="background:#7441e8;">AO</span><div><strong>Hoag GPT (internal)</strong><span>IT · prod</span></div></td>
+                <td class="a-name"><span class="ext-ico" style="background:#7441e8;">AO</span><div><strong>Easy Health GPT (internal)</strong><span>IT · prod</span></div></td>
                 <td><span class="src-badge custom">Custom · Azure OpenAI</span></td>
                 <td>IT / AI team</td>
                 <td><span class="id-chip">🔐 Managed Identity</span></td>
@@ -9074,10 +9074,10 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             </div>
             <div class="a365-feed" id="a365-feed">
               <div class="a365-feed-row"><span class="a365-feed-t">just now</span><span class="a365-feed-a">Prior-Auth Sentinel</span><span class="a365-feed-d">Drafted packet for Garcia, E. (Blue Shield) → routed to Dr. Nguyen for sign-off</span></div>
-              <div class="a365-feed-row"><span class="a365-feed-t">4s ago</span><span class="a365-feed-a">Hoag Bed Coordinator</span><span class="a365-feed-d">Queried 4W census (Epic feed · read-only)</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">4s ago</span><span class="a365-feed-a">Easy Health Bed Coordinator</span><span class="a365-feed-d">Queried 4W census (Epic feed · read-only)</span></div>
               <div class="a365-feed-row bad"><span class="a365-feed-t">9s ago</span><span class="a365-feed-a">Agentforce (SF)</span><span class="a365-feed-d">⚠ Attempted to read a PHI-labeled field outside scope — <strong>DLP block</strong></span></div>
               <div class="a365-feed-row"><span class="a365-feed-t">12s ago</span><span class="a365-feed-a">Oncology Intake</span><span class="a365-feed-d">Pre-staged orders for Garcia, E. (diagnostic mammo + BRCA panel)</span></div>
-              <div class="a365-feed-row"><span class="a365-feed-t">18s ago</span><span class="a365-feed-a">Hoag GPT</span><span class="a365-feed-d">Summarized ACC-AHA 2021 Section 4.1 for Sarah Chen</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">18s ago</span><span class="a365-feed-a">Easy Health GPT</span><span class="a365-feed-d">Summarized ACC-AHA 2021 Section 4.1 for Sarah Chen</span></div>
               <div class="a365-feed-row"><span class="a365-feed-t">22s ago</span><span class="a365-feed-a">Epic Workspace agent</span><span class="a365-feed-d">Flagged Castillo, P. labs — routed to Dr. Patel</span></div>
               <div class="a365-feed-row"><span class="a365-feed-t">28s ago</span><span class="a365-feed-a">Clinical Trial Matcher</span><span class="a365-feed-d">Screened 7 tumor-board patients · 2 candidates found</span></div>
               <div class="a365-feed-row"><span class="a365-feed-t">34s ago</span><span class="a365-feed-a">Readmission Watch</span><span class="a365-feed-d">Flagged 3 patients above 0.65 risk on 4W</span></div>
@@ -9191,7 +9191,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 <div class="a365-feed-row"><span class="a365-feed-t">Physicians</span><span class="a365-feed-a">Trial Matcher, Epic WS, Intake</span><span class="a365-feed-d">340 users</span></div>
                 <div class="a365-feed-row"><span class="a365-feed-t">Rev Cycle</span><span class="a365-feed-a">Prior-Auth Sentinel</span><span class="a365-feed-d">62 users</span></div>
                 <div class="a365-feed-row"><span class="a365-feed-t">Patient Svcs</span><span class="a365-feed-a">Agentforce</span><span class="a365-feed-d">48 users</span></div>
-                <div class="a365-feed-row"><span class="a365-feed-t">IT</span><span class="a365-feed-a">Hoag GPT, Now Assist</span><span class="a365-feed-d">124 users</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">IT</span><span class="a365-feed-a">Easy Health GPT, Now Assist</span><span class="a365-feed-d">124 users</span></div>
                 <div class="a365-feed-row"><span class="a365-feed-t">Research</span><span class="a365-feed-a">Trial Matcher</span><span class="a365-feed-d">22 users</span></div>
               </div>
             </div>
@@ -9234,7 +9234,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 <div class="a365-policy"><div class="a365-p-name">HITRUST CSF v11</div><div class="a365-p-val"><span class="pill good">✓ Aligned</span></div></div>
                 <div class="a365-policy"><div class="a365-p-name">SOC 2 Type II</div><div class="a365-p-val"><span class="pill good">✓ Aligned</span></div></div>
                 <div class="a365-policy"><div class="a365-p-name">NIST AI RMF</div><div class="a365-p-val"><span class="pill good">✓ Aligned</span></div></div>
-                <div class="a365-policy"><div class="a365-p-name">Hoag AI Use policy</div><div class="a365-p-val"><span class="pill good">✓ Enforced</span></div></div>
+                <div class="a365-policy"><div class="a365-p-name">Easy Health AI Use policy</div><div class="a365-p-val"><span class="pill good">✓ Enforced</span></div></div>
               </div>
             </div>
             <div class="a365-card">
@@ -9284,7 +9284,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             <div class="a365-inc warn">
               <div class="a365-inc-sev warn">MED</div>
               <div class="a365-inc-main">
-                <div class="a365-inc-t">Hoag GPT approaching daily cost guardrail ($478 / $500)</div>
+                <div class="a365-inc-t">Easy Health GPT approaching daily cost guardrail ($478 / $500)</div>
                 <div class="a365-inc-s">Opened 2d ago · token usage spike · no policy violation · monitoring</div>
               </div>
               <div class="a365-inc-actions"><button class="adm-f">Review prompts</button><button class="adm-f">Raise cap</button></div>
@@ -9329,7 +9329,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
           <div class="a365-card">
             <div class="a365-card-head"><div><div class="a365-card-title">Spend by agent · MTD</div><div class="a365-card-sub">Top 8 · all others rolled up</div></div></div>
             <div class="adm-uc" style="margin-top:8px;">
-              <div class="adm-uc-row"><span class="adm-uc-name">Hoag GPT (custom)</span><div class="adm-uc-bar"><span style="width:92%;background:#7441e8;"></span></div><span class="adm-uc-n">$3,120</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Easy Health GPT (custom)</span><div class="adm-uc-bar"><span style="width:92%;background:#7441e8;"></span></div><span class="adm-uc-n">$3,120</span></div>
               <div class="adm-uc-row"><span class="adm-uc-name">Prior-Auth Sentinel</span><div class="adm-uc-bar"><span style="width:58%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$1,642</span></div>
               <div class="adm-uc-row"><span class="adm-uc-name">Bed Coordinator</span><div class="adm-uc-bar"><span style="width:42%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$1,088</span></div>
               <div class="adm-uc-row"><span class="adm-uc-name">Intake Agent</span><div class="adm-uc-bar"><span style="width:28%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$712</span></div>
@@ -9353,7 +9353,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             <div class="a365-card">
               <div class="a365-card-head"><div><div class="a365-card-title">Optimization tips</div><div class="a365-card-sub">From Agent 365 recommendations</div></div></div>
               <div class="a365-feed" style="max-height:none;">
-                <div class="a365-feed-row"><span class="a365-feed-t">−$420/mo</span><span class="a365-feed-a">Caching</span><span class="a365-feed-d">Hoag GPT — enable prompt caching for repeat clinical summaries</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">−$420/mo</span><span class="a365-feed-a">Caching</span><span class="a365-feed-d">Easy Health GPT — enable prompt caching for repeat clinical summaries</span></div>
                 <div class="a365-feed-row"><span class="a365-feed-t">−$180/mo</span><span class="a365-feed-a">Model tier</span><span class="a365-feed-d">Intake Agent — route simple queries to cheaper model</span></div>
                 <div class="a365-feed-row"><span class="a365-feed-t">−$90/mo</span><span class="a365-feed-a">Idle agents</span><span class="a365-feed-d">3 agents below 50 runs/wk — archive candidates</span></div>
               </div>
@@ -9383,12 +9383,12 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
               <tr><td>09:14:22</td><td>Bed Coordinator</td><td>M. Rodriguez</td><td>"What's the bed picture right now?"</td><td>Epic census · read</td><td>—</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:14:11</td><td>Prior-Auth Sentinel</td><td>J. Okafor</td><td>Scan pending PAs for Blue Shield</td><td>SharePoint · 14 docs</td><td>PHI</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:13:58</td><td>Intake Agent</td><td>S. Chen</td><td>Review 3 new referrals</td><td>Referrals folder</td><td>PHI</td><td class="ok">✓ OK</td></tr>
-              <tr><td>09:13:42</td><td>Hoag GPT</td><td>Dr. R. Chen</td><td>"Summarize ACC-AHA Section 4.1"</td><td>Reference · public</td><td>Public</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:13:42</td><td>Easy Health GPT</td><td>Dr. R. Chen</td><td>"Summarize ACC-AHA Section 4.1"</td><td>Reference · public</td><td>Public</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:13:20</td><td>Agentforce (SF)</td><td>L. Nguyen</td><td>Fetch patient engagement record</td><td>SF · CDP</td><td>PHI</td><td class="bad">✕ DLP block</td></tr>
               <tr><td>09:12:58</td><td>Trial Matcher</td><td>Dr. J. Patel</td><td>Screen today's tumor board cases</td><td>NCT · OnCore</td><td>Confidential</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:12:41</td><td>Epic Workspace</td><td>Dr. R. Chen</td><td>Pending results for rounds list</td><td>Epic · FHIR</td><td>PHI</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:12:19</td><td>Readmission Watch</td><td>(scheduled)</td><td>Nightly rescoring</td><td>3 discharge summaries · Policy v4</td><td>PHI</td><td class="ok">✓ OK</td></tr>
-              <tr><td>09:11:47</td><td>"ClinicalGPT v2"</td><td>r.smith@hoag.org</td><td>Unapproved endpoint POST</td><td>—</td><td>—</td><td class="bad">✕ CA blocked</td></tr>
+              <tr><td>09:11:47</td><td>"ClinicalGPT v2"</td><td>r.smith@easyhealth.org</td><td>Unapproved endpoint POST</td><td>—</td><td>—</td><td class="bad">✕ CA blocked</td></tr>
               <tr><td>09:11:12</td><td>Now Assist</td><td>IT Ops</td><td>Resolve ticket HD-4412</td><td>ServiceNow</td><td>Internal</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:10:58</td><td>Bed Coordinator</td><td>M. Rodriguez</td><td>"Who's ready for discharge today?"</td><td>Epic census · read</td><td>PHI</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:10:30</td><td>Prior-Auth Sentinel</td><td>(scheduled)</td><td>Risk scan on 14 pending PAs</td><td>SharePoint · 14 docs</td><td>PHI</td><td class="ok">✓ OK</td></tr>
@@ -9576,7 +9576,7 @@ pill.textContent = <span class="s">`${total_saved} min saved today`</span>;</div
       <div class="back" onclick="goHome()">☰</div>
       <div class="app-title">
         <svg class="app-title-logo" width="22" height="22" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#0090a8"/><path d="M4 6h8v2H4zm0 4h12v2H4zm0 4h16v2H4zm0 4h10v2H4z" fill="#fff" transform="scale(0.75) translate(3 3)"/></svg>
-        Hoag Copilot Rollout — 90-day waves
+        Easy Health Copilot Rollout — 90-day waves
       </div>
       <div style="flex:1"></div>
       <div class="right"><div class="avatar" style="background:#c8a55b;color:#003865;">DK</div></div>
@@ -9584,7 +9584,7 @@ pill.textContent = <span class="s">`${total_saved} min saved today`</span>;</div
     <div class="rm-body">
       <div class="rm-head">
         <div>
-          <h1>Hoag Copilot deployment <span style="font-weight:400;color:var(--gray-90);">· FY26 H1</span></h1>
+          <h1>Easy Health Copilot deployment <span style="font-weight:400;color:var(--gray-90);">· FY26 H1</span></h1>
           <p>Three waves. Measurable outcomes at each phase. Shared across the AI governance council.</p>
         </div>
         <div class="rm-summary">
@@ -9676,7 +9676,7 @@ pill.textContent = <span class="s">`${total_saved} min saved today`</span>;</div
             <div class="rm-wave-col">
               <div class="rm-col-label">Investment</div>
               <p><strong>$512K</strong> licenses + Dragon pilot · <strong>$148K</strong> change-mgmt</p>
-              <p style="color:var(--hoag-teal);font-weight:700;margin-top:6px;">Projected payback: 9 weeks</p>
+              <p style="color:var(--easyhealth-teal);font-weight:700;margin-top:6px;">Projected payback: 9 weeks</p>
             </div>
           </div>
         </div>
@@ -9707,7 +9707,7 @@ pill.textContent = <span class="s">`${total_saved} min saved today`</span>;</div
             <div class="rm-wave-col">
               <div class="rm-col-label">Outcomes target</div>
               <ul>
-                <li><span class="pill">90% WAU across Hoag</span></li>
+                <li><span class="pill">90% WAU across Easy Health</span></li>
                 <li><span class="pill">$14–18M annualized labor ROI</span></li>
                 <li><span class="pill">First agent-driven workflow at GA</span></li>
               </ul>
@@ -9862,7 +9862,7 @@ pill.textContent = <span class="s">`${total_saved} min saved today`</span>;</div
 <script>
 // ============ DATA ============
 
-// Realistic Hoag inbox — 147 emails, mix of urgent/routine/internal
+// Realistic Easy Health inbox — 147 emails, mix of urgent/routine/internal
 const INBOX = [
   // Today
   { id:1, from:"Dr. Rajiv Patel", fromInit:"RP", subject:"URGENT: Mrs. Castillo labs — critical K+ 6.8 this AM", preview:"Sarah, just got the overnight labs back on Mrs. Castillo. K is 6.8, creatinine trending up. Need to hold her chemo and get cardiology eyes on this before...", time:"7:42 AM", unread:true, urgent:true, folder:"inbox", body:"<p>Sarah,</p><p>Just got the overnight labs back on Mrs. Castillo (MRN 892104). K+ is 6.8, creatinine trending up over the past 48h (1.4 → 1.9 → 2.3). Need to hold her scheduled chemo today and get cardiology eyes on this before we proceed.</p><p>Can you:</p><ol><li>Hold the 10am chemo infusion</li><li>Page cardiology for urgent consult</li><li>Call her daughter (listed as primary contact) — she's expecting mom to be discharged tomorrow and that's almost certainly not happening now</li></ol><p>Let me know as soon as cards weighs in.</p><p>— Rajiv</p>" },
@@ -9870,9 +9870,9 @@ const INBOX = [
   { id:3, from:"Maria Rodriguez, RN", fromInit:"MR", subject:"4W — two callouts for night shift, need coverage", preview:"Hey Sarah, Jenny and Ashlynn both just called out for tonight 7p-7a. We're down 2 RNs and census is 28 with 4 fresh post-ops. Any chance we can pull from float pool or...", time:"7:18 AM", unread:true, folder:"inbox", body:"<p>Hey Sarah,</p><p>Jenny and Ashlynn both just called out for tonight 7p-7a (both with flu). We're down 2 RNs and census is 28 with 4 fresh post-ops expected.</p><p>Any chance we can pull from float pool or offer extra shift incentive? I already checked our regular per-diems and no takers yet.</p><p>Appreciate the help. I'll be in the charge office till 3pm.</p><p>— Maria</p>" },
   { id:4, from:"Dr. Elena Walsh", fromInit:"EW", subject:"Re: Jensen family meeting — follow-up summary?", preview:"Sarah, the Jensen family reached out asking for a written summary of what we discussed yesterday. They said they were overwhelmed and want to make sure they remember...", time:"7:05 AM", unread:true, folder:"inbox", body:"<p>Sarah,</p><p>The Jensen family reached out this morning asking for a written summary of what we discussed yesterday in the goals-of-care meeting. They said they were overwhelmed (understandably) and want to make sure they remember the key decisions — especially around the DNR order and hospice timeline.</p><p>Can you draft something warm and clear for them? Their primary language is English but mom Ruth is Spanish-preferred, so a Spanish version would be great too.</p><p>Thanks,<br/>Elena</p>" },
   { id:5, from:"Jessica Huang (Patient Portal)", fromInit:"JH", subject:"Question about my chemo side effects", preview:"Hi Sarah, I started the new regimen on Monday and I've had some weird tingling in my fingertips. Is this normal? Should I be worried? Also the nausea has been pretty...", time:"6:47 AM", unread:true, folder:"inbox", body:"<p>Hi Sarah,</p><p>I started the new regimen on Monday and I've had some weird tingling in my fingertips. Is this normal? Should I be worried?</p><p>Also the nausea has been pretty bad the last two days — the Zofran is only working for a few hours. Should I call in or just tough it out until Friday's appointment?</p><p>Thanks,<br/>Jessica</p>" },
-  { id:6, from:"Hoag IT Security", fromInit:"IT", subject:"Mandatory HIPAA training — due April 30", preview:"Our annual HIPAA training module is now available in Workday Learning. All clinical staff must complete by April 30...", time:"6:30 AM", unread:true, folder:"inbox", body:"<p>Annual HIPAA training is now live in Workday Learning. All clinical staff must complete by April 30.</p><p>Estimated time: 45 minutes.</p>" },
+  { id:6, from:"Easy Health IT Security", fromInit:"IT", subject:"Mandatory HIPAA training — due April 30", preview:"Our annual HIPAA training module is now available in Workday Learning. All clinical staff must complete by April 30...", time:"6:30 AM", unread:true, folder:"inbox", body:"<p>Annual HIPAA training is now live in Workday Learning. All clinical staff must complete by April 30.</p><p>Estimated time: 45 minutes.</p>" },
   { id:7, from:"Dr. Amanda Kim", fromInit:"AK", subject:"Pathology ready — Chang, Li-Wei (MRN 923847)", preview:"Final pathology for Ms. Chang's core biopsy is signed out. Invasive ductal carcinoma, ER+ PR+ HER2-, Ki-67 18%. Nottingham grade 2. Will be at tumor board Tuesday...", time:"6:15 AM", unread:true, folder:"inbox", body:"<p>Sarah,</p><p>Final pathology for Ms. Chang's core biopsy is signed out. Invasive ductal carcinoma, ER+ PR+ HER2-, Ki-67 18%. Nottingham grade 2.</p><p>Will be presenting at tumor board Tuesday.</p><p>— Amanda</p>" },
-  { id:8, from:"Hoag Pharmacy", fromInit:"HP", subject:"Formulary update — Trastuzumab deruxtecan biosimilar now preferred", preview:"Effective May 1, the Trastuzumab deruxtecan biosimilar (TRZ-BS01) will be the preferred agent on the Hoag formulary for HER2+ breast and gastric indications...", time:"5:58 AM", unread:false, folder:"inbox" },
+  { id:8, from:"Easy Health Pharmacy", fromInit:"HP", subject:"Formulary update — Trastuzumab deruxtecan biosimilar now preferred", preview:"Effective May 1, the Trastuzumab deruxtecan biosimilar (TRZ-BS01) will be the preferred agent on the Easy Health formulary for HER2+ breast and gastric indications...", time:"5:58 AM", unread:false, folder:"inbox" },
   { id:9, from:"Laura Thomas, RN (Navigator)", fromInit:"LT", subject:"Re: Tumor board prep — 7 cases confirmed for today", preview:"All 7 cases are prepped for tumor board this morning. Ms. Chang's path just came in (Amanda's email). I'll have the case summaries ready by 6:50am...", time:"5:40 AM", unread:false, folder:"inbox" },
   { id:10, from:"Dr. Rajiv Patel", fromInit:"RP", subject:"FW: ASCO abstract — our triple-negative data needs edits", preview:"Forwarding the abstract reviewers' comments. They want us to tighten the methods section and address the subgroup analysis...", time:"5:22 AM", unread:false, folder:"inbox" },
 
@@ -9881,14 +9881,14 @@ const INBOX = [
   { id:12, from:"Workday HR", fromInit:"WD", subject:"Your PTO request has been approved", preview:"Your request for May 5-9 has been approved by your manager. 5 days = 40 hours deducted from your balance...", time:"Yesterday 4:30 PM", unread:true, folder:"inbox", body:"<p>Your PTO request for May 5–9 has been approved by M. Rodriguez. 40 hours will be deducted from your balance on the pay period covering those dates.</p><p>Remaining PTO balance: 96 hours.</p>" },
   { id:13, from:"Patient: Robert Jensen", fromInit:"RJ", subject:"Thank you", preview:"Sarah, my family and I want to thank you for everything you've done for my dad these past few months. The way you handled the meeting yesterday...", time:"Yesterday 3:45 PM", unread:true, folder:"inbox", body:"<p>Sarah,</p><p>My family and I want to thank you for everything you've done for my dad these past few months. The way you handled the meeting yesterday — with grace, honesty, and compassion — meant more to us than you know.</p><p>We're at peace with the decision. Thank you for helping us get here.</p><p>— The Jensen family</p>" },
   { id:14, from:"Dr. Sofia Ramirez", fromInit:"SR", subject:"MRI read — Chang, L.W. — clear margins, no nodal involvement", preview:"MRI came back clean. No suspicious nodes, no distant findings. Will present at tumor board...", time:"Yesterday 2:18 PM", unread:false, folder:"inbox" },
-  { id:15, from:"Hoag Epic Support", fromInit:"ES", subject:"[Scheduled] Epic downtime — Saturday April 26, 2-4 AM", preview:"Epic will be unavailable for scheduled maintenance. Downtime procedures in effect. Paper charting packets distributed...", time:"Yesterday 1:00 PM", unread:false, folder:"inbox" },
+  { id:15, from:"Easy Health Epic Support", fromInit:"ES", subject:"[Scheduled] Epic downtime — Saturday April 26, 2-4 AM", preview:"Epic will be unavailable for scheduled maintenance. Downtime procedures in effect. Paper charting packets distributed...", time:"Yesterday 1:00 PM", unread:false, folder:"inbox" },
   { id:16, from:"Jenny Park (Preceptor)", fromInit:"JP", subject:"New grad onboarding — David Kim starts Monday", preview:"Just a reminder that David Kim starts Monday as our new grad on 4W. I'll be his primary preceptor. Can we grab 15 min to review the first week plan?...", time:"Yesterday 11:30 AM", unread:false, folder:"inbox" },
   { id:17, from:"Dr. Rajiv Patel", fromInit:"RP", subject:"Re: Re: Re: ASCO abstract draft", preview:"Looks good. One more pass and I think we're ready. Can you have revised version by Friday?", time:"Yesterday 10:04 AM", unread:false, folder:"inbox" },
-  { id:18, from:"Hoag Foundation", fromInit:"HF", subject:"Invitation: Nurses Week appreciation breakfast", preview:"Join us for our annual Nurses Week breakfast on May 6 in the Hoag Conference Center...", time:"Yesterday 9:15 AM", unread:false, folder:"inbox" },
+  { id:18, from:"Easy Health Foundation", fromInit:"HF", subject:"Invitation: Nurses Week appreciation breakfast", preview:"Join us for our annual Nurses Week breakfast on May 6 in the Easy Health Conference Center...", time:"Yesterday 9:15 AM", unread:false, folder:"inbox" },
   { id:19, from:"Patient: Maria Gonzalez (Portal)", fromInit:"MG", subject:"When will my port be placed?", preview:"Hi Sarah, I had my pre-op visit last week but I still don't have a date for the port placement. Can someone let me know?...", time:"Yesterday 8:50 AM", unread:true, folder:"inbox", body:"<p>Hi Sarah,</p><p>I had my pre-op visit last week but I still don't have a date for the port placement. Can someone let me know when it's scheduled? My first chemo is supposed to start in 10 days and I'm a little anxious.</p><p>Thanks,<br/>Maria</p>" },
   { id:20, from:"Dr. Rachel Goldberg", fromInit:"RG", subject:"Re: Radiation planning — Chang, L.W.", preview:"Planning scan ordered for Thursday. 5-week hypofractionated protocol assuming lumpectomy goes as planned...", time:"Yesterday 7:45 AM", unread:false, folder:"inbox" },
   // More filler
-  { id:21, from:"Hoag Library Services", fromInit:"HL", subject:"New journals available — April 2026", preview:"NEJM, JAMA Oncology, Journal of Clinical Oncology...", time:"Mon 3:30 PM", unread:false, folder:"inbox" },
+  { id:21, from:"Easy Health Library Services", fromInit:"HL", subject:"New journals available — April 2026", preview:"NEJM, JAMA Oncology, Journal of Clinical Oncology...", time:"Mon 3:30 PM", unread:false, folder:"inbox" },
   { id:22, from:"Maria Rodriguez, RN", fromInit:"MR", subject:"Unit council meeting notes — April", preview:"Attached are the notes from last week's unit council...", time:"Mon 2:00 PM", unread:false, folder:"inbox" },
   { id:23, from:"Dr. Elena Walsh", fromInit:"EW", subject:"Palliative care consult — Henderson, T.", preview:"Requesting palliative consult for Mr. Henderson, 74M with metastatic pancreatic...", time:"Mon 11:20 AM", unread:true, folder:"inbox", body:"<p>Sarah, requesting palliative consult for Mr. Henderson, 74M with metastatic pancreatic adenocarcinoma, newly admitted with intractable pain. Pain service already on board but family would benefit from goals-of-care discussion this week.</p><p>— Elena</p>" },
   { id:24, from:"Quality & Safety", fromInit:"QS", subject:"April dashboard — falls down 18%, CAUTI up slightly", preview:"Monthly quality metrics are out. Good news on falls — we're down 18% unit-wide...", time:"Mon 10:00 AM", unread:false, folder:"inbox" },
@@ -9941,10 +9941,10 @@ const fillerSubjects = [
   "Research nurse vacancy — internal posting"
 ];
 const fillerFroms = [
-  ["Hoag Supply Chain","SC"], ["Maria Rodriguez, RN","MR"], ["Dr. Rajiv Patel","RP"],
-  ["Hoag Facilities","HF"], ["Hoag Infection Control","IC"], ["Dr. Elena Walsh","EW"],
-  ["Hoag CME","CM"], ["Blood Bank","BB"], ["Epic Tips","ET"], ["Patient Experience","PE"],
-  ["Pharmacy","HP"], ["Hoag Research Office","RO"], ["Vendor Management","VM"],
+  ["Easy Health Supply Chain","SC"], ["Maria Rodriguez, RN","MR"], ["Dr. Rajiv Patel","RP"],
+  ["Easy Health Facilities","HF"], ["Easy Health Infection Control","IC"], ["Dr. Elena Walsh","EW"],
+  ["Easy Health CME","CM"], ["Blood Bank","BB"], ["Epic Tips","ET"], ["Patient Experience","PE"],
+  ["Pharmacy","HP"], ["Easy Health Research Office","RO"], ["Vendor Management","VM"],
   ["Quality & Safety","QS"], ["Volunteer Services","VS"], ["Clinical Nutrition","CN"],
   ["Chaplaincy","CH"], ["P&T Committee","PT"], ["Shared Governance","SG"], ["Magnet Committee","MC"],
   ["Simulation Center","SI"], ["Jenny Park","JP"], ["Maria Rodriguez, RN","MR"],
@@ -10082,7 +10082,7 @@ function openApp(app, context) {
 // action, and advances on click or on a timer.
 const TOUR = [
   {
-    title: "Welcome — Sarah Chen's morning at Hoag",
+    title: "Welcome — Sarah Chen's morning at Easy Health",
     text:  "The whole tour is about 2 minutes. You can click Next to advance or hit Skip anytime.",
     run:   () => { goHome(); }
   },
@@ -10178,11 +10178,11 @@ function toggleTheme() {
   const isDark = document.body.classList.toggle('dark');
   document.getElementById('theme-sun').style.display  = isDark ? 'none' : '';
   document.getElementById('theme-moon').style.display = isDark ? '' : 'none';
-  try { localStorage.setItem('hoag-theme', isDark ? 'dark' : 'light'); } catch (e) { /* ignore */ }
+  try { localStorage.setItem('easyhealth-theme', isDark ? 'dark' : 'light'); } catch (e) { /* ignore */ }
 }
 // Restore saved preference on load
 try {
-  if (localStorage.getItem('hoag-theme') === 'dark') {
+  if (localStorage.getItem('easyhealth-theme') === 'dark') {
     document.body.classList.add('dark');
     // The toggle icons might not exist yet at this point; update once the DOM is ready
     document.addEventListener('DOMContentLoaded', () => {
@@ -10222,10 +10222,10 @@ function a365Tab(key) {
 // Agent 365 live-feed animator. Prepends a new activity row every 3–5s while the view is active.
 const A365_FEED_POOL = [
   { bad:false, a:'Prior-Auth Sentinel', d:'Checked Anthem criteria for new inpatient stay · match 0.92' },
-  { bad:false, a:'Hoag Bed Coordinator', d:'Queried Epic bed-hold queue · 4 pending' },
+  { bad:false, a:'Easy Health Bed Coordinator', d:'Queried Epic bed-hold queue · 4 pending' },
   { bad:true,  a:'Agentforce (SF)', d:'⚠ Tried to write a PHI field — <strong>DLP block</strong>' },
   { bad:false, a:'Oncology Intake', d:'Requested UCI records for Okonkwo, D.' },
-  { bad:false, a:'Hoag GPT', d:'Summarized 4W overnight safety log for charge nurse' },
+  { bad:false, a:'Easy Health GPT', d:'Summarized 4W overnight safety log for charge nurse' },
   { bad:false, a:'Clinical Trial Matcher', d:'Re-scored 12 active patients against NCT criteria' },
   { bad:false, a:'Epic Workspace agent', d:'Surfaced pending results for 3 patients' },
   { bad:false, a:'Readmission Watch', d:'Added risk flag to Park, S. (0.71)' },
@@ -10379,7 +10379,7 @@ function startLiveActivity() {
 const NEW_EMAIL_POOL = [
   { from:"Pharmacy", fromInit:"HP", subject:"Trastuzumab back in stock — NDC update", preview:"Inventory restored as of 9:15 AM…", time:"now" },
   { from:"Dr. R. Chen", fromInit:"RC", subject:"Quick — Jensen peer-to-peer just got scheduled", preview:"BSC reviewer wants 11:30 today. Can you join?…", time:"now", urgent:true },
-  { from:"Hoag Quality", fromInit:"HQ", subject:"April quality dashboard refreshed", preview:"Falls down 18%, CAUTI flat. Full report…", time:"now" },
+  { from:"Easy Health Quality", fromInit:"HQ", subject:"April quality dashboard refreshed", preview:"Falls down 18%, CAUTI flat. Full report…", time:"now" },
   { from:"L. Thomas, RN", fromInit:"LT", subject:"Tumor board prep — 1 case added", preview:"Ms. Park added late, packet attached…", time:"now" },
   { from:"M. Rodriguez", fromInit:"MR", subject:"Tonight's coverage — K. Williams confirmed", preview:"Williams said yes. Still need 1 more for nights…", time:"now" }
 ];
@@ -10948,7 +10948,7 @@ function openEmail(em, el) {
       <div class="rs-avatar">${em.fromInit}</div>
       <div class="rs-meta">
         <div class="n">${em.from}</div>
-        <div class="t">To: Sarah Chen &lt;sarah.chen@hoag.org&gt; · ${em.time}</div>
+        <div class="t">To: Sarah Chen &lt;sarah.chen@easyhealth.org&gt; · ${em.time}</div>
       </div>
     </div>
     <div class="rs-body">${em.body || '<p style="color:#999;font-style:italic;">(Message body)</p>'}</div>
@@ -10991,7 +10991,7 @@ function emailAction(kind) {
     <div class="draft-head">
       <div class="draft-to">
         <span class="draft-to-label">To</span>
-        <input type="text" class="draft-to-input" value="${em.from} &lt;${em.from.toLowerCase().replace(/[^a-z]/g,'.').replace(/\.+/g,'.')}@hoag.org&gt;" />
+        <input type="text" class="draft-to-input" value="${em.from} &lt;${em.from.toLowerCase().replace(/[^a-z]/g,'.').replace(/\.+/g,'.')}@easyhealth.org&gt;" />
       </div>
       ${kind === 'replyall' ? `<div class="draft-to"><span class="draft-to-label">Cc</span><input type="text" class="draft-to-input" value="L. Thomas, RN; M. Rodriguez" /></div>` : ''}
       <div class="draft-to">
@@ -11028,7 +11028,7 @@ function generateEmailDraft(em) {
       <p>Thank you for reaching out, and I'm glad you let us know about both of these.</p>
       <p>The tingling in your fingertips sounds like it could be <strong>peripheral neuropathy</strong>, which can be a side effect of the new regimen. It's something we want to track — not dangerous in the short term, but worth watching.</p>
       <p>For the nausea: if Zofran is only lasting a few hours, please don't tough it out until Friday. I can get you a stronger anti-nausea med today. Call the clinic line (949-764-XXXX) this morning, or reply here if you'd rather message.</p>
-      <p>Warmly,<br/>Sarah Chen, RN<br/>Oncology Nurse Navigator · Hoag</p>`;
+      <p>Warmly,<br/>Sarah Chen, RN<br/>Oncology Nurse Navigator · Easy Health</p>`;
   }
   // Maria — staffing callouts
   if (/callout|coverage|shift/.test(s)) {
@@ -11040,7 +11040,7 @@ function generateEmailDraft(em) {
   // Blue Shield denial
   if (/blue shield|denial|claim/.test(s)) {
     return `<p>Acknowledging receipt of the denial notice for Mr. Jensen (Claim #BSC-2026-04-118349). I'm coordinating the appeal draft with Dr. R. Chen — it'll be ready for peer-to-peer this week.</p>
-      <p>— Sarah Chen, RN<br/>Oncology Nurse Navigator · Hoag</p>`;
+      <p>— Sarah Chen, RN<br/>Oncology Nurse Navigator · Easy Health</p>`;
   }
   // Dr. Walsh — family summary request
   if (/jensen family|family meeting|summary/.test(s)) {
@@ -11079,7 +11079,7 @@ const OD_FILES = [
   { type:'video',  name:'Tumor Board — Breast Oncology (Recording).mp4',                    label:'phi',  modified:'Today, 8:12 AM', by:'J. Patel', size:'418 MB', share:{kind:'team', label:'Breast Oncology'} },
   { type:'video',  name:'Jensen Family GOC Meeting (Recording).mp4',                        label:'phi',  modified:'Apr 20, 2026', by:'Dr. E. Walsh', size:'287 MB', share:{kind:'private', label:'Restricted'}, tag:'jensen' },
   { type:'pdf',    name:'HIPAA Training Reminder — due 4-30.pdf',                           label:'internal', modified:'Apr 15, 2026',   by:'Compliance',    size:'188 KB',   share:{kind:'team',  label:'All staff'} },
-  { type:'image',  name:'Hoag-Oncology-Brand-Assets.png',                                   label:'public',   modified:'Jan 12, 2026',     by:'Marketing',       size:'3.4 MB',   share:{kind:'team',  label:'All staff'} }
+  { type:'image',  name:'Easy Health-Oncology-Brand-Assets.png',                                   label:'public',   modified:'Jan 12, 2026',     by:'Marketing',       size:'3.4 MB',   share:{kind:'team',  label:'All staff'} }
 ];
 
 const LABEL_NAME = { phi: 'PHI', conf: 'Confidential', internal: 'Internal', public: 'Public' };
@@ -11261,7 +11261,7 @@ const APP_CONTEXT = {
   },
   agent_bedcoord: {
     chipIcon: '<svg viewBox="0 0 16 16" fill="#0078d4"><path d="M2 12V4h2v4h10V6h2v6h-2v-2H4v2H2zm6-5a2 2 0 100-4 2 2 0 000 4z"/></svg>',
-    chipText: "Hoag Bed Coordinator · Agent · 5 units connected",
+    chipText: "Easy Health Bed Coordinator · Agent · 5 units connected",
     tryPrompt: "'what's the bed picture right now?'",
     messagePlaceholder: 'Ask the Bed Coordinator agent'
   },
@@ -11437,7 +11437,7 @@ function getSuggestions(app, context) {
         { shortLabel: "Draft the Blue Shield packet", label: "Draft the prior-auth packet for the Blue Shield pending case.", key: "packet" },
         { shortLabel: "Show payer-by-payer turnaround", label: "Show this quarter's payer-by-payer turnaround times.", key: "payer" }
       ] : context === 'trial' ? [
-        { shortLabel: "Who might qualify for an open trial?", label: "Cross-reference today's tumor-board patients against open trials at Hoag + UCI.", key: "match" },
+        { shortLabel: "Who might qualify for an open trial?", label: "Cross-reference today's tumor-board patients against open trials at Easy Health + UCI.", key: "match" },
         { shortLabel: "Summarize best-match trial", label: "Summarize the best-match trial for Ms. Chang in plain language.", key: "summarize" },
         { shortLabel: "Draft eligibility-screen worksheet", label: "Draft an eligibility-screen worksheet for Dr. Patel.", key: "worksheet" }
       ] : []
@@ -11611,7 +11611,7 @@ function runCopilotSuggestion(sug) {
 
 // Before/after minute estimates per Copilot action — powers the ROI pill in every response
 // and the "Today with Copilot" counter in the top bar. Numbers are grounded in task-level
-// time studies Hoag would plausibly benchmark (triage/draft/build/summarize/search tasks).
+// time studies Easy Health would plausibly benchmark (triage/draft/build/summarize/search tasks).
 const SAVED_TIME_LOOKUP = {
     'home|patient360': { before: 35, after: 2 },
     'home|focus':      { before: 18, after: 1 },
@@ -11881,7 +11881,7 @@ function getResponse(app, key) {
         <p>Thank you for reaching out. I'm glad you let us know about what you're feeling.</p>
         <p>The tingling in your fingertips sounds like it could be <strong>peripheral neuropathy</strong>, which can be a side effect of the new regimen. It's something we definitely want to track — it's not dangerous in the short term, but if it gets worse or spreads, we may want to adjust your dose.</p>
         <p>For the nausea: if Zofran is only lasting a few hours and you're having trouble eating or drinking, <strong>please don't tough it out until Friday</strong>. I can get you an order for a stronger anti-nausea medication today. Can you call the clinic line (949-764-XXXX) this morning, or reply here if you'd rather message? We'll get you sorted.</p>
-        <p>Warmly,<br/>Sarah Chen, RN<br/>Oncology Nurse Navigator · Hoag</p>
+        <p>Warmly,<br/>Sarah Chen, RN<br/>Oncology Nurse Navigator · Easy Health</p>
       </div>
     `,
     'teams|tumorrecap': `
@@ -11909,7 +11909,7 @@ function getResponse(app, key) {
     `,
     'teams|chartnotes': `
       <h4>7 chart-ready MDT notes drafted</h4>
-      <p>Each note follows Hoag's MDT documentation template:</p>
+      <p>Each note follows Easy Health's MDT documentation template:</p>
       <ul>
         <li>Presenting clinician and specialty</li>
         <li>Imaging, pathology, and labs reviewed</li>
@@ -11924,7 +11924,7 @@ function getResponse(app, key) {
       <p>I've drafted 7 short letters (≤ 1 paragraph each) for the referring PCPs, tailored to what each provider needs to know for outpatient follow-up. Each one includes:</p>
       <ul>
         <li>The MDT recommendation in plain terms</li>
-        <li>Who owns the next step at Hoag</li>
+        <li>Who owns the next step at Easy Health</li>
         <li>When the patient should next see the PCP</li>
         <li>A direct contact for questions</li>
       </ul>
@@ -11998,7 +11998,7 @@ function getResponse(app, key) {
     'excel|risks': `
       <h4>Coverage risk analysis — 14 days, 12 nurses, 4W</h4>
       <p><span class="pill urgent">3 high-risk windows</span> <span class="pill warn">2 medium</span> <span class="slabel conf" style="vertical-align:2px;">Confidential</span></p>
-      <p style="font-size:11.5px; color:var(--hoag-blue); font-weight:600; margin-bottom:8px;">✨ I've pulse-highlighted each risk cell in the sheet — see the flash on the canvas.</p>
+      <p style="font-size:11.5px; color:var(--easyhealth-blue); font-weight:600; margin-bottom:8px;">✨ I've pulse-highlighted each risk cell in the sheet — see the flash on the canvas.</p>
       <h4>🚨 High risk</h4>
       <ul>
         <li><strong>Mon 4/28 night shift:</strong> Down to 4 RNs (Ashford + Nguyen called out). <strong>2 below target.</strong></li>
@@ -12103,7 +12103,7 @@ function getResponse(app, key) {
         <li>Finish paragraph 2 of the appeal — it's the only outstanding blocker. <span class="cite" onclick="openSource('jensen-appeal')">3</span></li>
         <li>Put a 10-minute Friday check-in on the calendar — the family is expecting it.</li>
       </ol>
-      <p style="margin-top:14px; font-size:11px; color:var(--gray-90); padding-top:10px; border-top:1px solid #ebebeb;">Sources: <span class="cite" onclick="openSource('jensen-family')">1</span> Jensen family recap.docx · <span class="cite" onclick="openSource('goc-meeting')">2</span> GOC meeting recording · <span class="cite" onclick="openSource('jensen-appeal')">3</span> Appeal draft · <span class="cite" onclick="openSource('acc-aha')">4</span> ACC-AHA 2021 guideline. Every answer respects your permissions in Hoag's tenant.</p>
+      <p style="margin-top:14px; font-size:11px; color:var(--gray-90); padding-top:10px; border-top:1px solid #ebebeb;">Sources: <span class="cite" onclick="openSource('jensen-family')">1</span> Jensen family recap.docx · <span class="cite" onclick="openSource('goc-meeting')">2</span> GOC meeting recording · <span class="cite" onclick="openSource('jensen-appeal')">3</span> Appeal draft · <span class="cite" onclick="openSource('acc-aha')">4</span> ACC-AHA 2021 guideline. Every answer respects your permissions in Easy Health's tenant.</p>
     `,
     'home|focus': `
       <h4>Here's what I'd focus on today</h4>
@@ -12217,7 +12217,7 @@ function getResponse(app, key) {
     'agent|intake': `
       <h4>3 new oncology referrals — triaged</h4>
       <ul>
-        <li><strong>Chang, Li-Wei (UCI → Hoag)</strong> — 54F, new IDC. Outside path + imaging received. Labs current. <span class="pill good">Ready for tumor board Tuesday.</span></li>
+        <li><strong>Chang, Li-Wei (UCI → Easy Health)</strong> — 54F, new IDC. Outside path + imaging received. Labs current. <span class="pill good">Ready for tumor board Tuesday.</span></li>
         <li><strong>Okonkwo, D.</strong> — 71M, rising PSA 14.2, prior referral records incomplete. <span class="pill warn">Need UCI path slides requested.</span></li>
         <li><strong>Garcia, E.</strong> — 39F, palpable breast mass + family hx BRCA. <span class="pill urgent">Genetics referral + diagnostic mammo needed this week.</span></li>
       </ul>
@@ -12290,7 +12290,7 @@ function getResponse(app, key) {
       <p><span class="pill good">2 strong candidates</span> <span class="pill">3 possible with more workup</span> <span class="pill">2 not eligible</span></p>
       <h4>Strong candidates</h4>
       <ul>
-        <li><strong>Chang, L. (IDC, ER+/PR+/HER2−, grade 2)</strong> — matches NCT05XXXXX (neoadjuvant endocrine + CDK4/6i at Hoag). Age, stage, biomarker, performance status all fit.</li>
+        <li><strong>Chang, L. (IDC, ER+/PR+/HER2−, grade 2)</strong> — matches NCT05XXXXX (neoadjuvant endocrine + CDK4/6i at Easy Health). Age, stage, biomarker, performance status all fit.</li>
         <li><strong>Rodriguez, M. (? mets)</strong> — if bone biopsy confirms metastatic BC, matches NCT06XXXXX (UCI, novel ADC). Pending biopsy.</li>
       </ul>
       <h4>Possible — need more data</h4>
@@ -12302,7 +12302,7 @@ function getResponse(app, key) {
     'agent|summarize': `
       <h4>For Ms. Chang — trial explanation (plain language)</h4>
       <div style="background:#fff;border:1px solid var(--gray-30);border-radius:6px;padding:12px;font-size:12.5px;line-height:1.7;">
-        <p>There's a clinical trial at Hoag that may be a good fit for you. Here's what it is, in plain terms:</p>
+        <p>There's a clinical trial at Easy Health that may be a good fit for you. Here's what it is, in plain terms:</p>
         <ul>
           <li><strong>What it studies:</strong> combining a hormone-blocking medicine (which you'd take anyway) with a newer pill that helps it work better.</li>
           <li><strong>What's different:</strong> you'd start the pills before surgery instead of after. This may shrink the tumor before the operation.</li>
@@ -12344,7 +12344,7 @@ function getResponse(app, key) {
       <ul>
         <li><strong>Letter of medical necessity</strong> citing NCCN Breast Cancer v3.2026 Section BINV-E.</li>
         <li><strong>H&amp;P</strong> from Dr. Patel (4/19) + imaging (MRI bilateral breast, 4/15).</li>
-        <li><strong>Pathology</strong> — UCI outside read + Hoag confirmation.</li>
+        <li><strong>Pathology</strong> — UCI outside read + Easy Health confirmation.</li>
         <li><strong>Multidisciplinary note</strong> from the upcoming tumor board (placeholder pending recap).</li>
         <li><strong>Payer-criteria map</strong> — each Blue Shield criterion mapped to the evidence line.</li>
       </ul>
@@ -12506,7 +12506,7 @@ function getResponse(app, key) {
         <li><strong>Operational (62 files)</strong> — staffing schedules, quality dashboards, morning-huddle artifacts.</li>
         <li><strong>Patient records / case docs (41)</strong> — appeals, discharge summaries, tumor-board prep.</li>
         <li><strong>Meetings &amp; recordings (28)</strong> — tumor boards, family meetings, service-line reviews.</li>
-        <li><strong>Guidelines &amp; reference (19)</strong> — NCCN, ACC/AHA, Hoag policies.</li>
+        <li><strong>Guidelines &amp; reference (19)</strong> — NCCN, ACC/AHA, Easy Health policies.</li>
         <li><strong>Town halls / presentations (14)</strong> — monthly and quarterly.</li>
       </ul>
       <h4>What might be stale</h4>
@@ -12545,7 +12545,7 @@ function getResponse(app, key) {
         <li><span class="pill warn">⚠ consult@external-med.com</span> · view · added in January, no recent activity</li>
       </ul>
       <h4>What I'd change</h4>
-      <p>Remove the two external viewers — the January share-link is stale and the Blue Shield reviewer was for a different case. Keeping them violates the "least-privilege" policy Hoag rolled out in March.</p>
+      <p>Remove the two external viewers — the January share-link is stale and the Blue Shield reviewer was for a different case. Keeping them violates the "least-privilege" policy Easy Health rolled out in March.</p>
       <p><span class="pill good">✓ I can revoke both with one click and notify you if either is re-requested.</span></p>
     `,
 
@@ -12613,8 +12613,8 @@ function populateAppeal() {
   const appealHTML = `
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16pt;">
       <div style="font-size:10pt;color:#777;">
-        HOAG MEMORIAL HOSPITAL PRESBYTERIAN<br/>
-        One Hoag Drive, Newport Beach, CA 92663<br/>
+        EASY HEALTH<br/>
+        One Easy Health Drive, Newport Beach, CA 92663<br/>
         Appeals &amp; Grievances Department
       </div>
       <div class="slabel-bar phi" title="Microsoft Purview sensitivity label">
@@ -12646,7 +12646,7 @@ function populateAppeal() {
     <p style="margin-top:20pt;">Respectfully,<br/><br/><br/>
     Sarah Chen, RN · Oncology Nurse Navigator<br/>
     On behalf of the Cardiovascular Service Line<br/>
-    Hoag Memorial Hospital Presbyterian</p>
+    Easy Health Memorial Hospital Presbyterian</p>
   `;
   doc.style.transition = 'opacity 0.3s ease';
   doc.style.opacity = '0.5';
@@ -12659,7 +12659,7 @@ function populateDeck() {
 
   const SLIDE_COUNT = 6;
   const brand = (n) => `
-    <div class="slide-brand"><span class="bdot"></span>Hoag Oncology Institute · Service Line Town Hall</div>
+    <div class="slide-brand"><span class="bdot"></span>Easy Health Oncology Institute · Service Line Town Hall</div>
     <div class="slide-pagenum">${n} / ${SLIDE_COUNT}</div>
   `;
 
@@ -12748,7 +12748,7 @@ function populateDeck() {
         </div>
       </div>
       <div style="display:flex; justify-content:center; margin-top:28px;">
-        <div style="background:linear-gradient(135deg, var(--hoag-teal), var(--hoag-blue)); color:#fff; padding:14px 26px; border-radius:10px; font-size:14pt; font-weight:500; box-shadow:0 6px 18px rgba(0,56,101,0.25);">
+        <div style="background:linear-gradient(135deg, var(--easyhealth-teal), var(--easyhealth-blue)); color:#fff; padding:14px 26px; border-radius:10px; font-size:14pt; font-weight:500; box-shadow:0 6px 18px rgba(0,56,101,0.25);">
           <strong style="font-weight:700;">ALOS ↓ 0.4 days</strong>
           <span style="opacity:0.85; margin-left:10px;">— volume up AND throughput better</span>
         </div>
@@ -12946,9 +12946,9 @@ function thumbMay() {
   return `<div class="thumb content">
     <div class="th-h">Focus for May</div>
     <div class="th-agenda">
-      <div class="th-ai"><div class="th-d" style="background:var(--hoag-gold);">1</div>CAUTI audit</div>
-      <div class="th-ai"><div class="th-d" style="background:var(--hoag-gold);">2</div>HCAHPS</div>
-      <div class="th-ai"><div class="th-d" style="background:var(--hoag-gold);">3</div>Magnet</div>
+      <div class="th-ai"><div class="th-d" style="background:var(--easyhealth-gold);">1</div>CAUTI audit</div>
+      <div class="th-ai"><div class="th-d" style="background:var(--easyhealth-gold);">2</div>HCAHPS</div>
+      <div class="th-ai"><div class="th-d" style="background:var(--easyhealth-gold);">3</div>Magnet</div>
     </div>
   </div>`;
 }
@@ -13175,7 +13175,7 @@ function generateFollowupResponse(text) {
       <li>A time window (today, this week)</li>
       <li>The app or document you mean</li>
     </ul>
-    <p style="font-size:11px;color:var(--gray-90);margin-top:8px;">I'll only use the sources you already have access to in Hoag's tenant.</p>`;
+    <p style="font-size:11px;color:var(--gray-90);margin-top:8px;">I'll only use the sources you already have access to in Easy Health's tenant.</p>`;
 }
 
 function pickFollowupPrompts(lastText) {
@@ -13203,7 +13203,7 @@ const SOURCES = {
       ['Sensitivity', 'PHI · Confidential']
     ],
     body: `
-      <p style="color:#777;font-size:11px;margin-bottom:10px;">HOAG MEMORIAL HOSPITAL PRESBYTERIAN · Appeals &amp; Grievances Department</p>
+      <p style="color:#777;font-size:11px;margin-bottom:10px;">EASY HEALTH · Appeals &amp; Grievances Department</p>
       <p><strong>Re:</strong> Appeal of Claim #BSC-2026-04-118349 · Jensen, Robert A.</p>
       <p>We respectfully request overturn of the above denial. The inpatient surgical intervention performed on Mr. Jensen meets ACC/AHA 2021 Class I indication for coronary revascularization.</p>
       <p><span class="ss-highlight">Coronary angiography on 04/05/2026 demonstrated multi-vessel disease: 90% stenosis of the LAD, 75% of the RCA, and 60% of the circumflex. Stress echocardiography on 03/28/2026 showed reversible anterior wall ischemia with EF 42%.</span></p>
@@ -13300,7 +13300,7 @@ const SOURCES = {
     ],
     body: `
       <p><strong>Section 3.2 — Risk scoring</strong></p>
-      <p><span class="ss-highlight">Patients scoring ≥ 0.65 on the Hoag 30-day readmission model must have a nurse-led care-transition review prior to discharge, including a home-health or SNF handoff if risk drivers include deconditioning, limited support, or DME gaps.</span></p>
+      <p><span class="ss-highlight">Patients scoring ≥ 0.65 on the Easy Health 30-day readmission model must have a nurse-led care-transition review prior to discharge, including a home-health or SNF handoff if risk drivers include deconditioning, limited support, or DME gaps.</span></p>
     `
   }
 };
@@ -13336,7 +13336,7 @@ const PERSONAS = {
     first: 'Sarah', full: 'Sarah Chen, RN', role: 'Oncology Nurse Navigator · 4W',
     greetingHtml: `Good morning, <strong>Sarah</strong>`,
     statsHtml: `You have <strong>147 unread messages</strong>, <strong>3 meetings</strong> today, and <strong>2 documents</strong> shared with you overnight.`,
-    agentTitleSub: 'Built for Hoag in Copilot Studio',
+    agentTitleSub: 'Built for Easy Health in Copilot Studio',
     badges: { outlook: '147', teams: '3' },
     recents: [
       { app:'word',       title:"Discharge Summary — MRN 847231 (Jensen, R.)",      meta:'You edited · 2h ago',          onclick:"openApp('word','discharge')" },
@@ -13345,10 +13345,10 @@ const PERSONAS = {
       { app:'teams',      title:"Tumor Board — Breast Oncology (Recording)",        meta:'J. Patel shared · yesterday',  onclick:"openApp('teams')" }
     ],
     agents: [
-      { logo:'agentLogoBed',    name:'Hoag Bed Coordinator',       desc:'House-wide bed status, pending admits, and discharge readiness across 5 units.', pill:'', pillText:'Live · last sync 2 min ago',          ctx:'bedcoord',  key:'status' },
+      { logo:'agentLogoBed',    name:'Easy Health Bed Coordinator',       desc:'House-wide bed status, pending admits, and discharge readiness across 5 units.', pill:'', pillText:'Live · last sync 2 min ago',          ctx:'bedcoord',  key:'status' },
       { logo:'agentLogoIntake', name:'Oncology Intake Agent',      desc:'Reviews new referrals, pulls outside records, and pre-stages labs + imaging orders.', pill:'',  pillText:'3 new referrals awaiting review',    ctx:'intake',    key:'intake' },
       { logo:'agentLogoShield', name:'Prior-Auth Sentinel',        desc:'Monitors pending authorizations, flags payer-specific risk, and drafts packets.',      pill:'warn', pillText:'2 at risk of missed deadline',    ctx:'priorauth', key:'scan' },
-      { logo:'agentLogoTrial',  name:'Clinical Trial Matcher',     desc:"Cross-references today's tumor board patients against open NCT trials at Hoag + UCI.", pill:'good', pillText:'2 tumor-board patients may qualify', ctx:'trial',     key:'match' }
+      { logo:'agentLogoTrial',  name:'Clinical Trial Matcher',     desc:"Cross-references today's tumor board patients against open NCT trials at Easy Health + UCI.", pill:'good', pillText:'2 tumor-board patients may qualify', ctx:'trial',     key:'match' }
     ]
   },
   patel: {
@@ -13366,7 +13366,7 @@ const PERSONAS = {
     ],
     agents: [
       { logo:'agentLogoIntake', name:'Tumor Board Orchestrator',   desc:'Assembles each case binder the night before, sorts by complexity, and flags missing imaging.', pill:'', pillText:'7 cases ready for 7 AM',           ctx:'bedcoord',  key:'status' },
-      { logo:'agentLogoTrial',  name:'Clinical Trial Matcher',     desc:"Cross-references your service line against open NCT trials at Hoag + UCI.",                   pill:'good', pillText:'2 patients may qualify today',   ctx:'trial',     key:'match' },
+      { logo:'agentLogoTrial',  name:'Clinical Trial Matcher',     desc:"Cross-references your service line against open NCT trials at Easy Health + UCI.",                   pill:'good', pillText:'2 patients may qualify today',   ctx:'trial',     key:'match' },
       { logo:'agentLogoShield', name:'Guideline & Evidence Agent', desc:'NCCN + ACC/AHA + ASCO lookup, grounded in the policies and papers you already cite.',        pill:'', pillText:'Last synced 14 min ago',            ctx:'priorauth', key:'scan' },
       { logo:'agentLogoBed',    name:'Research Pipeline Agent',    desc:'Keeps your IRB-active studies, enrollment funnel, and abstract deadlines in one view.',     pill:'warn', pillText:'ASCO abstract revision due Fri',     ctx:'intake',    key:'intake' }
     ]
@@ -13395,7 +13395,7 @@ const PERSONAS = {
     initials: 'DK', avatarBg: 'linear-gradient(135deg, #2a8fd0, #0057a0)', avatarColor: '#fff',
     first: 'David', full: 'David Kim', role: 'Chief Information Officer',
     greetingHtml: `Good morning, <strong>David</strong>`,
-    statsHtml: `Copilot is active for <strong>2,847 Hoag users</strong> today. <strong>84% weekly adoption</strong>, and the <strong>Admin dashboard</strong> shows a new compliance report ready for review.`,
+    statsHtml: `Copilot is active for <strong>2,847 Easy Health users</strong> today. <strong>84% weekly adoption</strong>, and the <strong>Admin dashboard</strong> shows a new compliance report ready for review.`,
     agentTitleSub: 'Governance agents for IT leadership',
     badges: { outlook: '38', teams: '5' },
     recents: [
@@ -13418,8 +13418,8 @@ let currentPersona = 'sarah';
 function showTeaser(which) {
   const T = {
     shifts:  "Microsoft Shifts — real app, not built out in this demo. Syncs nurse schedules, swaps, and shift-pickups. Copilot can draft pickup messages and suggest coverage.",
-    purview: "Microsoft Purview — included with E5. Shows DLP events, sensitivity-label policies, and every Copilot prompt that touched labeled data. Your Hoag tenant is running the full compliance stack.",
-    powerbi: "Power BI — your existing reports + a Copilot sidecar that explains any chart in plain language. Hoag would connect it to the service-line dashboards.",
+    purview: "Microsoft Purview — included with E5. Shows DLP events, sensitivity-label policies, and every Copilot prompt that touched labeled data. Your Easy Health tenant is running the full compliance stack.",
+    powerbi: "Power BI — your existing reports + a Copilot sidecar that explains any chart in plain language. Easy Health would connect it to the service-line dashboards.",
     studio:  "Full Copilot Studio — the paid add-on for IT. Publishes agents as standalone Teams bots, connects to Epic + Dataverse + custom APIs, and triggers Power Automate flows."
   };
   showTip(T[which] || 'Demo tile');
@@ -13512,7 +13512,7 @@ function renderAgents(agents, subTitle) {
   const grid = document.getElementById('agent-grid');
   if (!grid) return;
   const sub = document.querySelector('#agent-title .count');
-  if (sub) sub.textContent = '· ' + (subTitle || 'Built for Hoag in Copilot Studio');
+  if (sub) sub.textContent = '· ' + (subTitle || 'Built for Easy Health in Copilot Studio');
   grid.innerHTML = '';
   agents.forEach(a => {
     const card = document.createElement('div');
@@ -13541,7 +13541,7 @@ function renderAgents(agents, subTitle) {
     <div class="agent-meta">
       <div class="agent-name">Build your own agent</div>
       <div class="agent-desc">Describe what you want, point it at your SharePoint or OneDrive, and it's ready in a few minutes — no code.</div>
-      <div class="agent-pill" style="background:linear-gradient(135deg,#eef3f8,#e4efff);color:var(--hoag-blue);">
+      <div class="agent-pill" style="background:linear-gradient(135deg,#eef3f8,#e4efff);color:var(--easyhealth-blue);">
         <svg width="12" height="12" style="flex-shrink:0;"><use href="#copilotLogo"/></svg>
         Included with Microsoft 365 Copilot
       </div>
@@ -13651,7 +13651,7 @@ function renderTimeSavedModal() {
     const [app, action] = key.split('|');
     return `
       <div class="tsx-bench-row">
-        <div><b style="color:var(--hoag-blue); text-transform:capitalize;">${app}</b>
+        <div><b style="color:var(--easyhealth-blue); text-transform:capitalize;">${app}</b>
              <span style="color:var(--gray-130);"> · ${action}</span></div>
         <div class="b-strike">${v.before} min</div>
         <div>${v.after} min</div>
@@ -13824,7 +13824,7 @@ function renderAbmStep() {
 function abmStepDescribe() {
   return `
     <h3>What would you like your agent to do?</h3>
-    <p class="abm-lede">Describe the goal in plain language. The agent builder lives inside Microsoft 365 Copilot, so it uses the SharePoint, OneDrive, and Teams data you already have — nothing leaves Hoag's tenant.</p>
+    <p class="abm-lede">Describe the goal in plain language. The agent builder lives inside Microsoft 365 Copilot, so it uses the SharePoint, OneDrive, and Teams data you already have — nothing leaves Easy Health's tenant.</p>
     <div class="abm-prompt-box">
       <div class="abm-prompt-label">Your goal</div>
       <textarea id="abm-describe-input" placeholder="e.g. Help me keep track of ...">${abmState.description}</textarea>
@@ -13848,7 +13848,7 @@ function abmStepDescribe() {
         <div class="abm-t-desc">Route MyChart messages by clinical urgency and draft first-pass replies.</div>
       </div>
     </div>
-    <div style="margin-top:22px; padding:12px 14px; background:#f4f6f9; border-left:3px solid var(--hoag-teal); border-radius:4px; font-size:12px; color:var(--gray-130); line-height:1.55;">
+    <div style="margin-top:22px; padding:12px 14px; background:#f4f6f9; border-left:3px solid var(--easyhealth-teal); border-radius:4px; font-size:12px; color:var(--gray-130); line-height:1.55;">
       <strong style="color:var(--gray-160);">What you can build here:</strong> agents that search and answer over your SharePoint, OneDrive, Teams, and selected websites. Need an agent that writes back to systems, triggers Power Automate flows, or connects to Dataverse? That's <strong>full Copilot Studio</strong>, a separate add-on.
     </div>
   `;
@@ -14011,17 +14011,17 @@ function abmStepKnowledge() {
   `;
   return `
     <h3>Where should this agent get information from?</h3>
-    <p class="abm-lede">Pick the Microsoft 365 sources this agent can read. Answers cite the source document. Access always respects Hoag's existing permissions — users only see what they already have access to.</p>
+    <p class="abm-lede">Pick the Microsoft 365 sources this agent can read. Answers cite the source document. Access always respects Easy Health's existing permissions — users only see what they already have access to.</p>
     <div class="abm-source-list">
-      ${src('sp_oncology', 'SharePoint — Oncology Service Line', 'hoag.sharepoint.com/sites/oncology', '162 docs', '◈', '#0078d4')}
-      ${src('sp_policies', 'SharePoint — Readmission Policies', 'hoag.sharepoint.com/sites/clinical-policies', '14 docs', '◈', '#0078d4')}
-      ${src('onedrive',    'OneDrive — Your files',              'sarah.chen@hoag.org',                   '847 files', '☁', '#0067c0')}
+      ${src('sp_oncology', 'SharePoint — Oncology Service Line', 'easyhealth.sharepoint.com/sites/oncology', '162 docs', '◈', '#0078d4')}
+      ${src('sp_policies', 'SharePoint — Readmission Policies', 'easyhealth.sharepoint.com/sites/clinical-policies', '14 docs', '◈', '#0078d4')}
+      ${src('onedrive',    'OneDrive — Your files',              'sarah.chen@easyhealth.org',                   '847 files', '☁', '#0067c0')}
       ${src('teams',       'Teams — Breast Oncology channel',    '12 channels · posts + shared files',    'Connected', '💬', '#464775')}
       ${src('files',       'Specific files you upload',          'PDFs, Word, PowerPoint, Excel',         '0 uploaded','📎', '#616161')}
       ${src('web',         'Selected websites',                  'Add up to 4 public URLs (e.g., nccn.org, guidelines pages)', '0 sites', '🌐', '#217346')}
     </div>
     <div style="margin-top:18px; padding:12px 14px; background:#fff4e0; border-left:3px solid #c77700; border-radius:4px; font-size:11.5px; color:#6b4400; line-height:1.55;">
-      <strong>Need Epic, Dataverse, or a custom API?</strong> Those connectors need <strong>full Copilot Studio</strong>. Talk to Hoag IT about adding it for the teams that need it.
+      <strong>Need Epic, Dataverse, or a custom API?</strong> Those connectors need <strong>full Copilot Studio</strong>. Talk to Easy Health IT about adding it for the teams that need it.
     </div>
   `;
 }
@@ -14059,7 +14059,7 @@ function abmStepTest() {
         <div class="abm-msg user">${abmState.starters[0]}</div>
         <div class="abm-msg agent">
           <div class="abm-msg-header"><svg width="14" height="14"><use href="#${abmState.logo}"/></svg>${abmState.name}</div>
-          <p>Based on <strong>3 discharge summaries</strong> and the <strong>Hoag Readmission Policy (v4, Mar 2026)</strong>, three patients score above the 0.65 threshold for 30-day readmission:</p>
+          <p>Based on <strong>3 discharge summaries</strong> and the <strong>Easy Health Readmission Policy (v4, Mar 2026)</strong>, three patients score above the 0.65 threshold for 30-day readmission:</p>
           <ul style="margin:6px 0 6px 18px;">
             <li><strong>Hernandez, O.</strong> — 0.78 · COPD + heart failure · home O₂ delayed</li>
             <li><strong>Park, S.</strong> — 0.71 · lives alone · SNF bed not confirmed</li>
@@ -14090,12 +14090,12 @@ function abmStepPublish() {
       <div class="abm-pub-sub">Your agent will show up in Microsoft 365 Copilot for you right away. You can share it with named colleagues or your whole team — they'll see it in their own Copilot chat.</div>
     </div>
     <div class="abm-publish-details">
-      <div class="abm-pd-row"><span class="abm-pd-label">Published to</span><span class="abm-pd-val">Microsoft 365 Copilot (Hoag tenant)</span></div>
+      <div class="abm-pd-row"><span class="abm-pd-label">Published to</span><span class="abm-pd-val">Microsoft 365 Copilot (Easy Health tenant)</span></div>
       <div class="abm-pd-row"><span class="abm-pd-label">Knowledge sources</span><span class="abm-pd-val">${selSrc} connected · honors existing permissions</span></div>
       <div class="abm-pd-row"><span class="abm-pd-label">Built-in capabilities</span><span class="abm-pd-val">${selCap ? selCap + ' enabled' : 'Base Copilot only'}</span></div>
       <div class="abm-pd-row"><span class="abm-pd-label">Where users find it</span><span class="abm-pd-val">Copilot chat · Agents sidebar · mobile app</span></div>
       <div class="abm-pd-row"><span class="abm-pd-label">Shared with</span><span class="abm-pd-val">You · Oncology Service Line group (48 people)</span></div>
-      <div class="abm-pd-row"><span class="abm-pd-label">Data &amp; compliance</span><span class="abm-pd-val" style="color:#107c10;">✓ Stays in Hoag tenant · HIPAA-aligned</span></div>
+      <div class="abm-pd-row"><span class="abm-pd-label">Data &amp; compliance</span><span class="abm-pd-val" style="color:#107c10;">✓ Stays in Easy Health tenant · HIPAA-aligned</span></div>
       <div class="abm-pd-row"><span class="abm-pd-label">License</span><span class="abm-pd-val" style="color:#107c10;">✓ Included with Microsoft 365 Copilot</span></div>
       <div class="abm-pd-row"><span class="abm-pd-label">Owner</span><span class="abm-pd-val">Sarah Chen (you)</span></div>
     </div>
