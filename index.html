@@ -2868,6 +2868,68 @@ body.dark .pv-event.bad { background: #2a1818; }
 }
 .en-perm.admin { background: #fde7e9; color: #a4262c; border-color: #f5c2c7; }
 
+
+/* ---- Entra: Permissions pane CSS ---- */
+/* Graph permission table */
+.en-perm-table { display: flex; flex-direction: column; }
+.en-perm-row {
+  display: grid; grid-template-columns: 1.4fr 1fr 0.9fr 0.8fr 0.6fr;
+  gap: 10px; align-items: center;
+  padding: 9px 12px;
+  background: #fff; border-bottom: 1px solid #edebe9;
+  font-size: 12px;
+}
+.en-perm-row:hover { background: #faf9f8; }
+.en-perm-row.head {
+  background: #faf9f8; padding: 7px 12px;
+  font-size: 10.5px; font-weight: 600; color: #605e5c;
+  text-transform: uppercase; letter-spacing: 0.6px;
+}
+.en-perm-row.head:hover { background: #faf9f8; }
+.en-perm-row .en-perm-name {
+  font-family: Consolas, Menlo, monospace; font-size: 11.5px;
+  font-weight: 600; color: #323130;
+}
+.en-perm-row .en-perm-desc small { color: #605e5c; display: block; font-size: 10.5px; }
+.en-perm-row .en-perm-type {
+  font-size: 10.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.en-perm-row .en-perm-type.app { color: #8a6a00; }
+.en-perm-row .en-perm-type.del { color: #0078d4; }
+
+/* App-identity property grid (used in Permissions > Application identity card) */
+.en-agent-field { padding: 4px 0; border-bottom: 1px solid #f3f2f1; display: grid; grid-template-columns: 140px 1fr; gap: 10px; align-items: baseline; font-size: 12px; }
+.en-agent-field:last-child { border-bottom: none; }
+.en-agent-field .lbl { color: #605e5c; font-size: 11px; font-weight: 600; }
+.en-agent-field .v   { color: #323130; }
+.en-agent-field .v.mono { font-family: Consolas, Menlo, monospace; font-size: 11px; word-break: break-all; }
+.en-agent-field .v.green { color: #107c10; font-weight: 600; }
+
+/* SharePoint oversharing scan row */
+.en-overshare-row {
+  display: grid; grid-template-columns: 32px 1fr auto auto auto; gap: 12px;
+  align-items: center; padding: 10px 14px;
+  background: #fff; border-left: 3px solid #c19c00;
+  border-top: 1px solid #edebe9; border-right: 1px solid #edebe9; border-bottom: 1px solid #edebe9;
+  font-size: 12px; margin-bottom: 4px; border-radius: 0 2px 2px 0;
+}
+.en-overshare-row.danger { border-left-color: #d13438; }
+.en-overshare-row.ok     { border-left-color: #107c10; }
+.en-overshare-row .en-os-ico {
+  width: 30px; height: 30px; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  background: #eff6fc; color: #0078d4;
+}
+.en-overshare-row.danger .en-os-ico { background: #fde7e9; color: #a4262c; }
+.en-overshare-row.ok .en-os-ico     { background: #dff6dd; color: #107c10; }
+
+body.dark .en-perm-row, body.dark .en-overshare-row { background: #252423; border-color: #323130; color: #d2d0ce; }
+body.dark .en-perm-row:hover { background: #2d2c2b; }
+body.dark .en-perm-row.head { background: #1f1e1d; color: #a19f9d; }
+body.dark .en-agent-field { border-bottom-color: #292827; }
+body.dark .en-agent-field .v { color: #f3f2f1; }
+
 /* PIM activation badge */
 .en-pim-tag {
   display: inline-flex; align-items: center; gap: 4px;
@@ -7248,6 +7310,14 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             </div>
           </div>
 
+          <div class="en-rail-group">Copilot enablement</div>
+          <div class="en-tabs">
+            <div class="en-tab" data-entab="permissions" onclick="switchEntraTab('permissions')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="10" width="14" height="10" rx="1"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+              Permissions &amp; consent
+            </div>
+          </div>
+
           <div class="en-rail-group">Identities</div>
           <div class="en-tabs">
             <div class="en-tab" data-entab="users" onclick="switchEntraTab('users')">
@@ -7263,10 +7333,6 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
               Devices
               <span class="en-tab-badge info">3,241</span>
             </div>
-            <div class="en-tab" style="opacity:0.75;cursor:default;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8a4 4 0 100 8 4 4 0 000-8z"/><path d="M3 12h2M19 12h2M12 3v2M12 19v2"/></svg>
-              External identities
-            </div>
           </div>
 
           <div class="en-rail-group">Protection</div>
@@ -7281,10 +7347,6 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
               Identity Protection
               <span class="en-tab-badge warn">12</span>
             </div>
-            <div class="en-tab" style="opacity:0.75;cursor:default;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="10" width="14" height="10" rx="1"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
-              Authentication methods
-            </div>
           </div>
 
           <div class="en-rail-group">Identity governance</div>
@@ -7297,22 +7359,6 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             <div class="en-tab" style="opacity:0.75;cursor:default;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h16M4 14h12M4 20h8"/><circle cx="18" cy="20" r="2"/></svg>
               Access reviews
-            </div>
-            <div class="en-tab" style="opacity:0.75;cursor:default;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="M4 9h16M9 5v14"/></svg>
-              Entitlement management
-            </div>
-          </div>
-
-          <div class="en-rail-group">Applications</div>
-          <div class="en-tabs">
-            <div class="en-tab" data-entab="apps" onclick="switchEntraTab('apps')">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-              Enterprise applications
-            </div>
-            <div class="en-tab" style="opacity:0.75;cursor:default;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v12H4z"/><path d="M4 10h16M9 6v12"/></svg>
-              App registrations
             </div>
           </div>
 
@@ -7333,7 +7379,230 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
         <!-- Main content area -->
         <div class="en-main">
 
-          <!-- ========== OVERVIEW ========== -->
+          <!-- ========== PERMISSIONS & CONSENT ========== -->
+          <div class="en-pane" id="en-pane-permissions">
+            <div class="en-bread">
+              <span>Microsoft Entra</span>
+              <span class="en-bc-sep">›</span>
+              <span>Applications</span>
+              <span class="en-bc-sep">›</span>
+              <span>Enterprise applications</span>
+              <span class="en-bc-sep">›</span>
+              <span class="en-bc-last">Microsoft 365 Copilot · Permissions</span>
+            </div>
+            <div class="en-title">
+              <div>
+                <h1>Microsoft 365 Copilot — permissions &amp; consent</h1>
+                <p>Every Microsoft Graph scope the Copilot service can call on behalf of a Hoag user, who granted admin consent, and when. Missing consent = Copilot silently fails for that capability.</p>
+              </div>
+              <div class="en-meta">
+                <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">API permissions</div>
+                <div style="font-size:20pt;font-weight:300;color:#0078d4;line-height:1.05;margin:2px 0;">14</div>
+                <div>all <span style="color:#107c10;font-weight:600;">admin-consented</span></div>
+              </div>
+            </div>
+            <div class="en-cmd">
+              <div class="en-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>Add permission</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg>Grant admin consent</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>Revoke</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+              <div class="en-cmd-btn sep"></div>
+              <div class="en-cmd-filter">Show: Granted ▾</div>
+            </div>
+
+            <div class="en-card">
+              <div class="en-card-head"><div><div class="en-card-title">Application identity</div><div class="en-card-sub">Microsoft-owned first-party app · auto-enabled when Copilot license is assigned</div></div></div>
+              <div style="display:grid;grid-template-columns: 1fr 1fr; gap: 10px 24px; font-size:12px; padding-top: 4px;">
+                <div class="en-agent-field"><div class="lbl">Display name</div><div class="v"><b>Microsoft 365 Copilot</b></div></div>
+                <div class="en-agent-field"><div class="lbl">Application (client) ID</div><div class="v mono">fb78d390-0c51-40cd-8e17-fdbfab77341b</div></div>
+                <div class="en-agent-field"><div class="lbl">Object ID</div><div class="v mono">8a74c284-92f7-4a5e-b02c-9e1f75213a84</div></div>
+                <div class="en-agent-field"><div class="lbl">Publisher</div><div class="v">Microsoft Corporation <span class="en-pill info" style="margin-left:6px;">Verified</span></div></div>
+                <div class="en-agent-field"><div class="lbl">Directory</div><div class="v">Hoag Memorial Hospital Presbyterian</div></div>
+                <div class="en-agent-field"><div class="lbl">Sign-in audience</div><div class="v">Organizational directory — single tenant</div></div>
+                <div class="en-agent-field"><div class="lbl">Admin consent</div><div class="v green">Granted tenant-wide · 2026-02-14 by dk.chen@hoag.org</div></div>
+                <div class="en-agent-field"><div class="lbl">User assignment required</div><div class="v">Yes · restricted to "Copilot-licensed" group (2,834 members)</div></div>
+              </div>
+            </div>
+
+            <div class="en-card" style="padding: 0;">
+              <div style="padding: 16px 18px 10px;"><div class="en-card-title">Microsoft Graph API permissions</div><div class="en-card-sub">What Copilot can read / write across the tenant · all <b>delegated</b> (acts as the signed-in user)</div></div>
+              <div class="en-perm-table" style="border-top:1px solid #edebe9;">
+                <div class="en-perm-row head">
+                  <div>Permission</div>
+                  <div>Description</div>
+                  <div>Type</div>
+                  <div>Consented by</div>
+                  <div>Status</div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">User.Read</div>
+                  <div class="en-perm-desc">Sign in and read user profile<small>Minimum required to identify the Copilot user</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">User.ReadBasic.All</div>
+                  <div class="en-perm-desc">Read basic profiles of tenant users<small>Powers the "who reports to whom" people-search in Copilot</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">Files.Read.All</div>
+                  <div class="en-perm-desc">Read all files the user can access<small>OneDrive, SharePoint, Teams file attachments — ACL-trimmed</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">Sites.Read.All</div>
+                  <div class="en-perm-desc">Read items in all SharePoint sites the user can access<small>Primary grounding source for Copilot</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">Mail.Read</div>
+                  <div class="en-perm-desc">Read user mail<small>Enables Outlook summarization, reply drafting, mail search</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">Mail.Send</div>
+                  <div class="en-perm-desc">Send mail as the signed-in user<small>Required for "Send the drafted reply" actions</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">Calendars.Read</div>
+                  <div class="en-perm-desc">Read user calendars<small>"What do I have this afternoon?" · meeting prep</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">Chat.Read</div>
+                  <div class="en-perm-desc">Read the user's Teams chat messages<small>Chat summarization, pending-question surfacing</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">ChannelMessage.Read.All</div>
+                  <div class="en-perm-desc">Read channel messages in Teams the user is in<small>Meeting recap, channel thread summarization</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">OnlineMeetings.Read</div>
+                  <div class="en-perm-desc">Read user's online meetings<small>Meeting attendance reports, transcripts</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">People.Read</div>
+                  <div class="en-perm-desc">Read user's relevant people list<small>"Who worked with me on the Jensen case" · people graph</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">Notes.Read.All</div>
+                  <div class="en-perm-desc">Read all OneNote notebooks the user can access<small>Enables notebook search, summarization</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">Tasks.Read</div>
+                  <div class="en-perm-desc">Read user's tasks (To Do / Planner)<small>"What's on my plate today?" Planner integration</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+                <div class="en-perm-row">
+                  <div class="en-perm-name">TeamsAppInstallation.ReadForUser</div>
+                  <div class="en-perm-desc">Read the user's installed Teams apps<small>Agent discovery (which Copilot agents is this user allowed to use)</small></div>
+                  <div class="en-perm-type del">Delegated</div>
+                  <div>dk.chen<small>2026-02-14</small></div>
+                  <div><span class="en-pill ok">Granted</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="en-grid-32">
+              <div class="en-card">
+                <div class="en-card-head"><div><div class="en-card-title">User consent policies</div><div class="en-card-sub">What users can install without an admin in the loop</div></div></div>
+                <div style="font-size:12.5px;color:#323130;line-height:1.7;">
+                  <div style="display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #edebe9;">
+                    <span class="en-pill ok">On</span><div><b>Restrict user consent to verified publishers</b><div style="font-size:11px;color:#605e5c;margin-top:1px;">Only Microsoft-verified ISVs · minimum scopes</div></div><span style="font-size:11px;color:#605e5c;">Recommended</span>
+                  </div>
+                  <div style="display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #edebe9;">
+                    <span class="en-pill bad">Off</span><div><b>Allow user consent to any app</b><div style="font-size:11px;color:#605e5c;margin-top:1px;">Disabled · forces admin review for everything else</div></div><span style="font-size:11px;color:#605e5c;">Block</span>
+                  </div>
+                  <div style="display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:8px 0;">
+                    <span class="en-pill ok">On</span><div><b>Admin consent workflow enabled</b><div style="font-size:11px;color:#605e5c;margin-top:1px;">Routes requests to Security team · 24h SLA</div></div><span style="font-size:11px;color:#605e5c;">Pending: 2</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="en-card">
+                <div class="en-card-head"><div><div class="en-card-title">Token &amp; session controls</div><div class="en-card-sub">How long a Copilot session can stay valid</div></div></div>
+                <div style="font-size:12.5px;color:#323130;line-height:1.8;">
+                  <div class="en-agent-field"><div class="lbl">Access token lifetime</div><div class="v mono">60 min (default)</div></div>
+                  <div class="en-agent-field"><div class="lbl">Refresh token lifetime</div><div class="v mono">90 days (default)</div></div>
+                  <div class="en-agent-field"><div class="lbl">Sign-in frequency</div><div class="v">Every 24h (CA-012 on guests) · sliding for internal</div></div>
+                  <div class="en-agent-field"><div class="lbl">Continuous access evaluation</div><div class="v green">Enabled · tokens revoked in near-real-time on risk</div></div>
+                  <div class="en-agent-field"><div class="lbl">Browser persistent session</div><div class="v">Never · policy-enforced on unmanaged browsers</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="en-card">
+              <div class="en-card-head"><div><div class="en-card-title">SharePoint oversharing scan <span class="en-pill warn" style="margin-left:8px;">7 sites flagged</span></div><div class="en-card-sub">The #1 cause of Copilot surfacing content it shouldn't. Fix before Wave 3.</div></div><div class="en-card-link">Full Advanced Data Governance scan ›</div></div>
+
+              <div class="en-overshare-row danger">
+                <div class="en-os-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 20h20L12 2z"/><path d="M12 9v5M12 17h.01" stroke-linecap="round"/></svg></div>
+                <div><b>/sites/HR-Total-Rewards</b><div style="color:#605e5c;font-size:11px;margin-top:1px;">Folder "Compensation Letters" shared <b>Everyone except external</b> · contains 2026 salary packets for 124 leaders</div></div>
+                <div style="font-size:11px;color:#605e5c;">Owner: a.morales@hoag</div>
+                <div style="font-size:11px;color:#605e5c;">1,247 files</div>
+                <div><span class="en-pill bad">Fix before Wave 3</span></div>
+              </div>
+              <div class="en-overshare-row danger">
+                <div class="en-os-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 20h20L12 2z"/><path d="M12 9v5M12 17h.01" stroke-linecap="round"/></svg></div>
+                <div><b>/sites/Legal-M&amp;A</b><div style="color:#605e5c;font-size:11px;margin-top:1px;">Site shared <b>All clinical staff</b> · contains draft acquisition docs labeled PHI + Confidential</div></div>
+                <div style="font-size:11px;color:#605e5c;">Owner: r.garcia@hoag</div>
+                <div style="font-size:11px;color:#605e5c;">84 files</div>
+                <div><span class="en-pill bad">Fix before Wave 3</span></div>
+              </div>
+              <div class="en-overshare-row">
+                <div class="en-os-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg></div>
+                <div><b>/sites/Oncology-PolicyArchive</b><div style="color:#605e5c;font-size:11px;margin-top:1px;">Retired policy drafts shared broadly · low PHI risk but confusing to Copilot (outdated content)</div></div>
+                <div style="font-size:11px;color:#605e5c;">Owner: k.lee@hoag</div>
+                <div style="font-size:11px;color:#605e5c;">342 files</div>
+                <div><span class="en-pill warn">Recommend label + lock</span></div>
+              </div>
+              <div class="en-overshare-row">
+                <div class="en-os-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg></div>
+                <div><b>/sites/RevenueCycle-Shared</b><div style="color:#605e5c;font-size:11px;margin-top:1px;">84% labeled PHI · 16% unlabeled · auto-label should finish covering by Apr 27</div></div>
+                <div style="font-size:11px;color:#605e5c;">Owner: j.ramos@hoag</div>
+                <div style="font-size:11px;color:#605e5c;">8,812 files</div>
+                <div><span class="en-pill warn">Auto-labeling in progress</span></div>
+              </div>
+              <div class="en-overshare-row ok">
+                <div class="en-os-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg></div>
+                <div><b>Other 2,384 sites</b><div style="color:#605e5c;font-size:11px;margin-top:1px;">Permissions scoped, labels applied, ready for Copilot grounding</div></div>
+                <div style="font-size:11px;color:#605e5c;">—</div>
+                <div style="font-size:11px;color:#605e5c;">—</div>
+                <div><span class="en-pill ok">Clean</span></div>
+              </div>
+            </div>
+          </div>
           <div class="en-pane active" id="en-pane-home">
             <div class="en-bread">
               <span>Microsoft Entra</span>
