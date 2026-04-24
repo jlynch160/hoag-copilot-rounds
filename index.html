@@ -2580,6 +2580,332 @@ body.dark .pv-event.bad { background: #2a1818; }
 }
 .pv-aihub-banner p { font-size: 12.5px; margin: 0; line-height: 1.5; }
 
+/* ============ MICROSOFT ENTRA ID ============ */
+/* Shell (mirrors entra.microsoft.com) — flat Fluent, teal/navy brand */
+.app-topbar.entra { background: #0b2461; color: #fff; }
+.app-topbar.entra .app-title-logo {
+  background: linear-gradient(135deg, #32bcad 0%, #0078d4 50%, #0b2461 100%);
+  border-radius: 3px; padding: 2px;
+}
+.en-body { flex: 1; overflow-y: auto; background: #faf9f8; padding: 0; }
+.en-shell { display: flex; min-height: 100%; }
+
+/* Left rail */
+.en-rail {
+  width: 252px; flex-shrink: 0;
+  background: #fff; border-right: 1px solid #edebe9;
+  padding: 10px 0 20px;
+  overflow-y: auto;
+}
+.en-rail-group {
+  font-size: 10.5px; font-weight: 700; color: #605e5c;
+  text-transform: uppercase; letter-spacing: 0.7px;
+  padding: 14px 20px 6px;
+}
+.en-tabs { display: flex; flex-direction: column; padding: 2px 8px; }
+.en-tab {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 12px;
+  font-size: 13px; color: #323130;
+  cursor: pointer; border-radius: 2px;
+  position: relative; white-space: nowrap;
+  transition: background 0.1s;
+}
+.en-tab:hover { background: #f3f2f1; }
+.en-tab.active { background: #edebe9; font-weight: 600; }
+.en-tab.active::before {
+  content: ''; position: absolute; left: -8px; top: 6px; bottom: 6px; width: 3px;
+  background: #0078d4; border-radius: 0 2px 2px 0;
+}
+.en-tab svg { width: 16px; height: 16px; flex-shrink: 0; color: #605e5c; }
+.en-tab.active svg { color: #0078d4; }
+.en-tab .en-tab-badge {
+  background: #d13438; color: #fff; font-size: 10px; font-weight: 700;
+  padding: 1px 6px; border-radius: 9px; margin-left: auto;
+}
+.en-tab .en-tab-badge.ok   { background: #107c10; }
+.en-tab .en-tab-badge.warn { background: #c19c00; }
+.en-tab .en-tab-badge.info { background: #0078d4; }
+
+/* Main content area */
+.en-main { flex: 1; min-width: 0; padding: 12px 28px 28px; overflow-x: auto; }
+.en-bread {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: #605e5c; margin: 4px 0 8px;
+}
+.en-bread .en-bc-sep { color: #a19f9d; font-size: 10px; }
+.en-bread .en-bc-last { color: #323130; }
+
+.en-title {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 18px; padding-bottom: 10px;
+  border-bottom: 1px solid #edebe9; margin-bottom: 14px;
+}
+.en-title h1 { font-size: 22px; font-weight: 600; color: #323130; letter-spacing: -0.2px; margin: 0 0 2px; }
+.en-title p  { font-size: 13px; color: #605e5c; margin: 0; max-width: 820px; line-height: 1.5; }
+.en-title .en-meta {
+  font-size: 12px; color: #605e5c; text-align: right; white-space: nowrap;
+}
+
+/* Command bar */
+.en-cmd {
+  display: flex; gap: 2px; align-items: center;
+  margin-bottom: 14px;
+  padding: 4px 0 10px;
+  border-bottom: 1px solid #edebe9;
+  flex-wrap: wrap;
+}
+.en-cmd-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 11px; border-radius: 2px;
+  font-size: 12.5px; color: #323130;
+  background: transparent; border: 1px solid transparent;
+  cursor: pointer; white-space: nowrap;
+  transition: background 0.1s;
+}
+.en-cmd-btn:hover { background: #f3f2f1; }
+.en-cmd-btn svg { width: 14px; height: 14px; color: #0078d4; flex-shrink: 0; }
+.en-cmd-btn.primary { color: #0078d4; font-weight: 600; }
+.en-cmd-btn.sep { width: 1px; height: 18px; background: #edebe9; margin: 0 4px; padding: 0; cursor: default; }
+.en-cmd-btn.sep:hover { background: #edebe9; }
+.en-cmd-filter {
+  margin-left: auto;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 10px; border: 1px solid #a19f9d; border-radius: 2px;
+  font-size: 12px; color: #323130; background: #fff; cursor: pointer;
+}
+
+/* Panes */
+.en-pane { display: none; animation: enFade 0.2s ease; }
+.en-pane.active { display: block; }
+@keyframes enFade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* KPI tiles */
+.en-kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 14px; }
+.en-kpi {
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
+  padding: 12px 14px; position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+.en-kpi::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: #0078d4; border-radius: 4px 0 0 4px;
+}
+.en-kpi.warn::before   { background: #c19c00; }
+.en-kpi.danger::before { background: #d13438; }
+.en-kpi.ok::before     { background: #107c10; }
+.en-kpi-lbl { font-size: 10px; color: #605e5c; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; margin-bottom: 4px; }
+.en-kpi-v   { font-size: 22pt; font-weight: 300; color: #323130; line-height: 1; letter-spacing: -0.6px; }
+.en-kpi-s   { font-size: 11px; color: #605e5c; margin-top: 5px; }
+.en-kpi-s.good { color: #107c10; font-weight: 600; }
+.en-kpi-s.warn { color: #c19c00; font-weight: 600; }
+.en-kpi-s.bad  { color: #d13438; font-weight: 600; }
+
+/* Content card */
+.en-card {
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
+  padding: 16px 18px; margin-bottom: 14px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+.en-card-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.en-card-title { font-size: 14px; font-weight: 600; color: #323130; }
+.en-card-sub   { font-size: 11.5px; color: #605e5c; margin-top: 2px; }
+.en-card-link { font-size: 12px; color: #0078d4; cursor: pointer; }
+.en-card-link:hover { text-decoration: underline; }
+
+.en-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.en-grid-32 { display: grid; grid-template-columns: 1.3fr 1fr; gap: 14px; }
+
+/* Generic DetailsList-style table */
+.en-table { display: flex; flex-direction: column; }
+.en-row {
+  display: grid; gap: 10px; align-items: center;
+  padding: 10px 12px;
+  background: #fff;
+  border-bottom: 1px solid #edebe9;
+  font-size: 12.5px; color: #323130;
+}
+.en-row:hover { background: #faf9f8; }
+.en-row.head {
+  background: #faf9f8; padding: 7px 12px;
+  font-size: 10.5px; font-weight: 600; color: #605e5c;
+  text-transform: uppercase; letter-spacing: 0.6px;
+}
+.en-row.head:hover { background: #faf9f8; }
+.en-row strong { font-weight: 600; }
+.en-row small  { display: block; color: #605e5c; font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+
+/* Pills / badges */
+.en-pill {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.3px;
+  padding: 3px 8px; border-radius: 2px; border: 1px solid transparent;
+  text-transform: uppercase; white-space: nowrap;
+}
+.en-pill.ok   { background: #dff6dd; color: #107c10; border-color: #a1e0a1; }
+.en-pill.warn { background: #fff4ce; color: #8a6a00; border-color: #f5d98a; }
+.en-pill.bad  { background: #fde7e9; color: #a4262c; border-color: #f5c2c7; }
+.en-pill.info { background: #eff6fc; color: #0078d4; border-color: #c7e0f4; }
+.en-pill.neutral { background: #f3f2f1; color: #323130; border-color: #edebe9; }
+
+.en-mfa { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; }
+.en-mfa.ok   { color: #107c10; }
+.en-mfa.warn { color: #c19c00; }
+.en-mfa.bad  { color: #d13438; }
+.en-mfa svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+.en-av {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10.5px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+
+.en-risk {
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.en-risk.high { color: #d13438; }
+.en-risk.med  { color: #c19c00; }
+.en-risk.low  { color: #107c10; }
+.en-risk.none { color: #605e5c; }
+
+/* Secure score card */
+.en-score-card {
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
+  padding: 16px 20px; margin-bottom: 14px;
+  display: grid; grid-template-columns: 96px 1fr auto; gap: 20px; align-items: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+.en-score-meta h3 { font-size: 14px; font-weight: 600; color: #323130; margin: 0 0 3px; }
+.en-score-meta p  { font-size: 12px; color: #605e5c; margin: 0; line-height: 1.5; }
+.en-score-breakdown { display: flex; flex-direction: column; gap: 6px; font-size: 11.5px; min-width: 220px; }
+.en-score-breakdown-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+.en-score-breakdown-row .lbl { color: #605e5c; }
+.en-score-breakdown-row .v { color: #323130; font-weight: 600; font-family: Consolas, Menlo, monospace; }
+
+/* Tasks list */
+.en-tasks { display: flex; flex-direction: column; gap: 4px; }
+.en-task {
+  display: grid; grid-template-columns: 20px 1fr auto;
+  gap: 10px; align-items: center;
+  padding: 10px 12px; border-radius: 2px;
+  border: 1px solid #edebe9; background: #fff;
+  font-size: 12.5px;
+}
+.en-task:hover { background: #faf9f8; }
+.en-task .en-task-ico {
+  width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;
+}
+.en-task.ok  .en-task-ico { color: #107c10; }
+.en-task.warn .en-task-ico { color: #c19c00; }
+.en-task.bad .en-task-ico { color: #d13438; }
+.en-task-name { color: #323130; font-weight: 600; }
+.en-task-name small { color: #605e5c; font-weight: 400; font-size: 10.5px; margin-top: 1px; display: block; }
+.en-task-pts { color: #0078d4; font-weight: 600; font-size: 11px; white-space: nowrap; }
+
+/* Mini chart for risk trends */
+.en-chart {
+  height: 140px; display: flex; align-items: flex-end; gap: 3px;
+  padding: 12px 8px 6px;
+  background: #fafafa; border-radius: 4px; border: 1px solid #edebe9;
+}
+.en-chart-bar { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 1px; min-height: 100%; }
+.en-chart-bar .seg { width: 100%; }
+.en-chart-bar .seg.safe { background: #0078d4; }
+.en-chart-bar .seg.med  { background: #c19c00; }
+.en-chart-bar .seg.high { background: #d13438; }
+.en-chart-leg { display: flex; gap: 14px; font-size: 11px; color: #605e5c; margin-top: 8px; }
+.en-chart-leg .dot { width: 10px; height: 10px; display: inline-block; margin-right: 5px; vertical-align: middle; }
+.en-chart-leg .dot.safe { background: #0078d4; }
+.en-chart-leg .dot.med  { background: #c19c00; }
+.en-chart-leg .dot.high { background: #d13438; }
+
+/* Sign-in feed */
+.en-signin-feed {
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
+  padding: 0; overflow: hidden;
+  max-height: 420px; overflow-y: auto;
+}
+.en-signin-row {
+  display: grid;
+  grid-template-columns: 74px 1.1fr 1fr 0.9fr 0.8fr 0.7fr;
+  gap: 10px; align-items: center;
+  padding: 10px 12px;
+  border-bottom: 1px solid #edebe9;
+  font-size: 12px; color: #323130;
+}
+.en-signin-row:hover { background: #faf9f8; }
+.en-signin-row.head {
+  background: #faf9f8; padding: 7px 12px;
+  font-size: 10.5px; font-weight: 600; color: #605e5c;
+  text-transform: uppercase; letter-spacing: 0.6px;
+}
+.en-signin-row.head:hover { background: #faf9f8; }
+.en-signin-row .en-t { font-family: Consolas, Menlo, monospace; font-size: 11px; color: #605e5c; }
+.en-signin-row .en-geo { font-size: 11px; color: #605e5c; }
+.en-signin-row .en-geo small { display: block; font-family: Consolas, Menlo, monospace; color: #605e5c; }
+
+/* Policy "grant/session" flow */
+.en-policy-flow {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; flex-wrap: wrap;
+}
+.en-policy-flow .en-pf-chip {
+  padding: 2px 7px; background: #f3f2f1; border-radius: 2px;
+  border: 1px solid #edebe9;
+  font-family: Consolas, Menlo, monospace; font-size: 10.5px;
+  color: #323130;
+}
+.en-policy-flow .en-pf-arr { color: #a19f9d; }
+
+/* App permissions chips */
+.en-perm {
+  display: inline-block; margin: 2px 3px 2px 0;
+  font-size: 10.5px;
+  padding: 2px 6px; border-radius: 2px;
+  background: #eff6fc; color: #0078d4; border: 1px solid #c7e0f4;
+  font-family: Consolas, Menlo, monospace;
+}
+.en-perm.admin { background: #fde7e9; color: #a4262c; border-color: #f5c2c7; }
+
+/* PIM activation badge */
+.en-pim-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 10.5px; font-weight: 600;
+  padding: 3px 7px; border-radius: 2px;
+  border: 1px solid transparent;
+}
+.en-pim-tag.active   { background: #fff4ce; color: #8a6a00; border-color: #f5d98a; }
+.en-pim-tag.eligible { background: #eff6fc; color: #0078d4; border-color: #c7e0f4; }
+.en-pim-tag.permanent{ background: #fde7e9; color: #a4262c; border-color: #f5c2c7; }
+.en-pim-tag.expires  { font-family: Consolas, Menlo, monospace; font-weight: 400; color: #605e5c; background: transparent; border: none; padding: 2px 0; }
+
+/* Dark mode */
+body.dark .en-body { background: #1b1a19; }
+body.dark .en-rail { background: #201f1e; border-right-color: #323130; }
+body.dark .en-tab  { color: #d2d0ce; }
+body.dark .en-tab:hover { background: #292827; }
+body.dark .en-tab.active { background: #323130; color: #f3f2f1; }
+body.dark .en-tab.active::before { background: #2899f5; }
+body.dark .en-tab svg { color: #a19f9d; }
+body.dark .en-tab.active svg { color: #2899f5; }
+body.dark .en-title { border-bottom-color: #323130; }
+body.dark .en-title h1 { color: #f3f2f1; }
+body.dark .en-title p  { color: #a19f9d; }
+body.dark .en-cmd      { border-bottom-color: #323130; }
+body.dark .en-cmd-btn  { color: #d2d0ce; }
+body.dark .en-cmd-btn:hover { background: #292827; }
+body.dark .en-card, body.dark .en-kpi, body.dark .en-task, body.dark .en-score-card,
+body.dark .en-signin-feed { background: #252423; border-color: #323130; box-shadow: none; }
+body.dark .en-row, body.dark .en-signin-row { background: #252423; border-color: #323130; color: #d2d0ce; }
+body.dark .en-row:hover, body.dark .en-signin-row:hover { background: #2d2c2b; }
+body.dark .en-row.head, body.dark .en-signin-row.head { background: #1f1e1d; color: #a19f9d; }
+body.dark .en-chart { background: #1f1e1d; border-color: #323130; }
+body.dark .en-bread { color: #a19f9d; }
+body.dark .en-bread .en-bc-last { color: #f3f2f1; }
+body.dark .en-task-name, body.dark .en-kpi-v { color: #f3f2f1; }
+body.dark .en-card-title { color: #f3f2f1; }
+
 /* ============ POWER BI ============ */
 .app-topbar.powerbi { background: linear-gradient(180deg, #f2c811 0%, #b79507 100%); color: #242424; }
 .app-topbar.powerbi .app-title { color: #242424; }
@@ -4710,6 +5036,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
         <div class="waffle-grid">
           <div class="waffle-app" onclick="closeWaffle(); openApp('admin')"><div class="wa-box" style="background:linear-gradient(135deg,#5e5e5e,#2a2a2a);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M3 13h4v8H3v-8zm7-6h4v14h-4V7zm7 3h4v11h-4V10z"/></svg></div><span>Admin</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('purview')"><div class="wa-box" style="background:linear-gradient(135deg,#5f9ef0,#2c5ba8);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4z"/></svg></div><span>Purview</span></div>
+          <div class="waffle-app" onclick="closeWaffle(); openApp('entra')"><div class="wa-box" style="background:linear-gradient(135deg,#32bcad,#0078d4 50%,#0b2461);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2L3 8v8c0 4 3.8 5.5 9 6 5.2-.5 9-2 9-6V8l-9-6z"/></svg></div><span>Entra</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('powerbi')"><div class="wa-box" style="background:linear-gradient(135deg,#f2c811,#b79507);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M3 21h4V9H3zm7 0h4V3h-4zm7 0h4v-8h-4z"/></svg></div><span>Power BI</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('studio')"><div class="wa-box" style="background:linear-gradient(135deg,#7441e8,#4a1fa0);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3 5 5 1-4 4 1 6-5-3-5 3 1-6-4-4 5-1z"/></svg></div><span>Studio</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('shifts')"><div class="wa-box" style="background:linear-gradient(135deg,#00b4a4,#007b6e);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M7 2v3H5v15h14V5h-2V2h-2v3H9V2H7zm-2 8h14v9H5z"/></svg></div><span>Shifts</span></div>
@@ -4921,6 +5248,16 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
         <div class="app-name">Purview</div>
         <div class="app-meta">DLP &amp; compliance</div>
         <div class="badge" style="background:linear-gradient(135deg,#107c10,#0b5a0b);box-shadow:0 2px 4px rgba(16,124,16,0.4);">✓</div>
+      </div>
+      <div class="app-tile" data-personas="cio" onclick="openApp('entra')">
+        <div class="app-icon" style="filter:none;">
+          <div class="tile-logo-box" style="background:linear-gradient(135deg,#32bcad 0%,#0078d4 55%,#0b2461 100%);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 2L3 8v8c0 4 3.8 5.5 9 6 5.2-.5 9-2 9-6V8l-9-6zm0 2.3L19 9v7c0 2.8-2.4 4.1-7 4.6-4.6-.5-7-1.8-7-4.6V9l7-4.7z"/></svg>
+          </div>
+        </div>
+        <div class="app-name">Entra</div>
+        <div class="app-meta">Identity &amp; access</div>
+        <div class="badge" style="background:linear-gradient(135deg,#0078d4,#003a6a);box-shadow:0 2px 4px rgba(0,120,212,0.4);">ID</div>
       </div>
       <div class="app-tile" data-personas="cio" onclick="openApp('powerbi')">
         <div class="app-icon" style="filter:none;">
@@ -6888,6 +7225,1058 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
     </div>
   </div>
 
+  <!-- ========== MICROSOFT ENTRA ID ========== -->
+  <div id="app-entra" class="app-shell">
+    <div class="app-topbar entra">
+      <div class="back" onclick="goHome()">☰</div>
+      <div class="app-title">
+        <svg class="app-title-logo" width="20" height="20" viewBox="0 0 24 24"><defs><linearGradient id="entraGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#32bcad"/><stop offset="60%" stop-color="#0078d4"/><stop offset="100%" stop-color="#0b2461"/></linearGradient></defs><path d="M12 2L3 8v8c0 4 3.8 5.5 9 6 5.2-.5 9-2 9-6V8l-9-6z" fill="url(#entraGrad)"/><path d="M12 2L3 8v8c0 4 3.8 5.5 9 6V2z" fill="#0b2461" fill-opacity="0.28"/></svg>
+        Microsoft Entra
+      </div>
+      <div style="flex:1"></div>
+      <div class="right"><div class="avatar" style="background:#c8a55b;color:#003865;">DK</div></div>
+    </div>
+    <div class="en-body">
+      <div class="en-shell">
+
+        <!-- Left rail navigation (mirrors entra.microsoft.com) -->
+        <div class="en-rail">
+          <div class="en-tabs">
+            <div class="en-tab active" data-entab="home" onclick="switchEntraTab('home')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l9-8 9 8v9a1 1 0 01-1 1h-5v-7h-6v7H4a1 1 0 01-1-1v-9z"/></svg>
+              Overview
+            </div>
+          </div>
+
+          <div class="en-rail-group">Identities</div>
+          <div class="en-tabs">
+            <div class="en-tab" data-entab="users" onclick="switchEntraTab('users')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
+              Users
+            </div>
+            <div class="en-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="10" r="3"/><circle cx="16" cy="10" r="3"/><path d="M2 20c0-3 2.5-5 6-5s6 2 6 5M12 20c0-3 2.5-5 6-5s4 2 4 5"/></svg>
+              Groups
+            </div>
+            <div class="en-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="12" rx="1"/><path d="M9 20h6M12 16v4"/></svg>
+              Devices
+              <span class="en-tab-badge info">3,241</span>
+            </div>
+            <div class="en-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8a4 4 0 100 8 4 4 0 000-8z"/><path d="M3 12h2M19 12h2M12 3v2M12 19v2"/></svg>
+              External identities
+            </div>
+          </div>
+
+          <div class="en-rail-group">Protection</div>
+          <div class="en-tabs">
+            <div class="en-tab" data-entab="ca" onclick="switchEntraTab('ca')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 3v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-3z"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Conditional Access
+              <span class="en-tab-badge ok">23</span>
+            </div>
+            <div class="en-tab" data-entab="idp" onclick="switchEntraTab('idp')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+              Identity Protection
+              <span class="en-tab-badge warn">12</span>
+            </div>
+            <div class="en-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="10" width="14" height="10" rx="1"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+              Authentication methods
+            </div>
+          </div>
+
+          <div class="en-rail-group">Identity governance</div>
+          <div class="en-tabs">
+            <div class="en-tab" data-entab="pim" onclick="switchEntraTab('pim')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l2.5 5.5L20 10l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-1.5z"/></svg>
+              Privileged Identity Management
+              <span class="en-tab-badge info">PIM</span>
+            </div>
+            <div class="en-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h16M4 14h12M4 20h8"/><circle cx="18" cy="20" r="2"/></svg>
+              Access reviews
+            </div>
+            <div class="en-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="M4 9h16M9 5v14"/></svg>
+              Entitlement management
+            </div>
+          </div>
+
+          <div class="en-rail-group">Applications</div>
+          <div class="en-tabs">
+            <div class="en-tab" data-entab="apps" onclick="switchEntraTab('apps')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+              Enterprise applications
+            </div>
+            <div class="en-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v12H4z"/><path d="M4 10h16M9 6v12"/></svg>
+              App registrations
+            </div>
+          </div>
+
+          <div class="en-rail-group">Monitoring</div>
+          <div class="en-tabs">
+            <div class="en-tab" data-entab="logs" onclick="switchEntraTab('logs')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+              Sign-in &amp; audit logs
+            </div>
+            <div class="en-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h3l3-7 4 14 3-7h5"/></svg>
+              Health
+              <span class="en-tab-badge ok">✓</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="en-main">
+
+          <!-- ========== OVERVIEW ========== -->
+          <div class="en-pane active" id="en-pane-home">
+            <div class="en-bread">
+              <span>Microsoft Entra</span>
+              <span class="en-bc-sep">›</span>
+              <span class="en-bc-last">Overview</span>
+            </div>
+            <div class="en-title">
+              <div>
+                <h1>Hoag Memorial Hospital Presbyterian</h1>
+                <p>Tenant: <span style="font-family:Consolas,monospace;">hoag.onmicrosoft.com</span> · Tenant ID: <span style="font-family:Consolas,monospace;font-size:11px;">3f8a9e12-4b6c-4d1e-9a55-c2f7d8b09e41</span> · Region: West US 3 · License: <b>Microsoft Entra ID P2</b></p>
+              </div>
+              <div class="en-meta">
+                <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Licensed users</div>
+                <div style="font-size:20pt;font-weight:300;color:#0078d4;line-height:1.05;margin:2px 0;">2,847</div>
+                <div>2,831 active · 16 disabled</div>
+              </div>
+            </div>
+            <div class="en-cmd">
+              <div class="en-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>Add user</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 10h16"/></svg>Bulk operations</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7M4 19h16" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11a8 8 0 10-2.4 5.6L20 19" stroke-linecap="round"/><path d="M20 14v5h-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Refresh</div>
+              <div class="en-cmd-btn sep"></div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>24 hours ▾</div>
+              <div class="en-cmd-filter">All regions ▾</div>
+            </div>
+
+            <div class="en-score-card">
+              <svg width="96" height="96" viewBox="0 0 96 96">
+                <circle cx="48" cy="48" r="40" fill="none" stroke="#edebe9" stroke-width="7"/>
+                <circle cx="48" cy="48" r="40" fill="none" stroke="#107c10" stroke-width="7" stroke-dasharray="251" stroke-dashoffset="40" transform="rotate(-90 48 48)" stroke-linecap="round"/>
+                <text x="48" y="54" text-anchor="middle" font-size="24" font-weight="600" fill="#107c10">84</text>
+              </svg>
+              <div class="en-score-meta">
+                <h3>Identity Secure Score — <span style="color:#107c10;">84 / 100</span> <span style="color:#107c10;font-size:12px;font-weight:600;margin-left:4px;">▲ 6 pts this month</span></h3>
+                <p>Your score vs. similar-size health-system tenants: top quartile. Passwordless coverage and PIM-gated admin roles drove most of the recent gain. Three improvement actions below are worth <b>+11 points</b> combined.</p>
+              </div>
+              <div class="en-score-breakdown">
+                <div class="en-score-breakdown-row"><span class="lbl">MFA coverage</span><span class="v">98.1%</span></div>
+                <div class="en-score-breakdown-row"><span class="lbl">Passwordless</span><span class="v">64.3%</span></div>
+                <div class="en-score-breakdown-row"><span class="lbl">Admins w/ PIM</span><span class="v">47 / 47</span></div>
+                <div class="en-score-breakdown-row"><span class="lbl">Legacy auth</span><span class="v" style="color:#107c10;">Blocked</span></div>
+                <div class="en-score-breakdown-row"><span class="lbl">Risky users open</span><span class="v" style="color:#c19c00;">12</span></div>
+              </div>
+            </div>
+
+            <div class="en-kpis">
+              <div class="en-kpi ok"><div class="en-kpi-lbl">MFA registered</div><div class="en-kpi-v">98.1%</div><div class="en-kpi-s good">2,794 of 2,847 users</div></div>
+              <div class="en-kpi"><div class="en-kpi-lbl">Sign-ins · 24h</div><div class="en-kpi-v">41,208</div><div class="en-kpi-s">▲ 3.4% vs avg</div></div>
+              <div class="en-kpi warn"><div class="en-kpi-lbl">Risky sign-ins · 24h</div><div class="en-kpi-v">34</div><div class="en-kpi-s warn">28 auto-remediated · 6 open</div></div>
+              <div class="en-kpi danger"><div class="en-kpi-lbl">Risky users</div><div class="en-kpi-v">12</div><div class="en-kpi-s bad">1 high · 4 med · 7 low</div></div>
+              <div class="en-kpi ok"><div class="en-kpi-lbl">Apps + agents</div><div class="en-kpi-v">47</div><div class="en-kpi-s">including 6 Entra Agent IDs</div></div>
+            </div>
+
+            <div class="en-grid-32">
+              <div class="en-card">
+                <div class="en-card-head"><div><div class="en-card-title">Sign-in trends</div><div class="en-card-sub">30 days · stacked by risk tier</div></div><div class="en-card-link">Open logs ›</div></div>
+                <div class="en-chart" id="en-chart"></div>
+                <div class="en-chart-leg">
+                  <span><span class="dot safe"></span>No risk</span>
+                  <span><span class="dot med"></span>Medium risk</span>
+                  <span><span class="dot high"></span>High risk</span>
+                </div>
+              </div>
+
+              <div class="en-card">
+                <div class="en-card-head"><div><div class="en-card-title">Top improvement actions</div><div class="en-card-sub">Secure Score recommendations</div></div><div class="en-card-link">View all 14 ›</div></div>
+                <div class="en-tasks">
+                  <div class="en-task warn">
+                    <div class="en-task-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5M12 16h.01" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg></div>
+                    <div class="en-task-name">Require phishing-resistant MFA for privileged roles<small>62 of 68 privileged accounts · 6 remaining</small></div>
+                    <div class="en-task-pts">+8 pts</div>
+                  </div>
+                  <div class="en-task ok">
+                    <div class="en-task-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg></div>
+                    <div class="en-task-name">Enable passwordless (FIDO2 security keys) for clinical staff<small>Done — 1,834 of 2,847 users enrolled</small></div>
+                    <div class="en-task-pts">+5 pts</div>
+                  </div>
+                  <div class="en-task warn">
+                    <div class="en-task-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5M12 16h.01" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg></div>
+                    <div class="en-task-name">Review 3 applications with excess permissions<small>Agentforce (SF), ClinicalGPT v2 (disabled), ServiceNow Now Assist</small></div>
+                    <div class="en-task-pts">+3 pts</div>
+                  </div>
+                  <div class="en-task bad">
+                    <div class="en-task-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5M12 16h.01" stroke-linecap="round"/><path d="M12 2L2 20h20L12 2z"/></svg></div>
+                    <div class="en-task-name">Remediate 1 high-risk user<small>User #4821 · linked to Purview Insider Risk case</small></div>
+                    <div class="en-task-pts">Action required</div>
+                  </div>
+                  <div class="en-task ok">
+                    <div class="en-task-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg></div>
+                    <div class="en-task-name">Block legacy authentication protocols<small>Done — POP, IMAP, SMTP Auth blocked tenant-wide</small></div>
+                    <div class="en-task-pts">+6 pts</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== USERS ========== -->
+          <div class="en-pane" id="en-pane-users">
+            <div class="en-bread">
+              <span>Microsoft Entra</span>
+              <span class="en-bc-sep">›</span>
+              <span>Identities</span>
+              <span class="en-bc-sep">›</span>
+              <span class="en-bc-last">All users</span>
+            </div>
+            <div class="en-title">
+              <div>
+                <h1>All users</h1>
+                <p>2,847 licensed users across Hoag tenant. Showing 10 of 2,847. Anonymized names are for demo purposes — the real directory uses employee IDs federated from Workday.</p>
+              </div>
+              <div class="en-meta">
+                <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Active directory sync</div>
+                <div style="color:#107c10;font-weight:600;font-size:13px;margin:2px 0;">● Healthy · 3 min ago</div>
+                <div>Workday → Entra Connect</div>
+              </div>
+            </div>
+            <div class="en-cmd">
+              <div class="en-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>New user</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>Invite external</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 10h16"/></svg>Bulk operations</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7M4 19h16" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+              <div class="en-cmd-btn sep"></div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11a8 8 0 10-2.4 5.6L20 19" stroke-linecap="round"/><path d="M20 14v5h-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Revoke sessions</div>
+              <div class="en-cmd-filter">Scope: all users ▾</div>
+            </div>
+
+            <div class="en-card" style="padding: 0;">
+              <div class="en-signin-feed" style="max-height:none;">
+                <div class="en-row head" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
+                  <div>Display name</div>
+                  <div>User principal name</div>
+                  <div>MFA</div>
+                  <div>Risk</div>
+                  <div>Last sign-in</div>
+                  <div>Roles</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#c8a55b;color:#003865;">SC</div><div><strong>Sarah Chen</strong><small>Clinical · Oncology 4W</small></div></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">s.chen@hoag.org</div>
+                  <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>FIDO2</span></div>
+                  <div><span class="en-risk none">None</span></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">8 min ago</div>
+                  <div style="font-size:11px;color:#605e5c;">Clinical Staff</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#7f68c7;">DK</div><div><strong>Dr. Ken Chen</strong><small>CIO · Executive team</small></div></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">dk.chen@hoag.org</div>
+                  <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>FIDO2</span></div>
+                  <div><span class="en-risk none">None</span></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">2 min ago</div>
+                  <div style="font-size:11px;color:#605e5c;">Global Admin <small style="color:#8a6a00;">(via PIM)</small></div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#c50f1f;">JO</div><div><strong>J. Okonkwo</strong><small>Revenue cycle · billing</small></div></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">j.okonkwo@hoag.org</div>
+                  <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>Authenticator</span></div>
+                  <div><span class="en-risk med">Medium</span></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">12 min ago</div>
+                  <div style="font-size:11px;color:#605e5c;">—</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#c50f1f;">U48</div><div><strong>User #4821</strong><small>Revenue cycle · anonymized (case open)</small></div></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">[redacted — IRM case]</div>
+                  <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>Authenticator</span></div>
+                  <div><span class="en-risk high">High</span></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">1 d ago</div>
+                  <div style="font-size:11px;color:#d13438;font-weight:600;">Sessions revoked</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#0090a8;">LT</div><div><strong>L. Thomas, RN</strong><small>Clinical · 4W</small></div></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">l.thomas@hoag.org</div>
+                  <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>Authenticator</span></div>
+                  <div><span class="en-risk none">None</span></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">24 min ago</div>
+                  <div style="font-size:11px;color:#605e5c;">Clinical Staff</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#7f68c7;">JP</div><div><strong>Dr. J. Patel</strong><small>Clinical · Oncology</small></div></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">j.patel@hoag.org</div>
+                  <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>FIDO2</span></div>
+                  <div><span class="en-risk low">Low</span><small style="color:#605e5c;">Unfamiliar browser</small></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">32 min ago</div>
+                  <div style="font-size:11px;color:#605e5c;">Clinical Staff · Research</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#605e5c;">IT</div><div><strong>IT Help Desk (shared)</strong><small>Service account · break-glass</small></div></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">svc-helpdesk@hoag.org</div>
+                  <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>FIDO2</span></div>
+                  <div><span class="en-risk none">None</span></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">Never <small>break-glass only</small></div>
+                  <div style="font-size:11px;color:#605e5c;">Helpdesk (read-only)</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#2c2a52;">AF</div><div><strong>Agentforce (Salesforce)</strong><small>Workload identity · BAA signed</small></div></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">agentforce-wi@hoag.org</div>
+                  <div><span class="en-mfa ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>Cert</span></div>
+                  <div><span class="en-risk none">None</span></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">4 min ago</div>
+                  <div style="font-size:11px;color:#605e5c;">App.ReadWrite (scoped)</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#c19c00;">MR</div><div><strong>M. Ruiz</strong><small>Case management</small></div></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">m.ruiz@hoag.org</div>
+                  <div><span class="en-mfa warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5M12 16h.01" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>SMS only</span></div>
+                  <div><span class="en-risk low">Low</span></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">1 h ago</div>
+                  <div style="font-size:11px;color:#605e5c;">Clinical Staff</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 2fr 1.5fr 0.9fr 0.8fr 0.8fr 0.8fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#605e5c;">FT</div><div><strong>F. Taylor</strong><small>Marketing (on extended leave)</small></div></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">f.taylor@hoag.org</div>
+                  <div><span class="en-mfa bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5M12 16h.01" stroke-linecap="round"/><path d="M12 2L2 20h20L12 2z"/></svg>Disabled</span></div>
+                  <div><span class="en-risk none">—</span></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">87 d ago</div>
+                  <div style="font-size:11px;color:#605e5c;">Account disabled</div>
+                </div>
+              </div>
+              <div style="padding:10px 14px;font-size:11.5px;color:#605e5c;display:flex;justify-content:space-between;">
+                <span>Showing 10 of 2,847 · <a href="#" style="color:#0078d4;text-decoration:none;">Load more</a></span>
+                <span>Page 1 of 285</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== CONDITIONAL ACCESS ========== -->
+          <div class="en-pane" id="en-pane-ca">
+            <div class="en-bread">
+              <span>Microsoft Entra</span>
+              <span class="en-bc-sep">›</span>
+              <span>Protection</span>
+              <span class="en-bc-sep">›</span>
+              <span class="en-bc-last">Conditional Access · Policies</span>
+            </div>
+            <div class="en-title">
+              <div>
+                <h1>Conditional Access</h1>
+                <p>The zero-trust decision point. Every sign-in — for a user, an app, or an agent — is evaluated against these policies in real time. This is the single most important surface for governing Copilot and AI-agent access.</p>
+              </div>
+              <div class="en-meta">
+                <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Active policies</div>
+                <div style="font-size:20pt;font-weight:300;color:#323130;line-height:1.05;margin:2px 0;">23</div>
+                <div><span style="color:#107c10;font-weight:600;">22 on</span> · 1 report-only</div>
+              </div>
+            </div>
+            <div class="en-cmd">
+              <div class="en-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>New policy</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16M4 14h12M4 20h8"/></svg>Named locations</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11a8 8 0 10-2.4 5.6L20 19" stroke-linecap="round"/><path d="M20 14v5h-5" stroke-linecap="round" stroke-linejoin="round"/></svg>What If</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7M4 19h16" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+              <div class="en-cmd-btn sep"></div>
+              <div class="en-cmd-filter">State: all ▾</div>
+            </div>
+
+            <div class="en-kpis" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 12px;">
+              <div class="en-kpi"><div class="en-kpi-lbl">Evaluations · 24h</div><div class="en-kpi-v">41,208</div><div class="en-kpi-s">sign-in + workload identity</div></div>
+              <div class="en-kpi warn"><div class="en-kpi-lbl">Challenges issued</div><div class="en-kpi-v">782</div><div class="en-kpi-s warn">MFA · device compliance · country</div></div>
+              <div class="en-kpi danger"><div class="en-kpi-lbl">Blocks · 24h</div><div class="en-kpi-v">58</div><div class="en-kpi-s bad">legacy auth · non-compliant · high risk</div></div>
+              <div class="en-kpi ok"><div class="en-kpi-lbl">Policies gating AI</div><div class="en-kpi-v">7 of 23</div><div class="en-kpi-s good">Copilot + all agents</div></div>
+            </div>
+
+            <div class="en-card" style="padding: 0;">
+              <div class="en-signin-feed" style="max-height:none;">
+                <div class="en-row head" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div>Policy</div>
+                  <div>Users / workloads</div>
+                  <div>24h triggers</div>
+                  <div>Grant / session</div>
+                  <div>State</div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-001 · Require MFA for all users</strong><small>Baseline · excludes break-glass accounts</small></div>
+                  <div>All users<small>2,845 in scope</small></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">412</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">Require MFA</span></div></div>
+                  <div><span class="en-pill ok">On</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-002 · Block legacy authentication</strong><small>Blocks POP, IMAP, SMTP Auth, ActiveSync basic</small></div>
+                  <div>All users</div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">18</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">Block</span></div></div>
+                  <div><span class="en-pill ok">On</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-003 · Require compliant device for PHI access</strong><small>Blocks BYOD + unmanaged browsers reaching Epic, Teams PHI channels</small></div>
+                  <div>Clinical staff<small>1,834 in scope</small></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">67</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">Compliant device</span><span class="en-pf-arr">+</span><span class="en-pf-chip">Hybrid AAD join</span></div></div>
+                  <div><span class="en-pill ok">On</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-004 · Copilot requires compliant device + licensed M365</strong><small>Governs all Microsoft 365 Copilot sign-ins</small></div>
+                  <div>All Copilot users<small>2,847 licensed</small></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">3,241</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">Compliant device</span><span class="en-pf-arr">+</span><span class="en-pf-chip">MFA</span><span class="en-pf-arr">+</span><span class="en-pf-chip">Licensed</span></div></div>
+                  <div><span class="en-pill ok">On</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-005 · AI agents must have Entra Agent ID</strong><small>Blocks anonymous / personal tokens · all agents registered &amp; scoped</small></div>
+                  <div>All cloud apps<small>workload identity</small></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">4</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">Workload identity</span><span class="en-pf-arr">+</span><span class="en-pf-chip">Scoped perms</span></div></div>
+                  <div><span class="en-pill ok">On</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-006 · Block high-risk sign-ins</strong><small>Identity Protection → automatic block on sign-in risk ≥ High</small></div>
+                  <div>All users</div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">6</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">Block</span></div></div>
+                  <div><span class="en-pill ok">On</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-007 · Medium-risk sign-in — require MFA + password change</strong><small>Identity Protection → self-service remediation</small></div>
+                  <div>All users</div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">28</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">MFA</span><span class="en-pf-arr">+</span><span class="en-pf-chip">Change password</span></div></div>
+                  <div><span class="en-pill ok">On</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-008 · Phishing-resistant MFA for PIM activation</strong><small>Global Admin, Security Admin, Compliance Admin roles</small></div>
+                  <div>Privileged roles<small>47 eligible</small></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">11</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">FIDO2 only</span></div></div>
+                  <div><span class="en-pill ok">On</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-009 · Block sign-in outside US / Canada</strong><small>Excluding clinical travel exception group</small></div>
+                  <div>All users</div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">14</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">Location ≠ allowlist</span><span class="en-pf-arr">→</span><span class="en-pf-chip">Block</span></div></div>
+                  <div><span class="en-pill ok">On</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-010 · Block public AI from managed devices</strong><small>ChatGPT, Gemini, Claude, Perplexity, DeepSeek · endpoint signal</small></div>
+                  <div>All users</div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">79</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">Cloud app in blocklist</span><span class="en-pf-arr">→</span><span class="en-pf-chip">Block</span></div></div>
+                  <div><span class="en-pill ok">On</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-011 · Session controls — no download on unmanaged browsers</strong><small>Exchange + SharePoint on BYOD</small></div>
+                  <div>All users</div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">142</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">App-enforced restrictions</span></div></div>
+                  <div><span class="en-pill ok">On</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-012 · Guest access requires MFA + daily re-auth</strong><small>External consultants, auditors, BAA partners</small></div>
+                  <div>Guest users<small>184 active</small></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">9</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">MFA</span><span class="en-pf-arr">+</span><span class="en-pf-chip">Sign-in freq 1d</span></div></div>
+                  <div><span class="en-pill ok">On</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
+                  <div><strong>CA-013 · Require terms of use acceptance — AI agents (annual)</strong><small>Test mode · governance council approval pending</small></div>
+                  <div>AI agent users</div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">0</div>
+                  <div><div class="en-policy-flow"><span class="en-pf-chip">Terms of use</span></div></div>
+                  <div><span class="en-pill warn">Report-only</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="en-card" style="background:#eff6fc;border-color:#c7e0f4;margin-top: 14px;">
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#0078d4" style="flex-shrink:0;margin-top:2px;"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <div>
+                  <div style="font-size:13px;font-weight:600;color:#323130;">How this ties to Copilot governance</div>
+                  <div style="font-size:12.5px;color:#323130;line-height:1.55;margin-top:4px;">
+                    Conditional Access runs <em>before</em> Purview. A user who doesn't pass <b>CA-004</b> (compliant device) never reaches Copilot at all — so Purview's DLP layer isn't the first line of defense, it's the second. <b>CA-005</b> is the reason shadow agents can't quietly read tenant data: an agent without an Entra Agent ID simply can't get a token. Together these seven AI-gating policies are why your 287K sensitive prompts never need manual review — they're pre-filtered at identity.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== IDENTITY PROTECTION ========== -->
+          <div class="en-pane" id="en-pane-idp">
+            <div class="en-bread">
+              <span>Microsoft Entra</span>
+              <span class="en-bc-sep">›</span>
+              <span>Protection</span>
+              <span class="en-bc-sep">›</span>
+              <span class="en-bc-last">Identity Protection</span>
+            </div>
+            <div class="en-title">
+              <div>
+                <h1>Identity Protection</h1>
+                <p>ML-derived risk signals on users and sign-ins, feeding Conditional Access in real time. Most remediation is automatic — self-service MFA + password change, or session revocation.</p>
+              </div>
+              <div class="en-meta">
+                <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Users at risk</div>
+                <div style="font-size:20pt;font-weight:300;color:#d13438;line-height:1.05;margin:2px 0;">12</div>
+                <div>1 high · 4 med · 7 low</div>
+              </div>
+            </div>
+            <div class="en-cmd">
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>Confirm compromised</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>Dismiss user risk</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11a8 8 0 10-2.4 5.6L20 19" stroke-linecap="round"/></svg>Reset password</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+              <div class="en-cmd-btn sep"></div>
+              <div class="en-cmd-filter">Risk ≥ low ▾</div>
+            </div>
+
+            <div class="en-kpis" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 14px;">
+              <div class="en-kpi warn"><div class="en-kpi-lbl">Risky sign-ins · 24h</div><div class="en-kpi-v">34</div><div class="en-kpi-s warn">28 auto-remediated</div></div>
+              <div class="en-kpi danger"><div class="en-kpi-lbl">Risky users</div><div class="en-kpi-v">12</div><div class="en-kpi-s bad">1 high</div></div>
+              <div class="en-kpi"><div class="en-kpi-lbl">Detection types</div><div class="en-kpi-v">9</div><div class="en-kpi-s">active on your tenant</div></div>
+              <div class="en-kpi ok"><div class="en-kpi-lbl">Self-remediated · 30d</div><div class="en-kpi-v">847</div><div class="en-kpi-s good">no admin touch</div></div>
+            </div>
+
+            <div class="en-grid-32">
+              <div class="en-card" style="padding: 0;">
+                <div style="padding:16px 18px 10px;"><div class="en-card-title">Recent risk detections</div><div class="en-card-sub">ML-derived · fed into Conditional Access for auto-remediation</div></div>
+                <div class="en-signin-feed" style="max-height:420px;border:none;border-top:1px solid #edebe9;border-radius:0;">
+                  <div class="en-row head" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
+                    <div>Time</div>
+                    <div>User</div>
+                    <div>Detection</div>
+                    <div>Risk</div>
+                    <div>Remediation</div>
+                  </div>
+                  <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
+                    <div style="font-family:Consolas,monospace;font-size:11px;">13:42:04</div>
+                    <div><strong>j.okonkwo@hoag.org</strong><small>Revenue cycle</small></div>
+                    <div>Atypical travel<small>LA → Manila in 2h</small></div>
+                    <div><span class="en-risk high">High</span></div>
+                    <div><span class="en-pill ok">Blocked · CA-006</span></div>
+                  </div>
+                  <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
+                    <div style="font-family:Consolas,monospace;font-size:11px;">13:38:22</div>
+                    <div><strong>j.patel@hoag.org</strong><small>Oncology</small></div>
+                    <div>Unfamiliar sign-in properties<small>First-time browser (Arc)</small></div>
+                    <div><span class="en-risk low">Low</span></div>
+                    <div><span class="en-pill info">MFA challenge · passed</span></div>
+                  </div>
+                  <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
+                    <div style="font-family:Consolas,monospace;font-size:11px;">13:24:11</div>
+                    <div><strong>m.ruiz@hoag.org</strong><small>Case management</small></div>
+                    <div>Anonymous IP (Tor)<small>185.220.101.33</small></div>
+                    <div><span class="en-risk med">Medium</span></div>
+                    <div><span class="en-pill warn">MFA + password change</span></div>
+                  </div>
+                  <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
+                    <div style="font-family:Consolas,monospace;font-size:11px;">12:11:47</div>
+                    <div><strong>[user #4821]</strong><small>IRM case open</small></div>
+                    <div>Admin-confirmed compromised<small>Linked Purview case</small></div>
+                    <div><span class="en-risk high">High</span></div>
+                    <div><span class="en-pill bad">Sessions revoked</span></div>
+                  </div>
+                  <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
+                    <div style="font-family:Consolas,monospace;font-size:11px;">11:48:30</div>
+                    <div><strong>r.walker@hoag.org</strong><small>Finance</small></div>
+                    <div>Leaked credentials<small>Match in recent public dump</small></div>
+                    <div><span class="en-risk med">Medium</span></div>
+                    <div><span class="en-pill warn">Password reset required</span></div>
+                  </div>
+                  <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
+                    <div style="font-family:Consolas,monospace;font-size:11px;">10:34:18</div>
+                    <div><strong>t.nguyen@hoag.org</strong><small>IT</small></div>
+                    <div>Password spray<small>Source: 3 distinct IPs</small></div>
+                    <div><span class="en-risk high">High</span></div>
+                    <div><span class="en-pill ok">Blocked at gateway</span></div>
+                  </div>
+                  <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
+                    <div style="font-family:Consolas,monospace;font-size:11px;">09:55:12</div>
+                    <div><strong>k.obrien@hoag.org</strong><small>Research</small></div>
+                    <div>Unusual sign-in properties<small>ASN change · new device ID</small></div>
+                    <div><span class="en-risk low">Low</span></div>
+                    <div><span class="en-pill info">MFA · passed</span></div>
+                  </div>
+                  <div class="en-row" style="grid-template-columns: 90px 1fr 1fr 0.8fr 0.8fr;">
+                    <div style="font-family:Consolas,monospace;font-size:11px;">08:22:04</div>
+                    <div><strong>b.chen@hoag.org</strong><small>Pharmacy</small></div>
+                    <div>Malicious IP address<small>Defender TI match</small></div>
+                    <div><span class="en-risk high">High</span></div>
+                    <div><span class="en-pill ok">Blocked · CA-006</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="en-card">
+                  <div class="en-card-head"><div><div class="en-card-title">Detection types · 30d</div><div class="en-card-sub">Microsoft Entra Identity Protection</div></div></div>
+                  <div style="display:flex;flex-direction:column;gap:10px;font-size:12px;">
+                    <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;"><div>Atypical travel</div><div style="font-family:Consolas,monospace;font-weight:600;">18</div></div>
+                    <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;"><div>Unfamiliar sign-in properties</div><div style="font-family:Consolas,monospace;font-weight:600;">124</div></div>
+                    <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;"><div>Anonymous IP (Tor / VPN)</div><div style="font-family:Consolas,monospace;font-weight:600;">22</div></div>
+                    <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;"><div>Leaked credentials</div><div style="font-family:Consolas,monospace;font-weight:600;">9</div></div>
+                    <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;"><div>Password spray</div><div style="font-family:Consolas,monospace;font-weight:600;">3</div></div>
+                    <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;"><div>Malicious IP address</div><div style="font-family:Consolas,monospace;font-weight:600;">7</div></div>
+                    <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;"><div>Admin-confirmed user compromise</div><div style="font-family:Consolas,monospace;font-weight:600;">2</div></div>
+                    <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;"><div>Suspicious browser</div><div style="font-family:Consolas,monospace;font-weight:600;">4</div></div>
+                    <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;"><div>Token issuer anomaly</div><div style="font-family:Consolas,monospace;font-weight:600;">1</div></div>
+                  </div>
+                </div>
+                <div class="en-card">
+                  <div class="en-card-head"><div><div class="en-card-title">Policies (2)</div><div class="en-card-sub">Linked to CA-006 and CA-007</div></div></div>
+                  <div style="font-size:12px;color:#323130;line-height:1.7;">
+                    <div style="display:flex;gap:8px;align-items:center;"><span class="en-pill ok">On</span><b>User risk policy</b></div>
+                    <div style="color:#605e5c;font-size:11.5px;margin:2px 0 10px 6px;">If user risk ≥ high → block. If medium → require password change.</div>
+                    <div style="display:flex;gap:8px;align-items:center;"><span class="en-pill ok">On</span><b>Sign-in risk policy</b></div>
+                    <div style="color:#605e5c;font-size:11.5px;margin:2px 0 0 6px;">If sign-in risk ≥ high → block. If medium → require MFA.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== PIM ========== -->
+          <div class="en-pane" id="en-pane-pim">
+            <div class="en-bread">
+              <span>Microsoft Entra</span>
+              <span class="en-bc-sep">›</span>
+              <span>Identity governance</span>
+              <span class="en-bc-sep">›</span>
+              <span class="en-bc-last">Privileged Identity Management</span>
+            </div>
+            <div class="en-title">
+              <div>
+                <h1>Privileged Identity Management</h1>
+                <p>Just-in-time privileged access. No one holds Global Administrator permanently — roles are <b>eligible</b> by default and <b>activated</b> only with a justification, MFA, and a time-bounded window.</p>
+              </div>
+              <div class="en-meta">
+                <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Active elevations</div>
+                <div style="font-size:20pt;font-weight:300;color:#c19c00;line-height:1.05;margin:2px 0;">8</div>
+                <div>of 47 eligible assignees</div>
+              </div>
+            </div>
+            <div class="en-cmd">
+              <div class="en-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>Assign role</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>Activation history</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16M4 14h12M4 20h8"/></svg>Access reviews</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+              <div class="en-cmd-btn sep"></div>
+              <div class="en-cmd-filter">Role: all ▾</div>
+            </div>
+
+            <div class="en-kpis" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 14px;">
+              <div class="en-kpi ok"><div class="en-kpi-lbl">Roles on PIM</div><div class="en-kpi-v">47 of 47</div><div class="en-kpi-s good">100% · no permanent admins</div></div>
+              <div class="en-kpi warn"><div class="en-kpi-lbl">Active elevations</div><div class="en-kpi-v">8</div><div class="en-kpi-s warn">auto-expire within 4h</div></div>
+              <div class="en-kpi"><div class="en-kpi-lbl">Activations · 24h</div><div class="en-kpi-v">34</div><div class="en-kpi-s">all required MFA + reason</div></div>
+              <div class="en-kpi"><div class="en-kpi-lbl">Pending approvals</div><div class="en-kpi-v">2</div><div class="en-kpi-s">Global Admin requests</div></div>
+            </div>
+
+            <div class="en-card" style="padding: 0;">
+              <div style="padding:16px 18px 10px;"><div class="en-card-title">Role assignments</div><div class="en-card-sub">Currently eligible or active in privileged roles</div></div>
+              <div class="en-signin-feed" style="max-height:none;border:none;border-top:1px solid #edebe9;border-radius:0;">
+                <div class="en-row head" style="grid-template-columns: 1.5fr 1.3fr 0.8fr 1fr 0.9fr;">
+                  <div>Principal</div>
+                  <div>Role</div>
+                  <div>Type</div>
+                  <div>Expires / reviews</div>
+                  <div>Last activation</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 1.5fr 1.3fr 0.8fr 1fr 0.9fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#7f68c7;">DK</div><div><strong>Dr. Ken Chen</strong><small>CIO</small></div></div>
+                  <div>Global Administrator</div>
+                  <div><span class="en-pim-tag active">Active</span></div>
+                  <div><span class="en-pim-tag expires">expires in 3h 42m</span></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">2h ago</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 1.5fr 1.3fr 0.8fr 1fr 0.9fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#0090a8;">LN</div><div><strong>L. Nguyen</strong><small>Security operations lead</small></div></div>
+                  <div>Security Administrator</div>
+                  <div><span class="en-pim-tag active">Active</span></div>
+                  <div><span class="en-pim-tag expires">expires in 1h 18m</span></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">6h ago</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 1.5fr 1.3fr 0.8fr 1fr 0.9fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#7f68c7;">JP</div><div><strong>J. Park</strong><small>IRM investigator</small></div></div>
+                  <div>Compliance Administrator</div>
+                  <div><span class="en-pim-tag active">Active</span></div>
+                  <div><span class="en-pim-tag expires">expires in 2h 04m</span></div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">1h ago</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 1.5fr 1.3fr 0.8fr 1fr 0.9fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#605e5c;">RM</div><div><strong>R. Martinez</strong><small>IT infra</small></div></div>
+                  <div>Exchange Administrator</div>
+                  <div><span class="en-pim-tag eligible">Eligible</span></div>
+                  <div>access review Jun 2</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">4d ago</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 1.5fr 1.3fr 0.8fr 1fr 0.9fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#605e5c;">AG</div><div><strong>A. Gupta</strong><small>IT infra</small></div></div>
+                  <div>SharePoint Administrator</div>
+                  <div><span class="en-pim-tag eligible">Eligible</span></div>
+                  <div>access review Jun 2</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">2d ago</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 1.5fr 1.3fr 0.8fr 1fr 0.9fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#c50f1f;">BG</div><div><strong>Break-glass #1</strong><small>Emergency access account</small></div></div>
+                  <div>Global Administrator</div>
+                  <div><span class="en-pim-tag permanent">Permanent</span></div>
+                  <div>FIDO2 in a safe · quarterly test</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">never</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 1.5fr 1.3fr 0.8fr 1fr 0.9fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#c50f1f;">BG</div><div><strong>Break-glass #2</strong><small>Emergency access account · separate location</small></div></div>
+                  <div>Global Administrator</div>
+                  <div><span class="en-pim-tag permanent">Permanent</span></div>
+                  <div>FIDO2 in a safe · quarterly test</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">never</div>
+                </div>
+                <div class="en-row" style="grid-template-columns: 1.5fr 1.3fr 0.8fr 1fr 0.9fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#0090a8;">TK</div><div><strong>T. Kim</strong><small>AI governance council</small></div></div>
+                  <div>User Administrator</div>
+                  <div><span class="en-pim-tag eligible">Eligible</span></div>
+                  <div>access review Jun 2</div>
+                  <div style="font-family:Consolas,monospace;font-size:11px;">8d ago</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="en-card" style="background:#fff4ce;border-color:#f5d98a;margin-top: 14px;">
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#8a6a00" style="flex-shrink:0;margin-top:2px;"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <div>
+                  <div style="font-size:13px;font-weight:600;color:#323130;">Approval required · Global Administrator request pending</div>
+                  <div style="font-size:12.5px;color:#323130;line-height:1.55;margin-top:4px;">
+                    <b>S. Patel</b> requested elevation to Global Administrator for 4 hours. Reason: <em>"Emergency rollback of Conditional Access policy CA-013 per governance council decision."</em> Awaiting approval from <b>Dr. Ken Chen (CIO)</b> or <b>M. Torres (CISO)</b>. <span style="color:#0078d4;font-weight:600;">Approve ›</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== ENTERPRISE APPLICATIONS ========== -->
+          <div class="en-pane" id="en-pane-apps">
+            <div class="en-bread">
+              <span>Microsoft Entra</span>
+              <span class="en-bc-sep">›</span>
+              <span>Applications</span>
+              <span class="en-bc-sep">›</span>
+              <span class="en-bc-last">Enterprise applications</span>
+            </div>
+            <div class="en-title">
+              <div>
+                <h1>Enterprise applications</h1>
+                <p>Every app and agent that signs into your tenant — M365 workloads, SaaS apps, custom internal apps, and the Entra Agent IDs for every Copilot Studio and partner agent.</p>
+              </div>
+              <div class="en-meta">
+                <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Registered apps</div>
+                <div style="font-size:20pt;font-weight:300;color:#0078d4;line-height:1.05;margin:2px 0;">47</div>
+                <div>incl. 6 Entra Agent IDs</div>
+              </div>
+            </div>
+            <div class="en-cmd">
+              <div class="en-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>New application</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="M4 10h16M9 6v12"/></svg>App registrations</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>Permission review</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+              <div class="en-cmd-btn sep"></div>
+              <div class="en-cmd-filter">Type: all ▾</div>
+            </div>
+
+            <div class="en-card" style="padding: 0;">
+              <div class="en-signin-feed" style="max-height:none;">
+                <div class="en-row head" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div>Application</div>
+                  <div>Publisher</div>
+                  <div>Permissions</div>
+                  <div>24h sign-ins</div>
+                  <div>Assigned</div>
+                  <div>State</div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#5a5ab6;">CP</div><div><strong>Microsoft 365 Copilot</strong><small>Cloud-hosted · Microsoft Graph grounded</small></div></div>
+                  <div>Microsoft</div>
+                  <div><span class="en-perm">User.Read</span><span class="en-perm">Files.Read.All</span><span class="en-perm">Mail.Read</span><span class="en-perm">Chat.Read</span></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">3,241</div>
+                  <div>2,847 users</div>
+                  <div><span class="en-pill ok">Enabled</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#464775;">T</div><div><strong>Microsoft Teams</strong><small>Chat, meetings, channels</small></div></div>
+                  <div>Microsoft</div>
+                  <div><span class="en-perm">User.Read</span><span class="en-perm">Chat.ReadWrite</span><span class="en-perm">Calls.Initiate</span></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">24,804</div>
+                  <div>2,847 users</div>
+                  <div><span class="en-pill ok">Enabled</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#217346;">SP</div><div><strong>SharePoint Online</strong><small>Document libraries, team sites</small></div></div>
+                  <div>Microsoft</div>
+                  <div><span class="en-perm">Sites.Read.All</span><span class="en-perm">Files.ReadWrite.All</span></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">12,088</div>
+                  <div>2,847 users</div>
+                  <div><span class="en-pill ok">Enabled</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#c50f1f;">E</div><div><strong>Epic EHR</strong><small>SMART-on-FHIR federation · BAA signed</small></div></div>
+                  <div>Epic Systems</div>
+                  <div><span class="en-perm">patient/read</span><span class="en-perm">observation/read</span><span class="en-perm">launch</span></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">8,844</div>
+                  <div>Clinical staff<small>1,834</small></div>
+                  <div><span class="en-pill ok">Enabled</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#004a3d;">EC</div><div><strong>Epicopilot (Epic partner)</strong><small>Agent · BAA + HIPAA BAA addendum</small></div></div>
+                  <div>Epic Systems</div>
+                  <div><span class="en-perm">patient/read</span><span class="en-perm">note/read</span><span class="en-perm">careplan/read</span></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">1,284</div>
+                  <div>Clinical staff</div>
+                  <div><span class="en-pill ok">Enabled</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#0078d4;">RW</div><div><strong>Readmission Watch</strong><small>Entra Agent ID · Copilot Studio · oncology scope</small></div></div>
+                  <div>Hoag (internal)</div>
+                  <div><span class="en-perm">Sites.Selected</span><span class="en-perm">Files.Read.Selected</span></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">312</div>
+                  <div>4W unit<small>28 nurses</small></div>
+                  <div><span class="en-pill ok">Enabled</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#0078d4;">PA</div><div><strong>Prior-Auth Assistant</strong><small>Entra Agent ID · revenue cycle scope</small></div></div>
+                  <div>Hoag (internal)</div>
+                  <div><span class="en-perm">Sites.Selected</span><span class="en-perm">Mail.Send.Shared</span></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">184</div>
+                  <div>Billing team<small>42 users</small></div>
+                  <div><span class="en-pill ok">Enabled</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#0078d4;">CT</div><div><strong>Clinical Trial Match</strong><small>Entra Agent ID · Azure OpenAI backed</small></div></div>
+                  <div>Hoag (internal)</div>
+                  <div><span class="en-perm">Sites.Selected</span><span class="en-perm">patient/read</span></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">42</div>
+                  <div>Research<small>18 users</small></div>
+                  <div><span class="en-pill ok">Enabled</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#00a1e0;">SF</div><div><strong>Agentforce (Salesforce)</strong><small>Workload identity · BAA signed · scoped</small></div></div>
+                  <div>Salesforce</div>
+                  <div><span class="en-perm">User.Read</span><span class="en-perm">Contact.ReadWrite.Shared</span></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">68</div>
+                  <div>Marketing<small>14 users</small></div>
+                  <div><span class="en-pill warn">Review pending</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#81b5a1;">SN</div><div><strong>ServiceNow Now Assist</strong><small>IT service management agent</small></div></div>
+                  <div>ServiceNow</div>
+                  <div><span class="en-perm">User.Read</span><span class="en-perm">Group.Read.All</span><span class="en-perm admin">Directory.Read.All</span></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">204</div>
+                  <div>IT<small>34 users</small></div>
+                  <div><span class="en-pill warn">Over-permissioned</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#24292e;">GH</div><div><strong>GitHub Copilot</strong><small>Auto-discovered 9 days ago</small></div></div>
+                  <div>GitHub (Microsoft)</div>
+                  <div><span class="en-perm">User.Read</span></div>
+                  <div style="font-family:Consolas,monospace;font-weight:600;">118</div>
+                  <div>Engineering<small>34 users</small></div>
+                  <div><span class="en-pill ok">Enabled</span></div>
+                </div>
+
+                <div class="en-row" style="grid-template-columns: 2fr 1.2fr 1.7fr 0.8fr 0.7fr 0.6fr;">
+                  <div style="display:flex;align-items:center;gap:10px;"><div class="en-av" style="background:#a19f9d;">CG</div><div><strong>ClinicalGPT v2 (disabled)</strong><small>Unknown publisher · governance council block</small></div></div>
+                  <div>—</div>
+                  <div><span class="en-perm admin">Directory.ReadWrite.All</span> <small style="color:#d13438;">(requested)</small></div>
+                  <div style="font-family:Consolas,monospace;color:#605e5c;">—</div>
+                  <div>—</div>
+                  <div><span class="en-pill bad">Disabled</span></div>
+                </div>
+              </div>
+              <div style="padding:10px 14px;font-size:11.5px;color:#605e5c;">Showing 12 of 47 apps. <a href="#" style="color:#0078d4;text-decoration:none;">Load more</a></div>
+            </div>
+          </div>
+
+          <!-- ========== SIGN-IN & AUDIT LOGS ========== -->
+          <div class="en-pane" id="en-pane-logs">
+            <div class="en-bread">
+              <span>Microsoft Entra</span>
+              <span class="en-bc-sep">›</span>
+              <span>Monitoring</span>
+              <span class="en-bc-sep">›</span>
+              <span class="en-bc-last">Sign-in logs</span>
+            </div>
+            <div class="en-title">
+              <div>
+                <h1>Sign-in &amp; audit logs</h1>
+                <p>Live sign-in events plus admin audit trail. Feeds Microsoft Sentinel, Purview Audit, and anyone who needs to answer "what happened on [date] at [time]?" in under 2 minutes.</p>
+              </div>
+              <div class="en-meta">
+                <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Sign-ins · 24h</div>
+                <div style="font-size:20pt;font-weight:300;color:#323130;line-height:1.05;margin:2px 0;">41,208</div>
+                <div><span style="color:#107c10;font-weight:600;">99.8% success</span></div>
+              </div>
+            </div>
+            <div class="en-cmd">
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.5-4.5" stroke-linecap="round"/></svg>Search</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h10M4 17h16"/></svg>Filter</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+              <div class="en-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>Open in Log Analytics</div>
+              <div class="en-cmd-btn sep"></div>
+              <div class="en-cmd-filter">User sign-ins ▾</div>
+            </div>
+
+            <div class="en-card" style="padding: 0;">
+              <div class="en-signin-feed" style="max-height:none;">
+                <div class="en-signin-row head">
+                  <div>Time (UTC-7)</div>
+                  <div>User</div>
+                  <div>Application</div>
+                  <div>Status · reason</div>
+                  <div>IP / location</div>
+                  <div>Risk</div>
+                </div>
+                <div class="en-signin-row">
+                  <div class="en-t">13:42:31</div>
+                  <div><strong>s.chen@hoag.org</strong></div>
+                  <div>Microsoft 365 Copilot</div>
+                  <div><span class="en-pill ok">Success</span><small style="color:#605e5c;margin-left:4px;">MFA · CA-001,004</small></div>
+                  <div class="en-geo">Newport Beach, CA<small>206.51.18.42</small></div>
+                  <div><span class="en-risk none">None</span></div>
+                </div>
+                <div class="en-signin-row">
+                  <div class="en-t">13:42:18</div>
+                  <div><strong>j.okonkwo@hoag.org</strong></div>
+                  <div>Outlook on the web</div>
+                  <div><span class="en-pill ok">Success</span><small style="color:#605e5c;margin-left:4px;">Passwordless</small></div>
+                  <div class="en-geo">Newport Beach, CA<small>206.51.18.128</small></div>
+                  <div><span class="en-risk none">None</span></div>
+                </div>
+                <div class="en-signin-row">
+                  <div class="en-t">13:42:04</div>
+                  <div><strong>j.okonkwo@hoag.org</strong></div>
+                  <div>ChatGPT (consumer)</div>
+                  <div><span class="en-pill bad">Blocked</span><small style="color:#605e5c;margin-left:4px;">CA-010 · public AI blocklist</small></div>
+                  <div class="en-geo">Newport Beach, CA<small>206.51.18.128</small></div>
+                  <div><span class="en-risk low">Low</span></div>
+                </div>
+                <div class="en-signin-row">
+                  <div class="en-t">13:41:55</div>
+                  <div><strong>Agent/ReadmitWatch</strong></div>
+                  <div>Microsoft Graph</div>
+                  <div><span class="en-pill ok">Success</span><small style="color:#605e5c;margin-left:4px;">Workload identity · CA-005</small></div>
+                  <div class="en-geo">service<small>eastus2</small></div>
+                  <div><span class="en-risk none">None</span></div>
+                </div>
+                <div class="en-signin-row">
+                  <div class="en-t">13:41:42</div>
+                  <div><strong>m.ruiz@hoag.org</strong></div>
+                  <div>Outlook on the web</div>
+                  <div><span class="en-pill warn">MFA challenged</span><small style="color:#605e5c;margin-left:4px;">CA-007 · anonymous IP</small></div>
+                  <div class="en-geo">Anonymous proxy<small>185.220.101.33</small></div>
+                  <div><span class="en-risk med">Medium</span></div>
+                </div>
+                <div class="en-signin-row">
+                  <div class="en-t">13:41:27</div>
+                  <div><strong>l.thomas@hoag.org</strong></div>
+                  <div>Epic EHR (SMART launch)</div>
+                  <div><span class="en-pill ok">Success</span><small style="color:#605e5c;margin-left:4px;">Compliant device · CA-003</small></div>
+                  <div class="en-geo">Newport Beach, CA<small>206.51.19.15</small></div>
+                  <div><span class="en-risk none">None</span></div>
+                </div>
+                <div class="en-signin-row">
+                  <div class="en-t">13:41:11</div>
+                  <div><strong>svc-helpdesk@hoag.org</strong></div>
+                  <div>Azure Portal</div>
+                  <div><span class="en-pill bad">Blocked</span><small style="color:#605e5c;margin-left:4px;">CA-002 · legacy auth</small></div>
+                  <div class="en-geo">Newport Beach, CA<small>206.51.18.50</small></div>
+                  <div><span class="en-risk low">Low</span></div>
+                </div>
+                <div class="en-signin-row">
+                  <div class="en-t">13:40:58</div>
+                  <div><strong>Agent/PriorAuth</strong></div>
+                  <div>Microsoft Graph · Mail.Send</div>
+                  <div><span class="en-pill ok">Success</span><small style="color:#605e5c;margin-left:4px;">CA-005 · scoped perms</small></div>
+                  <div class="en-geo">service<small>eastus2</small></div>
+                  <div><span class="en-risk none">None</span></div>
+                </div>
+                <div class="en-signin-row">
+                  <div class="en-t">13:40:34</div>
+                  <div><strong>j.patel@hoag.org</strong></div>
+                  <div>Microsoft 365 Copilot</div>
+                  <div><span class="en-pill warn">MFA challenged</span><small style="color:#605e5c;margin-left:4px;">CA-007 · unfamiliar browser</small></div>
+                  <div class="en-geo">Newport Beach, CA<small>206.51.20.82</small></div>
+                  <div><span class="en-risk low">Low</span></div>
+                </div>
+                <div class="en-signin-row">
+                  <div class="en-t">13:40:02</div>
+                  <div><strong>b.chen@hoag.org</strong></div>
+                  <div>Outlook mobile</div>
+                  <div><span class="en-pill bad">Blocked</span><small style="color:#605e5c;margin-left:4px;">CA-006 · malicious IP (Defender TI)</small></div>
+                  <div class="en-geo">Unknown<small>45.142.214.91</small></div>
+                  <div><span class="en-risk high">High</span></div>
+                </div>
+                <div class="en-signin-row">
+                  <div class="en-t">13:39:41</div>
+                  <div><strong>dk.chen@hoag.org</strong></div>
+                  <div>Azure Portal · PIM activation</div>
+                  <div><span class="en-pill ok">Success</span><small style="color:#605e5c;margin-left:4px;">FIDO2 · CA-008 · Global Admin</small></div>
+                  <div class="en-geo">Newport Beach, CA<small>206.51.18.12</small></div>
+                  <div><span class="en-risk none">None</span></div>
+                </div>
+                <div class="en-signin-row">
+                  <div class="en-t">13:39:18</div>
+                  <div><strong>j.okonkwo@hoag.org</strong></div>
+                  <div>SharePoint Online</div>
+                  <div><span class="en-pill ok">Success</span><small style="color:#605e5c;margin-left:4px;">Compliant device</small></div>
+                  <div class="en-geo">Newport Beach, CA<small>206.51.18.128</small></div>
+                  <div><span class="en-risk none">None</span></div>
+                </div>
+              </div>
+              <div style="padding:10px 14px;font-size:11.5px;color:#605e5c;display:flex;justify-content:space-between;">
+                <span>Showing 12 most recent · stream updates every 3 sec</span>
+                <span>Total 24h: <b>41,208</b></span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /en-main -->
+      </div><!-- /en-shell -->
+    </div>
+  </div>
+
   <!-- ========== POWER BI ========== -->
   <div id="app-powerbi" class="app-shell">
     <div class="app-topbar powerbi">
@@ -8218,6 +9607,7 @@ function openApp(app, context) {
   if (app === 'pages') setTimeout(startPagesCursors, 200);
   if (app === 'agent365') startAgent365Feed();
   if (app === 'purview') { switchPvTab('overview'); renderPvAiChart(); }
+  if (app === 'entra')   { switchEntraTab('home');  renderEntraChart(); }
   // Show tips per app
   const tips = {
     outlook: "In Outlook, click the Copilot logo (top-right) to triage your 147-message inbox. Or click any email to read it.",
@@ -12334,6 +13724,46 @@ function switchPvTab(which) {
   if (pane) pane.classList.add('active');
   // Lazily render the AI Hub chart so bars size correctly after the pane becomes visible
   if (which === 'aihub') renderPvAiChart();
+}
+
+// ============ ENTRA — tabs + sign-in risk chart ============
+function switchEntraTab(which) {
+  document.querySelectorAll('.en-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.entab === which);
+  });
+  document.querySelectorAll('.en-pane').forEach(p => p.classList.remove('active'));
+  const pane = document.getElementById('en-pane-' + which);
+  if (pane) pane.classList.add('active');
+  if (which === 'home') renderEntraChart();
+}
+
+// 30-day sign-in chart on the Entra overview. Stacked by risk tier: safe / med / high.
+// Seeded deterministically — baseline grows slightly, weekends dip, Tue/Thu carry a small risk bump.
+function renderEntraChart() {
+  const el = document.getElementById('en-chart');
+  if (!el) return;
+  const days = 30;
+  const bars = [];
+  for (let i = 0; i < days; i++) {
+    const dow = i % 7;
+    const weekendDip = (dow === 5 || dow === 6) ? 0.45 : 1;
+    const growth = 0.78 + (i / days) * 0.3;
+    const base = 70 * growth * weekendDip;
+    const safe = base;
+    const med  = (dow === 1 || dow === 3) ? 2 + (i % 2) : 0.8;
+    const high = (dow === 4 && i > 14) ? 1.5 : 0.2;
+    bars.push({ safe, med, high, total: safe + med + high });
+  }
+  const maxTotal = Math.max(...bars.map(b => b.total));
+  el.innerHTML = bars.map(b => {
+    const h = v => (v / maxTotal) * 100;
+    return `
+      <div class="en-chart-bar">
+        <div class="seg high" style="height:${h(b.high)}%;"></div>
+        <div class="seg med"  style="height:${h(b.med)}%;"></div>
+        <div class="seg safe" style="height:${h(b.safe)}%;"></div>
+      </div>`;
+  }).join('');
 }
 
 // 30-day prompt-volume chart on the AI Hub tab. Each day is a 3-segment stacked bar:
