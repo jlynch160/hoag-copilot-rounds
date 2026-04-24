@@ -2592,10 +2592,10 @@ body.dark .pv-event.bad { background: #2a1818; }
 
 /* Left rail */
 .en-rail {
-  width: 252px; flex-shrink: 0;
+  width: 292px; flex-shrink: 0;
   background: #fff; border-right: 1px solid #edebe9;
   padding: 10px 0 20px;
-  overflow-y: auto;
+  overflow-y: auto; overflow-x: hidden;
 }
 .en-rail-group {
   font-size: 10.5px; font-weight: 700; color: #605e5c;
@@ -2610,7 +2610,10 @@ body.dark .pv-event.bad { background: #2a1818; }
   cursor: pointer; border-radius: 2px;
   position: relative; white-space: nowrap;
   transition: background 0.1s;
+  min-width: 0;
 }
+.en-tab > span:not(.en-tab-badge) { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.en-tab .en-tab-badge { flex-shrink: 0; }
 .en-tab:hover { background: #f3f2f1; }
 .en-tab.active { background: #edebe9; font-weight: 600; }
 .en-tab.active::before {
@@ -7346,7 +7349,6 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             <div class="en-tab" data-entab="pim" onclick="switchEntraTab('pim')">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l2.5 5.5L20 10l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-1.5z"/></svg>
               Privileged Identity Management
-              <span class="en-tab-badge info">PIM</span>
             </div>
             <div class="en-tab" style="opacity:0.75;cursor:default;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h16M4 14h12M4 20h8"/><circle cx="18" cy="20" r="2"/></svg>
