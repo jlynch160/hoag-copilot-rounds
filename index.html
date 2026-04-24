@@ -7310,14 +7310,6 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             </div>
           </div>
 
-          <div class="en-rail-group">Copilot enablement</div>
-          <div class="en-tabs">
-            <div class="en-tab" data-entab="permissions" onclick="switchEntraTab('permissions')">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="10" width="14" height="10" rx="1"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
-              Permissions &amp; consent
-            </div>
-          </div>
-
           <div class="en-rail-group">Identities</div>
           <div class="en-tabs">
             <div class="en-tab" data-entab="users" onclick="switchEntraTab('users')">
@@ -7359,6 +7351,22 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             <div class="en-tab" style="opacity:0.75;cursor:default;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h16M4 14h12M4 20h8"/><circle cx="18" cy="20" r="2"/></svg>
               Access reviews
+            </div>
+          </div>
+
+          <div class="en-rail-group">Applications</div>
+          <div class="en-tabs">
+            <div class="en-tab" data-entab="apps" onclick="switchEntraTab('apps')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+              Enterprise applications
+            </div>
+            <div class="en-tab" data-entab="permissions" onclick="switchEntraTab('permissions')" style="padding-left: 32px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="10" width="14" height="10" rx="1"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+              M365 Copilot · Permissions
+            </div>
+            <div class="en-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v12H4z"/><path d="M4 10h16M9 6v12"/></svg>
+              App registrations
             </div>
           </div>
 
@@ -7900,7 +7908,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
 
                 <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
-                  <div><strong>CA-004 · Copilot requires compliant device + licensed M365</strong><small>Governs all Microsoft 365 Copilot sign-ins</small></div>
+                  <div><strong>CA-004 · Copilot requires compliant device + licensed M365</strong> <span class="en-pill info" style="margin-left:4px;">Required for Copilot</span><small>Governs all Microsoft 365 Copilot sign-ins</small></div>
                   <div>All Copilot users<small>2,847 licensed</small></div>
                   <div style="font-family:Consolas,monospace;font-weight:600;">3,241</div>
                   <div><div class="en-policy-flow"><span class="en-pf-chip">Compliant device</span><span class="en-pf-arr">+</span><span class="en-pf-chip">MFA</span><span class="en-pf-arr">+</span><span class="en-pf-chip">Licensed</span></div></div>
@@ -7908,7 +7916,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
 
                 <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
-                  <div><strong>CA-005 · AI agents must have Entra Agent ID</strong><small>Blocks anonymous / personal tokens · all agents registered &amp; scoped</small></div>
+                  <div><strong>CA-005 · AI agents must have Entra Agent ID</strong> <span class="en-pill info" style="margin-left:4px;">Required for Copilot</span><small>Blocks anonymous / personal tokens · all agents registered &amp; scoped</small></div>
                   <div>All cloud apps<small>workload identity</small></div>
                   <div style="font-family:Consolas,monospace;font-weight:600;">4</div>
                   <div><div class="en-policy-flow"><span class="en-pf-chip">Workload identity</span><span class="en-pf-arr">+</span><span class="en-pf-chip">Scoped perms</span></div></div>
@@ -7948,7 +7956,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
                 </div>
 
                 <div class="en-row" style="grid-template-columns: 2fr 1fr 0.7fr 1.5fr 0.7fr;">
-                  <div><strong>CA-010 · Block public AI from managed devices</strong><small>ChatGPT, Gemini, Claude, Perplexity, DeepSeek · endpoint signal</small></div>
+                  <div><strong>CA-010 · Block public AI from managed devices</strong> <span class="en-pill info" style="margin-left:4px;">Required for Copilot</span><small>ChatGPT, Gemini, Claude, Perplexity, DeepSeek · endpoint signal</small></div>
                   <div>All users</div>
                   <div style="font-family:Consolas,monospace;font-weight:600;">79</div>
                   <div><div class="en-policy-flow"><span class="en-pf-chip">Cloud app in blocklist</span><span class="en-pf-arr">→</span><span class="en-pf-chip">Block</span></div></div>
