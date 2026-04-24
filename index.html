@@ -2041,7 +2041,7 @@ body.dark .toast .toast-text { color: #b0b0b0; }
 .sg-cell.night { background: #e8eaf6; color: #1a237e; font-weight: 600; }
 
 /* ============ PURVIEW ============ */
-.app-topbar.purview { background: linear-gradient(180deg, #5f9ef0 0%, #2c5ba8 100%); }
+.app-topbar.purview { background: #2c2a52; }
 .pv-body { flex: 1; overflow-y: auto; padding: 28px 36px; background: #f5f6f8; }
 .pv-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
 .pv-head h1 { font-size: 24px; font-weight: 300; color: var(--gray-160); letter-spacing: -0.5px; margin-bottom: 4px; }
@@ -2068,362 +2068,517 @@ body.dark .toast .toast-text { color: #b0b0b0; }
 .pv-ev-desc { color: var(--gray-130); }
 .pv-ev-status { font-size: 11px; color: #c50f1f; font-weight: 700; text-align: right; }
 
-/* ---- Purview tab navigation ---- */
-.pv-tabs {
-  display: flex; gap: 2px;
-  border-bottom: 1px solid var(--gray-30);
-  margin: 0 -36px 18px; padding: 0 36px;
-  background: #fff; position: sticky; top: 0; z-index: 5;
+/* ---- Purview — Fluent-styled shell ---- */
+/* Repaint the pv-body surface to match Fluent's neutral page background */
+.pv-body { background: #faf9f8; padding: 0; }
+.pv-shell { display: flex; min-height: 100%; }
+
+/* Left rail navigation — mirrors the real purview.microsoft.com left nav */
+.pv-rail {
+  width: 232px; flex-shrink: 0;
+  background: #fff; border-right: 1px solid #edebe9;
+  padding: 10px 0 20px;
+  overflow-y: auto;
 }
+.pv-rail-group {
+  font-size: 10.5px; font-weight: 700; color: #605e5c;
+  text-transform: uppercase; letter-spacing: 0.7px;
+  padding: 14px 20px 6px;
+}
+/* The existing .pv-tab class becomes a vertical rail item (JS unchanged) */
+.pv-tabs { display: flex; flex-direction: column; background: #fff; padding: 2px 8px; }
 .pv-tab {
-  padding: 11px 16px 10px; font-size: 13px; font-weight: 600;
-  color: var(--gray-130); cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: color 0.12s, border-color 0.12s;
-  display: inline-flex; align-items: center; gap: 6px;
-  white-space: nowrap;
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 12px;
+  font-size: 13px; font-weight: 400; color: #323130;
+  cursor: pointer; border-radius: 2px;
+  position: relative; white-space: nowrap;
+  transition: background 0.1s;
 }
-.pv-tab:hover { color: var(--gray-160); }
-.pv-tab.active { color: #2c5ba8; border-bottom-color: #2c5ba8; }
+.pv-tab:hover { background: #f3f2f1; }
+.pv-tab.active { background: #edebe9; font-weight: 600; color: #323130; }
+.pv-tab.active::before {
+  content: ''; position: absolute; left: -8px; top: 6px; bottom: 6px; width: 3px;
+  background: #0078d4; border-radius: 0 2px 2px 0;
+}
+.pv-tab svg { width: 16px; height: 16px; flex-shrink: 0; color: #605e5c; }
+.pv-tab.active svg { color: #0078d4; }
 .pv-tab .pv-tab-badge {
-  background: #c50f1f; color: #fff; font-size: 10px; font-weight: 700;
-  padding: 1px 6px; border-radius: 9px; margin-left: 2px;
+  background: #d13438; color: #fff; font-size: 10px; font-weight: 700;
+  padding: 1px 6px; border-radius: 9px; margin-left: auto;
 }
-.pv-tab .pv-tab-badge.ok { background: #107c10; }
-.pv-tab .pv-tab-badge.warn { background: #c77700; }
-.pv-tab svg { width: 14px; height: 14px; }
-.pv-pane { display: none; animation: pvFade 0.25s ease; }
+.pv-tab .pv-tab-badge.ok   { background: #107c10; }
+.pv-tab .pv-tab-badge.warn { background: #c19c00; }
+.pv-tab .pv-tab-badge.new  { background: #0078d4; }
+
+/* Main content area beside the rail */
+.pv-main { flex: 1; min-width: 0; padding: 12px 28px 28px; overflow-x: auto; }
+.pv-bread {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: #605e5c; margin: 4px 0 8px;
+}
+.pv-bread .pv-bc-sep { color: #a19f9d; font-size: 10px; }
+.pv-bread .pv-bc-last { color: #323130; }
+.pv-page-title {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 18px; padding-bottom: 10px;
+  border-bottom: 1px solid #edebe9; margin-bottom: 14px;
+}
+.pv-page-title h1 { font-size: 22px; font-weight: 600; color: #323130; letter-spacing: -0.2px; margin: 0 0 2px; }
+.pv-page-title p { font-size: 13px; color: #605e5c; margin: 0; max-width: 820px; line-height: 1.5; }
+.pv-page-title .pv-page-meta {
+  font-size: 12px; color: #605e5c; text-align: right; white-space: nowrap;
+}
+.pv-page-title .pv-page-meta .pv-live {
+  display: inline-flex; align-items: center; gap: 5px;
+  color: #107c10; font-weight: 600;
+}
+.pv-page-title .pv-page-meta .pv-live::before {
+  content: ''; width: 7px; height: 7px; border-radius: 50%;
+  background: #107c10; box-shadow: 0 0 0 2px rgba(16,124,16,0.22);
+  animation: pvPulseDot 2s ease-in-out infinite;
+}
+@keyframes pvPulseDot { 0%,100% { box-shadow: 0 0 0 2px rgba(16,124,16,0.22); } 50% { box-shadow: 0 0 0 5px rgba(16,124,16,0); } }
+
+/* Command bar — Fluent style */
+.pv-cmd-bar {
+  display: flex; gap: 2px; align-items: center;
+  margin-bottom: 14px;
+  padding: 4px 0 10px;
+  border-bottom: 1px solid #edebe9;
+  flex-wrap: wrap;
+}
+.pv-cmd-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 11px; border-radius: 2px;
+  font-size: 12.5px; font-weight: 400; color: #323130;
+  background: transparent; border: 1px solid transparent;
+  cursor: pointer; white-space: nowrap;
+  transition: background 0.1s;
+}
+.pv-cmd-btn:hover { background: #f3f2f1; }
+.pv-cmd-btn svg { width: 14px; height: 14px; color: #0078d4; flex-shrink: 0; }
+.pv-cmd-btn.primary { color: #0078d4; font-weight: 600; }
+.pv-cmd-btn.sep { width: 1px; height: 18px; background: #edebe9; margin: 0 4px; padding: 0; cursor: default; }
+.pv-cmd-btn.sep:hover { background: #edebe9; }
+.pv-cmd-filter {
+  margin-left: auto;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 10px; border: 1px solid #a19f9d; border-radius: 2px;
+  font-size: 12px; color: #323130; background: #fff; cursor: pointer;
+}
+.pv-cmd-filter:hover { border-color: #323130; }
+
+.pv-pane { display: none; animation: pvFade 0.2s ease; }
 .pv-pane.active { display: block; }
 @keyframes pvFade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
-/* ---- AI Hub (DSPM for AI) ---- */
-.pv-aihub-banner {
-  background: linear-gradient(135deg, #1b4aa8 0%, #2c5ba8 55%, #5f9ef0 120%);
-  color: #fff; border-radius: 12px;
-  padding: 18px 24px; margin-bottom: 16px;
-  display: flex; align-items: center; gap: 18px;
-  position: relative; overflow: hidden;
+/* Flatten existing KPI/card surfaces to Fluent neutrals */
+.pv-kpis, .pv-ah-kpis { gap: 10px; }
+.pv-kpi, .pv-card {
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
 }
-.pv-aihub-banner::after {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(circle at 85% 30%, rgba(255,255,255,0.18), transparent 45%),
-              radial-gradient(circle at 10% 110%, rgba(200,165,91,0.22), transparent 60%);
-}
-.pv-aihub-banner > * { position: relative; z-index: 1; }
-.pv-aihub-banner .pv-ah-ico {
-  width: 44px; height: 44px; border-radius: 10px;
-  background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.pv-aihub-banner h2 { font-size: 18px; font-weight: 600; margin: 0 0 3px; letter-spacing: -0.2px; }
-.pv-aihub-banner h2 .pv-ah-badge {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.8px;
-  padding: 2px 7px; border-radius: 10px;
-  background: rgba(255,225,154,0.22); color: #ffe19a;
-  margin-left: 8px; vertical-align: middle; text-transform: uppercase;
-}
-.pv-aihub-banner p { font-size: 12.5px; margin: 0; opacity: 0.92; line-height: 1.5; }
+.pv-kpi { padding: 14px 18px; }
+.pv-kpi-v { font-size: 28pt; font-weight: 300; color: #323130; }
+.pv-kpi-l { color: #605e5c; }
 
-.pv-ah-kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 16px; }
+/* ---- DSPM for AI tab ---- */
+.pv-ah-hero {
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
+  padding: 16px 20px; margin-bottom: 14px;
+  display: grid; grid-template-columns: 42px 1fr auto; gap: 14px;
+  align-items: center;
+}
+.pv-ah-hero .pv-ah-ico {
+  width: 42px; height: 42px; border-radius: 4px;
+  background: #eff6fc; border: 1px solid #c7e0f4;
+  display: flex; align-items: center; justify-content: center;
+  color: #0078d4;
+}
+.pv-ah-hero h2 { font-size: 16px; font-weight: 600; color: #323130; margin: 0 0 2px; letter-spacing: -0.1px; }
+.pv-ah-hero h2 .pv-ah-badge {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.4px;
+  padding: 2px 7px; border-radius: 2px;
+  background: #eff6fc; color: #0078d4;
+  margin-left: 8px; vertical-align: 2px; text-transform: uppercase;
+  border: 1px solid #c7e0f4;
+}
+.pv-ah-hero p { font-size: 12.5px; color: #605e5c; margin: 0; line-height: 1.5; }
+.pv-ah-hero .pv-ah-hero-stat {
+  text-align: right; font-size: 11px; color: #605e5c;
+  border-left: 1px solid #edebe9; padding-left: 16px;
+  min-width: 130px;
+}
+.pv-ah-hero .pv-ah-hero-stat .pv-ah-hero-v {
+  font-size: 20pt; font-weight: 300; color: #0078d4; line-height: 1.1;
+  letter-spacing: -0.4px;
+}
+
+.pv-ah-kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 14px; }
 .pv-ah-kpi {
-  background: #fff; border: 1px solid var(--gray-30); border-radius: 9px;
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
   padding: 12px 14px; position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
 }
 .pv-ah-kpi::before {
-  content: ''; position: absolute; left: 0; top: 12px; bottom: 12px; width: 3px;
-  background: #2c5ba8; border-radius: 0 3px 3px 0;
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: #0078d4; border-radius: 4px 0 0 4px;
 }
-.pv-ah-kpi.warn::before { background: #c77700; }
-.pv-ah-kpi.danger::before { background: #c50f1f; }
-.pv-ah-kpi.ok::before { background: #107c10; }
-.pv-ah-kpi-lbl { font-size: 10px; color: var(--gray-130); text-transform: uppercase; letter-spacing: 0.9px; font-weight: 700; margin-bottom: 4px; }
-.pv-ah-kpi-v { font-size: 22pt; font-weight: 200; color: var(--gray-160); line-height: 1; letter-spacing: -0.8px; }
-.pv-ah-kpi-s { font-size: 11px; color: var(--gray-130); margin-top: 5px; }
+.pv-ah-kpi.warn::before   { background: #c19c00; }
+.pv-ah-kpi.danger::before { background: #d13438; }
+.pv-ah-kpi.ok::before     { background: #107c10; }
+.pv-ah-kpi-lbl { font-size: 10px; color: #605e5c; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; margin-bottom: 4px; }
+.pv-ah-kpi-v { font-size: 22pt; font-weight: 300; color: #323130; line-height: 1; letter-spacing: -0.6px; }
+.pv-ah-kpi-s { font-size: 11px; color: #605e5c; margin-top: 5px; }
 .pv-ah-kpi-s.good { color: #107c10; font-weight: 600; }
-.pv-ah-kpi-s.warn { color: #c77700; font-weight: 600; }
+.pv-ah-kpi-s.warn { color: #c19c00; font-weight: 600; }
 
 .pv-ah-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; margin-bottom: 14px; }
+.pv-card { padding: 16px 18px; }
 
-/* Prompts-over-time chart */
+/* Prompts-over-time chart — flat segments, Fluent colors */
 .pv-ah-chart {
   height: 160px; display: flex; align-items: flex-end; gap: 3px;
-  padding: 14px 10px 8px; margin-top: 8px;
-  background: linear-gradient(180deg, #f7faff, #fff);
-  border-radius: 8px; border: 1px solid var(--gray-20);
+  padding: 12px 8px 6px; margin-top: 8px;
+  background: #fafafa;
+  border-radius: 4px; border: 1px solid #edebe9;
   position: relative;
 }
-.pv-ah-chart-bar {
-  flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 1px;
-  min-height: 100%;
-}
-.pv-ah-chart-bar .seg {
-  width: 100%; border-radius: 1px;
-}
-.pv-ah-chart-bar .seg.safe   { background: linear-gradient(180deg, #5f9ef0, #2c5ba8); }
-.pv-ah-chart-bar .seg.labeled{ background: linear-gradient(180deg, #c8a55b, #8a6e36); }
-.pv-ah-chart-bar .seg.risky  { background: linear-gradient(180deg, #e28b8b, #c50f1f); }
-.pv-ah-chart-leg { display: flex; gap: 14px; font-size: 11px; color: var(--gray-130); margin-top: 8px; }
-.pv-ah-chart-leg .dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 5px; vertical-align: middle; }
-.pv-ah-chart-leg .dot.safe   { background: #2c5ba8; }
-.pv-ah-chart-leg .dot.labeled{ background: #c8a55b; }
-.pv-ah-chart-leg .dot.risky  { background: #c50f1f; }
+.pv-ah-chart-bar { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 1px; min-height: 100%; }
+.pv-ah-chart-bar .seg { width: 100%; }
+.pv-ah-chart-bar .seg.safe    { background: #0078d4; }
+.pv-ah-chart-bar .seg.labeled { background: #c19c00; }
+.pv-ah-chart-bar .seg.risky   { background: #d13438; }
+.pv-ah-chart-leg { display: flex; gap: 14px; font-size: 11px; color: #605e5c; margin-top: 8px; }
+.pv-ah-chart-leg .dot { width: 10px; height: 10px; display: inline-block; margin-right: 5px; vertical-align: middle; }
+.pv-ah-chart-leg .dot.safe    { background: #0078d4; }
+.pv-ah-chart-leg .dot.labeled { background: #c19c00; }
+.pv-ah-chart-leg .dot.risky   { background: #d13438; }
 
-/* Risk category breakdown */
+/* Risk category breakdown — flat bars */
 .pv-ah-risks { display: flex; flex-direction: column; gap: 9px; margin-top: 6px; }
 .pv-ah-risk-row { display: grid; grid-template-columns: 1.4fr 1fr auto; gap: 10px; align-items: center; font-size: 12.5px; }
-.pv-ah-risk-lbl { color: var(--gray-160); font-weight: 600; }
-.pv-ah-risk-lbl small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
-.pv-ah-risk-bar { height: 6px; border-radius: 3px; background: var(--gray-20); overflow: hidden; position: relative; }
-.pv-ah-risk-bar-fill { height: 100%; background: linear-gradient(90deg, #2c5ba8, #5f9ef0); }
-.pv-ah-risk-bar-fill.danger { background: linear-gradient(90deg, #c50f1f, #e28b8b); }
-.pv-ah-risk-bar-fill.warn  { background: linear-gradient(90deg, #c77700, #f2b24b); }
-.pv-ah-risk-n { font-family: Consolas, Menlo, monospace; font-size: 12px; color: var(--gray-160); font-weight: 700; min-width: 50px; text-align: right; }
+.pv-ah-risk-lbl { color: #323130; font-weight: 600; }
+.pv-ah-risk-lbl small { display: block; color: #605e5c; font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-ah-risk-bar { height: 4px; border-radius: 0; background: #edebe9; overflow: hidden; position: relative; }
+.pv-ah-risk-bar-fill { height: 100%; background: #0078d4; }
+.pv-ah-risk-bar-fill.danger { background: #d13438; }
+.pv-ah-risk-bar-fill.warn   { background: #c19c00; }
+.pv-ah-risk-n { font-family: Consolas, Menlo, monospace; font-size: 12px; color: #323130; font-weight: 600; min-width: 50px; text-align: right; }
 
-/* Shadow AI detection */
-.pv-shadow { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+/* Shadow AI — Fluent flat list */
+.pv-shadow { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
 .pv-shadow-row {
   display: grid; grid-template-columns: 28px 1fr auto auto;
-  gap: 10px; align-items: center;
-  padding: 9px 12px; border-radius: 7px;
-  background: #fef4f4; border-left: 3px solid #c50f1f;
+  gap: 12px; align-items: center;
+  padding: 10px 12px;
+  background: #fff; border: 1px solid #edebe9; border-left: 3px solid #d13438;
+  border-radius: 2px;
   font-size: 12.5px;
 }
-.pv-shadow-row.sanctioned { background: #eef9f1; border-left-color: #107c10; }
-.pv-shadow-row.review { background: #fff8e6; border-left-color: #c77700; }
+.pv-shadow-row.sanctioned { border-left-color: #107c10; }
+.pv-shadow-row.review     { border-left-color: #c19c00; }
 .pv-shadow-logo {
-  width: 28px; height: 28px; border-radius: 6px;
+  width: 28px; height: 28px; border-radius: 4px;
   display: flex; align-items: center; justify-content: center;
   font-weight: 700; font-size: 11px; color: #fff; flex-shrink: 0;
 }
-.pv-shadow-name { font-weight: 600; color: var(--gray-160); }
-.pv-shadow-name small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
-.pv-shadow-count { font-size: 11.5px; color: var(--gray-130); }
-.pv-shadow-status { font-size: 11px; font-weight: 700; white-space: nowrap; }
-.pv-shadow-status.blocked { color: #c50f1f; }
+.pv-shadow-name { font-weight: 600; color: #323130; }
+.pv-shadow-name small { display: block; color: #605e5c; font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-shadow-count { font-size: 11.5px; color: #605e5c; }
+.pv-shadow-status { font-size: 11px; font-weight: 600; white-space: nowrap; }
+.pv-shadow-status.blocked    { color: #d13438; }
 .pv-shadow-status.sanctioned { color: #107c10; }
-.pv-shadow-status.review { color: #c77700; }
+.pv-shadow-status.review     { color: #c19c00; }
 
-/* AI apps inventory */
-.pv-apps { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
+/* AI apps inventory — flat */
+.pv-apps { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: 4px; }
 .pv-app-row {
   display: grid; grid-template-columns: 24px 1fr auto; gap: 10px; align-items: center;
-  padding: 8px 12px; border-radius: 6px; background: #fafbfc;
-  font-size: 12px; border: 1px solid var(--gray-20);
+  padding: 8px 12px; border-radius: 2px;
+  font-size: 12px; border: 1px solid #edebe9; background: #fff;
 }
 .pv-app-row .pv-app-dot { width: 8px; height: 8px; border-radius: 50%; background: #107c10; justify-self: center; }
-.pv-app-row .pv-app-dot.warn { background: #c77700; }
-.pv-app-row .pv-app-dot.new { background: #0078d4; animation: pvPulse 1.8s ease-in-out infinite; }
-@keyframes pvPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
-.pv-app-name { color: var(--gray-160); font-weight: 600; }
-.pv-app-name small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
-.pv-app-scope { font-size: 10.5px; color: var(--gray-130); }
+.pv-app-row .pv-app-dot.warn { background: #c19c00; }
+.pv-app-row .pv-app-dot.new  { background: #0078d4; animation: pvPulse 1.8s ease-in-out infinite; }
+@keyframes pvPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+.pv-app-name { color: #323130; font-weight: 600; }
+.pv-app-name small { display: block; color: #605e5c; font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-app-scope { font-size: 10.5px; color: #605e5c; }
 
-/* Anatomy of a secured prompt */
+/* Anatomy of a secured prompt — Fluent flat */
 .pv-anatomy {
-  background: linear-gradient(180deg, #fafbfc, #fff);
-  border: 1px solid var(--gray-30); border-radius: 10px;
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
   padding: 18px 22px; margin-top: 14px;
 }
 .pv-anatomy-steps {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 18px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 14px;
   margin-top: 12px;
 }
 .pv-anat-step {
   position: relative;
-  background: #fff; border: 1px solid var(--gray-30); border-radius: 9px;
-  padding: 12px 14px 14px;
+  background: #faf9f8; border: 1px solid #edebe9; border-radius: 2px;
+  padding: 11px 13px 12px;
 }
 .pv-anat-step::after {
-  content: '›'; position: absolute; right: -14px; top: 50%;
+  content: ''; position: absolute; right: -10px; top: 50%;
   transform: translateY(-50%);
-  font-size: 20px; color: var(--gray-90); font-weight: 300;
+  width: 0; height: 0;
+  border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+  border-left: 6px solid #a19f9d;
   z-index: 1;
 }
 .pv-anat-step:nth-child(4n)::after { display: none; }
 .pv-anat-step.last::after { display: none; }
 .pv-anat-step-num {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: #2c5ba8; color: #fff;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: #0078d4; color: #fff;
   display: flex; align-items: center; justify-content: center;
-  font-size: 10.5px; font-weight: 700; margin-bottom: 7px;
+  font-size: 10.5px; font-weight: 600; margin-bottom: 7px;
 }
-.pv-anat-step-h {
-  font-size: 12px; font-weight: 700; color: var(--gray-160);
-  margin-bottom: 3px; line-height: 1.35;
-}
-.pv-anat-step-b { font-size: 11.5px; color: var(--gray-130); line-height: 1.5; }
+.pv-anat-step-h { font-size: 12px; font-weight: 600; color: #323130; margin-bottom: 3px; line-height: 1.35; }
+.pv-anat-step-b { font-size: 11.5px; color: #605e5c; line-height: 1.5; }
 .pv-anat-step-tag {
   display: inline-block; margin-top: 6px;
-  font-size: 9.5px; font-weight: 700; letter-spacing: 0.5px;
-  padding: 2px 7px; border-radius: 9px;
-  background: #eef3f8; color: #2c5ba8; text-transform: uppercase;
+  font-size: 9.5px; font-weight: 600; letter-spacing: 0.4px;
+  padding: 2px 7px; border-radius: 2px;
+  background: #eff6fc; color: #0078d4; text-transform: uppercase;
+  border: 1px solid #c7e0f4;
 }
-.pv-anat-step-tag.bad  { background: #fef4f4; color: #c50f1f; }
-.pv-anat-step-tag.ok   { background: #eef9f1; color: #0a5a0a; }
-.pv-anat-step-tag.warn { background: #fff8e6; color: #8a6e36; }
+.pv-anat-step-tag.bad  { background: #fde7e9; color: #a4262c; border-color: #f5c2c7; }
+.pv-anat-step-tag.ok   { background: #dff6dd; color: #107c10; border-color: #a1e0a1; }
+.pv-anat-step-tag.warn { background: #fff4ce; color: #8a6a00; border-color: #f5d98a; }
 
-/* DLP policies */
-.pv-dlp-policies { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+/* DLP — Fluent table */
+.pv-dlp-policies { display: flex; flex-direction: column; gap: 0; margin-top: 6px; }
 .pv-dlp-row {
   display: grid; grid-template-columns: 1.6fr 0.9fr 0.7fr 0.7fr 0.6fr; gap: 10px;
-  align-items: center; padding: 10px 14px;
-  background: #fafbfc; border: 1px solid var(--gray-20); border-radius: 7px;
+  align-items: center; padding: 10px 12px;
+  background: #fff; border-bottom: 1px solid #edebe9;
   font-size: 12.5px;
 }
+.pv-dlp-row:hover { background: #faf9f8; }
 .pv-dlp-row.head {
-  background: transparent; border: none; padding: 4px 14px 0;
-  font-size: 10.5px; font-weight: 700; color: var(--gray-130);
+  background: #faf9f8; border: none; padding: 6px 12px;
+  font-size: 10.5px; font-weight: 600; color: #605e5c;
   text-transform: uppercase; letter-spacing: 0.6px;
 }
-.pv-dlp-name { color: var(--gray-160); font-weight: 600; }
-.pv-dlp-name small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
-.pv-dlp-scope { font-size: 11.5px; color: var(--gray-130); }
-.pv-dlp-action { font-size: 11px; font-weight: 700; }
-.pv-dlp-action.block { color: #c50f1f; }
-.pv-dlp-action.warn  { color: #c77700; }
-.pv-dlp-action.audit { color: #2c5ba8; }
-.pv-dlp-n { font-family: Consolas, Menlo, monospace; font-size: 12px; color: var(--gray-160); font-weight: 700; }
+.pv-dlp-row.head:hover { background: #faf9f8; }
+.pv-dlp-name { color: #323130; font-weight: 600; }
+.pv-dlp-name small { display: block; color: #605e5c; font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-dlp-scope { font-size: 11.5px; color: #605e5c; }
+.pv-dlp-action { font-size: 11px; font-weight: 600; }
+.pv-dlp-action.block { color: #d13438; }
+.pv-dlp-action.warn  { color: #c19c00; }
+.pv-dlp-action.audit { color: #0078d4; }
+.pv-dlp-n { font-family: Consolas, Menlo, monospace; font-size: 12px; color: #323130; font-weight: 600; }
 .pv-dlp-state {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
-  padding: 3px 8px; border-radius: 10px; text-align: center;
-  text-transform: uppercase;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.3px;
+  padding: 3px 8px; border-radius: 2px; text-align: center;
+  text-transform: uppercase; border: 1px solid transparent;
 }
-.pv-dlp-state.enforced { background: #eef9f1; color: #0a5a0a; }
-.pv-dlp-state.test     { background: #fff8e6; color: #8a6e36; }
+.pv-dlp-state.enforced { background: #dff6dd; color: #107c10; border-color: #a1e0a1; }
+.pv-dlp-state.test     { background: #fff4ce; color: #8a6a00; border-color: #f5d98a; }
 
-/* Insider Risk */
+/* Insider Risk — Fluent */
 .pv-ir-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 14px; }
-.pv-ir-users { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.pv-ir-users { display: flex; flex-direction: column; gap: 0; margin-top: 6px; }
 .pv-ir-user {
-  display: grid; grid-template-columns: 32px 1fr auto auto; gap: 10px;
-  align-items: center; padding: 9px 12px;
-  background: #fafbfc; border: 1px solid var(--gray-20); border-radius: 7px;
+  display: grid; grid-template-columns: 32px 1fr auto auto; gap: 12px;
+  align-items: center; padding: 10px 12px;
+  background: #fff; border-bottom: 1px solid #edebe9;
   font-size: 12px;
 }
+.pv-ir-user:hover { background: #faf9f8; }
 .pv-ir-av {
   width: 28px; height: 28px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: 10.5px; font-weight: 700; color: #fff; flex-shrink: 0;
 }
-.pv-ir-name { color: var(--gray-160); font-weight: 600; }
-.pv-ir-name small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
-.pv-ir-pattern { font-size: 11px; color: var(--gray-130); }
-.pv-ir-score {
-  font-family: Consolas, Menlo, monospace; font-size: 13px; font-weight: 700;
-  min-width: 44px; text-align: right;
-}
-.pv-ir-score.high { color: #c50f1f; }
-.pv-ir-score.med  { color: #c77700; }
+.pv-ir-name { color: #323130; font-weight: 600; }
+.pv-ir-name small { display: block; color: #605e5c; font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-ir-pattern { font-size: 11px; color: #605e5c; }
+.pv-ir-score { font-family: Consolas, Menlo, monospace; font-size: 13px; font-weight: 700; min-width: 44px; text-align: right; }
+.pv-ir-score.high { color: #d13438; }
+.pv-ir-score.med  { color: #c19c00; }
 .pv-ir-score.low  { color: #107c10; }
 
 .pv-ir-case {
-  background: #fef4f4; border: 1px solid rgba(197,15,31,0.25); border-radius: 8px;
+  background: #fff; border: 1px solid #edebe9; border-left: 3px solid #d13438;
+  border-radius: 2px;
   padding: 12px 14px; margin-bottom: 10px;
 }
-.pv-ir-case.med { background: #fff8e6; border-color: rgba(199,119,0,0.3); }
-.pv-ir-case-h {
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: 12.5px; font-weight: 700; color: var(--gray-160); margin-bottom: 4px;
-}
-.pv-ir-case-b { font-size: 11.5px; color: var(--gray-160); line-height: 1.5; }
-.pv-ir-case-m { font-size: 10.5px; color: var(--gray-130); margin-top: 5px; }
+.pv-ir-case.med { border-left-color: #c19c00; }
+.pv-ir-case-h { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; font-weight: 600; color: #323130; margin-bottom: 4px; }
+.pv-ir-case-b { font-size: 11.5px; color: #323130; line-height: 1.5; }
+.pv-ir-case-m { font-size: 10.5px; color: #605e5c; margin-top: 5px; }
 
-/* Compliance Manager */
+/* Compliance Manager — Fluent */
 .pv-cm-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
 .pv-cm-frame {
-  background: #fff; border: 1px solid var(--gray-30); border-radius: 9px;
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
   padding: 14px 16px; position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
 }
 .pv-cm-frame-h { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
-.pv-cm-frame-name { font-size: 12.5px; font-weight: 700; color: var(--gray-160); }
-.pv-cm-frame-name small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
-.pv-cm-score-big {
-  font-size: 22pt; font-weight: 200; line-height: 1; letter-spacing: -0.8px;
-  color: #107c10;
-}
-.pv-cm-score-big.warn { color: #c77700; }
-.pv-cm-score-big.danger { color: #c50f1f; }
-.pv-cm-score-pct { font-size: 11px; color: var(--gray-130); font-weight: 600; }
-.pv-cm-bar {
-  height: 6px; border-radius: 3px; background: var(--gray-20); margin-top: 8px;
-  overflow: hidden;
-}
-.pv-cm-bar-fill { height: 100%; background: linear-gradient(90deg, #107c10, #6bc16b); }
-.pv-cm-bar-fill.warn { background: linear-gradient(90deg, #c77700, #f2b24b); }
-.pv-cm-bar-fill.danger { background: linear-gradient(90deg, #c50f1f, #e28b8b); }
-.pv-cm-actions { font-size: 11px; color: var(--gray-130); margin-top: 8px; }
-.pv-cm-actions b { color: var(--gray-160); }
+.pv-cm-frame-name { font-size: 12.5px; font-weight: 600; color: #323130; }
+.pv-cm-frame-name small { display: block; color: #605e5c; font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-cm-score-big { font-size: 22pt; font-weight: 300; line-height: 1; letter-spacing: -0.6px; color: #107c10; }
+.pv-cm-score-big.warn { color: #c19c00; }
+.pv-cm-score-big.danger { color: #d13438; }
+.pv-cm-score-pct { font-size: 11px; color: #605e5c; font-weight: 600; }
+.pv-cm-bar { height: 4px; border-radius: 0; background: #edebe9; margin-top: 8px; overflow: hidden; }
+.pv-cm-bar-fill { height: 100%; background: #107c10; }
+.pv-cm-bar-fill.warn   { background: #c19c00; }
+.pv-cm-bar-fill.danger { background: #d13438; }
+.pv-cm-actions { font-size: 11px; color: #605e5c; margin-top: 8px; }
+.pv-cm-actions b { color: #323130; }
 
 .pv-cm-improve {
-  background: #fff; border: 1px solid var(--gray-30); border-radius: 9px;
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
   padding: 16px 18px; margin-top: 14px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
 }
 .pv-cm-imp-row {
   display: grid; grid-template-columns: 1.6fr 0.7fr 0.8fr 0.5fr; gap: 10px;
-  align-items: center; padding: 8px 0;
-  border-bottom: 1px solid var(--gray-20); font-size: 12px;
+  align-items: center; padding: 9px 0;
+  border-bottom: 1px solid #edebe9; font-size: 12px;
 }
 .pv-cm-imp-row:last-child { border-bottom: none; }
 .pv-cm-imp-row.head {
-  font-size: 10.5px; font-weight: 700; color: var(--gray-130);
+  font-size: 10.5px; font-weight: 600; color: #605e5c;
   text-transform: uppercase; letter-spacing: 0.6px;
-  padding: 0 0 6px;
+  padding: 0 0 7px;
 }
-.pv-cm-imp-row .pv-cm-pts { color: #107c10; font-weight: 700; }
-.pv-cm-imp-row .pv-cm-due { color: var(--gray-130); font-size: 11px; }
-.pv-cm-imp-row .pv-cm-owner { font-size: 11px; color: var(--gray-160); font-weight: 600; }
+.pv-cm-imp-row .pv-cm-pts   { color: #107c10; font-weight: 600; }
+.pv-cm-imp-row .pv-cm-due   { color: #605e5c; font-size: 11px; }
+.pv-cm-imp-row .pv-cm-owner { font-size: 11px; color: #323130; font-weight: 600; }
 
-/* Audit & eDiscovery */
+/* Audit feed — Fluent light "console" look */
 .pv-audit-feed {
-  background: #0b1220; color: #d0d9e8;
-  border-radius: 8px; padding: 12px 16px;
+  background: #faf9f8; color: #323130;
+  border: 1px solid #edebe9; border-radius: 4px;
+  padding: 12px 14px;
   font-family: Consolas, Menlo, monospace; font-size: 11.5px;
-  line-height: 1.7; max-height: 320px; overflow-y: auto;
+  line-height: 1.8; max-height: 340px; overflow-y: auto;
 }
-.pv-audit-line { display: grid; grid-template-columns: 74px 120px 1fr; gap: 12px; padding: 2px 0; }
-.pv-audit-t { color: #8b949e; }
-.pv-audit-u { color: #ffd27a; }
-.pv-audit-d { color: #c9d1d9; }
-.pv-audit-d .ok   { color: #6bc16b; }
-.pv-audit-d .bad  { color: #e28b8b; }
-.pv-audit-d .warn { color: #f2b24b; }
+.pv-audit-line { display: grid; grid-template-columns: 74px 160px 1fr; gap: 14px; padding: 2px 0; border-bottom: 1px solid #f3f2f1; }
+.pv-audit-line:last-child { border-bottom: none; }
+.pv-audit-t { color: #605e5c; }
+.pv-audit-u { color: #0078d4; font-weight: 600; }
+.pv-audit-d { color: #323130; }
+.pv-audit-d .ok   { color: #107c10; font-weight: 600; }
+.pv-audit-d .bad  { color: #d13438; font-weight: 600; }
+.pv-audit-d .warn { color: #c19c00; font-weight: 600; }
 
-.pv-ediscovery-cases { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+/* eDiscovery */
+.pv-ediscovery-cases { display: flex; flex-direction: column; gap: 0; margin-top: 6px; }
 .pv-ed-case {
   display: grid; grid-template-columns: 1.5fr 0.8fr 0.7fr 0.9fr auto; gap: 10px;
-  align-items: center; padding: 9px 12px;
-  background: #fafbfc; border: 1px solid var(--gray-20); border-radius: 7px;
+  align-items: center; padding: 10px 12px;
+  background: #fff; border-bottom: 1px solid #edebe9;
   font-size: 12px;
 }
+.pv-ed-case:hover { background: #faf9f8; }
 .pv-ed-case.head {
-  background: transparent; border: none; padding: 0 12px 4px;
-  font-size: 10.5px; font-weight: 700; color: var(--gray-130);
+  background: #faf9f8; border: none; padding: 6px 12px;
+  font-size: 10.5px; font-weight: 600; color: #605e5c;
   text-transform: uppercase; letter-spacing: 0.6px;
 }
-.pv-ed-name { color: var(--gray-160); font-weight: 600; }
-.pv-ed-name small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-ed-case.head:hover { background: #faf9f8; }
+.pv-ed-name { color: #323130; font-weight: 600; }
+.pv-ed-name small { display: block; color: #605e5c; font-weight: 400; font-size: 10.5px; margin-top: 1px; }
 .pv-ed-status {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
-  padding: 3px 8px; border-radius: 10px; text-transform: uppercase;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.3px;
+  padding: 3px 8px; border-radius: 2px; text-transform: uppercase;
+  border: 1px solid transparent;
 }
-.pv-ed-status.hold   { background: #fef4f4; color: #c50f1f; }
-.pv-ed-status.review { background: #fff8e6; color: #8a6e36; }
-.pv-ed-status.closed { background: #eef9f1; color: #0a5a0a; }
+.pv-ed-status.hold   { background: #fde7e9; color: #a4262c; border-color: #f5c2c7; }
+.pv-ed-status.review { background: #fff4ce; color: #8a6a00; border-color: #f5d98a; }
+.pv-ed-status.closed { background: #dff6dd; color: #107c10; border-color: #a1e0a1; }
 
-/* Dark mode */
-body.dark .pv-tabs { background: #252525; border-bottom-color: #333; }
-body.dark .pv-tab { color: #bbb; }
-body.dark .pv-tab.active { color: #6bb6ff; border-bottom-color: #6bb6ff; }
-body.dark .pv-ah-kpi, body.dark .pv-cm-frame, body.dark .pv-cm-improve,
-body.dark .pv-anatomy, body.dark .pv-anat-step, body.dark .pv-app-row,
-body.dark .pv-dlp-row, body.dark .pv-ir-user, body.dark .pv-ir-case,
-body.dark .pv-ed-case, body.dark .pv-shadow-row { background: #1e1e1e; border-color: #333; color: #e0e0e0; }
-body.dark .pv-ir-case.med { background: #2a2515; }
-body.dark .pv-shadow-row.sanctioned { background: #142218; }
-body.dark .pv-shadow-row.review { background: #2a2515; }
-body.dark .pv-shadow-row:not(.sanctioned):not(.review) { background: #2a1818; }
-body.dark .pv-ah-chart { background: #1a1a1a; border-color: #2a2a2a; }
-body.dark .pv-audit-feed { background: #050811; }
+/* Overview score card (replaces the old pv-head score) */
+.pv-score-card {
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
+  padding: 16px 20px; margin-bottom: 14px;
+  display: grid; grid-template-columns: 86px 1fr; gap: 18px; align-items: center;
+}
+.pv-score-card .pv-score-meta h3 { font-size: 14px; font-weight: 600; color: #323130; margin: 0 0 3px; }
+.pv-score-card .pv-score-meta p  { font-size: 12px; color: #605e5c; margin: 0; line-height: 1.5; }
+
+/* Dark mode — Fluent darker */
+body.dark .pv-body { background: #1b1a19; }
+body.dark .pv-rail { background: #201f1e; border-right-color: #323130; }
+body.dark .pv-tab { color: #d2d0ce; }
+body.dark .pv-tab:hover { background: #292827; }
+body.dark .pv-tab.active { background: #323130; color: #f3f2f1; }
+body.dark .pv-tab.active::before { background: #2899f5; }
+body.dark .pv-tab svg { color: #a19f9d; }
+body.dark .pv-tab.active svg { color: #2899f5; }
+body.dark .pv-page-title { border-bottom-color: #323130; }
+body.dark .pv-page-title h1 { color: #f3f2f1; }
+body.dark .pv-page-title p { color: #a19f9d; }
+body.dark .pv-cmd-bar { border-bottom-color: #323130; }
+body.dark .pv-cmd-btn { color: #d2d0ce; }
+body.dark .pv-cmd-btn:hover { background: #292827; }
+body.dark .pv-card, body.dark .pv-kpi, body.dark .pv-ah-kpi,
+body.dark .pv-cm-frame, body.dark .pv-cm-improve, body.dark .pv-anatomy,
+body.dark .pv-score-card { background: #252423; border-color: #323130; box-shadow: none; }
+body.dark .pv-anat-step { background: #1f1e1d; border-color: #323130; }
+body.dark .pv-anat-step-h { color: #f3f2f1; }
+body.dark .pv-anat-step-b { color: #a19f9d; }
+body.dark .pv-dlp-row, body.dark .pv-ir-user, body.dark .pv-ed-case,
+body.dark .pv-shadow-row, body.dark .pv-app-row { background: #252423; border-color: #323130; }
+body.dark .pv-dlp-row:hover, body.dark .pv-ir-user:hover, body.dark .pv-ed-case:hover { background: #2d2c2b; }
+body.dark .pv-dlp-row.head, body.dark .pv-ed-case.head { background: #1f1e1d; color: #a19f9d; }
+body.dark .pv-dlp-name, body.dark .pv-ir-name, body.dark .pv-ed-name,
+body.dark .pv-shadow-name, body.dark .pv-app-name, body.dark .pv-ah-risk-lbl { color: #f3f2f1; }
+body.dark .pv-ah-chart { background: #1f1e1d; border-color: #323130; }
+body.dark .pv-audit-feed { background: #1f1e1d; border-color: #323130; color: #d2d0ce; }
+body.dark .pv-audit-line { border-bottom-color: #292827; }
+body.dark .pv-audit-d { color: #d2d0ce; }
+body.dark .pv-ir-case { background: #252423; border-color: #323130; }
+body.dark .pv-ir-case-b { color: #d2d0ce; }
+body.dark .pv-bread { color: #a19f9d; }
+body.dark .pv-bread .pv-bc-last { color: #f3f2f1; }
+
+/* Legacy classes kept for compatibility with the existing overview pane */
+.pv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.pv-label-row small { color: #605e5c; }
+.pv-event { background: #faf9f8; border-left-color: #c19c00; }
+.pv-event.bad { background: #fdf3f4; border-left-color: #d13438; }
+
+body.dark .pv-event { background: #1f1e1d; }
+body.dark .pv-event.bad { background: #2a1818; }
+
+/* ---- (legacy anchor — AI Hub gradient banner classes kept as overrides) ---- */
+.pv-aihub-banner {
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
+  color: #323130;
+  padding: 14px 18px; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 14px;
+  position: relative; overflow: hidden;
+}
+.pv-aihub-banner::after { display: none; }
+.pv-aihub-banner > * { position: relative; z-index: 1; }
+.pv-aihub-banner .pv-ah-ico {
+  width: 40px; height: 40px; border-radius: 4px;
+  background: #eff6fc; border: 1px solid #c7e0f4;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  color: #0078d4;
+}
+.pv-aihub-banner .pv-ah-ico svg { fill: #0078d4; }
+.pv-aihub-banner h2 { font-size: 15px; font-weight: 600; margin: 0 0 2px; letter-spacing: -0.1px; color: #323130; }
+.pv-aihub-banner p { color: #605e5c; }
+.pv-aihub-banner h2 .pv-ah-badge {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.4px;
+  padding: 2px 7px; border-radius: 2px;
+  background: #eff6fc; color: #0078d4;
+  margin-left: 8px; vertical-align: 2px; text-transform: uppercase;
+  border: 1px solid #c7e0f4;
+}
+.pv-aihub-banner p { font-size: 12.5px; margin: 0; line-height: 1.5; }
 
 /* ============ POWER BI ============ */
 .app-topbar.powerbi { background: linear-gradient(180deg, #f2c811 0%, #b79507 100%); color: #242424; }
@@ -5947,45 +6102,101 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
     <div class="app-topbar purview">
       <div class="back" onclick="goHome()">☰</div>
       <div class="app-title">
-        <svg class="app-title-logo" width="22" height="22" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#5f9ef0"/><path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4z" fill="#fff" transform="scale(0.75) translate(3 3)"/></svg>
-        Microsoft Purview — Compliance &amp; Data Security
+        <svg class="app-title-logo" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2L3 6v6c0 5.5 3.8 10.3 9 11 5.2-.7 9-5.5 9-11V6l-9-4z" fill="#8181e0"/><path d="M12 2L3 6v6c0 5.5 3.8 10.3 9 11V2z" fill="#5a5ab6"/></svg>
+        Microsoft Purview
       </div>
       <div style="flex:1"></div>
       <div class="right"><div class="avatar" style="background:#c8a55b;color:#003865;">DK</div></div>
     </div>
     <div class="pv-body">
-      <div class="pv-head">
-        <div>
-          <h1>Compliance posture <span style="font-weight:400;color:var(--gray-90);">· Hoag tenant</span></h1>
-          <p>Every Copilot prompt, every label decision, every DLP event — in one place. <span style="color:#107c10;font-weight:600;">● Live</span> · last refresh 14 sec ago</p>
-        </div>
-        <div class="pv-score">
-          <div class="pv-score-ring">
-            <svg width="86" height="86" viewBox="0 0 86 86">
-              <circle cx="43" cy="43" r="36" fill="none" stroke="#e0e0e0" stroke-width="6"/>
-              <circle cx="43" cy="43" r="36" fill="none" stroke="#107c10" stroke-width="6" stroke-dasharray="226" stroke-dashoffset="23" transform="rotate(-90 43 43)" stroke-linecap="round"/>
-              <text x="43" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#107c10">92</text>
-            </svg>
-          </div>
-          <div>
-            <div class="pv-score-lbl">Compliance score</div>
-            <div class="pv-score-change">▲ 4 pts this month</div>
-          </div>
-        </div>
-      </div>
+      <div class="pv-shell">
 
-      <!-- Tab navigation -->
-      <div class="pv-tabs">
-        <div class="pv-tab active" data-pvtab="overview" onclick="switchPvTab('overview')">Overview</div>
-        <div class="pv-tab" data-pvtab="aihub" onclick="switchPvTab('aihub')">AI Hub <span class="pv-tab-badge">NEW</span></div>
-        <div class="pv-tab" data-pvtab="dlp" onclick="switchPvTab('dlp')">Data Loss Prevention</div>
-        <div class="pv-tab" data-pvtab="irm" onclick="switchPvTab('irm')">Insider Risk <span class="pv-tab-badge warn">2</span></div>
-        <div class="pv-tab" data-pvtab="cm" onclick="switchPvTab('cm')">Compliance Manager</div>
-        <div class="pv-tab" data-pvtab="audit" onclick="switchPvTab('audit')">Audit &amp; eDiscovery</div>
-      </div>
+        <!-- Left rail navigation (mirrors purview.microsoft.com) -->
+        <div class="pv-rail">
+          <div class="pv-rail-group">Solutions</div>
+          <div class="pv-tabs">
+            <div class="pv-tab active" data-pvtab="overview" onclick="switchPvTab('overview')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l9-8 9 8v9a1 1 0 01-1 1h-5v-7h-6v7H4a1 1 0 01-1-1v-9z"/></svg>
+              Home
+            </div>
+            <div class="pv-tab" data-pvtab="aihub" onclick="switchPvTab('aihub')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 3v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-3z"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              DSPM for AI
+              <span class="pv-tab-badge new">NEW</span>
+            </div>
+            <div class="pv-tab" data-pvtab="dlp" onclick="switchPvTab('dlp')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M8 9h8M8 13h8M8 17h5" stroke-linecap="round"/></svg>
+              Data Loss Prevention
+            </div>
+            <div class="pv-tab" data-pvtab="irm" onclick="switchPvTab('irm')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/><path d="M18 4l2 2M20 4l-2 2" stroke-linecap="round"/></svg>
+              Insider Risk Management
+              <span class="pv-tab-badge warn">2</span>
+            </div>
+            <div class="pv-tab" data-pvtab="cm" onclick="switchPvTab('cm')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 3v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-3z"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Compliance Manager
+            </div>
+            <div class="pv-tab" data-pvtab="audit" onclick="switchPvTab('audit')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h8M8 17h5" stroke-linecap="round"/><circle cx="18" cy="17" r="2.5"/></svg>
+              Audit &amp; eDiscovery
+            </div>
+          </div>
+
+          <div class="pv-rail-group">Settings</div>
+          <div class="pv-tabs">
+            <div class="pv-tab" style="opacity:0.7;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+              Roles &amp; scopes
+            </div>
+            <div class="pv-tab" style="opacity:0.7;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+              Data map
+            </div>
+          </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="pv-main">
 
       <!-- ========== OVERVIEW ========== -->
       <div class="pv-pane active" id="pv-pane-overview">
+        <div class="pv-bread">
+          <span>Microsoft Purview</span>
+          <span class="pv-bc-sep">›</span>
+          <span class="pv-bc-last">Home</span>
+        </div>
+        <div class="pv-page-title">
+          <div>
+            <h1>Home</h1>
+            <p>Your compliance posture across Hoag's Microsoft 365 tenant — data, users, and AI.</p>
+          </div>
+          <div class="pv-page-meta">
+            <div class="pv-live">Live</div>
+            <div style="margin-top:3px;">Last refresh · 14 sec ago</div>
+          </div>
+        </div>
+        <div class="pv-cmd-bar">
+          <div class="pv-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>New policy</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7M4 19h16" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11a8 8 0 10-2.4 5.6L20 19" stroke-linecap="round"/><path d="M20 14v5h-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Refresh</div>
+          <div class="pv-cmd-btn sep"></div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>30 days ▾</div>
+          <div class="pv-cmd-filter">All workloads ▾</div>
+        </div>
+
+        <div class="pv-score-card">
+          <svg width="86" height="86" viewBox="0 0 86 86">
+            <circle cx="43" cy="43" r="36" fill="none" stroke="#edebe9" stroke-width="6"/>
+            <circle cx="43" cy="43" r="36" fill="none" stroke="#107c10" stroke-width="6" stroke-dasharray="226" stroke-dashoffset="23" transform="rotate(-90 43 43)" stroke-linecap="round"/>
+            <text x="43" y="48" text-anchor="middle" font-size="22" font-weight="600" fill="#107c10">92</text>
+          </svg>
+          <div class="pv-score-meta">
+            <h3>Microsoft Purview compliance score — <span style="color:#107c10;">92 / 100</span> <span style="color:#107c10;font-size:12px;font-weight:600;margin-left:4px;">▲ 4 pts this month</span></h3>
+            <p>Computed across 1,240+ controls and 11 active frameworks. Earn points by completing improvement actions in <b>Compliance Manager</b>. See the <b>DSPM for AI</b> tab for AI-specific posture — it's what your CISO and auditor will ask about first.</p>
+          </div>
+        </div>
+
         <div class="pv-kpis">
           <div class="pv-kpi"><div class="pv-kpi-v">48</div><div class="pv-kpi-l">DLP events · all contained</div></div>
           <div class="pv-kpi"><div class="pv-kpi-v">1.1M</div><div class="pv-kpi-l">PHI prompts auto-labeled</div></div>
@@ -6015,21 +6226,32 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
         </div>
       </div>
 
-      <!-- ========== AI HUB (DSPM for AI) ========== -->
+      <!-- ========== DSPM FOR AI ========== -->
       <div class="pv-pane" id="pv-pane-aihub">
-        <div class="pv-aihub-banner">
-          <div class="pv-ah-ico">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a3 3 0 00-3 3v1H7a2 2 0 00-2 2v4a7 7 0 0014 0V8a2 2 0 00-2-2h-2V5a3 3 0 00-3-3zm-1 3a1 1 0 112 0v1h-2V5zM8 9h8v3a4 4 0 01-8 0V9zm3.1 10.9a1 1 0 011.8 0l.9 1.6a.5.5 0 01-.45.75h-2.7a.5.5 0 01-.45-.75l.9-1.6z"/></svg>
+        <div class="pv-bread">
+          <span>Microsoft Purview</span>
+          <span class="pv-bc-sep">›</span>
+          <span class="pv-bc-last">Data Security Posture Management for AI</span>
+        </div>
+        <div class="pv-page-title">
+          <div>
+            <h1>Data Security Posture Management for AI</h1>
+            <p>Visibility and control for every AI interaction in your tenant — Microsoft 365 Copilot, Copilot Studio agents, partner agents (Epic, Salesforce, ServiceNow), and any public AI app reachable from managed devices.</p>
           </div>
-          <div style="flex:1;">
-            <h2>Microsoft Purview AI Hub <span class="pv-ah-badge">DSPM for AI</span></h2>
-            <p>End-to-end visibility and control for every AI interaction across your tenant — Microsoft 365 Copilot, Copilot Studio agents, partner agents (Epic, Salesforce), and any public AI app reachable from managed devices.</p>
+          <div class="pv-page-meta">
+            <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Data coverage</div>
+            <div style="font-size:20pt;font-weight:300;color:#0078d4;line-height:1.05;margin:2px 0;">98.4%</div>
+            <div>3.2M prompts analyzed / 30d</div>
           </div>
-          <div style="text-align:right;font-size:11px;opacity:0.9;">
-            <div>Data coverage</div>
-            <div style="font-size:18pt;font-weight:200;color:#ffe19a;line-height:1.1;">98.4%</div>
-            <div>3.2M prompts / 30d</div>
-          </div>
+        </div>
+        <div class="pv-cmd-bar">
+          <div class="pv-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>Create policy</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h10M4 17h16"/></svg>View reports</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7M4 19h16" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11a8 8 0 10-2.4 5.6L20 19" stroke-linecap="round"/><path d="M20 14v5h-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Refresh</div>
+          <div class="pv-cmd-btn sep"></div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>30 days ▾</div>
+          <div class="pv-cmd-filter">All AI apps ▾</div>
         </div>
 
         <div class="pv-ah-kpis">
@@ -6205,6 +6427,30 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
 
       <!-- ========== DLP ========== -->
       <div class="pv-pane" id="pv-pane-dlp">
+        <div class="pv-bread">
+          <span>Microsoft Purview</span>
+          <span class="pv-bc-sep">›</span>
+          <span class="pv-bc-last">Data Loss Prevention</span>
+        </div>
+        <div class="pv-page-title">
+          <div>
+            <h1>Data Loss Prevention</h1>
+            <p>Policies that govern how sensitive information moves across Exchange, SharePoint, OneDrive, Teams, endpoint devices, and every Copilot surface.</p>
+          </div>
+          <div class="pv-page-meta">
+            <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Matches · 30 days</div>
+            <div style="font-size:20pt;font-weight:300;color:#323130;line-height:1.05;margin:2px 0;">1,284</div>
+            <div><span style="color:#d13438;font-weight:600;">89 blocked</span> · 1,195 audits</div>
+          </div>
+        </div>
+        <div class="pv-cmd-bar">
+          <div class="pv-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>Create policy</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h10M4 17h16"/></svg>Alerts</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg>Simulate</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7M4 19h16" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+          <div class="pv-cmd-btn sep"></div>
+          <div class="pv-cmd-filter">Scope: all workloads ▾</div>
+        </div>
         <div class="pv-ah-kpis" style="grid-template-columns: repeat(4, 1fr);">
           <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Active policies</div><div class="pv-ah-kpi-v">14</div><div class="pv-ah-kpi-s">11 enforced · 3 in test mode</div></div>
           <div class="pv-ah-kpi warn"><div class="pv-ah-kpi-lbl">Matches · 30d</div><div class="pv-ah-kpi-v">1,284</div><div class="pv-ah-kpi-s">89 blocks · 1,195 audits</div></div>
@@ -6294,6 +6540,30 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
 
       <!-- ========== INSIDER RISK ========== -->
       <div class="pv-pane" id="pv-pane-irm">
+        <div class="pv-bread">
+          <span>Microsoft Purview</span>
+          <span class="pv-bc-sep">›</span>
+          <span class="pv-bc-last">Insider Risk Management</span>
+        </div>
+        <div class="pv-page-title">
+          <div>
+            <h1>Insider Risk Management</h1>
+            <p>Behavior-based risk signals, anonymized by default. Adaptive Protection automatically tightens DLP for elevated-risk users without manual admin intervention.</p>
+          </div>
+          <div class="pv-page-meta">
+            <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Active cases</div>
+            <div style="font-size:20pt;font-weight:300;color:#d13438;line-height:1.05;margin:2px 0;">2</div>
+            <div>1 high · 1 medium</div>
+          </div>
+        </div>
+        <div class="pv-cmd-bar">
+          <div class="pv-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>New case</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h10M4 17h16"/></svg>Alerts queue</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>Policies</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7M4 19h16" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+          <div class="pv-cmd-btn sep"></div>
+          <div class="pv-cmd-filter">Risk tier: all ▾</div>
+        </div>
         <div class="pv-ah-kpis" style="grid-template-columns: repeat(4, 1fr);">
           <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Users scored</div><div class="pv-ah-kpi-v">2,847</div><div class="pv-ah-kpi-s">all licensed M365 users</div></div>
           <div class="pv-ah-kpi warn"><div class="pv-ah-kpi-lbl">Elevated risk</div><div class="pv-ah-kpi-v">23</div><div class="pv-ah-kpi-s warn">0.8% · Adaptive Protection engaged</div></div>
@@ -6368,6 +6638,30 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
 
       <!-- ========== COMPLIANCE MANAGER ========== -->
       <div class="pv-pane" id="pv-pane-cm">
+        <div class="pv-bread">
+          <span>Microsoft Purview</span>
+          <span class="pv-bc-sep">›</span>
+          <span class="pv-bc-last">Compliance Manager</span>
+        </div>
+        <div class="pv-page-title">
+          <div>
+            <h1>Compliance Manager</h1>
+            <p>Framework scores, control posture, and the improvement actions that move the number. Every score is auditor-traceable back to a specific control.</p>
+          </div>
+          <div class="pv-page-meta">
+            <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Compliance score</div>
+            <div style="font-size:20pt;font-weight:300;color:#107c10;line-height:1.05;margin:2px 0;">92 / 100</div>
+            <div><span style="color:#107c10;font-weight:600;">▲ 4 pts</span> this month</div>
+          </div>
+        </div>
+        <div class="pv-cmd-bar">
+          <div class="pv-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>Add assessment</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg>Improvement actions</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h10M4 17h16"/></svg>Controls</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7M4 19h16" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+          <div class="pv-cmd-btn sep"></div>
+          <div class="pv-cmd-filter">Templates: 11 active ▾</div>
+        </div>
         <div class="pv-card" style="margin-bottom:14px;">
           <div style="display:flex;justify-content:space-between;align-items:center;gap:18px;">
             <div>
@@ -6483,6 +6777,30 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
 
       <!-- ========== AUDIT & EDISCOVERY ========== -->
       <div class="pv-pane" id="pv-pane-audit">
+        <div class="pv-bread">
+          <span>Microsoft Purview</span>
+          <span class="pv-bc-sep">›</span>
+          <span class="pv-bc-last">Audit &amp; eDiscovery</span>
+        </div>
+        <div class="pv-page-title">
+          <div>
+            <h1>Audit &amp; eDiscovery</h1>
+            <p>Every Copilot prompt, response, label decision, and DLP action is captured in the Unified Audit Log and discoverable the same way email is.</p>
+          </div>
+          <div class="pv-page-meta">
+            <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Events · 24h</div>
+            <div style="font-size:20pt;font-weight:300;color:#323130;line-height:1.05;margin:2px 0;">184K</div>
+            <div>Search SLA p95: <span style="color:#107c10;font-weight:600;">&lt; 2 min</span></div>
+          </div>
+        </div>
+        <div class="pv-cmd-bar">
+          <div class="pv-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.5-4.5" stroke-linecap="round"/></svg>New search</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h12l4 4v10H4z"/><path d="M16 5v4h4"/></svg>New case</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7M4 19h16" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11a8 8 0 10-2.4 5.6L20 19" stroke-linecap="round"/><path d="M20 14v5h-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Refresh</div>
+          <div class="pv-cmd-btn sep"></div>
+          <div class="pv-cmd-filter">Workload: all ▾</div>
+        </div>
         <div class="pv-ah-kpis" style="grid-template-columns: repeat(4, 1fr);">
           <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Prompts retained</div><div class="pv-ah-kpi-v">3.2M</div><div class="pv-ah-kpi-s">7-year retention · HIPAA aligned</div></div>
           <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Active holds</div><div class="pv-ah-kpi-v">3</div><div class="pv-ah-kpi-s">1 litigation · 2 regulatory</div></div>
@@ -6565,6 +6883,8 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
         </div>
       </div>
 
+        </div><!-- /pv-main -->
+      </div><!-- /pv-shell -->
     </div>
   </div>
 
