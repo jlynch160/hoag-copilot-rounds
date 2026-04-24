@@ -245,7 +245,7 @@ body { background: #faf9f8; }
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 14px;
   font-size: 12px; color: rgba(255,255,255,0.95);
-  cursor: default;
+  cursor: pointer;
   transition: background 0.15s, transform 0.2s;
 }
 .time-saved:hover { background: rgba(255,255,255,0.18); }
@@ -3622,6 +3622,261 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 .demo-tip .tip-close { position: absolute; top: 4px; right: 8px; cursor: pointer; color: rgba(255,255,255,0.6); }
 @keyframes tipIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
 
+/* ============ TIME-SAVED EXPLAINER MODAL ============ */
+.tsx-modal { position: fixed; inset: 0; z-index: 340; display: none; align-items: center; justify-content: center; }
+.tsx-modal.open { display: flex; }
+.tsx-backdrop { position: absolute; inset: 0; background: rgba(20,26,40,0.55); backdrop-filter: blur(3px); animation: tsxFade 0.2s ease; }
+@keyframes tsxFade { from { opacity: 0; } to { opacity: 1; } }
+.tsx-panel {
+  position: relative; z-index: 1;
+  width: 900px; max-width: 96vw; max-height: 92vh;
+  background: #fff; border-radius: 14px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.06);
+  display: flex; flex-direction: column;
+  animation: tsxIn 0.3s cubic-bezier(0.4,0,0.2,1);
+  overflow: hidden;
+}
+@keyframes tsxIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.tsx-head {
+  position: relative;
+  padding: 22px 28px 20px;
+  background: linear-gradient(135deg, #003865 0%, #0090a8 55%, #c8a55b 120%);
+  color: #fff;
+}
+.tsx-head::after {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(circle at 85% 20%, rgba(255,225,154,0.28), transparent 45%),
+              radial-gradient(circle at 15% 120%, rgba(255,255,255,0.12), transparent 50%);
+}
+.tsx-head-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; position: relative; z-index: 1; }
+.tsx-head h2 { font-size: 20px; font-weight: 500; letter-spacing: -0.3px; margin: 0 0 4px; }
+.tsx-head .tsx-eyebrow { font-size: 10.5px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; opacity: 0.85; margin-bottom: 4px; }
+.tsx-head .tsx-sub { font-size: 12.5px; opacity: 0.88; max-width: 520px; line-height: 1.45; }
+.tsx-big {
+  flex-shrink: 0; text-align: right;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,225,154,0.35);
+  border-radius: 12px;
+  padding: 10px 16px 8px;
+  min-width: 150px;
+}
+.tsx-big-num { font-size: 34pt; font-weight: 200; line-height: 1; color: #ffe19a; letter-spacing: -1.5px; }
+.tsx-big-lbl { font-size: 10.5px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 3px; font-weight: 600; }
+.tsx-close {
+  position: absolute; top: 14px; right: 14px; z-index: 2;
+  width: 30px; height: 30px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: #fff; font-size: 18px;
+  background: rgba(255,255,255,0.1);
+}
+.tsx-close:hover { background: rgba(255,255,255,0.25); }
+
+.tsx-tabs {
+  display: flex; gap: 2px; padding: 0 22px;
+  background: #fafbfc; border-bottom: 1px solid var(--gray-30);
+}
+.tsx-tab {
+  padding: 12px 18px 11px; font-size: 13px; font-weight: 600;
+  color: var(--gray-130); cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.12s, border-color 0.12s;
+}
+.tsx-tab:hover { color: var(--gray-160); }
+.tsx-tab.active { color: var(--hoag-blue); border-bottom-color: var(--hoag-blue); }
+
+.tsx-body { flex: 1; overflow-y: auto; padding: 22px 28px 24px; background: #fff; }
+.tsx-pane { display: none; animation: tsxFade 0.25s ease; }
+.tsx-pane.active { display: block; }
+
+.tsx-h3 { font-size: 11px; font-weight: 700; color: var(--gray-130); text-transform: uppercase; letter-spacing: 0.9px; margin: 0 0 10px; }
+
+/* Formula card */
+.tsx-formula {
+  background: linear-gradient(135deg, #f7faff 0%, #fff 100%);
+  border: 1px solid rgba(0,103,192,0.18);
+  border-radius: 10px;
+  padding: 16px 18px; margin-bottom: 18px;
+  font-size: 13px; color: var(--gray-160); line-height: 1.55;
+}
+.tsx-formula code {
+  display: inline-block; padding: 3px 8px; margin: 2px 3px;
+  background: #eef3f8; border: 1px solid rgba(0,56,101,0.15);
+  border-radius: 5px; font-family: Consolas, Menlo, monospace;
+  font-size: 12px; color: var(--hoag-blue); font-weight: 600;
+}
+.tsx-formula .tsxf-line {
+  font-family: Consolas, Menlo, monospace; font-size: 13px;
+  color: var(--hoag-blue); font-weight: 600;
+  background: #eef3f8; padding: 8px 12px; border-radius: 6px;
+  margin: 10px 0 6px; letter-spacing: 0.2px;
+}
+
+/* Stacked contribution bar */
+.tsx-stack {
+  display: flex; height: 34px; border-radius: 6px; overflow: hidden;
+  margin: 10px 0 4px; background: var(--gray-20);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
+}
+.tsx-stack-seg {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: #fff;
+  transition: flex 0.4s ease;
+  overflow: hidden; white-space: nowrap;
+}
+.tsx-stack-seg.baseline { background: linear-gradient(135deg, #003865, #0067c0); }
+.tsx-stack-seg.session  { background: linear-gradient(135deg, #0090a8, #0cc0d6); }
+.tsx-stack-legend { display: flex; gap: 16px; font-size: 11px; color: var(--gray-130); margin-bottom: 6px; }
+.tsx-stack-legend .ll-dot { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:6px; vertical-align:middle; }
+.tsx-stack-legend .ll-dot.baseline { background: #0067c0; }
+.tsx-stack-legend .ll-dot.session  { background: #0cc0d6; }
+
+/* Event log */
+.tsx-log {
+  border: 1px solid var(--gray-30); border-radius: 8px;
+  max-height: 240px; overflow-y: auto;
+  background: #fff;
+}
+.tsx-log-row {
+  display: grid; grid-template-columns: 56px 1fr auto auto;
+  gap: 10px; align-items: center;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--gray-20);
+  font-size: 12.5px;
+}
+.tsx-log-row:last-child { border-bottom: none; }
+.tsx-log-row.baseline { background: #f7faff; }
+.tsx-log-time { font-family: Consolas, Menlo, monospace; font-size: 11px; color: var(--gray-130); }
+.tsx-log-label { color: var(--gray-160); }
+.tsx-log-label small { display:block; color: var(--gray-130); font-size: 10.5px; margin-top: 1px; }
+.tsx-log-delta { font-size: 11px; color: var(--gray-130); font-family: Consolas, Menlo, monospace; white-space: nowrap; }
+.tsx-log-min {
+  background: #eef9f1; color: #0a5a0a; font-weight: 700;
+  padding: 3px 9px; border-radius: 10px; font-size: 11.5px;
+  white-space: nowrap;
+}
+.tsx-log-row.baseline .tsx-log-min { background: #eef3f8; color: var(--hoag-blue); }
+
+/* Benchmarks table */
+.tsx-bench {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; border: 1px solid var(--gray-30); border-radius: 8px;
+  overflow: hidden; margin-top: 10px;
+}
+.tsx-bench-row {
+  display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 0.8fr;
+  gap: 10px; align-items: center;
+  padding: 7px 12px; font-size: 12px;
+  border-bottom: 1px solid var(--gray-20);
+}
+.tsx-bench-row:last-child { border-bottom: none; }
+.tsx-bench-row.head {
+  background: #fafbfc; font-weight: 700; color: var(--gray-130);
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.6px;
+}
+.tsx-bench-row .b-save { color: #0a5a0a; font-weight: 700; }
+.tsx-bench-row .b-strike { text-decoration: line-through; color: var(--gray-90); }
+.tsx-bench-wrap {
+  max-height: 260px; overflow-y: auto;
+  border: 1px solid var(--gray-30); border-radius: 8px;
+  margin-top: 8px;
+}
+.tsx-bench-wrap .tsx-bench-row { border-right: none; border-left: none; }
+
+/* Production methods cards */
+.tsx-methods { display: grid; gap: 14px; }
+.tsx-method {
+  border: 1px solid var(--gray-30); border-radius: 10px;
+  padding: 16px 18px; background: #fff;
+  position: relative;
+}
+.tsx-method::before {
+  content: ''; position: absolute; left: 0; top: 16px; bottom: 16px;
+  width: 3px; border-radius: 0 3px 3px 0;
+  background: var(--hoag-blue);
+}
+.tsx-method.m2::before { background: var(--hoag-teal); }
+.tsx-method.m3::before { background: #c8a55b; }
+.tsx-method-head {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 6px;
+}
+.tsx-method-num {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--hoag-blue); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; flex-shrink: 0;
+}
+.tsx-method.m2 .tsx-method-num { background: var(--hoag-teal); }
+.tsx-method.m3 .tsx-method-num { background: #c8a55b; }
+.tsx-method h4 { font-size: 14px; font-weight: 600; color: var(--gray-160); margin: 0; }
+.tsx-method .tsx-m-badge {
+  margin-left: auto;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 3px 8px; border-radius: 10px;
+  background: #eef3f8; color: var(--hoag-blue);
+}
+.tsx-method.m2 .tsx-m-badge { background: #e7f6f9; color: var(--hoag-teal); }
+.tsx-method.m3 .tsx-m-badge { background: #faf1dd; color: #8a6e36; }
+.tsx-method p { font-size: 12.5px; color: var(--gray-160); line-height: 1.55; margin: 0 0 8px; }
+.tsx-method ul { margin: 4px 0 8px 18px; padding: 0; font-size: 12.5px; color: var(--gray-160); line-height: 1.6; }
+.tsx-method ul li { margin-bottom: 2px; }
+.tsx-method ul li b { color: var(--hoag-blue); font-weight: 600; }
+
+.tsx-path {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: Consolas, Menlo, monospace; font-size: 11.5px;
+  background: #fafbfc; border: 1px solid var(--gray-30);
+  border-radius: 5px; padding: 4px 9px;
+  color: var(--gray-160);
+  margin: 2px 0;
+}
+.tsx-path .arr { color: var(--gray-90); }
+
+.tsx-code {
+  background: #0d1117; color: #c9d1d9;
+  border-radius: 7px; padding: 12px 14px;
+  font-family: Consolas, Menlo, monospace; font-size: 11.5px;
+  line-height: 1.6; overflow-x: auto;
+  margin: 8px 0 2px;
+  border: 1px solid #222;
+}
+.tsx-code .k { color: #ff7b72; }  /* keyword */
+.tsx-code .s { color: #a5d6ff; }  /* string */
+.tsx-code .c { color: #8b949e; font-style: italic; } /* comment */
+.tsx-code .f { color: #d2a8ff; }  /* function */
+.tsx-code .v { color: #ffa657; }  /* var */
+
+.tsx-disclaim {
+  margin-top: 14px; padding: 10px 14px;
+  background: #fff9e6; border: 1px solid rgba(242,200,17,0.4);
+  border-radius: 7px; font-size: 12px; color: #5c4a00; line-height: 1.5;
+}
+.tsx-disclaim b { color: #7a5c00; }
+
+/* Dark mode */
+body.dark .tsx-panel { background: #252525; }
+body.dark .tsx-tabs { background: #1e1e1e; border-bottom-color: #333; }
+body.dark .tsx-tab { color: #bbb; }
+body.dark .tsx-tab.active { color: #6bb6ff; border-bottom-color: #6bb6ff; }
+body.dark .tsx-body { background: #252525; }
+body.dark .tsx-formula { background: #1f2a38; border-color: #2c4259; color: #e0e0e0; }
+body.dark .tsx-formula code, body.dark .tsx-formula .tsxf-line { background: #0f1a28; border-color: #2c4259; color: #9ec8ff; }
+body.dark .tsx-log, body.dark .tsx-bench-wrap { background: #1e1e1e; border-color: #333; }
+body.dark .tsx-log-row { border-bottom-color: #2a2a2a; color: #e0e0e0; }
+body.dark .tsx-log-row.baseline { background: #1a2430; }
+body.dark .tsx-log-label { color: #e0e0e0; }
+body.dark .tsx-bench-row { border-bottom-color: #2a2a2a; color: #e0e0e0; }
+body.dark .tsx-bench-row.head { background: #1a1a1a; }
+body.dark .tsx-method { background: #1e1e1e; border-color: #333; }
+body.dark .tsx-method h4 { color: #e0e0e0; }
+body.dark .tsx-method p, body.dark .tsx-method ul { color: #d0d0d0; }
+body.dark .tsx-path { background: #1a1a1a; border-color: #333; color: #d0d0d0; }
+body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0d99a; }
+
 /* Scrollbar styling */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -3971,9 +4226,10 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
           <button class="copilot-hover-item" onclick="toggleCopilot('home'); setTimeout(()=>runCopilotByKey('home','prebrief'),400);"><span class="bold">Prep me</span> <span class="light">for my 10 AM</span></button>
         </div>
       </div>
-      <div class="time-saved" id="time-saved-chip" title="Minutes saved by Copilot today · demo estimate">
+      <div class="time-saved" id="time-saved-chip" onclick="openTimeSavedModal()" title="Click to see how this is calculated">
         <svg width="14" height="14" style="flex-shrink:0;"><use href="#copilotLogo"/></svg>
         <span><strong id="time-saved-num">47</strong> min saved today</span>
+        <span style="opacity:0.55;font-size:10px;margin-left:2px;">ⓘ</span>
       </div>
       <div class="iconbtn theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
         <svg id="theme-sun" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-5v3m0 14v3M4.2 4.2l2.1 2.1m11.4 11.4l2.1 2.1M2 12h3m14 0h3M4.2 19.8l2.1-2.1m11.4-11.4l2.1-2.1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
@@ -6066,6 +6322,170 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
     <div class="ed-panel" id="ed-panel"></div>
   </div>
 
+  <!-- ========== TIME-SAVED EXPLAINER MODAL ========== -->
+  <div id="tsx-modal" class="tsx-modal">
+    <div class="tsx-backdrop" onclick="closeTimeSavedModal()"></div>
+    <div class="tsx-panel" role="dialog" aria-labelledby="tsx-title">
+      <div class="tsx-head">
+        <div class="tsx-close" onclick="closeTimeSavedModal()">✕</div>
+        <div class="tsx-head-row">
+          <div>
+            <div class="tsx-eyebrow">Time saved · methodology</div>
+            <h2 id="tsx-title">How "min saved today" is calculated</h2>
+            <div class="tsx-sub">This pill rolls up a time-motion delta for every Copilot action — what the task <em>used to</em> take versus what it takes now. Below: the exact math behind this demo, and how you'd build the same counter for real.</div>
+          </div>
+          <div class="tsx-big">
+            <div class="tsx-big-num" id="tsx-total">47</div>
+            <div class="tsx-big-lbl">min saved today</div>
+          </div>
+        </div>
+      </div>
+      <div class="tsx-tabs">
+        <div class="tsx-tab active" data-tsxtab="demo" onclick="switchTsxTab('demo')">In this demo</div>
+        <div class="tsx-tab" data-tsxtab="real" onclick="switchTsxTab('real')">In a real environment</div>
+      </div>
+      <div class="tsx-body">
+
+        <!-- PANE 1: DEMO CALCULATION -->
+        <div class="tsx-pane active" id="tsx-pane-demo">
+          <div class="tsx-h3">The formula</div>
+          <div class="tsx-formula">
+            Each Copilot action has a measured <b>before</b> time (task without Copilot) and an <b>after</b> time (same task with Copilot). The savings for one action is simply the difference. The pill sums those deltas across the day.
+            <div class="tsxf-line">total = baseline + Σ ( before<sub>i</sub> − after<sub>i</sub> )</div>
+            <div style="font-size:12px; color:var(--gray-130);">Example — drafting a prior-auth appeal letter: <code>90 min</code> − <code>6 min</code> = <code>84 min saved</code> for that single action.</div>
+          </div>
+
+          <div class="tsx-h3">Today's running total</div>
+          <div class="tsx-stack-legend">
+            <span><span class="ll-dot baseline"></span>Baseline (work before you opened the demo)</span>
+            <span><span class="ll-dot session"></span>This session</span>
+          </div>
+          <div class="tsx-stack" id="tsx-stack">
+            <div class="tsx-stack-seg baseline" style="flex: 47;">47 min baseline</div>
+          </div>
+          <div style="font-size:11.5px; color:var(--gray-130); margin-bottom:14px;">Baseline (<b>47 min</b>) reflects 8 Copilot interactions that happened before you opened this tab — mail triage, the 7 AM huddle recap, and two chart summaries. Anything you do from now on adds to the total.</div>
+
+          <div class="tsx-h3">Event log</div>
+          <div class="tsx-log" id="tsx-log"></div>
+          <div style="font-size:11px; color:var(--gray-130); margin-top:6px;">Each row is one Copilot action. Try running a prompt from the Copilot pane — you'll see a new row appear here and the pill tick up.</div>
+
+          <div class="tsx-h3" style="margin-top:18px;">Per-action benchmarks used in this demo</div>
+          <div style="font-size:12px; color:var(--gray-130); margin-bottom:4px;">These are the <code style="background:#eef3f8;padding:1px 5px;border-radius:3px;font-family:Consolas,monospace;">before/after</code> values wired into the demo. In production these would come from a time-motion study of your real workflows.</div>
+          <div class="tsx-bench-wrap">
+            <div class="tsx-bench-row head">
+              <div>Copilot action</div>
+              <div>Without</div>
+              <div>With</div>
+              <div>Saved</div>
+            </div>
+            <div id="tsx-bench-body"></div>
+          </div>
+
+          <div class="tsx-disclaim">
+            <b>Note:</b> The per-turn <code style="background:#fff;padding:1px 5px;border-radius:3px;">+3 min</code> conversational credit is a heuristic for short Q&amp;A turns that don't have a dedicated benchmark row. In production you'd either drop that heuristic or tie it to a measured "time to answer" for similar questions.
+          </div>
+        </div>
+
+        <!-- PANE 2: REAL ENVIRONMENT -->
+        <div class="tsx-pane" id="tsx-pane-real">
+          <div class="tsx-h3">Three ways to get a real "minutes saved" counter</div>
+          <div style="font-size:12.5px; color:var(--gray-130); margin-bottom:14px; line-height:1.55;">
+            Microsoft doesn't ship a literal "minutes saved" pill out of the box — it ships the raw <em>activity</em> signal and leaves the <em>time-delta multiplier</em> to you. Here are the three layers, from easiest to most custom:
+          </div>
+
+          <div class="tsx-methods">
+
+            <div class="tsx-method m1">
+              <div class="tsx-method-head">
+                <div class="tsx-method-num">1</div>
+                <h4>Microsoft 365 Copilot Dashboard (Viva Insights)</h4>
+                <div class="tsx-m-badge">No code</div>
+              </div>
+              <p>Out-of-the-box dashboard in the Microsoft 365 admin center and Viva Insights. Tracks active users, actions per user, adoption by app (Teams, Outlook, Word, Excel, PowerPoint), and survey-based "time saved per week" self-reporting.</p>
+              <div class="tsx-path">Microsoft 365 Admin Center <span class="arr">→</span> Reports <span class="arr">→</span> Usage <span class="arr">→</span> Microsoft 365 Copilot</div>
+              <ul>
+                <li><b>Gives you:</b> adoption %, weekly active users, enabled-vs-active, app-level heatmap, retained-user cohorts</li>
+                <li><b>Survey layer:</b> Copilot Impact Report adds self-reported hours saved (quarterly pulse) — the closest native analog to this pill</li>
+                <li><b>Limits:</b> no per-action minute delta, aggregated-only, admin-only view</li>
+              </ul>
+            </div>
+
+            <div class="tsx-method m2">
+              <div class="tsx-method-head">
+                <div class="tsx-method-num">2</div>
+                <h4>Microsoft Graph usage-reports API</h4>
+                <div class="tsx-m-badge">API</div>
+              </div>
+              <p>Programmatic access to the same usage signal. Pull it on a schedule, join it to your HR roster, and render anywhere (Power BI, Fabric, Teams app, a custom pill like this one).</p>
+<div class="tsx-code"><span class="c">// Daily Copilot usage by user — feeds your own dashboard</span>
+<span class="k">GET</span> https://graph.microsoft.com/<span class="v">v1.0</span>/reports/
+     <span class="f">getMicrosoft365CopilotUserCountSummary</span>(period=<span class="s">'D30'</span>)
+
+<span class="k">GET</span> https://graph.microsoft.com/<span class="v">v1.0</span>/reports/
+     <span class="f">getMicrosoft365CopilotUsageUserDetail</span>(date=<span class="s">2026-04-24</span>)
+
+<span class="c">// Then: join each row to your time-motion table</span>
+<span class="c">// to convert "action count" → "minutes saved"</span>
+minutes_saved = Σ (actions<sub>app,action</sub> × delta<sub>app,action</sub>)</div>
+              <ul>
+                <li><b>Permission:</b> <code style="background:#eef3f8;padding:1px 5px;border-radius:3px;font-family:Consolas,monospace;font-size:11px;">Reports.Read.All</code> (app-only)</li>
+                <li><b>Refresh cadence:</b> daily, 48h lag for Copilot reports</li>
+                <li><b>What you still have to provide:</b> the per-action minute delta (Method 3 explains where that comes from)</li>
+              </ul>
+            </div>
+
+            <div class="tsx-method m3">
+              <div class="tsx-method-head">
+                <div class="tsx-method-num">3</div>
+                <h4>Custom event telemetry — how you'd build this exact pill</h4>
+                <div class="tsx-m-badge">Build</div>
+              </div>
+              <p>To get a real-time, per-user counter like the one in this demo, you instrument the workflow itself. Three pieces:</p>
+              <ul>
+                <li><b>Calibrate a baseline</b> — run a time-motion study (or pull pre-Copilot logs) for each task type. Example: "manual prior-auth appeal = 90 min p50." Store it as a reference table.</li>
+                <li><b>Emit an event</b> every time a user accepts a Copilot output. Payload: who, what task, which template, elapsed seconds.</li>
+                <li><b>Stream &amp; aggregate</b> — push events to Application Insights / Fabric Eventstream, then roll up per-user-per-day. Render the counter anywhere (Power BI tile, Teams app, browser extension, an intranet header like this).</li>
+              </ul>
+<div class="tsx-code"><span class="c">// 1. Emit when a Copilot action completes</span>
+appInsights.<span class="f">trackEvent</span>({
+  name: <span class="s">'copilot.action.accepted'</span>,
+  properties: {
+    userId:     user.oid,
+    app:        <span class="s">'outlook'</span>,        <span class="c">// outlook | teams | word …</span>
+    action:     <span class="s">'priorauth_appeal'</span>,
+    baselineMin: <span class="v">90</span>,               <span class="c">// from time-motion table</span>
+    actualMin:   elapsedSec / <span class="v">60</span>,   <span class="c">// measured</span>
+    acceptedAs:  <span class="s">'sent'</span>             <span class="c">// sent | edited | discarded</span>
+  }
+});
+
+<span class="c">// 2. Aggregate (KQL in Application Insights / Log Analytics)</span>
+customEvents
+| <span class="k">where</span> name == <span class="s">'copilot.action.accepted'</span>
+| <span class="k">where</span> timestamp &gt; ago(<span class="v">1d</span>) <span class="k">and</span> user_Id == <span class="s">'{me}'</span>
+| <span class="k">extend</span> saved = toint(baselineMin) - toint(actualMin)
+| <span class="k">summarize</span> total_saved = sum(saved)
+
+<span class="c">// 3. Surface it — this demo reads from the same shape</span>
+<span class="k">const</span> { total_saved } = <span class="k">await</span> <span class="f">fetchTodaySavings</span>(userId);
+pill.textContent = <span class="s">`${total_saved} min saved today`</span>;</div>
+              <ul style="margin-top:10px;">
+                <li><b>Honesty tip:</b> only count actions the user <em>accepted</em> (sent, signed, kept) — not every draft generated. Discarded drafts saved zero minutes.</li>
+                <li><b>Attribution:</b> publish the time-motion table to the AI governance council so the number is auditable, not just a marketing figure.</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="tsx-disclaim">
+            <b>Bottom line:</b> Methods 1 + 2 give you the adoption signal for free. Method 3 is what you layer on top to turn that signal into the "X min saved today" experience users actually feel. The demo you're looking at is a Method-3 front-end with mocked numbers.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- ========== ROLLOUT / DEPLOYMENT ROADMAP ========== -->
   <div id="app-roadmap" class="app-shell">
     <div class="app-topbar roadmap">
@@ -7358,7 +7778,7 @@ function daxAcceptSign() {
     btn.style.opacity = '1';
     btn.style.background = 'linear-gradient(135deg, #107c10, #0a5a0a)';
     btn.disabled = false;
-    addTimeSaved(17);
+    addTimeSaved(17, 'DAX-signed SOAP note', 'Dragon Ambient · 22 → 5 min');
   }, 1200);
 }
 
@@ -7504,7 +7924,7 @@ function emailAction(kind) {
   pane.scrollIntoView({ behavior: 'smooth', block: 'end' });
   if (kind === 'copilot-draft') {
     showToast({ kind:'copilot', title:'Copilot drafted a reply', text:'Matched to the empathetic, specific pattern you use with patients.' });
-    addTimeSaved(9);
+    addTimeSaved(9, 'Copilot-drafted email reply', 'Outlook · 12 → 3 min');
   }
 }
 
@@ -8075,7 +8495,11 @@ function runCopilotSuggestion(sug) {
           </div>
         `;
         bubble.appendChild(pill);
-        addTimeSaved(savedLookup.before - savedLookup.after);
+        addTimeSaved(
+          savedLookup.before - savedLookup.after,
+          `Copilot action: ${app} · ${sug.key}`,
+          `${savedLookup.before} → ${savedLookup.after} min`
+        );
       }
       // Add follow-up suggestion
       const fu = document.createElement('div');
@@ -8102,8 +8526,7 @@ function runCopilotSuggestion(sug) {
 // Before/after minute estimates per Copilot action — powers the ROI pill in every response
 // and the "Today with Copilot" counter in the top bar. Numbers are grounded in task-level
 // time studies Hoag would plausibly benchmark (triage/draft/build/summarize/search tasks).
-function getSavedTime(app, key) {
-  const M = {
+const SAVED_TIME_LOOKUP = {
     'home|patient360': { before: 35, after: 2 },
     'home|focus':      { before: 18, after: 1 },
     'home|prebrief':   { before: 22, after: 2 },
@@ -8151,8 +8574,9 @@ function getSavedTime(app, key) {
     'onedrive|summarize': { before: 30, after: 2 },
     'onedrive|cleanup':   { before: 45, after: 3 },
     'onedrive|access':    { before: 18, after: 1 }
-  };
-  return M[app + '|' + key] || null;
+};
+function getSavedTime(app, key) {
+  return SAVED_TIME_LOOKUP[app + '|' + key] || null;
 }
 
 // ============ RUN A COPILOT PROMPT ============
@@ -9543,7 +9967,7 @@ function copilotSendMessage() {
       body.scrollTop = body.scrollHeight;
 
       // A modest time-saved credit for the conversational turn
-      addTimeSaved(3);
+      addTimeSaved(3, 'Copilot chat — conversational turn', 'heuristic · +3 min');
     });
   }, 900);
 }
@@ -10042,9 +10466,18 @@ function renderAgents(agents, subTitle) {
 
 // ============ "TODAY WITH COPILOT" COUNTER ============
 // Increments the top-bar minutes-saved pill by `mins` and plays a small bump animation.
+// Also appends a row to the session log so the explainer modal can show what drove the total.
 let timeSavedMin = 47;
-function addTimeSaved(mins) {
+const timeSavedLog = [];
+function addTimeSaved(mins, label, meta) {
+  if (!mins || mins <= 0) return;
   timeSavedMin += mins;
+  timeSavedLog.push({
+    mins,
+    label: label || 'Copilot action',
+    meta: meta || '',
+    at: new Date()
+  });
   const num = document.getElementById('time-saved-num');
   const chip = document.getElementById('time-saved-chip');
   if (!num || !chip) return;
@@ -10054,6 +10487,92 @@ function addTimeSaved(mins) {
   // eslint-disable-next-line no-unused-expressions
   void chip.offsetWidth;
   chip.classList.add('bump');
+}
+
+// ---- Time-saved explainer modal ----
+function openTimeSavedModal() {
+  renderTimeSavedModal();
+  document.getElementById('tsx-modal').classList.add('open');
+  document.addEventListener('keydown', tsxKeyHandler);
+}
+function closeTimeSavedModal() {
+  document.getElementById('tsx-modal').classList.remove('open');
+  document.removeEventListener('keydown', tsxKeyHandler);
+}
+function tsxKeyHandler(e) { if (e.key === 'Escape') closeTimeSavedModal(); }
+function switchTsxTab(which) {
+  document.querySelectorAll('.tsx-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.tsxtab === which);
+  });
+  document.getElementById('tsx-pane-demo').classList.toggle('active', which === 'demo');
+  document.getElementById('tsx-pane-real').classList.toggle('active', which === 'real');
+}
+
+function renderTimeSavedModal() {
+  // Total + stacked bar
+  document.getElementById('tsx-total').textContent = timeSavedMin;
+  const sessionTotal = timeSavedLog.reduce((s, r) => s + r.mins, 0);
+  const baseline = 47;
+  const stack = document.getElementById('tsx-stack');
+  stack.innerHTML =
+    `<div class="tsx-stack-seg baseline" style="flex:${baseline};">${baseline} min baseline</div>` +
+    (sessionTotal > 0
+      ? `<div class="tsx-stack-seg session" style="flex:${sessionTotal};">+${sessionTotal} min this session</div>`
+      : '');
+
+  // Event log
+  const log = document.getElementById('tsx-log');
+  const fmt = d => {
+    let h = d.getHours(), m = d.getMinutes();
+    const ap = h >= 12 ? 'PM' : 'AM';
+    h = h === 0 ? 12 : (h > 12 ? h - 12 : h);
+    return `${h}:${m < 10 ? '0' + m : m} ${ap}`;
+  };
+  const rows = [
+    `<div class="tsx-log-row baseline">
+       <div class="tsx-log-time">&lt; now</div>
+       <div class="tsx-log-label">Work before you opened this tab
+         <small>8 Copilot interactions — mail triage, 7 AM huddle recap, 2 chart summaries</small></div>
+       <div class="tsx-log-delta">rolled up</div>
+       <div class="tsx-log-min">+${baseline} min</div>
+     </div>`
+  ];
+  timeSavedLog.forEach(r => {
+    rows.push(`
+      <div class="tsx-log-row">
+        <div class="tsx-log-time">${fmt(r.at)}</div>
+        <div class="tsx-log-label">${r.label}${r.meta ? `<small>${r.meta}</small>` : ''}</div>
+        <div class="tsx-log-delta">${r.meta && r.meta.includes('→') ? r.meta : 'session'}</div>
+        <div class="tsx-log-min">+${r.mins} min</div>
+      </div>
+    `);
+  });
+  if (timeSavedLog.length === 0) {
+    rows.push(`
+      <div class="tsx-log-row" style="color:var(--gray-130); font-style:italic;">
+        <div class="tsx-log-time">—</div>
+        <div class="tsx-log-label">No session events yet. Run a Copilot prompt and reopen this panel.</div>
+        <div class="tsx-log-delta"></div>
+        <div class="tsx-log-min" style="background:#f3f2f1; color:var(--gray-130);">+0 min</div>
+      </div>
+    `);
+  }
+  log.innerHTML = rows.join('');
+
+  // Per-action benchmarks table — reads the same savedLookup map the app uses at runtime
+  const bench = document.getElementById('tsx-bench-body');
+  const rowsBench = Object.entries(SAVED_TIME_LOOKUP).map(([key, v]) => {
+    const [app, action] = key.split('|');
+    return `
+      <div class="tsx-bench-row">
+        <div><b style="color:var(--hoag-blue); text-transform:capitalize;">${app}</b>
+             <span style="color:var(--gray-130);"> · ${action}</span></div>
+        <div class="b-strike">${v.before} min</div>
+        <div>${v.after} min</div>
+        <div class="b-save">−${v.before - v.after} min</div>
+      </div>`;
+  });
+  bench.innerHTML = rowsBench.join('');
 }
 
 // ============ AGENT BUILDER (in-Copilot agent builder — the "lite" one bundled with M365 Copilot) ============
