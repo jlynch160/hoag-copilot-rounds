@@ -2068,6 +2068,363 @@ body.dark .toast .toast-text { color: #b0b0b0; }
 .pv-ev-desc { color: var(--gray-130); }
 .pv-ev-status { font-size: 11px; color: #c50f1f; font-weight: 700; text-align: right; }
 
+/* ---- Purview tab navigation ---- */
+.pv-tabs {
+  display: flex; gap: 2px;
+  border-bottom: 1px solid var(--gray-30);
+  margin: 0 -36px 18px; padding: 0 36px;
+  background: #fff; position: sticky; top: 0; z-index: 5;
+}
+.pv-tab {
+  padding: 11px 16px 10px; font-size: 13px; font-weight: 600;
+  color: var(--gray-130); cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.12s, border-color 0.12s;
+  display: inline-flex; align-items: center; gap: 6px;
+  white-space: nowrap;
+}
+.pv-tab:hover { color: var(--gray-160); }
+.pv-tab.active { color: #2c5ba8; border-bottom-color: #2c5ba8; }
+.pv-tab .pv-tab-badge {
+  background: #c50f1f; color: #fff; font-size: 10px; font-weight: 700;
+  padding: 1px 6px; border-radius: 9px; margin-left: 2px;
+}
+.pv-tab .pv-tab-badge.ok { background: #107c10; }
+.pv-tab .pv-tab-badge.warn { background: #c77700; }
+.pv-tab svg { width: 14px; height: 14px; }
+.pv-pane { display: none; animation: pvFade 0.25s ease; }
+.pv-pane.active { display: block; }
+@keyframes pvFade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* ---- AI Hub (DSPM for AI) ---- */
+.pv-aihub-banner {
+  background: linear-gradient(135deg, #1b4aa8 0%, #2c5ba8 55%, #5f9ef0 120%);
+  color: #fff; border-radius: 12px;
+  padding: 18px 24px; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 18px;
+  position: relative; overflow: hidden;
+}
+.pv-aihub-banner::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(circle at 85% 30%, rgba(255,255,255,0.18), transparent 45%),
+              radial-gradient(circle at 10% 110%, rgba(200,165,91,0.22), transparent 60%);
+}
+.pv-aihub-banner > * { position: relative; z-index: 1; }
+.pv-aihub-banner .pv-ah-ico {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.pv-aihub-banner h2 { font-size: 18px; font-weight: 600; margin: 0 0 3px; letter-spacing: -0.2px; }
+.pv-aihub-banner h2 .pv-ah-badge {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.8px;
+  padding: 2px 7px; border-radius: 10px;
+  background: rgba(255,225,154,0.22); color: #ffe19a;
+  margin-left: 8px; vertical-align: middle; text-transform: uppercase;
+}
+.pv-aihub-banner p { font-size: 12.5px; margin: 0; opacity: 0.92; line-height: 1.5; }
+
+.pv-ah-kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 16px; }
+.pv-ah-kpi {
+  background: #fff; border: 1px solid var(--gray-30); border-radius: 9px;
+  padding: 12px 14px; position: relative;
+}
+.pv-ah-kpi::before {
+  content: ''; position: absolute; left: 0; top: 12px; bottom: 12px; width: 3px;
+  background: #2c5ba8; border-radius: 0 3px 3px 0;
+}
+.pv-ah-kpi.warn::before { background: #c77700; }
+.pv-ah-kpi.danger::before { background: #c50f1f; }
+.pv-ah-kpi.ok::before { background: #107c10; }
+.pv-ah-kpi-lbl { font-size: 10px; color: var(--gray-130); text-transform: uppercase; letter-spacing: 0.9px; font-weight: 700; margin-bottom: 4px; }
+.pv-ah-kpi-v { font-size: 22pt; font-weight: 200; color: var(--gray-160); line-height: 1; letter-spacing: -0.8px; }
+.pv-ah-kpi-s { font-size: 11px; color: var(--gray-130); margin-top: 5px; }
+.pv-ah-kpi-s.good { color: #107c10; font-weight: 600; }
+.pv-ah-kpi-s.warn { color: #c77700; font-weight: 600; }
+
+.pv-ah-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; margin-bottom: 14px; }
+
+/* Prompts-over-time chart */
+.pv-ah-chart {
+  height: 160px; display: flex; align-items: flex-end; gap: 3px;
+  padding: 14px 10px 8px; margin-top: 8px;
+  background: linear-gradient(180deg, #f7faff, #fff);
+  border-radius: 8px; border: 1px solid var(--gray-20);
+  position: relative;
+}
+.pv-ah-chart-bar {
+  flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 1px;
+  min-height: 100%;
+}
+.pv-ah-chart-bar .seg {
+  width: 100%; border-radius: 1px;
+}
+.pv-ah-chart-bar .seg.safe   { background: linear-gradient(180deg, #5f9ef0, #2c5ba8); }
+.pv-ah-chart-bar .seg.labeled{ background: linear-gradient(180deg, #c8a55b, #8a6e36); }
+.pv-ah-chart-bar .seg.risky  { background: linear-gradient(180deg, #e28b8b, #c50f1f); }
+.pv-ah-chart-leg { display: flex; gap: 14px; font-size: 11px; color: var(--gray-130); margin-top: 8px; }
+.pv-ah-chart-leg .dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 5px; vertical-align: middle; }
+.pv-ah-chart-leg .dot.safe   { background: #2c5ba8; }
+.pv-ah-chart-leg .dot.labeled{ background: #c8a55b; }
+.pv-ah-chart-leg .dot.risky  { background: #c50f1f; }
+
+/* Risk category breakdown */
+.pv-ah-risks { display: flex; flex-direction: column; gap: 9px; margin-top: 6px; }
+.pv-ah-risk-row { display: grid; grid-template-columns: 1.4fr 1fr auto; gap: 10px; align-items: center; font-size: 12.5px; }
+.pv-ah-risk-lbl { color: var(--gray-160); font-weight: 600; }
+.pv-ah-risk-lbl small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-ah-risk-bar { height: 6px; border-radius: 3px; background: var(--gray-20); overflow: hidden; position: relative; }
+.pv-ah-risk-bar-fill { height: 100%; background: linear-gradient(90deg, #2c5ba8, #5f9ef0); }
+.pv-ah-risk-bar-fill.danger { background: linear-gradient(90deg, #c50f1f, #e28b8b); }
+.pv-ah-risk-bar-fill.warn  { background: linear-gradient(90deg, #c77700, #f2b24b); }
+.pv-ah-risk-n { font-family: Consolas, Menlo, monospace; font-size: 12px; color: var(--gray-160); font-weight: 700; min-width: 50px; text-align: right; }
+
+/* Shadow AI detection */
+.pv-shadow { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+.pv-shadow-row {
+  display: grid; grid-template-columns: 28px 1fr auto auto;
+  gap: 10px; align-items: center;
+  padding: 9px 12px; border-radius: 7px;
+  background: #fef4f4; border-left: 3px solid #c50f1f;
+  font-size: 12.5px;
+}
+.pv-shadow-row.sanctioned { background: #eef9f1; border-left-color: #107c10; }
+.pv-shadow-row.review { background: #fff8e6; border-left-color: #c77700; }
+.pv-shadow-logo {
+  width: 28px; height: 28px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 11px; color: #fff; flex-shrink: 0;
+}
+.pv-shadow-name { font-weight: 600; color: var(--gray-160); }
+.pv-shadow-name small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-shadow-count { font-size: 11.5px; color: var(--gray-130); }
+.pv-shadow-status { font-size: 11px; font-weight: 700; white-space: nowrap; }
+.pv-shadow-status.blocked { color: #c50f1f; }
+.pv-shadow-status.sanctioned { color: #107c10; }
+.pv-shadow-status.review { color: #c77700; }
+
+/* AI apps inventory */
+.pv-apps { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
+.pv-app-row {
+  display: grid; grid-template-columns: 24px 1fr auto; gap: 10px; align-items: center;
+  padding: 8px 12px; border-radius: 6px; background: #fafbfc;
+  font-size: 12px; border: 1px solid var(--gray-20);
+}
+.pv-app-row .pv-app-dot { width: 8px; height: 8px; border-radius: 50%; background: #107c10; justify-self: center; }
+.pv-app-row .pv-app-dot.warn { background: #c77700; }
+.pv-app-row .pv-app-dot.new { background: #0078d4; animation: pvPulse 1.8s ease-in-out infinite; }
+@keyframes pvPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.pv-app-name { color: var(--gray-160); font-weight: 600; }
+.pv-app-name small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-app-scope { font-size: 10.5px; color: var(--gray-130); }
+
+/* Anatomy of a secured prompt */
+.pv-anatomy {
+  background: linear-gradient(180deg, #fafbfc, #fff);
+  border: 1px solid var(--gray-30); border-radius: 10px;
+  padding: 18px 22px; margin-top: 14px;
+}
+.pv-anatomy-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 18px;
+  margin-top: 12px;
+}
+.pv-anat-step {
+  position: relative;
+  background: #fff; border: 1px solid var(--gray-30); border-radius: 9px;
+  padding: 12px 14px 14px;
+}
+.pv-anat-step::after {
+  content: '›'; position: absolute; right: -14px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px; color: var(--gray-90); font-weight: 300;
+  z-index: 1;
+}
+.pv-anat-step:nth-child(4n)::after { display: none; }
+.pv-anat-step.last::after { display: none; }
+.pv-anat-step-num {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: #2c5ba8; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10.5px; font-weight: 700; margin-bottom: 7px;
+}
+.pv-anat-step-h {
+  font-size: 12px; font-weight: 700; color: var(--gray-160);
+  margin-bottom: 3px; line-height: 1.35;
+}
+.pv-anat-step-b { font-size: 11.5px; color: var(--gray-130); line-height: 1.5; }
+.pv-anat-step-tag {
+  display: inline-block; margin-top: 6px;
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.5px;
+  padding: 2px 7px; border-radius: 9px;
+  background: #eef3f8; color: #2c5ba8; text-transform: uppercase;
+}
+.pv-anat-step-tag.bad  { background: #fef4f4; color: #c50f1f; }
+.pv-anat-step-tag.ok   { background: #eef9f1; color: #0a5a0a; }
+.pv-anat-step-tag.warn { background: #fff8e6; color: #8a6e36; }
+
+/* DLP policies */
+.pv-dlp-policies { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.pv-dlp-row {
+  display: grid; grid-template-columns: 1.6fr 0.9fr 0.7fr 0.7fr 0.6fr; gap: 10px;
+  align-items: center; padding: 10px 14px;
+  background: #fafbfc; border: 1px solid var(--gray-20); border-radius: 7px;
+  font-size: 12.5px;
+}
+.pv-dlp-row.head {
+  background: transparent; border: none; padding: 4px 14px 0;
+  font-size: 10.5px; font-weight: 700; color: var(--gray-130);
+  text-transform: uppercase; letter-spacing: 0.6px;
+}
+.pv-dlp-name { color: var(--gray-160); font-weight: 600; }
+.pv-dlp-name small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-dlp-scope { font-size: 11.5px; color: var(--gray-130); }
+.pv-dlp-action { font-size: 11px; font-weight: 700; }
+.pv-dlp-action.block { color: #c50f1f; }
+.pv-dlp-action.warn  { color: #c77700; }
+.pv-dlp-action.audit { color: #2c5ba8; }
+.pv-dlp-n { font-family: Consolas, Menlo, monospace; font-size: 12px; color: var(--gray-160); font-weight: 700; }
+.pv-dlp-state {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  padding: 3px 8px; border-radius: 10px; text-align: center;
+  text-transform: uppercase;
+}
+.pv-dlp-state.enforced { background: #eef9f1; color: #0a5a0a; }
+.pv-dlp-state.test     { background: #fff8e6; color: #8a6e36; }
+
+/* Insider Risk */
+.pv-ir-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 14px; }
+.pv-ir-users { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.pv-ir-user {
+  display: grid; grid-template-columns: 32px 1fr auto auto; gap: 10px;
+  align-items: center; padding: 9px 12px;
+  background: #fafbfc; border: 1px solid var(--gray-20); border-radius: 7px;
+  font-size: 12px;
+}
+.pv-ir-av {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10.5px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+.pv-ir-name { color: var(--gray-160); font-weight: 600; }
+.pv-ir-name small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-ir-pattern { font-size: 11px; color: var(--gray-130); }
+.pv-ir-score {
+  font-family: Consolas, Menlo, monospace; font-size: 13px; font-weight: 700;
+  min-width: 44px; text-align: right;
+}
+.pv-ir-score.high { color: #c50f1f; }
+.pv-ir-score.med  { color: #c77700; }
+.pv-ir-score.low  { color: #107c10; }
+
+.pv-ir-case {
+  background: #fef4f4; border: 1px solid rgba(197,15,31,0.25); border-radius: 8px;
+  padding: 12px 14px; margin-bottom: 10px;
+}
+.pv-ir-case.med { background: #fff8e6; border-color: rgba(199,119,0,0.3); }
+.pv-ir-case-h {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12.5px; font-weight: 700; color: var(--gray-160); margin-bottom: 4px;
+}
+.pv-ir-case-b { font-size: 11.5px; color: var(--gray-160); line-height: 1.5; }
+.pv-ir-case-m { font-size: 10.5px; color: var(--gray-130); margin-top: 5px; }
+
+/* Compliance Manager */
+.pv-cm-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.pv-cm-frame {
+  background: #fff; border: 1px solid var(--gray-30); border-radius: 9px;
+  padding: 14px 16px; position: relative;
+}
+.pv-cm-frame-h { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.pv-cm-frame-name { font-size: 12.5px; font-weight: 700; color: var(--gray-160); }
+.pv-cm-frame-name small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-cm-score-big {
+  font-size: 22pt; font-weight: 200; line-height: 1; letter-spacing: -0.8px;
+  color: #107c10;
+}
+.pv-cm-score-big.warn { color: #c77700; }
+.pv-cm-score-big.danger { color: #c50f1f; }
+.pv-cm-score-pct { font-size: 11px; color: var(--gray-130); font-weight: 600; }
+.pv-cm-bar {
+  height: 6px; border-radius: 3px; background: var(--gray-20); margin-top: 8px;
+  overflow: hidden;
+}
+.pv-cm-bar-fill { height: 100%; background: linear-gradient(90deg, #107c10, #6bc16b); }
+.pv-cm-bar-fill.warn { background: linear-gradient(90deg, #c77700, #f2b24b); }
+.pv-cm-bar-fill.danger { background: linear-gradient(90deg, #c50f1f, #e28b8b); }
+.pv-cm-actions { font-size: 11px; color: var(--gray-130); margin-top: 8px; }
+.pv-cm-actions b { color: var(--gray-160); }
+
+.pv-cm-improve {
+  background: #fff; border: 1px solid var(--gray-30); border-radius: 9px;
+  padding: 16px 18px; margin-top: 14px;
+}
+.pv-cm-imp-row {
+  display: grid; grid-template-columns: 1.6fr 0.7fr 0.8fr 0.5fr; gap: 10px;
+  align-items: center; padding: 8px 0;
+  border-bottom: 1px solid var(--gray-20); font-size: 12px;
+}
+.pv-cm-imp-row:last-child { border-bottom: none; }
+.pv-cm-imp-row.head {
+  font-size: 10.5px; font-weight: 700; color: var(--gray-130);
+  text-transform: uppercase; letter-spacing: 0.6px;
+  padding: 0 0 6px;
+}
+.pv-cm-imp-row .pv-cm-pts { color: #107c10; font-weight: 700; }
+.pv-cm-imp-row .pv-cm-due { color: var(--gray-130); font-size: 11px; }
+.pv-cm-imp-row .pv-cm-owner { font-size: 11px; color: var(--gray-160); font-weight: 600; }
+
+/* Audit & eDiscovery */
+.pv-audit-feed {
+  background: #0b1220; color: #d0d9e8;
+  border-radius: 8px; padding: 12px 16px;
+  font-family: Consolas, Menlo, monospace; font-size: 11.5px;
+  line-height: 1.7; max-height: 320px; overflow-y: auto;
+}
+.pv-audit-line { display: grid; grid-template-columns: 74px 120px 1fr; gap: 12px; padding: 2px 0; }
+.pv-audit-t { color: #8b949e; }
+.pv-audit-u { color: #ffd27a; }
+.pv-audit-d { color: #c9d1d9; }
+.pv-audit-d .ok   { color: #6bc16b; }
+.pv-audit-d .bad  { color: #e28b8b; }
+.pv-audit-d .warn { color: #f2b24b; }
+
+.pv-ediscovery-cases { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.pv-ed-case {
+  display: grid; grid-template-columns: 1.5fr 0.8fr 0.7fr 0.9fr auto; gap: 10px;
+  align-items: center; padding: 9px 12px;
+  background: #fafbfc; border: 1px solid var(--gray-20); border-radius: 7px;
+  font-size: 12px;
+}
+.pv-ed-case.head {
+  background: transparent; border: none; padding: 0 12px 4px;
+  font-size: 10.5px; font-weight: 700; color: var(--gray-130);
+  text-transform: uppercase; letter-spacing: 0.6px;
+}
+.pv-ed-name { color: var(--gray-160); font-weight: 600; }
+.pv-ed-name small { display: block; color: var(--gray-130); font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+.pv-ed-status {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  padding: 3px 8px; border-radius: 10px; text-transform: uppercase;
+}
+.pv-ed-status.hold   { background: #fef4f4; color: #c50f1f; }
+.pv-ed-status.review { background: #fff8e6; color: #8a6e36; }
+.pv-ed-status.closed { background: #eef9f1; color: #0a5a0a; }
+
+/* Dark mode */
+body.dark .pv-tabs { background: #252525; border-bottom-color: #333; }
+body.dark .pv-tab { color: #bbb; }
+body.dark .pv-tab.active { color: #6bb6ff; border-bottom-color: #6bb6ff; }
+body.dark .pv-ah-kpi, body.dark .pv-cm-frame, body.dark .pv-cm-improve,
+body.dark .pv-anatomy, body.dark .pv-anat-step, body.dark .pv-app-row,
+body.dark .pv-dlp-row, body.dark .pv-ir-user, body.dark .pv-ir-case,
+body.dark .pv-ed-case, body.dark .pv-shadow-row { background: #1e1e1e; border-color: #333; color: #e0e0e0; }
+body.dark .pv-ir-case.med { background: #2a2515; }
+body.dark .pv-shadow-row.sanctioned { background: #142218; }
+body.dark .pv-shadow-row.review { background: #2a2515; }
+body.dark .pv-shadow-row:not(.sanctioned):not(.review) { background: #2a1818; }
+body.dark .pv-ah-chart { background: #1a1a1a; border-color: #2a2a2a; }
+body.dark .pv-audit-feed { background: #050811; }
+
 /* ============ POWER BI ============ */
 .app-topbar.powerbi { background: linear-gradient(180deg, #f2c811 0%, #b79507 100%); color: #242424; }
 .app-topbar.powerbi .app-title { color: #242424; }
@@ -5600,7 +5957,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
       <div class="pv-head">
         <div>
           <h1>Compliance posture <span style="font-weight:400;color:var(--gray-90);">· Hoag tenant</span></h1>
-          <p>Every Copilot prompt, every label decision, every DLP event — in one place.</p>
+          <p>Every Copilot prompt, every label decision, every DLP event — in one place. <span style="color:#107c10;font-weight:600;">● Live</span> · last refresh 14 sec ago</p>
         </div>
         <div class="pv-score">
           <div class="pv-score-ring">
@@ -5616,33 +5973,598 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
           </div>
         </div>
       </div>
-      <div class="pv-kpis">
-        <div class="pv-kpi"><div class="pv-kpi-v">48</div><div class="pv-kpi-l">DLP events · all contained</div></div>
-        <div class="pv-kpi"><div class="pv-kpi-v">1.1M</div><div class="pv-kpi-l">PHI prompts auto-labeled</div></div>
-        <div class="pv-kpi"><div class="pv-kpi-v">0</div><div class="pv-kpi-l">Outside-tenant access</div></div>
-        <div class="pv-kpi"><div class="pv-kpi-v">4</div><div class="pv-kpi-l">Sensitivity labels active</div></div>
+
+      <!-- Tab navigation -->
+      <div class="pv-tabs">
+        <div class="pv-tab active" data-pvtab="overview" onclick="switchPvTab('overview')">Overview</div>
+        <div class="pv-tab" data-pvtab="aihub" onclick="switchPvTab('aihub')">AI Hub <span class="pv-tab-badge">NEW</span></div>
+        <div class="pv-tab" data-pvtab="dlp" onclick="switchPvTab('dlp')">Data Loss Prevention</div>
+        <div class="pv-tab" data-pvtab="irm" onclick="switchPvTab('irm')">Insider Risk <span class="pv-tab-badge warn">2</span></div>
+        <div class="pv-tab" data-pvtab="cm" onclick="switchPvTab('cm')">Compliance Manager</div>
+        <div class="pv-tab" data-pvtab="audit" onclick="switchPvTab('audit')">Audit &amp; eDiscovery</div>
       </div>
-      <div class="pv-grid">
-        <div class="pv-card">
-          <div class="adm-card-head"><div class="adm-card-title">Sensitivity label policies</div><div class="adm-card-sub">Applied to every file, email, and Copilot prompt</div></div>
-          <div class="pv-labels">
-            <div class="pv-label-row"><span class="slabel phi">PHI</span><span class="pv-label-desc">Patient-identifiable clinical data</span><span class="pv-label-scope">Auto · 1.1M items</span></div>
-            <div class="pv-label-row"><span class="slabel conf">Confidential</span><span class="pv-label-desc">Internal clinical, operational, revenue cycle</span><span class="pv-label-scope">Auto · 847K items</span></div>
-            <div class="pv-label-row"><span class="slabel internal">Internal</span><span class="pv-label-desc">Staff-facing, not for public distribution</span><span class="pv-label-scope">Auto · 2.1M items</span></div>
-            <div class="pv-label-row"><span class="slabel public">Public</span><span class="pv-label-desc">Guidelines, public-facing docs, brand assets</span><span class="pv-label-scope">Manual · 14K items</span></div>
+
+      <!-- ========== OVERVIEW ========== -->
+      <div class="pv-pane active" id="pv-pane-overview">
+        <div class="pv-kpis">
+          <div class="pv-kpi"><div class="pv-kpi-v">48</div><div class="pv-kpi-l">DLP events · all contained</div></div>
+          <div class="pv-kpi"><div class="pv-kpi-v">1.1M</div><div class="pv-kpi-l">PHI prompts auto-labeled</div></div>
+          <div class="pv-kpi"><div class="pv-kpi-v">0</div><div class="pv-kpi-l">Outside-tenant access</div></div>
+          <div class="pv-kpi"><div class="pv-kpi-v">4</div><div class="pv-kpi-l">Sensitivity labels active</div></div>
+        </div>
+        <div class="pv-grid">
+          <div class="pv-card">
+            <div class="adm-card-head"><div class="adm-card-title">Sensitivity label policies</div><div class="adm-card-sub">Applied to every file, email, and Copilot prompt</div></div>
+            <div class="pv-labels">
+              <div class="pv-label-row"><span class="slabel phi">PHI</span><span class="pv-label-desc">Patient-identifiable clinical data</span><span class="pv-label-scope">Auto · 1.1M items</span></div>
+              <div class="pv-label-row"><span class="slabel conf">Confidential</span><span class="pv-label-desc">Internal clinical, operational, revenue cycle</span><span class="pv-label-scope">Auto · 847K items</span></div>
+              <div class="pv-label-row"><span class="slabel internal">Internal</span><span class="pv-label-desc">Staff-facing, not for public distribution</span><span class="pv-label-scope">Auto · 2.1M items</span></div>
+              <div class="pv-label-row"><span class="slabel public">Public</span><span class="pv-label-desc">Guidelines, public-facing docs, brand assets</span><span class="pv-label-scope">Manual · 14K items</span></div>
+            </div>
+          </div>
+          <div class="pv-card">
+            <div class="adm-card-head"><div class="adm-card-title">DLP — last 48 events</div><div class="adm-card-sub">All blocked or contained · no data left Hoag tenant</div></div>
+            <div class="pv-events">
+              <div class="pv-event bad"><div class="pv-ev-t">12 min ago</div><div class="pv-ev-user">J. Okonkwo</div><div class="pv-ev-desc">Tried to forward PHI to personal gmail</div><div class="pv-ev-status">✕ Blocked</div></div>
+              <div class="pv-event"><div class="pv-ev-t">2 h ago</div><div class="pv-ev-user">IT Help Desk</div><div class="pv-ev-desc">Attempted to paste patient list into ChatGPT</div><div class="pv-ev-status">✕ Blocked</div></div>
+              <div class="pv-event"><div class="pv-ev-t">Yesterday</div><div class="pv-ev-user">L. Thomas</div><div class="pv-ev-desc">Uploaded discharge summary to unapproved tool</div><div class="pv-ev-status">✕ Blocked</div></div>
+              <div class="pv-event"><div class="pv-ev-t">Yesterday</div><div class="pv-ev-user">Agent: Intake</div><div class="pv-ev-desc">Accessed out-of-scope SharePoint site</div><div class="pv-ev-status">✕ Blocked</div></div>
+              <div class="pv-event"><div class="pv-ev-t">2 d ago</div><div class="pv-ev-user">R. Patel</div><div class="pv-ev-desc">Shared denial letter externally</div><div class="pv-ev-status">✓ Allowed (audit)</div></div>
+            </div>
           </div>
         </div>
-        <div class="pv-card">
-          <div class="adm-card-head"><div class="adm-card-title">DLP — last 48 events</div><div class="adm-card-sub">All blocked or contained · no data left Hoag tenant</div></div>
-          <div class="pv-events">
-            <div class="pv-event bad"><div class="pv-ev-t">12 min ago</div><div class="pv-ev-user">J. Okonkwo</div><div class="pv-ev-desc">Tried to forward PHI to personal gmail</div><div class="pv-ev-status">✕ Blocked</div></div>
-            <div class="pv-event"><div class="pv-ev-t">2 h ago</div><div class="pv-ev-user">IT Help Desk</div><div class="pv-ev-desc">Attempted to paste patient list into ChatGPT</div><div class="pv-ev-status">✕ Blocked</div></div>
-            <div class="pv-event"><div class="pv-ev-t">Yesterday</div><div class="pv-ev-user">L. Thomas</div><div class="pv-ev-desc">Uploaded discharge summary to unapproved tool</div><div class="pv-ev-status">✕ Blocked</div></div>
-            <div class="pv-event"><div class="pv-ev-t">Yesterday</div><div class="pv-ev-user">Agent: Intake</div><div class="pv-ev-desc">Accessed out-of-scope SharePoint site</div><div class="pv-ev-status">✕ Blocked</div></div>
-            <div class="pv-event"><div class="pv-ev-t">2 d ago</div><div class="pv-ev-user">R. Patel</div><div class="pv-ev-desc">Shared denial letter externally</div><div class="pv-ev-status">✓ Allowed (audit)</div></div>
+      </div>
+
+      <!-- ========== AI HUB (DSPM for AI) ========== -->
+      <div class="pv-pane" id="pv-pane-aihub">
+        <div class="pv-aihub-banner">
+          <div class="pv-ah-ico">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a3 3 0 00-3 3v1H7a2 2 0 00-2 2v4a7 7 0 0014 0V8a2 2 0 00-2-2h-2V5a3 3 0 00-3-3zm-1 3a1 1 0 112 0v1h-2V5zM8 9h8v3a4 4 0 01-8 0V9zm3.1 10.9a1 1 0 011.8 0l.9 1.6a.5.5 0 01-.45.75h-2.7a.5.5 0 01-.45-.75l.9-1.6z"/></svg>
+          </div>
+          <div style="flex:1;">
+            <h2>Microsoft Purview AI Hub <span class="pv-ah-badge">DSPM for AI</span></h2>
+            <p>End-to-end visibility and control for every AI interaction across your tenant — Microsoft 365 Copilot, Copilot Studio agents, partner agents (Epic, Salesforce), and any public AI app reachable from managed devices.</p>
+          </div>
+          <div style="text-align:right;font-size:11px;opacity:0.9;">
+            <div>Data coverage</div>
+            <div style="font-size:18pt;font-weight:200;color:#ffe19a;line-height:1.1;">98.4%</div>
+            <div>3.2M prompts / 30d</div>
+          </div>
+        </div>
+
+        <div class="pv-ah-kpis">
+          <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Prompts analyzed</div><div class="pv-ah-kpi-v">3.2M</div><div class="pv-ah-kpi-s">last 30 days · ▲ 18%</div></div>
+          <div class="pv-ah-kpi warn"><div class="pv-ah-kpi-lbl">Sensitive prompts</div><div class="pv-ah-kpi-v">287K</div><div class="pv-ah-kpi-s warn">9% · auto-labeled</div></div>
+          <div class="pv-ah-kpi danger"><div class="pv-ah-kpi-lbl">Risky interactions</div><div class="pv-ah-kpi-v">83</div><div class="pv-ah-kpi-s">48 DLP · 23 injection · 12 jailbreak</div></div>
+          <div class="pv-ah-kpi danger"><div class="pv-ah-kpi-lbl">Shadow AI tools</div><div class="pv-ah-kpi-v">4</div><div class="pv-ah-kpi-s">detected on managed devices</div></div>
+          <div class="pv-ah-kpi ok"><div class="pv-ah-kpi-lbl">AI apps connected</div><div class="pv-ah-kpi-v">9</div><div class="pv-ah-kpi-s good">all governed</div></div>
+        </div>
+
+        <div class="pv-ah-grid">
+          <div class="pv-card">
+            <div class="adm-card-head"><div class="adm-card-title">Prompt volume &amp; classification</div><div class="adm-card-sub">Daily rollup · M365 Copilot + all registered agents · classified by sensitivity</div></div>
+            <div class="pv-ah-chart" id="pv-ah-chart"></div>
+            <div class="pv-ah-chart-leg">
+              <span><span class="dot safe"></span>Unlabeled / general</span>
+              <span><span class="dot labeled"></span>PHI / Confidential (auto-labeled)</span>
+              <span><span class="dot risky"></span>Risky / blocked</span>
+            </div>
+          </div>
+          <div class="pv-card">
+            <div class="adm-card-head"><div class="adm-card-title">Top risk categories detected</div><div class="adm-card-sub">Classified by Purview sensitive-info types &amp; prompt-shield signals</div></div>
+            <div class="pv-ah-risks">
+              <div class="pv-ah-risk-row">
+                <div class="pv-ah-risk-lbl">PHI outside approved scope<small>MRN, patient names, DOB, DX codes in unmanaged context</small></div>
+                <div class="pv-ah-risk-bar"><div class="pv-ah-risk-bar-fill" style="width:86%;"></div></div>
+                <div class="pv-ah-risk-n">214K</div>
+              </div>
+              <div class="pv-ah-risk-row">
+                <div class="pv-ah-risk-lbl">Credentials / secrets in prompts<small>API keys, passwords, access tokens pasted by users</small></div>
+                <div class="pv-ah-risk-bar"><div class="pv-ah-risk-bar-fill warn" style="width:28%;"></div></div>
+                <div class="pv-ah-risk-n">7</div>
+              </div>
+              <div class="pv-ah-risk-row">
+                <div class="pv-ah-risk-lbl">Prompt-injection attempts<small>Blocked by Prompt Shields on grounded responses</small></div>
+                <div class="pv-ah-risk-bar"><div class="pv-ah-risk-bar-fill danger" style="width:18%;"></div></div>
+                <div class="pv-ah-risk-n">23</div>
+              </div>
+              <div class="pv-ah-risk-row">
+                <div class="pv-ah-risk-lbl">Jailbreak / policy-evasion<small>"Ignore prior instructions" &amp; role-swap attempts</small></div>
+                <div class="pv-ah-risk-bar"><div class="pv-ah-risk-bar-fill danger" style="width:10%;"></div></div>
+                <div class="pv-ah-risk-n">12</div>
+              </div>
+              <div class="pv-ah-risk-row">
+                <div class="pv-ah-risk-lbl">External recipient exposure<small>Labeled content in drafts bound for external domains</small></div>
+                <div class="pv-ah-risk-bar"><div class="pv-ah-risk-bar-fill" style="width:40%;"></div></div>
+                <div class="pv-ah-risk-n">47</div>
+              </div>
+              <div class="pv-ah-risk-row">
+                <div class="pv-ah-risk-lbl">PCI / payment data<small>Copilot summary touched cardholder data</small></div>
+                <div class="pv-ah-risk-bar"><div class="pv-ah-risk-bar-fill warn" style="width:12%;"></div></div>
+                <div class="pv-ah-risk-n">3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pv-ah-grid">
+          <div class="pv-card">
+            <div class="adm-card-head"><div class="adm-card-title">Shadow AI discovery <span class="pill" style="margin-left:8px;background:#eef3f8;color:#2c5ba8;">via Defender for Cloud Apps</span></div><div class="adm-card-sub">AI apps being accessed from managed Hoag devices — not yet governed by your policies</div></div>
+            <div class="pv-shadow">
+              <div class="pv-shadow-row">
+                <div class="pv-shadow-logo" style="background:#10a37f;">GPT</div>
+                <div class="pv-shadow-name">ChatGPT (free tier, consumer)<small>47 users · 2,134 sessions this month</small></div>
+                <div class="pv-shadow-count">Risk: 9.2</div>
+                <div class="pv-shadow-status blocked">✕ Blocked — CA policy</div>
+              </div>
+              <div class="pv-shadow-row review">
+                <div class="pv-shadow-logo" style="background:#4285f4;">G</div>
+                <div class="pv-shadow-name">Gemini (personal Google account)<small>18 users · mostly on clinical research</small></div>
+                <div class="pv-shadow-count">Risk: 7.4</div>
+                <div class="pv-shadow-status review">⚠ Under review</div>
+              </div>
+              <div class="pv-shadow-row review">
+                <div class="pv-shadow-logo" style="background:#db6b4a;">C</div>
+                <div class="pv-shadow-name">Claude.ai (anthropic.com, consumer)<small>11 users · 340 sessions · no DLP visibility</small></div>
+                <div class="pv-shadow-count">Risk: 7.1</div>
+                <div class="pv-shadow-status review">⚠ Under review</div>
+              </div>
+              <div class="pv-shadow-row">
+                <div class="pv-shadow-logo" style="background:#1a73e8;">DS</div>
+                <div class="pv-shadow-name">DeepSeek Chat (non-US hosted)<small>3 users · flagged by governance council</small></div>
+                <div class="pv-shadow-count">Risk: 9.7</div>
+                <div class="pv-shadow-status blocked">✕ Blocked — sovereignty</div>
+              </div>
+              <div class="pv-shadow-row sanctioned">
+                <div class="pv-shadow-logo" style="background:#2c5ba8;">CP</div>
+                <div class="pv-shadow-name">Microsoft 365 Copilot<small>2,847 licensed · DLP + labels enforced</small></div>
+                <div class="pv-shadow-count">Risk: 1.2</div>
+                <div class="pv-shadow-status sanctioned">✓ Sanctioned</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pv-card">
+            <div class="adm-card-head"><div class="adm-card-title">Connected AI apps &amp; agents</div><div class="adm-card-sub">Governed by Purview · inventoried in Agent 365</div></div>
+            <div class="pv-apps">
+              <div class="pv-app-row"><div class="pv-app-dot"></div><div class="pv-app-name">M365 Copilot<small>All E5 users · tenant-wide</small></div><div class="pv-app-scope">2,847 users</div></div>
+              <div class="pv-app-row"><div class="pv-app-dot"></div><div class="pv-app-name">Copilot Studio agents<small>6 custom agents in prod</small></div><div class="pv-app-scope">Governed</div></div>
+              <div class="pv-app-row"><div class="pv-app-dot"></div><div class="pv-app-name">Readmission Watch<small>Oncology · PHI scope</small></div><div class="pv-app-scope">4W unit</div></div>
+              <div class="pv-app-row"><div class="pv-app-dot"></div><div class="pv-app-name">Prior-Auth Assistant<small>Revenue cycle</small></div><div class="pv-app-scope">Billing team</div></div>
+              <div class="pv-app-row"><div class="pv-app-dot warn"></div><div class="pv-app-name">Epicopilot (Epic partner)<small>SMART-on-FHIR · BAA signed</small></div><div class="pv-app-scope">Clinical</div></div>
+              <div class="pv-app-row"><div class="pv-app-dot warn"></div><div class="pv-app-name">Agentforce (Salesforce)<small>Patient engagement CDP</small></div><div class="pv-app-scope">Marketing</div></div>
+              <div class="pv-app-row"><div class="pv-app-dot"></div><div class="pv-app-name">ServiceNow Now Assist<small>IT help desk</small></div><div class="pv-app-scope">IT</div></div>
+              <div class="pv-app-row"><div class="pv-app-dot"></div><div class="pv-app-name">Azure OpenAI — Clinical Trial Match<small>Custom, in-house</small></div><div class="pv-app-scope">Research</div></div>
+              <div class="pv-app-row"><div class="pv-app-dot new"></div><div class="pv-app-name">GitHub Copilot (dev)<small>Auto-discovered 9d ago</small></div><div class="pv-app-scope">Engineering · 34 users</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Anatomy of a secured prompt -->
+        <div class="pv-anatomy">
+          <div class="adm-card-head" style="margin-bottom:4px;"><div class="adm-card-title">Anatomy of a secured Copilot prompt</div><div class="adm-card-sub">How a single user prompt moves through Purview — from keystroke to audit log</div></div>
+          <div style="font-size:12px;color:var(--gray-130);margin-bottom:6px;">Example: a Word Copilot user asks <em>"Draft the prior-auth appeal for Mrs. Chen — use her latest labs."</em></div>
+
+          <div class="pv-anatomy-steps">
+            <div class="pv-anat-step">
+              <div class="pv-anat-step-num">1</div>
+              <div class="pv-anat-step-h">Identity &amp; device check</div>
+              <div class="pv-anat-step-b">Entra verifies user is <b>clinical staff</b> on a <b>compliant device</b>. Conditional Access evaluates risk signals.</div>
+              <span class="pv-anat-step-tag">Entra + Defender</span>
+            </div>
+            <div class="pv-anat-step">
+              <div class="pv-anat-step-num">2</div>
+              <div class="pv-anat-step-h">Prompt inspection</div>
+              <div class="pv-anat-step-b">Purview scans prompt for sensitive-info types. Detects: <b>MRN</b>, <b>patient name</b>, <b>DX code</b>. Classifier confidence: 99.1%.</div>
+              <span class="pv-anat-step-tag warn">PHI detected</span>
+            </div>
+            <div class="pv-anat-step">
+              <div class="pv-anat-step-num">3</div>
+              <div class="pv-anat-step-h">Auto-label applied</div>
+              <div class="pv-anat-step-b">Sensitivity label <b>PHI — HIPAA</b> attached to the prompt and the response envelope. Label inherits onto any output.</div>
+              <span class="pv-anat-step-tag">Label: PHI</span>
+            </div>
+            <div class="pv-anat-step last">
+              <div class="pv-anat-step-num">4</div>
+              <div class="pv-anat-step-h">DLP policy evaluation</div>
+              <div class="pv-anat-step-b">Policy "<i>PHI may be used by clinical staff on compliant devices only</i>" — <b>allowed</b>. Same prompt from marketing = blocked.</div>
+              <span class="pv-anat-step-tag ok">DLP allow</span>
+            </div>
+
+            <div class="pv-anat-step">
+              <div class="pv-anat-step-num">5</div>
+              <div class="pv-anat-step-h">Grounding with permissions</div>
+              <div class="pv-anat-step-b">Copilot retrieves Mrs. Chen's chart via Epic connector. Only documents the user already has M365/Epic access to are used.</div>
+              <span class="pv-anat-step-tag">Trim to ACL</span>
+            </div>
+            <div class="pv-anat-step">
+              <div class="pv-anat-step-num">6</div>
+              <div class="pv-anat-step-h">Prompt Shields</div>
+              <div class="pv-anat-step-b">Azure AI Content Safety checks grounded docs for <b>injection</b> &amp; <b>jailbreak</b> patterns before generation. None found.</div>
+              <span class="pv-anat-step-tag ok">Clean</span>
+            </div>
+            <div class="pv-anat-step">
+              <div class="pv-anat-step-num">7</div>
+              <div class="pv-anat-step-h">Response + citations</div>
+              <div class="pv-anat-step-b">Draft letter generated with citations to 4 source docs. Label <b>PHI</b> propagates to the Word file on save.</div>
+              <span class="pv-anat-step-tag">Cited · labeled</span>
+            </div>
+            <div class="pv-anat-step last">
+              <div class="pv-anat-step-num">8</div>
+              <div class="pv-anat-step-h">Audit + retention</div>
+              <div class="pv-anat-step-b">Prompt + response + decision logged to Unified Audit Log. Retention: <b>7 years</b>. Discoverable via eDiscovery hold.</div>
+              <span class="pv-anat-step-tag">Audit ✓</span>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;padding:10px 14px;background:#eef3f8;border-radius:7px;font-size:12px;color:var(--gray-160);line-height:1.55;">
+            <b style="color:#2c5ba8;">Net result:</b> the user got their answer in 2 minutes instead of 90. Purview has a full audit trail, the response is labeled and retained, and the <em>same exact prompt</em> from an unauthorized user would have been blocked at step 4 before a single word was generated.
           </div>
         </div>
       </div>
+
+      <!-- ========== DLP ========== -->
+      <div class="pv-pane" id="pv-pane-dlp">
+        <div class="pv-ah-kpis" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Active policies</div><div class="pv-ah-kpi-v">14</div><div class="pv-ah-kpi-s">11 enforced · 3 in test mode</div></div>
+          <div class="pv-ah-kpi warn"><div class="pv-ah-kpi-lbl">Matches · 30d</div><div class="pv-ah-kpi-v">1,284</div><div class="pv-ah-kpi-s">89 blocks · 1,195 audits</div></div>
+          <div class="pv-ah-kpi ok"><div class="pv-ah-kpi-lbl">Block rate</div><div class="pv-ah-kpi-v">6.9%</div><div class="pv-ah-kpi-s good">stable · no false-positive spike</div></div>
+          <div class="pv-ah-kpi ok"><div class="pv-ah-kpi-lbl">Policies on AI surfaces</div><div class="pv-ah-kpi-v">9 of 14</div><div class="pv-ah-kpi-s good">64% · target 100% by EOQ</div></div>
+        </div>
+
+        <div class="pv-card">
+          <div class="adm-card-head"><div class="adm-card-title">Active DLP policies</div><div class="adm-card-sub">All policies below apply to Exchange, SharePoint, OneDrive, Teams chat, endpoint, <b>and</b> Copilot prompts/responses</div></div>
+          <div class="pv-dlp-policies">
+            <div class="pv-dlp-row head">
+              <div>Policy name · scope</div>
+              <div>Applies to</div>
+              <div>Action</div>
+              <div>Matches 30d</div>
+              <div>State</div>
+            </div>
+            <div class="pv-dlp-row">
+              <div class="pv-dlp-name">Block PHI to external recipients<small>HIPAA · highest-severity rule · owner: Security team</small></div>
+              <div class="pv-dlp-scope">All users · all channels</div>
+              <div class="pv-dlp-action block">Block + notify</div>
+              <div class="pv-dlp-n">48</div>
+              <div class="pv-dlp-state enforced">Enforced</div>
+            </div>
+            <div class="pv-dlp-row">
+              <div class="pv-dlp-name">Block PHI to public AI apps<small>ChatGPT, Gemini, Claude, Perplexity · endpoint + browser</small></div>
+              <div class="pv-dlp-scope">All users</div>
+              <div class="pv-dlp-action block">Block + notify</div>
+              <div class="pv-dlp-n">31</div>
+              <div class="pv-dlp-state enforced">Enforced</div>
+            </div>
+            <div class="pv-dlp-row">
+              <div class="pv-dlp-name">Block credentials in any prompt<small>Secrets, API keys, passwords · Prompt Shield + regex</small></div>
+              <div class="pv-dlp-scope">All Copilot surfaces</div>
+              <div class="pv-dlp-action block">Block</div>
+              <div class="pv-dlp-n">7</div>
+              <div class="pv-dlp-state enforced">Enforced</div>
+            </div>
+            <div class="pv-dlp-row">
+              <div class="pv-dlp-name">PHI only in-scope for agents<small>Readmission Watch · oncology SharePoint · cannot read beyond</small></div>
+              <div class="pv-dlp-scope">Custom agents only</div>
+              <div class="pv-dlp-action block">Block + log</div>
+              <div class="pv-dlp-n">4</div>
+              <div class="pv-dlp-state enforced">Enforced</div>
+            </div>
+            <div class="pv-dlp-row">
+              <div class="pv-dlp-name">Warn on high-sensitivity in unlabeled doc<small>Nudges user to apply correct label · does not block</small></div>
+              <div class="pv-dlp-scope">Word, Excel, PowerPoint</div>
+              <div class="pv-dlp-action warn">Warn user</div>
+              <div class="pv-dlp-n">312</div>
+              <div class="pv-dlp-state enforced">Enforced</div>
+            </div>
+            <div class="pv-dlp-row">
+              <div class="pv-dlp-name">Audit PHI to Epicopilot<small>BAA partner · allowed but fully logged</small></div>
+              <div class="pv-dlp-scope">Clinical users</div>
+              <div class="pv-dlp-action audit">Audit only</div>
+              <div class="pv-dlp-n">894</div>
+              <div class="pv-dlp-state enforced">Enforced</div>
+            </div>
+            <div class="pv-dlp-row">
+              <div class="pv-dlp-name">PCI data outside approved workflows<small>Payment card regex + trainable classifier</small></div>
+              <div class="pv-dlp-scope">All users</div>
+              <div class="pv-dlp-action block">Block</div>
+              <div class="pv-dlp-n">3</div>
+              <div class="pv-dlp-state enforced">Enforced</div>
+            </div>
+            <div class="pv-dlp-row">
+              <div class="pv-dlp-name">Prompt-injection content in grounding docs<small>New · Prompt Shield on indirect attacks</small></div>
+              <div class="pv-dlp-scope">Copilot Studio agents</div>
+              <div class="pv-dlp-action block">Block response</div>
+              <div class="pv-dlp-n">23</div>
+              <div class="pv-dlp-state test">Test mode</div>
+            </div>
+            <div class="pv-dlp-row">
+              <div class="pv-dlp-name">Research protocol data to personal accounts<small>Clinical trial IP · trainable classifier</small></div>
+              <div class="pv-dlp-scope">Research team</div>
+              <div class="pv-dlp-action block">Block</div>
+              <div class="pv-dlp-n">0</div>
+              <div class="pv-dlp-state test">Test mode</div>
+            </div>
+          </div>
+          <div style="font-size:11.5px; color:var(--gray-130); margin-top:10px; padding-top:10px; border-top:1px solid var(--gray-20);">
+            <b style="color:var(--gray-160);">Why test mode matters:</b> new AI-surface policies run in test for 14 days before enforcement. You see every match that <em>would</em> have been blocked without impacting users, so you tune false positives before flipping the switch.
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== INSIDER RISK ========== -->
+      <div class="pv-pane" id="pv-pane-irm">
+        <div class="pv-ah-kpis" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Users scored</div><div class="pv-ah-kpi-v">2,847</div><div class="pv-ah-kpi-s">all licensed M365 users</div></div>
+          <div class="pv-ah-kpi warn"><div class="pv-ah-kpi-lbl">Elevated risk</div><div class="pv-ah-kpi-v">23</div><div class="pv-ah-kpi-s warn">0.8% · Adaptive Protection engaged</div></div>
+          <div class="pv-ah-kpi danger"><div class="pv-ah-kpi-lbl">Active cases</div><div class="pv-ah-kpi-v">2</div><div class="pv-ah-kpi-s">1 high · 1 medium</div></div>
+          <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Risk policies</div><div class="pv-ah-kpi-v">5</div><div class="pv-ah-kpi-s">data theft, leaks, HR</div></div>
+        </div>
+
+        <div class="pv-ir-grid">
+          <div class="pv-card">
+            <div class="adm-card-head"><div class="adm-card-title">Top risk indicators this week</div><div class="adm-card-sub">Anonymized by default · names appear only once a case is opened</div></div>
+            <div class="pv-ir-users">
+              <div class="pv-ir-user">
+                <div class="pv-ir-av" style="background:#c50f1f;">U1</div>
+                <div class="pv-ir-name">User #4821 — Revenue cycle<small>Unusual volume of PHI downloads + external email drafts (coinciding with HR risk signal)</small></div>
+                <div class="pv-ir-pattern">Data theft</div>
+                <div class="pv-ir-score high">87</div>
+              </div>
+              <div class="pv-ir-user">
+                <div class="pv-ir-av" style="background:#c77700;">U2</div>
+                <div class="pv-ir-name">User #2104 — Research<small>Shared clinical-trial folder externally · repeated attempts to disable DLP</small></div>
+                <div class="pv-ir-pattern">Data leak</div>
+                <div class="pv-ir-score high">72</div>
+              </div>
+              <div class="pv-ir-user">
+                <div class="pv-ir-av" style="background:#c77700;">U3</div>
+                <div class="pv-ir-name">User #9902 — Oncology<small>Pasted 18 patient records into ChatGPT (consumer) · blocked by DLP</small></div>
+                <div class="pv-ir-pattern">AI misuse</div>
+                <div class="pv-ir-score med">58</div>
+              </div>
+              <div class="pv-ir-user">
+                <div class="pv-ir-av" style="background:#0078d4;">U4</div>
+                <div class="pv-ir-name">User #1556 — Finance<small>Bulk printing 30d before resignation · auto-escalated to HR business partner</small></div>
+                <div class="pv-ir-pattern">Departing user</div>
+                <div class="pv-ir-score med">54</div>
+              </div>
+              <div class="pv-ir-user">
+                <div class="pv-ir-av" style="background:#0090a8;">U5</div>
+                <div class="pv-ir-name">User #7780 — Clinical<small>Unusual Copilot activity (Excel risk models) — evaluating if legitimate</small></div>
+                <div class="pv-ir-pattern">Anomaly</div>
+                <div class="pv-ir-score low">31</div>
+              </div>
+            </div>
+            <div style="font-size:11.5px;color:var(--gray-130);margin-top:10px;padding:8px 12px;background:#fafbfc;border-radius:6px;">
+              <b>Adaptive Protection:</b> elevated-risk users get tighter DLP automatically — blocking moves that are <em>allowed</em> for everyone else (e.g. external sharing, AI apps outside M365). No manual admin work.
+            </div>
+          </div>
+
+          <div class="pv-card">
+            <div class="adm-card-head"><div class="adm-card-title">Open cases</div><div class="adm-card-sub">Human-reviewed · full audit trail · legal/HR workflow</div></div>
+
+            <div class="pv-ir-case">
+              <div class="pv-ir-case-h"><span>Case #2026-0422-A · Data theft (high)</span><span style="font-size:10px;padding:2px 7px;border-radius:9px;background:#c50f1f;color:#fff;">ACTIVE</span></div>
+              <div class="pv-ir-case-b">Revenue-cycle analyst downloaded 2,300 records flagged PHI, then attempted to upload to personal OneDrive. DLP blocked. Adaptive Protection raised risk score to 87 and restricted external sharing on all devices.</div>
+              <div class="pv-ir-case-m">Opened 2 days ago · Investigator: L. Nguyen · HR + legal engaged · user access suspended pending review</div>
+            </div>
+
+            <div class="pv-ir-case med">
+              <div class="pv-ir-case-h"><span>Case #2026-0420-B · AI misuse (medium)</span><span style="font-size:10px;padding:2px 7px;border-radius:9px;background:#c77700;color:#fff;">UNDER REVIEW</span></div>
+              <div class="pv-ir-case-b">Oncology coordinator pasted patient summaries into ChatGPT (consumer tier) 4 times in one week to "speed up discharge letters." Each attempt blocked by DLP. No data actually left the tenant.</div>
+              <div class="pv-ir-case-m">Opened 4 days ago · Investigator: J. Park · Outcome: coaching + Copilot training enrollment (no disciplinary action recommended)</div>
+            </div>
+
+            <div class="pv-card" style="padding:12px 14px;margin-top:10px;background:#eef9f1;border-color:rgba(16,124,16,0.25);">
+              <div style="font-size:12.5px;color:#0a5a0a;font-weight:600;">Why this matters for AI governance</div>
+              <div style="font-size:11.5px;color:var(--gray-160);margin-top:4px;line-height:1.5;">
+                Case B is the template: when a user is going to paste PHI somewhere risky, they almost always try a sanctioned route first. Every M365 Copilot user blocked from ChatGPT means one more patient kept safe — and one more coaching opportunity, not a termination.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== COMPLIANCE MANAGER ========== -->
+      <div class="pv-pane" id="pv-pane-cm">
+        <div class="pv-card" style="margin-bottom:14px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:18px;">
+            <div>
+              <div style="font-size:11px;color:var(--gray-130);text-transform:uppercase;letter-spacing:0.8px;font-weight:700;">Overall compliance</div>
+              <div style="font-size:36pt;font-weight:200;color:var(--gray-160);line-height:1;letter-spacing:-1.5px;">92<span style="font-size:14pt;color:var(--gray-90);">/100</span></div>
+              <div style="font-size:12px;color:#107c10;font-weight:700;margin-top:4px;">▲ 4 points this month</div>
+            </div>
+            <div style="flex:1;font-size:12.5px;color:var(--gray-160);line-height:1.55;border-left:3px solid #2c5ba8;padding-left:16px;">
+              <b>Scoring method:</b> Microsoft Purview Compliance Manager evaluates 1,240+ controls across 11 active frameworks. Your tenant earns points by completing <b>improvement actions</b> — each tied to a specific control (e.g., "Enable auto-labeling for PHI," "Require MFA on admin roles"). This isn't a marketing score — it's the same math an auditor would use.
+            </div>
+          </div>
+        </div>
+
+        <div class="pv-cm-grid">
+          <div class="pv-cm-frame">
+            <div class="pv-cm-frame-h">
+              <div class="pv-cm-frame-name">HIPAA Security Rule<small>45 CFR § 164.302-318</small></div>
+              <div class="pv-cm-score-big">94</div>
+            </div>
+            <div class="pv-cm-score-pct">188 of 200 controls in place</div>
+            <div class="pv-cm-bar"><div class="pv-cm-bar-fill" style="width:94%;"></div></div>
+            <div class="pv-cm-actions">3 open · <b>next:</b> Workstation use policy attestation (12 pts)</div>
+          </div>
+
+          <div class="pv-cm-frame">
+            <div class="pv-cm-frame-h">
+              <div class="pv-cm-frame-name">HITRUST CSF v11<small>Healthcare-specific consolidated framework</small></div>
+              <div class="pv-cm-score-big">89</div>
+            </div>
+            <div class="pv-cm-score-pct">436 of 487 requirements met</div>
+            <div class="pv-cm-bar"><div class="pv-cm-bar-fill" style="width:89%;"></div></div>
+            <div class="pv-cm-actions">14 open · <b>next:</b> Vulnerability scan cadence documentation (8 pts)</div>
+          </div>
+
+          <div class="pv-cm-frame">
+            <div class="pv-cm-frame-h">
+              <div class="pv-cm-frame-name">NIST AI RMF 1.0<small>Govern · Map · Measure · Manage</small></div>
+              <div class="pv-cm-score-big warn">82</div>
+            </div>
+            <div class="pv-cm-score-pct">164 of 200 AI-specific controls</div>
+            <div class="pv-cm-bar"><div class="pv-cm-bar-fill warn" style="width:82%;"></div></div>
+            <div class="pv-cm-actions">11 open · <b>next:</b> Model-risk documentation per agent (15 pts)</div>
+          </div>
+
+          <div class="pv-cm-frame">
+            <div class="pv-cm-frame-h">
+              <div class="pv-cm-frame-name">CMS Promoting Interoperability<small>MIPS · objective measures</small></div>
+              <div class="pv-cm-score-big">97</div>
+            </div>
+            <div class="pv-cm-score-pct">Top-quartile among health systems</div>
+            <div class="pv-cm-bar"><div class="pv-cm-bar-fill" style="width:97%;"></div></div>
+            <div class="pv-cm-actions">1 open · <b>next:</b> Patient-portal uptime attestation</div>
+          </div>
+
+          <div class="pv-cm-frame">
+            <div class="pv-cm-frame-h">
+              <div class="pv-cm-frame-name">ISO/IEC 27001:2022<small>Information security management</small></div>
+              <div class="pv-cm-score-big">91</div>
+            </div>
+            <div class="pv-cm-score-pct">Certification renewal: Sept 2026</div>
+            <div class="pv-cm-bar"><div class="pv-cm-bar-fill" style="width:91%;"></div></div>
+            <div class="pv-cm-actions">6 open · <b>next:</b> Annex A.5 supplier review</div>
+          </div>
+
+          <div class="pv-cm-frame">
+            <div class="pv-cm-frame-h">
+              <div class="pv-cm-frame-name">California AB 331<small>AI in high-stakes decisions</small></div>
+              <div class="pv-cm-score-big danger">76</div>
+            </div>
+            <div class="pv-cm-score-pct">State regulation · effective 2026-01</div>
+            <div class="pv-cm-bar"><div class="pv-cm-bar-fill danger" style="width:76%;"></div></div>
+            <div class="pv-cm-actions">8 open · <b>next:</b> Impact assessment on 2 clinical agents (22 pts)</div>
+          </div>
+        </div>
+
+        <div class="pv-cm-improve">
+          <div class="adm-card-head"><div class="adm-card-title">Top improvement actions this quarter</div><div class="adm-card-sub">Sorted by points earned vs. effort · most drive multiple frameworks at once</div></div>
+          <div class="pv-cm-imp-row head">
+            <div>Action</div><div>Points</div><div>Frameworks</div><div>Due</div>
+          </div>
+          <div class="pv-cm-imp-row">
+            <div>Document model risk for each production agent (Readmission, Prior-Auth, Clinical Trial Match)</div>
+            <div class="pv-cm-pts">+37 pts</div>
+            <div><span class="pv-cm-owner">NIST AI RMF · AB 331</span></div>
+            <div class="pv-cm-due">May 15</div>
+          </div>
+          <div class="pv-cm-imp-row">
+            <div>Extend Purview auto-labeling to new research tenant (Oncology Phase II folders)</div>
+            <div class="pv-cm-pts">+24 pts</div>
+            <div><span class="pv-cm-owner">HIPAA · HITRUST</span></div>
+            <div class="pv-cm-due">May 22</div>
+          </div>
+          <div class="pv-cm-imp-row">
+            <div>Enable Insider Risk "data theft" policy with Adaptive Protection</div>
+            <div class="pv-cm-pts">+18 pts</div>
+            <div><span class="pv-cm-owner">HITRUST · ISO 27001</span></div>
+            <div class="pv-cm-due">Done — verify</div>
+          </div>
+          <div class="pv-cm-imp-row">
+            <div>Quarterly DLP false-positive review &amp; retune</div>
+            <div class="pv-cm-pts">+12 pts</div>
+            <div><span class="pv-cm-owner">HIPAA · HITRUST</span></div>
+            <div class="pv-cm-due">Jun 30</div>
+          </div>
+          <div class="pv-cm-imp-row">
+            <div>Publish AI governance council charter to all-staff SharePoint</div>
+            <div class="pv-cm-pts">+8 pts</div>
+            <div><span class="pv-cm-owner">NIST AI RMF</span></div>
+            <div class="pv-cm-due">May 1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== AUDIT & EDISCOVERY ========== -->
+      <div class="pv-pane" id="pv-pane-audit">
+        <div class="pv-ah-kpis" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Prompts retained</div><div class="pv-ah-kpi-v">3.2M</div><div class="pv-ah-kpi-s">7-year retention · HIPAA aligned</div></div>
+          <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Active holds</div><div class="pv-ah-kpi-v">3</div><div class="pv-ah-kpi-s">1 litigation · 2 regulatory</div></div>
+          <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Audit events · 24h</div><div class="pv-ah-kpi-v">184K</div><div class="pv-ah-kpi-s">Unified Audit Log</div></div>
+          <div class="pv-ah-kpi ok"><div class="pv-ah-kpi-lbl">Search SLA</div><div class="pv-ah-kpi-v">&lt; 2 min</div><div class="pv-ah-kpi-s good">p95 across last 30 searches</div></div>
+        </div>
+
+        <div class="pv-ah-grid">
+          <div class="pv-card">
+            <div class="adm-card-head"><div class="adm-card-title">Live audit stream</div><div class="adm-card-sub">Unified Audit Log · every Copilot interaction · tamper-evident</div></div>
+            <div class="pv-audit-feed">
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:18</span><span class="pv-audit-u">s.chen@hoag.org</span><span class="pv-audit-d">Copilot.Word · prompt accepted · label=<span class="ok">PHI</span> · grounded(4 docs)</span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:17</span><span class="pv-audit-u">d.kim@hoag.org</span><span class="pv-audit-d">Purview.DLP · policy="PHI to external" · action=<span class="bad">block</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:15</span><span class="pv-audit-u">Agent/ReadmitWatch</span><span class="pv-audit-d">Copilot.Studio · tool_call=sharepoint.search · scope=<span class="ok">oncology-policies/*</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:14</span><span class="pv-audit-u">j.park@hoag.org</span><span class="pv-audit-d">Copilot.Teams · meeting_recap · attendees=7 · label=<span class="ok">Confidential</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:12</span><span class="pv-audit-u">m.ruiz@hoag.org</span><span class="pv-audit-d">Copilot.Outlook · reply_drafted · tone=empathetic · label=<span class="ok">PHI</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:10</span><span class="pv-audit-u">Agent/PriorAuth</span><span class="pv-audit-d">Copilot.Studio · tool_call=epic.get_labs · consent=<span class="ok">clinical_role</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:08</span><span class="pv-audit-u">l.thomas@hoag.org</span><span class="pv-audit-d">Purview.Labels · file=DischargeSummary.docx · auto_label=<span class="ok">PHI</span> · confidence=0.97</span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:06</span><span class="pv-audit-u">endpoint.JP-LAPTOP</span><span class="pv-audit-d">Defender.CloudApps · chatgpt.com paste attempt · <span class="bad">blocked</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:04</span><span class="pv-audit-u">r.patel@hoag.org</span><span class="pv-audit-d">Copilot.Excel · pivot_generated · rows=441 · label=<span class="warn">Confidential</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:02</span><span class="pv-audit-u">Agent/ClinicalTrialMatch</span><span class="pv-audit-d">PromptShield · detected=<span class="bad">indirect_injection</span> · response=<span class="bad">suppressed</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:42:00</span><span class="pv-audit-u">s.chen@hoag.org</span><span class="pv-audit-d">Copilot.Word · save · label=<span class="ok">PHI</span> · retention=<span class="ok">7y</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:41:58</span><span class="pv-audit-u">admin@hoag.org</span><span class="pv-audit-d">Purview.Policy · edited="Block PHI to external" · threshold=1.0</span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:41:55</span><span class="pv-audit-u">j.okonkwo@hoag.org</span><span class="pv-audit-d">Outlook.Send · recipient=<span class="bad">personal gmail</span> · label=PHI · <span class="bad">blocked</span></span></div>
+              <div class="pv-audit-line"><span class="pv-audit-t">13:41:53</span><span class="pv-audit-u">Agent/ExecReadout</span><span class="pv-audit-d">Copilot.Studio · published_report · audience=board · label=<span class="warn">Confidential</span></span></div>
+            </div>
+            <div style="font-size:11px;color:var(--gray-130);margin-top:8px;">Scrolls in real time. Every event is cryptographically chained — tampering invalidates the chain and pages the SOC.</div>
+          </div>
+
+          <div class="pv-card">
+            <div class="adm-card-head"><div class="adm-card-title">eDiscovery cases</div><div class="adm-card-sub">Copilot prompts &amp; responses are discoverable the same way email is</div></div>
+            <div class="pv-ediscovery-cases">
+              <div class="pv-ed-case head">
+                <div>Case / custodian</div>
+                <div>Type</div>
+                <div>Items</div>
+                <div>Hold since</div>
+                <div>Status</div>
+              </div>
+              <div class="pv-ed-case">
+                <div class="pv-ed-name">Matter 2026-CV-0091<small>Patient vs. Hoag · alleged misdiagnosis · 14 custodians</small></div>
+                <div>Litigation</div>
+                <div class="pv-dlp-n">2.4M</div>
+                <div class="pv-cm-due">2026-02-11</div>
+                <div><span class="pv-ed-status hold">On hold</span></div>
+              </div>
+              <div class="pv-ed-case">
+                <div class="pv-ed-name">OCR Audit request #HHS-2026-0388<small>Regulatory · HIPAA access controls review</small></div>
+                <div>Regulatory</div>
+                <div class="pv-dlp-n">184K</div>
+                <div class="pv-cm-due">2026-03-04</div>
+                <div><span class="pv-ed-status review">In review</span></div>
+              </div>
+              <div class="pv-ed-case">
+                <div class="pv-ed-name">CMS Interop audit · Q1<small>Regulatory · API use &amp; data sharing</small></div>
+                <div>Regulatory</div>
+                <div class="pv-dlp-n">38K</div>
+                <div class="pv-cm-due">2026-04-01</div>
+                <div><span class="pv-ed-status review">In review</span></div>
+              </div>
+              <div class="pv-ed-case">
+                <div class="pv-ed-name">HR investigation · Case #2026-0422-A<small>Linked from Insider Risk · 1 custodian</small></div>
+                <div>Internal</div>
+                <div class="pv-dlp-n">12K</div>
+                <div class="pv-cm-due">2026-04-22</div>
+                <div><span class="pv-ed-status hold">On hold</span></div>
+              </div>
+              <div class="pv-ed-case">
+                <div class="pv-ed-name">Vendor access review · Agentforce SF<small>Closed · no indicators found</small></div>
+                <div>Internal</div>
+                <div class="pv-dlp-n">7K</div>
+                <div class="pv-cm-due">2026-03-18</div>
+                <div><span class="pv-ed-status closed">Closed</span></div>
+              </div>
+            </div>
+            <div style="font-size:11.5px;color:var(--gray-130);margin-top:10px;padding-top:10px;border-top:1px solid var(--gray-20);line-height:1.5;">
+              <b style="color:var(--gray-160);">Why this matters for AI:</b> when regulators or plaintiff's counsel ask "what did your AI say about this patient?", you can answer — with the prompt, the citations it used, the label that was applied, and who accepted the output. That answer is 2 minutes of search, not a 6-week forensic engagement.
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -6975,6 +7897,7 @@ function openApp(app, context) {
   if (app === 'dax') renderDaxWaveform();
   if (app === 'pages') setTimeout(startPagesCursors, 200);
   if (app === 'agent365') startAgent365Feed();
+  if (app === 'purview') { switchPvTab('overview'); renderPvAiChart(); }
   // Show tips per app
   const tips = {
     outlook: "In Outlook, click the Copilot logo (top-right) to triage your 147-message inbox. Or click any email to read it.",
@@ -11079,6 +12002,52 @@ function publishAgent() {
     sources: { sp_oncology: true, sp_policies: true, onedrive: true, teams: false, files: false, web: false },
     capabilities: { webSearch: false, codeInterp: false, imageGen: false }
   };
+}
+
+// ============ PURVIEW — tabs + AI Hub chart ============
+function switchPvTab(which) {
+  document.querySelectorAll('.pv-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.pvtab === which);
+  });
+  document.querySelectorAll('.pv-pane').forEach(p => p.classList.remove('active'));
+  const pane = document.getElementById('pv-pane-' + which);
+  if (pane) pane.classList.add('active');
+  // Lazily render the AI Hub chart so bars size correctly after the pane becomes visible
+  if (which === 'aihub') renderPvAiChart();
+}
+
+// 30-day prompt-volume chart on the AI Hub tab. Each day is a 3-segment stacked bar:
+// safe (unlabeled/general) + labeled (PHI/Confidential, auto-labeled) + risky (blocked).
+// Heights are seeded deterministically so the chart looks like real telemetry, not noise.
+function renderPvAiChart() {
+  const el = document.getElementById('pv-ah-chart');
+  if (!el) return;
+  const days = 30;
+  const bars = [];
+  for (let i = 0; i < days; i++) {
+    // Gentle sinusoidal growth to imply rising adoption + weekly dips for weekends
+    const dow = i % 7;
+    const weekendDip = (dow === 5 || dow === 6) ? 0.55 : 1;
+    const growth = 0.7 + (i / days) * 0.35;
+    const base = 62 * growth * weekendDip;
+    const safe = base;
+    const labeled = base * 0.22 + (i * 0.12);   // slowly rising share of auto-labeled
+    const risky = (dow === 2 || dow === 4) ? 2 + (i % 3) : 0.6; // small spikes on Tue/Thu
+    const total = safe + labeled + risky;
+    bars.push({ safe, labeled, risky, total });
+  }
+  const maxTotal = Math.max(...bars.map(b => b.total));
+  el.innerHTML = bars.map(b => {
+    const safeH    = (b.safe    / maxTotal) * 100;
+    const labeledH = (b.labeled / maxTotal) * 100;
+    const riskyH   = (b.risky   / maxTotal) * 100;
+    return `
+      <div class="pv-ah-chart-bar">
+        <div class="seg risky" style="height:${riskyH}%;"></div>
+        <div class="seg labeled" style="height:${labeledH}%;"></div>
+        <div class="seg safe" style="height:${safeH}%;"></div>
+      </div>`;
+  }).join('');
 }
 </script>
 </body>
