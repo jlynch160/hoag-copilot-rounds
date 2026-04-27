@@ -2783,6 +2783,7 @@ body.dark .pv-event.bad { background: #2a1818; }
 /* ============ MICROSOFT ENTRA ID ============ */
 /* Shell (mirrors entra.microsoft.com) — flat Fluent, teal/navy brand */
 .app-topbar.entra { background: #1f3243; color: #fff; }
+.app-topbar.entra .app-title small { display: block; font-size: 10.5px; font-weight: 400; opacity: 0.75; letter-spacing: 0.3px; margin-top: -2px; }
 .app-topbar.entra .app-title-logo {
   background: linear-gradient(135deg, #32bcad 0%, #0078d4 50%, #0b2461 100%);
   border-radius: 3px; padding: 2px;
@@ -3171,8 +3172,87 @@ body.dark .en-bread .en-bc-last { color: #f3f2f1; }
 body.dark .en-task-name, body.dark .en-kpi-v { color: #f3f2f1; }
 body.dark .en-card-title { color: #f3f2f1; }
 
-/* ============ MICROSOFT DEFENDER FOR CLOUD APPS ============ */
-.app-topbar.defender { background: #0b2c4a; color: #fff; }
+/* ============ MICROSOFT DEFENDER (XDR) ============ */
+.app-topbar.defender { background: #001e33; color: #fff; }
+.app-topbar.defender .app-title small { display: block; font-size: 10.5px; font-weight: 400; opacity: 0.75; letter-spacing: 0.3px; margin-top: -2px; }
+.app-waffle-launcher {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 3px;
+  color: #fff; cursor: pointer; flex-shrink: 0;
+  margin-right: 6px;
+}
+.app-waffle-launcher:hover { background: rgba(255,255,255,0.1); }
+.app-waffle-launcher svg { width: 16px; height: 16px; }
+/* On the light Purview topbar, waffle goes dark */
+.app-topbar.purview .app-waffle-launcher { color: #323130; }
+.app-topbar.purview .app-waffle-launcher:hover { background: #f3f2f1; }
+
+/* Incident severity bar */
+.df-incident {
+  display: grid;
+  grid-template-columns: 4px 1.6fr 0.8fr 0.7fr 0.9fr 0.9fr 0.8fr 0.7fr;
+  gap: 12px; align-items: center;
+  background: #fff; border-bottom: 1px solid #edebe9;
+  padding: 12px 14px 12px 0;
+  font-size: 12px; color: #323130;
+}
+.df-incident:hover { background: #faf9f8; }
+.df-incident.head {
+  background: #faf9f8; padding: 7px 14px 7px 0;
+  font-size: 10.5px; font-weight: 600; color: #605e5c;
+  text-transform: uppercase; letter-spacing: 0.6px;
+}
+.df-incident.head:hover { background: #faf9f8; }
+.df-incident .df-sev-bar { height: 100%; min-height: 32px; align-self: stretch; }
+.df-incident.high   .df-sev-bar { background: #d13438; }
+.df-incident.med    .df-sev-bar { background: #c19c00; }
+.df-incident.low    .df-sev-bar { background: #0078d4; }
+.df-incident.info   .df-sev-bar { background: #605e5c; }
+.df-incident.head .df-sev-bar { background: transparent; }
+.df-inc-title { color: #323130; font-weight: 600; }
+.df-inc-title small { display: block; color: #605e5c; font-weight: 400; font-size: 10.5px; margin-top: 1px; line-height: 1.4; }
+.df-inc-sev {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 700;
+}
+.df-inc-sev::before { content: ''; width: 8px; height: 8px; border-radius: 50%; }
+.df-inc-sev.high::before { background: #d13438; }
+.df-inc-sev.med::before  { background: #c19c00; }
+.df-inc-sev.low::before  { background: #0078d4; }
+.df-inc-sev.info::before { background: #605e5c; }
+.df-inc-sev.high { color: #a4262c; }
+.df-inc-sev.med  { color: #8a6a00; }
+.df-inc-sev.low  { color: #0078d4; }
+.df-inc-sev.info { color: #605e5c; }
+
+.df-mitre {
+  display: inline-block; padding: 2px 7px;
+  font-family: Consolas, Menlo, monospace; font-size: 10.5px;
+  background: #fde7e9; color: #a4262c; border: 1px solid #f5c2c7;
+  border-radius: 2px; margin: 2px 3px 2px 0;
+}
+.df-mitre.def-evade { background: #fff4ce; color: #8a6a00; border-color: #f5d98a; }
+.df-mitre.coll      { background: #eff6fc; color: #0078d4; border-color: #c7e0f4; }
+.df-mitre.exfil     { background: #fde7e9; color: #a4262c; border-color: #f5c2c7; }
+.df-mitre.init      { background: #f3e6ff; color: #5c2d91; border-color: #d8c0f5; }
+
+.df-impact { font-size: 11px; color: #605e5c; }
+.df-impact b { color: #323130; font-weight: 600; }
+
+/* Identity Protection hero illustration */
+.en-idp-hero {
+  background: linear-gradient(135deg, #eff6fc 0%, #f0e5ff 100%);
+  border: 1px solid #c7e0f4; border-radius: 6px;
+  padding: 22px 26px;
+  display: grid; grid-template-columns: 1fr 200px; gap: 24px; align-items: center;
+  margin-bottom: 16px;
+}
+.en-idp-hero h3 { font-size: 14px; font-weight: 700; color: #323130; margin: 0 0 6px; }
+.en-idp-hero p  { font-size: 12.5px; color: #323130; margin: 0; line-height: 1.5; max-width: 580px; }
+.en-idp-hero .en-idp-tip { display: inline-flex; align-items: center; gap: 6px; background: #fff4ce; color: #8a6a00; padding: 3px 9px; border-radius: 2px; border: 1px solid #f5d98a; font-size: 11px; font-weight: 600; margin-bottom: 8px; }
+.en-idp-illust { display: flex; justify-content: center; }
+
+/* ============ POWER BI ============ */
 .app-topbar.defender .app-title-logo { background: linear-gradient(135deg,#0078d4,#003a6a); border-radius: 3px; padding: 2px; }
 .df-body { flex: 1; overflow-y: auto; background: #faf9f8; padding: 0; }
 .df-shell { display: flex; min-height: 100%; }
@@ -3198,7 +3278,6 @@ body.dark .df-tab { color: #d2d0ce; }
 body.dark .df-tab:hover { background: #292827; }
 body.dark .df-tab.active { background: #323130; color: #f3f2f1; }
 
-/* ============ POWER BI ============ */
 .app-topbar.powerbi { background: linear-gradient(180deg, #f2c811 0%, #b79507 100%); color: #242424; }
 .app-topbar.powerbi .app-title { color: #242424; }
 .app-topbar.powerbi .back { color: #242424; }
@@ -6740,6 +6819,9 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
   <div id="app-purview" class="app-shell">
     <div class="app-topbar purview">
       <div class="back" onclick="goHome()">☰</div>
+      <div class="app-waffle-launcher" title="Microsoft 365">
+        <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+      </div>
       <div class="app-title">
         <svg class="app-title-logo" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2L3 6v6c0 5.5 3.8 10.3 9 11 5.2-.7 9-5.5 9-11V6l-9-4z" fill="#8181e0"/><path d="M12 2L3 6v6c0 5.5 3.8 10.3 9 11V2z" fill="#5a5ab6"/></svg>
         Microsoft Purview
@@ -8403,9 +8485,12 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
   <div id="app-entra" class="app-shell">
     <div class="app-topbar entra">
       <div class="back" onclick="goHome()">☰</div>
+      <div class="app-waffle-launcher" title="Microsoft 365">
+        <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+      </div>
       <div class="app-title">
         <svg class="app-title-logo" width="20" height="20" viewBox="0 0 24 24"><defs><linearGradient id="entraGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#32bcad"/><stop offset="60%" stop-color="#0078d4"/><stop offset="100%" stop-color="#0b2461"/></linearGradient></defs><path d="M12 2L3 8v8c0 4 3.8 5.5 9 6 5.2-.5 9-2 9-6V8l-9-6z" fill="url(#entraGrad)"/><path d="M12 2L3 8v8c0 4 3.8 5.5 9 6V2z" fill="#0b2461" fill-opacity="0.28"/></svg>
-        Microsoft Entra
+        <span>Microsoft Entra<small>admin center</small></span>
       </div>
       <div class="adm-search" style="margin-left:24px;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.5-4.5" stroke-linecap="round"/></svg>
@@ -9203,6 +9288,39 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
               <div class="en-cmd-filter">Risk ≥ low ▾</div>
             </div>
 
+            <div class="en-idp-hero">
+              <div>
+                <span class="en-idp-tip">💡 Tip</span>
+                <h3>Keep your eye out — risky users are quietly remediating themselves</h3>
+                <p>847 sign-ins self-remediated in the last 30 days through MFA + password change, no admin intervention required. The 12 users at user-risk &gt; low are listed below; the 1 high-risk user is already linked to a Purview IRM case and Defender XDR incident. <a href="#" style="color:#0078d4;text-decoration:none;">Configure user-risk policy ›</a></p>
+              </div>
+              <div class="en-idp-illust">
+                <svg width="180" height="160" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="idpCloud" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#5fb1ff"/>
+                      <stop offset="100%" stop-color="#0078d4"/>
+                    </linearGradient>
+                    <linearGradient id="idpLock" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#ffd700"/>
+                      <stop offset="100%" stop-color="#c19c00"/>
+                    </linearGradient>
+                  </defs>
+                  <ellipse cx="100" cy="160" rx="78" ry="6" fill="rgba(0,0,0,0.06)"/>
+                  <path d="M40 110 q-15 -2 -15 -18 q0 -16 18 -18 q4 -22 28 -22 q22 0 28 18 q22 -8 32 14 q22 0 22 18 q0 14 -18 16 z" fill="url(#idpCloud)" opacity="0.92"/>
+                  <circle cx="50" cy="40" r="3" fill="#9af3e5" opacity="0.75"/>
+                  <circle cx="160" cy="55" r="2.5" fill="#9af3e5" opacity="0.6"/>
+                  <circle cx="170" cy="120" r="2" fill="#5fb1ff" opacity="0.5"/>
+                  <circle cx="30" cy="80" r="2" fill="#5fb1ff" opacity="0.5"/>
+                  <rect x="80" y="98" width="40" height="36" rx="3" fill="url(#idpLock)" stroke="#8a6a00" stroke-width="1"/>
+                  <path d="M88 98 v-9 a12 12 0 0124 0 v9" fill="none" stroke="#8a6a00" stroke-width="3.2" stroke-linecap="round"/>
+                  <circle cx="100" cy="113" r="3.5" fill="#8a6a00"/>
+                  <rect x="98.5" y="113" width="3" height="9" fill="#8a6a00"/>
+                  <path d="M68 138 q32 14 64 0" fill="none" stroke="#0078d4" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+                </svg>
+              </div>
+            </div>
+
             <div class="en-kpis" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 14px;">
               <div class="en-kpi warn"><div class="en-kpi-lbl">Risky sign-ins · 24h</div><div class="en-kpi-v">34</div><div class="en-kpi-s warn">28 auto-remediated</div></div>
               <div class="en-kpi danger"><div class="en-kpi-lbl">Risky users</div><div class="en-kpi-v">12</div><div class="en-kpi-s bad">1 high</div></div>
@@ -9730,9 +9848,12 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
   <div id="app-defender" class="app-shell">
     <div class="app-topbar defender">
       <div class="back" onclick="goHome()">☰</div>
+      <div class="app-waffle-launcher" title="Microsoft 365">
+        <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+      </div>
       <div class="app-title">
         <svg class="app-title-logo" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2L3 6v6c0 5.5 3.8 10.3 9 11 5.2-.7 9-5.5 9-11V6l-9-4z" fill="#0078d4"/><path d="M12 2L3 6v6c0 5.5 3.8 10.3 9 11V2z" fill="#003a6a"/></svg>
-        Microsoft Defender
+        <span>Microsoft Defender<small>Security · XDR</small></span>
       </div>
       <div class="adm-search" style="margin-left:24px;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.5-4.5" stroke-linecap="round"/></svg>
@@ -9763,7 +9884,53 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
       <div class="df-shell">
         <div class="df-rail">
           <div class="df-tabs">
-            <div class="df-tab active" data-dftab="discover" onclick="switchDfTab('discover')">
+            <div class="df-tab" data-dftab="home" onclick="switchDfTab('home')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l9-8 9 8v9a1 1 0 01-1 1h-5v-7h-6v7H4a1 1 0 01-1-1v-9z"/></svg>
+              Home
+            </div>
+          </div>
+
+          <div class="df-rail-group">Incidents &amp; alerts</div>
+          <div class="df-tabs">
+            <div class="df-tab active" data-dftab="incidents" onclick="switchDfTab('incidents')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 20h20L12 2z"/><path d="M12 9v5M12 17h.01" stroke-linecap="round"/></svg>
+              Incidents
+              <span class="df-tab-badge">6</span>
+            </div>
+            <div class="df-tab" data-dftab="alerts" onclick="switchDfTab('alerts')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 16V11a6 6 0 1112 0v5l2 2H4l2-2zM9 20a3 3 0 006 0" stroke-linejoin="round"/></svg>
+              Alerts
+              <span class="df-tab-badge">7</span>
+            </div>
+          </div>
+
+          <div class="df-rail-group">Hunting</div>
+          <div class="df-tabs">
+            <div class="df-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5" stroke-linecap="round"/></svg>
+              Advanced hunting
+            </div>
+            <div class="df-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l5-7 4 5 4-3 5 5"/></svg>
+              Custom detection rules
+            </div>
+          </div>
+
+          <div class="df-rail-group">Threat intelligence</div>
+          <div class="df-tabs">
+            <div class="df-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 3v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-3z"/></svg>
+              Threat analytics
+            </div>
+            <div class="df-tab" style="opacity:0.75;cursor:default;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+              Intel profiles
+            </div>
+          </div>
+
+          <div class="df-rail-group">Cloud apps</div>
+          <div class="df-tabs">
+            <div class="df-tab" data-dftab="discover" onclick="switchDfTab('discover')">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5" stroke-linecap="round"/></svg>
               Cloud Discovery
             </div>
@@ -9772,39 +9939,208 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
               AI Apps Catalog
               <span class="df-tab-badge warn">4</span>
             </div>
-            <div class="df-tab" data-dftab="alerts" onclick="switchDfTab('alerts')">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 20h20L12 2z"/><path d="M12 9v5M12 17h.01" stroke-linecap="round"/></svg>
-              Alerts
-              <span class="df-tab-badge">7</span>
+            <div class="df-tab" data-dftab="control" onclick="switchDfTab('control')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              CA App Control
             </div>
           </div>
-          <div class="df-rail-group">Investigate</div>
+
+          <div class="df-rail-group">Endpoints &amp; identity</div>
           <div class="df-tabs">
             <div class="df-tab" style="opacity:0.75;cursor:default;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v12H4z"/><path d="M4 10h16M9 6v12"/></svg>
-              Activity log
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="12" rx="1"/><path d="M9 20h6M12 16v4"/></svg>
+              Devices
             </div>
             <div class="df-tab" style="opacity:0.75;cursor:default;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
-              Users &amp; accounts
-            </div>
-          </div>
-          <div class="df-rail-group">Control</div>
-          <div class="df-tabs">
-            <div class="df-tab" data-dftab="control" onclick="switchDfTab('control')">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Conditional Access App Control
+              Identities
             </div>
             <div class="df-tab" style="opacity:0.75;cursor:default;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
-              Policies
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v12l-4-3-3 3-3-3-3 3-3-3z" stroke-linejoin="round"/></svg>
+              Email &amp; collaboration
             </div>
           </div>
         </div>
 
         <div class="df-main">
+
+          <!-- Home -->
+          <div class="df-pane" id="df-pane-home">
+            <div class="pv-bread">
+              <span>Microsoft Defender</span>
+              <span class="pv-bc-sep">›</span>
+              <span class="pv-bc-last">Home</span>
+            </div>
+            <div class="pv-page-title">
+              <div>
+                <h1>Welcome to Microsoft Defender</h1>
+                <p>Cross-product security operations for Easy Health — endpoint, identity, email, cloud apps, and AI. Open the Incidents queue for what needs your attention now.</p>
+              </div>
+              <div class="pv-page-meta">
+                <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Microsoft Secure Score</div>
+                <div style="font-size:20pt;font-weight:300;color:#107c10;line-height:1.05;margin:2px 0;">87</div>
+                <div>▲ 4 pts · top quartile</div>
+              </div>
+            </div>
+            <div class="pv-ah-kpis" style="grid-template-columns: repeat(4, 1fr);">
+              <div class="pv-ah-kpi danger"><div class="pv-ah-kpi-lbl">Active incidents</div><div class="pv-ah-kpi-v">6</div><div class="pv-ah-kpi-s bad">2 high · 2 med · 2 low</div></div>
+              <div class="pv-ah-kpi warn"><div class="pv-ah-kpi-lbl">Open alerts</div><div class="pv-ah-kpi-v">7</div><div class="pv-ah-kpi-s warn">most auto-resolved</div></div>
+              <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Devices onboarded</div><div class="pv-ah-kpi-v">3,241</div><div class="pv-ah-kpi-s">99.4% healthy</div></div>
+              <div class="pv-ah-kpi ok"><div class="pv-ah-kpi-lbl">Auto-investigations</div><div class="pv-ah-kpi-v">142</div><div class="pv-ah-kpi-s good">last 24h · all closed</div></div>
+            </div>
+          </div>
+
+          <!-- Incidents -->
+          <div class="df-pane active" id="df-pane-incidents">
+            <div class="pv-bread">
+              <span>Microsoft Defender</span>
+              <span class="pv-bc-sep">›</span>
+              <span>Incidents &amp; alerts</span>
+              <span class="pv-bc-sep">›</span>
+              <span class="pv-bc-last">Incidents</span>
+            </div>
+            <div class="pv-page-title">
+              <div>
+                <h1>Incidents</h1>
+                <p>Cross-product correlated security stories. Each incident bundles related alerts, impacted entities, and the MITRE ATT&amp;CK tactics observed.</p>
+              </div>
+              <div class="pv-page-meta">
+                <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Open</div>
+                <div style="font-size:20pt;font-weight:300;color:#d13438;line-height:1.05;margin:2px 0;">6</div>
+                <div>2 high · 2 med · 2 low</div>
+              </div>
+            </div>
+            <div class="pv-cmd-bar">
+              <div class="pv-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>Manage incident</div>
+              <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg>Add tag</div>
+              <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/></svg>Attack story</div>
+              <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Export</div>
+              <div class="pv-cmd-btn sep"></div>
+              <div class="pv-cmd-filter">Status: active ▾</div>
+            </div>
+
+            <div class="pv-card" style="padding:0;overflow:hidden;">
+              <div class="df-incident head">
+                <div></div>
+                <div>Incident name</div>
+                <div>Severity</div>
+                <div>Status</div>
+                <div>Impacted entities</div>
+                <div>MITRE ATT&amp;CK</div>
+                <div>Sources</div>
+                <div>Last activity</div>
+              </div>
+
+              <div class="df-incident high">
+                <div class="df-sev-bar"></div>
+                <div class="df-inc-title">
+                  Insider data-theft pattern · 4W revenue cycle analyst
+                  <small>2,300 PHI files mass-downloaded → upload to personal OneDrive blocked → linked to HR risk signal</small>
+                </div>
+                <div><span class="df-inc-sev high">High</span></div>
+                <div><span class="en-pill warn">Active · investigating</span></div>
+                <div class="df-impact"><b>1</b> user · <b>1</b> device · <b>2,300</b> files</div>
+                <div><span class="df-mitre coll">Collection</span><span class="df-mitre exfil">Exfiltration</span></div>
+                <div class="df-impact">Endpoint · Cloud Apps · Purview IRM</div>
+                <div class="df-impact">2h ago</div>
+              </div>
+
+              <div class="df-incident high">
+                <div class="df-sev-bar"></div>
+                <div class="df-inc-title">
+                  Atypical travel + suspicious paste — possible PHI exfiltration
+                  <small>j.okonkwo · sign-in from anonymizer + impossible travel · attempted ChatGPT paste blocked by Endpoint DLP</small>
+                </div>
+                <div><span class="df-inc-sev high">High</span></div>
+                <div><span class="en-pill warn">In progress</span></div>
+                <div class="df-impact"><b>1</b> user · <b>1</b> device · <b>18</b> records</div>
+                <div><span class="df-mitre init">Initial Access</span><span class="df-mitre coll">Collection</span></div>
+                <div class="df-impact">Identity Protection · Endpoint · Cloud Apps</div>
+                <div class="df-impact">12 min ago</div>
+              </div>
+
+              <div class="df-incident med">
+                <div class="df-sev-bar"></div>
+                <div class="df-inc-title">
+                  Indirect prompt-injection blocked · Trial Match agent
+                  <small>Hidden instruction in trial-protocol.pdf attempted to coerce mass patient email · Prompt Shield suppressed response</small>
+                </div>
+                <div><span class="df-inc-sev med">Medium</span></div>
+                <div><span class="en-pill ok">Resolved · auto</span></div>
+                <div class="df-impact"><b>1</b> agent · <b>1</b> file</div>
+                <div><span class="df-mitre def-evade">Defense Evasion (LLM)</span></div>
+                <div class="df-impact">Defender for Cloud · Purview AI Hub</div>
+                <div class="df-impact">1h ago</div>
+              </div>
+
+              <div class="df-incident med">
+                <div class="df-sev-bar"></div>
+                <div class="df-inc-title">
+                  Shadow AI usage detected · DeepSeek Chat
+                  <small>3 users attempted access to DeepSeek (non-US hosted) · CA-010 + sovereignty rule blocked all sessions</small>
+                </div>
+                <div><span class="df-inc-sev med">Medium</span></div>
+                <div><span class="en-pill ok">Resolved · auto</span></div>
+                <div class="df-impact"><b>3</b> users · <b>3</b> devices</div>
+                <div><span class="df-mitre coll">Discovery</span></div>
+                <div class="df-impact">Cloud Apps · Entra Conditional Access</div>
+                <div class="df-impact">3h ago</div>
+              </div>
+
+              <div class="df-incident low">
+                <div class="df-sev-bar"></div>
+                <div class="df-inc-title">
+                  Unfamiliar sign-in properties · clinical research
+                  <small>k.obrien · new browser (Arc) on managed device · MFA challenged + passed</small>
+                </div>
+                <div><span class="df-inc-sev low">Low</span></div>
+                <div><span class="en-pill ok">Resolved · auto</span></div>
+                <div class="df-impact"><b>1</b> user</div>
+                <div><span class="df-mitre init">Initial Access</span></div>
+                <div class="df-impact">Identity Protection</div>
+                <div class="df-impact">5h ago</div>
+              </div>
+
+              <div class="df-incident low">
+                <div class="df-sev-bar"></div>
+                <div class="df-inc-title">
+                  Mass print attempt blocked · pharmacy
+                  <small>b.chen · attempted to print 142 antibiotic stewardship records · Endpoint DLP block (Highly Confidential rule)</small>
+                </div>
+                <div><span class="df-inc-sev low">Low</span></div>
+                <div><span class="en-pill ok">Resolved · auto</span></div>
+                <div class="df-impact"><b>1</b> user · <b>1</b> device · <b>142</b> docs</div>
+                <div><span class="df-mitre coll">Collection</span></div>
+                <div class="df-impact">Endpoint DLP</div>
+                <div class="df-impact">8h ago</div>
+              </div>
+            </div>
+
+            <div class="pv-card" style="background:#eff6fc;border-color:#c7e0f4;margin-top:14px;">
+              <div style="display:flex;gap:14px;align-items:flex-start;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#0078d4" style="flex-shrink:0;margin-top:2px;"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <div>
+                  <div style="font-size:13px;font-weight:600;color:#323130;">Why these are <em>incidents</em>, not just alerts</div>
+                  <div style="font-size:12.5px;color:#323130;line-height:1.55;margin-top:4px;">
+                    Each incident above bundles 3–14 individual alerts from different products into one story. The "insider data-theft" incident, for example, is correlating a Defender for Endpoint mass-download alert with a Defender for Cloud Apps upload-attempt alert with a Purview IRM signal — Microsoft XDR ties them to one user and one timeline so the SOC sees one ticket, not 14.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="adm-learn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01" stroke-linecap="round"/></svg>
+              <span>Learn more:</span>
+              <a href="#">Incidents in Microsoft Defender XDR</a>
+              <span class="sep">·</span>
+              <a href="#">MITRE ATT&amp;CK mapping</a>
+              <span class="sep">·</span>
+              <a href="#">Auto-investigation &amp; response (AIR)</a>
+            </div>
+          </div>
+
           <!-- Cloud Discovery -->
-          <div class="df-pane active" id="df-pane-discover">
+          <div class="df-pane" id="df-pane-discover">
             <div class="pv-bread">
               <span>Microsoft Defender</span>
               <span class="pv-bc-sep">›</span>
@@ -11443,7 +11779,7 @@ function openApp(app, context) {
   if (app === 'agent365') startAgent365Feed();
   if (app === 'purview') { switchPvTab('overview'); renderPvAiChart(); }
   if (app === 'entra')   { switchEntraTab('home');  renderEntraChart(); }
-  if (app === 'defender'){ switchDfTab('discover'); }
+  if (app === 'defender'){ switchDfTab('incidents'); }
   // Show tips per app
   const tips = {
     outlook: "In Outlook, click the Copilot logo (top-right) to triage your 147-message inbox. Or click any email to read it.",
