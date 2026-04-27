@@ -3278,6 +3278,38 @@ body.dark .df-tab { color: #d2d0ce; }
 body.dark .df-tab:hover { background: #292827; }
 body.dark .df-tab.active { background: #323130; color: #f3f2f1; }
 
+/* ============ SHARED ADMIN APP SHELL (Intune / Sentinel / Security Copilot / AI Content Safety) ============ */
+.aa-body { flex: 1; overflow-y: auto; background: #faf9f8; padding: 0; }
+.aa-shell { display: flex; min-height: 100%; }
+.aa-rail { width: 252px; flex-shrink: 0; background: #fff; border-right: 1px solid #edebe9; padding: 10px 0 20px; overflow-y: auto; overflow-x: hidden; }
+.aa-rail-group { font-size: 10.5px; font-weight: 700; color: #605e5c; text-transform: uppercase; letter-spacing: 0.7px; padding: 14px 20px 6px; }
+.aa-tabs { display: flex; flex-direction: column; padding: 2px 8px; }
+.aa-tab { display: flex; align-items: center; gap: 10px; padding: 7px 12px; font-size: 13px; color: #323130; cursor: pointer; border-radius: 2px; position: relative; white-space: nowrap; transition: background 0.1s; }
+.aa-tab:hover { background: #f3f2f1; }
+.aa-tab.active { background: #edebe9; font-weight: 600; }
+.aa-tab.active::before { content: ''; position: absolute; left: -8px; top: 6px; bottom: 6px; width: 3px; background: #0078d4; border-radius: 0 2px 2px 0; }
+.aa-tab svg { width: 16px; height: 16px; flex-shrink: 0; color: #605e5c; }
+.aa-tab.active svg { color: #0078d4; }
+.aa-tab .aa-tab-badge { background: #d13438; color: #fff; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 9px; margin-left: auto; }
+.aa-tab .aa-tab-badge.warn { background: #c19c00; }
+.aa-tab .aa-tab-badge.ok { background: #107c10; }
+.aa-tab .aa-tab-badge.info { background: #0078d4; }
+.aa-main { flex: 1; min-width: 0; padding: 12px 28px 28px; overflow-x: auto; }
+.aa-pane { display: none; animation: aaFade 0.2s ease; }
+.aa-pane.active { display: block; }
+@keyframes aaFade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+body.dark .aa-body { background: #1b1a19; }
+body.dark .aa-rail { background: #201f1e; border-right-color: #323130; }
+body.dark .aa-tab { color: #d2d0ce; }
+body.dark .aa-tab:hover { background: #292827; }
+body.dark .aa-tab.active { background: #323130; color: #f3f2f1; }
+
+/* Per-app topbar colors */
+.app-topbar.intune        { background: #0078d4; color: #fff; }
+.app-topbar.contentsafety { background: #4b1e8a; color: #fff; }
+.app-topbar.intune .app-title small,
+.app-topbar.contentsafety .app-title small { display: block; font-size: 10.5px; font-weight: 400; opacity: 0.75; letter-spacing: 0.3px; margin-top: -2px; }
+
 .app-topbar.powerbi { background: linear-gradient(180deg, #f2c811 0%, #b79507 100%); color: #242424; }
 .app-topbar.powerbi .app-title { color: #242424; }
 .app-topbar.powerbi .back { color: #242424; }
@@ -5409,6 +5441,8 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
           <div class="waffle-app" onclick="closeWaffle(); openApp('purview')"><div class="wa-box" style="background:linear-gradient(135deg,#5f9ef0,#2c5ba8);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4z"/></svg></div><span>Purview</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('entra')"><div class="wa-box" style="background:linear-gradient(135deg,#32bcad,#0078d4 50%,#0b2461);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2L3 8v8c0 4 3.8 5.5 9 6 5.2-.5 9-2 9-6V8l-9-6z"/></svg></div><span>Entra</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('defender')"><div class="wa-box" style="background:linear-gradient(135deg,#0078d4,#003a6a);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2L3 6v6c0 5.5 3.8 10.3 9 11 5.2-.7 9-5.5 9-11V6l-9-4zm0 4l5 2v4c0 3.5-2.4 6.7-5 7.4-2.6-.7-5-3.9-5-7.4V8l5-2z"/></svg></div><span>Defender</span></div>
+          <div class="waffle-app" onclick="closeWaffle(); openApp('intune')"><div class="wa-box" style="background:linear-gradient(135deg,#0078d4,#005ea3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><rect x="3" y="4" width="18" height="14" rx="1.5" opacity="0.9"/><rect x="9" y="20" width="6" height="1.5"/></svg></div><span>Intune</span></div>
+          <div class="waffle-app" onclick="closeWaffle(); openApp('contentsafety')"><div class="wa-box" style="background:linear-gradient(135deg,#a880ff,#4b1e8a);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2L4 6v6c0 5 3 9 8 10 5-1 8-5 8-10V6z"/></svg></div><span>AI Safety</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('powerbi')"><div class="wa-box" style="background:linear-gradient(135deg,#f2c811,#b79507);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M3 21h4V9H3zm7 0h4V3h-4zm7 0h4v-8h-4z"/></svg></div><span>Power BI</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('studio')"><div class="wa-box" style="background:linear-gradient(135deg,#7441e8,#4a1fa0);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3 5 5 1-4 4 1 6-5-3-5 3 1-6-4-4 5-1z"/></svg></div><span>Studio</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('shifts')"><div class="wa-box" style="background:linear-gradient(135deg,#00b4a4,#007b6e);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M7 2v3H5v15h14V5h-2V2h-2v3H9V2H7zm-2 8h14v9H5z"/></svg></div><span>Shifts</span></div>
@@ -10448,6 +10482,419 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
     </div>
   </div>
 
+
+  <!-- ========== MICROSOFT INTUNE ========== -->
+  <div id="app-intune" class="app-shell">
+    <div class="app-topbar intune">
+      <div class="back" onclick="goHome()">☰</div>
+      <div class="app-waffle-launcher" title="Microsoft 365">
+        <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+      </div>
+      <div class="app-title">
+        <svg class="app-title-logo" width="20" height="20" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="1.5" fill="#fff" opacity="0.95"/><rect x="5" y="6" width="14" height="9" fill="#0078d4"/><rect x="9" y="20" width="6" height="1.5" fill="#fff"/></svg>
+        <span>Microsoft Intune<small>admin center</small></span>
+      </div>
+      <div class="adm-search" style="margin-left:24px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.5-4.5" stroke-linecap="round"/></svg><span>Search devices, users, policies…</span></div>
+      <div class="adm-chrome">
+        <div class="adm-dir-picker"><small>DIRECTORY</small><div>Easy Health Memorial Hospital ▾</div></div>
+        <div class="adm-chrome-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 16V11a6 6 0 1112 0v5l2 2H4l2-2zM9 20a3 3 0 006 0" stroke-linejoin="round"/></svg><span class="adm-chrome-badge">2</span></div>
+        <div class="adm-chrome-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="adm-chrome-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 113.75 2.9c-.5.1-.75.6-.75 1.1V14M12 17h.01" stroke-linecap="round"/></svg></div>
+        <div class="avatar" style="background:#c8a55b;color:#003865;margin-left:6px;">DK</div>
+      </div>
+    </div>
+    <div class="aa-body"><div class="aa-shell">
+      <div class="aa-rail">
+        <div class="aa-tabs">
+          <div class="aa-tab active" data-aatab="overview" onclick="switchInTab('overview')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l9-8 9 8v9a1 1 0 01-1 1h-5v-7h-6v7H4a1 1 0 01-1-1v-9z"/></svg>
+            Home
+          </div>
+        </div>
+        <div class="aa-rail-group">Devices</div>
+        <div class="aa-tabs">
+          <div class="aa-tab" data-aatab="devices" onclick="switchInTab('devices')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="12" rx="1"/><path d="M9 20h6M12 16v4"/></svg>
+            All devices
+            <span class="aa-tab-badge info">3,241</span>
+          </div>
+          <div class="aa-tab" data-aatab="compliance" onclick="switchInTab('compliance')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4" stroke-linecap="round"/></svg>
+            Compliance policies
+            <span class="aa-tab-badge ok">99%</span>
+          </div>
+          <div class="aa-tab" data-aatab="appprot" onclick="switchInTab('appprot')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="11" width="12" height="9" rx="1"/><path d="M9 11V8a3 3 0 016 0v3"/></svg>
+            App Protection
+            <span class="aa-tab-badge warn">6</span>
+          </div>
+          <div class="aa-tab" style="opacity:0.75;cursor:default;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v12H4z"/><path d="M9 6v12"/></svg>
+            Configuration profiles
+          </div>
+        </div>
+        <div class="aa-rail-group">Endpoint security</div>
+        <div class="aa-tabs">
+          <div class="aa-tab" style="opacity:0.75;cursor:default;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 3v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-3z"/></svg>
+            Antivirus
+          </div>
+          <div class="aa-tab" style="opacity:0.75;cursor:default;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M8 12h8"/></svg>
+            Disk encryption
+          </div>
+        </div>
+      </div>
+      <div class="aa-main">
+
+        <div class="aa-pane active" id="in-pane-overview">
+          <div class="pv-bread"><span>Microsoft Intune</span><span class="pv-bc-sep">›</span><span class="pv-bc-last">Home</span></div>
+          <div class="pv-page-title">
+            <div>
+              <h1>Device compliance &amp; Copilot readiness</h1>
+              <p>Microsoft Intune is the source of truth for "compliant device" — the signal Conditional Access CA-004 reads to decide whether a user can reach Copilot at all. Below is the current state of every device that touches Easy Health data.</p>
+            </div>
+            <div class="pv-page-meta">
+              <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Compliant devices</div>
+              <div style="font-size:20pt;font-weight:300;color:#107c10;line-height:1.05;margin:2px 0;">3,221 / 3,241</div>
+              <div>99.4% · 20 quarantined</div>
+            </div>
+          </div>
+          <div class="pv-cmd-bar">
+            <div class="pv-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>New policy</div>
+            <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>Sync devices</div>
+            <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7" stroke-linecap="round"/></svg>Export</div>
+            <div class="pv-cmd-btn sep"></div>
+            <div class="pv-cmd-filter">Platform: all ▾</div>
+          </div>
+
+          <div class="pv-ah-kpis" style="grid-template-columns: repeat(5, 1fr);">
+            <div class="pv-ah-kpi ok"><div class="pv-ah-kpi-lbl">Compliant</div><div class="pv-ah-kpi-v">3,221</div><div class="pv-ah-kpi-s good">CA-004 pass · Copilot allowed</div></div>
+            <div class="pv-ah-kpi danger"><div class="pv-ah-kpi-lbl">Quarantined</div><div class="pv-ah-kpi-v">20</div><div class="pv-ah-kpi-s bad">Copilot blocked at sign-in</div></div>
+            <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">BYOD App Protection</div><div class="pv-ah-kpi-v">412</div><div class="pv-ah-kpi-s">covers traveling MDs &amp; iPad</div></div>
+            <div class="pv-ah-kpi warn"><div class="pv-ah-kpi-lbl">Pending registration</div><div class="pv-ah-kpi-v">6</div><div class="pv-ah-kpi-s warn">14-day grace · Copilot held</div></div>
+            <div class="pv-ah-kpi ok"><div class="pv-ah-kpi-lbl">Autopilot enrolled</div><div class="pv-ah-kpi-v">2,829</div><div class="pv-ah-kpi-s good">zero-touch provisioning</div></div>
+          </div>
+
+          <div class="pv-card" style="background:#eff6fc;border-color:#c7e0f4;">
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#0078d4" style="flex-shrink:0;margin-top:2px;"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:#323130;">How Intune gates Copilot</div>
+                <div style="font-size:12.5px;color:#323130;line-height:1.55;margin-top:4px;">
+                  Each Copilot sign-in attempts to satisfy Entra <b>CA-004</b> — "Copilot requires compliant device + licensed M365." Intune is the system that <em>marks</em> a device compliant. If a device fails encryption, OS-version, jailbreak, or installed-app checks, Intune flips compliant=false, CA-004 blocks the sign-in, and the user gets "Your device must be managed to access Copilot." The 20 quarantined devices below are why those 13 paid-for Copilot licenses are non-functional today.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="aa-pane" id="in-pane-compliance">
+          <div class="pv-bread"><span>Microsoft Intune</span><span class="pv-bc-sep">›</span><span>Devices</span><span class="pv-bc-sep">›</span><span class="pv-bc-last">Compliance policies</span></div>
+          <div class="pv-page-title">
+            <div>
+              <h1>Compliance policies</h1>
+              <p>Each policy below is a rule a device must pass to be marked compliant. The "Copilot &amp; PHI access" policy is the strict one — any failure flips compliant=false within 8 hours.</p>
+            </div>
+          </div>
+          <div class="pv-card" style="padding:0;">
+            <div class="pv-dlp-policies">
+              <div class="pv-dlp-row head"><div>Policy</div><div>Platforms</div><div>Assigned</div><div>Compliant</div><div>State</div></div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">Copilot &amp; PHI access · strict<small>BitLocker · Defender SmartScreen · OS ≥ Win11 23H2 · no jailbreak · screen lock 5 min</small></div>
+                <div class="pv-dlp-scope">Windows · iOS · macOS</div>
+                <div>Clinical staff (1,834)</div>
+                <div style="color:#107c10;font-weight:600;">99.0%</div>
+                <div><span class="pv-dlp-state enforced">Enforced</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">Standard knowledge worker<small>BitLocker · Defender · OS supported · screen lock 15 min</small></div>
+                <div class="pv-dlp-scope">Windows · macOS</div>
+                <div>All other (1,013)</div>
+                <div style="color:#107c10;font-weight:600;">99.6%</div>
+                <div><span class="pv-dlp-state enforced">Enforced</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">Mobile · BYOD baseline<small>App Protection only · no full enrollment · only managed apps see PHI</small></div>
+                <div class="pv-dlp-scope">iOS · Android</div>
+                <div>Travelling MDs (412)</div>
+                <div style="color:#107c10;font-weight:600;">98.4%</div>
+                <div><span class="pv-dlp-state enforced">Enforced</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">Linux research workstation<small>Encryption check · OS supported · firewall on</small></div>
+                <div class="pv-dlp-scope">Linux</div>
+                <div>Research (18)</div>
+                <div style="color:#107c10;font-weight:600;">100%</div>
+                <div><span class="pv-dlp-state enforced">Enforced</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">Conditional grace · 14-day grace for new hires<small>Allow sign-in but require enrollment within 14 days</small></div>
+                <div class="pv-dlp-scope">All platforms</div>
+                <div>New hires (rolling)</div>
+                <div style="color:#8a6a00;font-weight:600;">grace</div>
+                <div><span class="pv-dlp-state enforced">Enforced</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="adm-learn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01" stroke-linecap="round"/></svg>
+            <span>Learn more:</span>
+            <a href="#">Compliance + Conditional Access for Copilot</a>
+            <span class="sep">·</span>
+            <a href="#">Custom compliance scripts</a>
+          </div>
+        </div>
+
+        <div class="aa-pane" id="in-pane-appprot">
+          <div class="pv-bread"><span>Microsoft Intune</span><span class="pv-bc-sep">›</span><span>Devices</span><span class="pv-bc-sep">›</span><span class="pv-bc-last">App Protection policies</span></div>
+          <div class="pv-page-title">
+            <div>
+              <h1>App Protection policies (MAM)</h1>
+              <p>Mobile Application Management — protects PHI inside Microsoft 365 apps on personal devices without requiring full enrollment. The "managed apps only" boundary is what lets a clinician open Copilot on their personal iPad without Easy Health managing the whole device.</p>
+            </div>
+          </div>
+          <div class="pv-card" style="padding:0;">
+            <div class="pv-dlp-policies">
+              <div class="pv-dlp-row head"><div>App / policy</div><div>Platform</div><div>Restriction</div><div>Users</div><div>State</div></div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">M365 Copilot · BYOD<small>App PIN · no copy/paste to unmanaged apps · no save to personal cloud</small></div>
+                <div class="pv-dlp-scope">iOS · Android</div>
+                <div style="font-size:11px;">Managed-app boundary</div>
+                <div>184 BYOD MDs</div>
+                <div><span class="pv-dlp-state enforced">Enforced</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">Outlook + Teams · BYOD<small>App PIN · no save attachment to local · auto-wipe after 30d offline</small></div>
+                <div class="pv-dlp-scope">iOS · Android</div>
+                <div style="font-size:11px;">Managed-app boundary</div>
+                <div>412 users</div>
+                <div><span class="pv-dlp-state enforced">Enforced</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">Block Copilot from unmanaged browsers<small>BYOD without App Protection cannot reach Copilot via browser</small></div>
+                <div class="pv-dlp-scope">All BYOD</div>
+                <div style="font-size:11px;">Hard block</div>
+                <div>—</div>
+                <div><span class="pv-dlp-state enforced">Enforced</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">Selective wipe on device loss/separation<small>Removes M365 data + sign-in but keeps personal data</small></div>
+                <div class="pv-dlp-scope">All BYOD</div>
+                <div style="font-size:11px;">On request</div>
+                <div>14 wipes / 30d</div>
+                <div><span class="pv-dlp-state enforced">Enforced</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="aa-pane" id="in-pane-devices">
+          <div class="pv-bread"><span>Microsoft Intune</span><span class="pv-bc-sep">›</span><span>Devices</span><span class="pv-bc-sep">›</span><span class="pv-bc-last">All devices</span></div>
+          <div class="pv-page-title">
+            <div>
+              <h1>All devices · 3,241 enrolled</h1>
+              <p>Sample below — sorted by risk and last check-in. Quarantined devices are blocked from Copilot access until remediation.</p>
+            </div>
+          </div>
+          <div class="pv-card" style="padding:0;">
+            <div class="pv-dlp-policies">
+              <div class="pv-dlp-row head"><div>Device</div><div>User</div><div>OS · build</div><div>Compliance</div><div>Last check-in</div></div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">SC-LAPTOP-2284<small>Dell Latitude 7450</small></div>
+                <div>s.chen@easyhealth.org</div>
+                <div style="font-size:11px;">Win11 23H2 · 22631.4602</div>
+                <div><span class="en-pill ok">Compliant</span></div>
+                <div style="font-family:Consolas,monospace;font-size:11px;">8 min ago</div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">DK-LAPTOP-0012<small>Surface Laptop 6</small></div>
+                <div>dk.chen@easyhealth.org</div>
+                <div style="font-size:11px;">Win11 23H2 · 22631.4602</div>
+                <div><span class="en-pill ok">Compliant</span></div>
+                <div style="font-family:Consolas,monospace;font-size:11px;">2 min ago</div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">JP-IPAD-0042<small>iPad Pro 12.9 (BYOD)</small></div>
+                <div>j.patel@easyhealth.org</div>
+                <div style="font-size:11px;">iOS 18.2 · App Protection only</div>
+                <div><span class="en-pill ok">Compliant (BYOD)</span></div>
+                <div style="font-family:Consolas,monospace;font-size:11px;">32 min ago</div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">U48-MOBILE<small>iPhone (BYOD · case open)</small></div>
+                <div>[user #4821]</div>
+                <div style="font-size:11px;">iOS 17.5</div>
+                <div><span class="en-pill bad">Quarantined · IRM</span></div>
+                <div style="font-family:Consolas,monospace;font-size:11px;">access revoked</div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">RW-LAPTOP-1842<small>HP EliteBook</small></div>
+                <div>r.walker@easyhealth.org</div>
+                <div style="font-size:11px;">Win11 22H2 · out-of-date</div>
+                <div><span class="en-pill warn">Non-compliant · 14d grace</span></div>
+                <div style="font-family:Consolas,monospace;font-size:11px;">1 d ago</div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">FT-LAPTOP-0334<small>MacBook Pro</small></div>
+                <div>f.taylor@easyhealth.org</div>
+                <div style="font-size:11px;">macOS 14.6</div>
+                <div><span class="en-pill bad">Quarantined · disabled user</span></div>
+                <div style="font-family:Consolas,monospace;font-size:11px;">87 d ago</div>
+              </div>
+            </div>
+            <div style="padding:10px 14px;font-size:11.5px;color:#605e5c;">Showing 6 of 3,241 devices. <a href="#" style="color:#0078d4;text-decoration:none;">Load more</a></div>
+          </div>
+        </div>
+
+      </div></div></div>
+  </div>
+
+  <!-- ========== AZURE AI CONTENT SAFETY ========== -->
+  <div id="app-contentsafety" class="app-shell">
+    <div class="app-topbar contentsafety">
+      <div class="back" onclick="goHome()">☰</div>
+      <div class="app-waffle-launcher" title="Microsoft 365">
+        <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+      </div>
+      <div class="app-title">
+        <svg class="app-title-logo" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5 3 9 8 10 5-1 8-5 8-10V6z" fill="#a880ff"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Azure AI Content Safety<small>Prompt Shields · Groundedness · Custom categories</small></span>
+      </div>
+      <div class="adm-search" style="margin-left:24px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.5-4.5" stroke-linecap="round"/></svg><span>Search guardrails, custom categories…</span></div>
+      <div class="adm-chrome">
+        <div class="adm-dir-picker"><small>SUBSCRIPTION</small><div>Easy Health Production ▾</div></div>
+        <div class="adm-chrome-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 16V11a6 6 0 1112 0v5l2 2H4l2-2zM9 20a3 3 0 006 0" stroke-linejoin="round"/></svg></div>
+        <div class="adm-chrome-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="avatar" style="background:#c8a55b;color:#003865;margin-left:6px;">DK</div>
+      </div>
+    </div>
+    <div class="aa-body"><div class="aa-shell">
+      <div class="aa-rail">
+        <div class="aa-tabs">
+          <div class="aa-tab active" data-aatab="overview" onclick="switchAcsTab('overview')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l9-8 9 8v9a1 1 0 01-1 1h-5v-7h-6v7H4a1 1 0 01-1-1v-9z"/></svg>
+            Overview
+          </div>
+        </div>
+        <div class="aa-rail-group">Content guardrails</div>
+        <div class="aa-tabs">
+          <div class="aa-tab" data-aatab="shields" onclick="switchAcsTab('shields')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 3v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-3z"/><path d="M9 12l2 2 4-4" stroke-linecap="round"/></svg>
+            Prompt Shields
+            <span class="aa-tab-badge ok">ON</span>
+          </div>
+          <div class="aa-tab" style="opacity:0.75;cursor:default;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4" stroke-linecap="round"/></svg>
+            Groundedness detection
+          </div>
+          <div class="aa-tab" style="opacity:0.75;cursor:default;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+            Custom categories
+          </div>
+          <div class="aa-tab" style="opacity:0.75;cursor:default;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+            Block lists
+          </div>
+        </div>
+      </div>
+      <div class="aa-main">
+
+        <div class="aa-pane active" id="acs-pane-overview">
+          <div class="pv-bread"><span>Azure AI Content Safety</span><span class="pv-bc-sep">›</span><span class="pv-bc-last">Overview</span></div>
+          <div class="pv-page-title">
+            <div>
+              <h1>Content safety guardrails for Copilot</h1>
+              <p>The inline guard rails on every Copilot prompt and response. Prompt Shields blocks jailbreaks &amp; indirect injections. Groundedness detection catches hallucinations. Both feed Purview Activity Explorer and Defender Incidents.</p>
+            </div>
+            <div class="pv-page-meta">
+              <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Suppressions · 30d</div>
+              <div style="font-size:20pt;font-weight:300;color:#5c2d91;line-height:1.05;margin:2px 0;">35</div>
+              <div>23 injection · 12 jailbreak</div>
+            </div>
+          </div>
+          <div class="pv-ah-kpis" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Prompts evaluated · 30d</div><div class="pv-ah-kpi-v">3.2M</div><div class="pv-ah-kpi-s">100% of Copilot traffic</div></div>
+            <div class="pv-ah-kpi danger"><div class="pv-ah-kpi-lbl">Direct jailbreak attempts</div><div class="pv-ah-kpi-v">12</div><div class="pv-ah-kpi-s bad">all suppressed</div></div>
+            <div class="pv-ah-kpi danger"><div class="pv-ah-kpi-lbl">Indirect injection</div><div class="pv-ah-kpi-v">23</div><div class="pv-ah-kpi-s bad">in grounded docs</div></div>
+            <div class="pv-ah-kpi warn"><div class="pv-ah-kpi-lbl">Groundedness fails</div><div class="pv-ah-kpi-v">8</div><div class="pv-ah-kpi-s warn">hallucinated patient names</div></div>
+          </div>
+        </div>
+
+        <div class="aa-pane" id="acs-pane-shields">
+          <div class="pv-bread"><span>Azure AI Content Safety</span><span class="pv-bc-sep">›</span><span>Content guardrails</span><span class="pv-bc-sep">›</span><span class="pv-bc-last">Prompt Shields</span></div>
+          <div class="pv-page-title">
+            <div>
+              <h1>Prompt Shields</h1>
+              <p>Detects and blocks two attack classes: <b>direct</b> (user types "ignore all prior instructions") and <b>indirect</b> (a grounded document carries a hidden instruction trying to hijack the response). Sensitivity tunable per surface.</p>
+            </div>
+          </div>
+          <div class="pv-card" style="padding:0;">
+            <div class="pv-dlp-policies">
+              <div class="pv-dlp-row head"><div>Detection</div><div>Surface</div><div>Sensitivity</div><div>Action</div><div>Triggers 30d</div></div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">Direct jailbreak (user prompt)<small>Role-swap, "ignore prior instructions" patterns</small></div>
+                <div class="pv-dlp-scope">All Copilot surfaces</div>
+                <div style="font-family:Consolas,monospace;font-size:11px;">High (0.85)</div>
+                <div style="font-size:11px;font-weight:700;color:#a4262c;">Suppress + log</div>
+                <div class="pv-dlp-n">12</div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">Indirect injection (grounded doc)<small>Hidden instructions in PDFs, web pages, emails Copilot retrieves</small></div>
+                <div class="pv-dlp-scope">Copilot Studio agents · M365 Copilot</div>
+                <div style="font-family:Consolas,monospace;font-size:11px;">High (0.80)</div>
+                <div style="font-size:11px;font-weight:700;color:#a4262c;">Suppress response</div>
+                <div class="pv-dlp-n">23</div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">Self-harm / violence in user input<small>Built-in Microsoft category</small></div>
+                <div class="pv-dlp-scope">All surfaces</div>
+                <div style="font-family:Consolas,monospace;font-size:11px;">Medium (0.50)</div>
+                <div style="font-size:11px;font-weight:700;color:#8a6a00;">Route to crisis flow</div>
+                <div class="pv-dlp-n">2</div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">Sexual / hate / violence in output<small>Block before response renders</small></div>
+                <div class="pv-dlp-scope">All surfaces</div>
+                <div style="font-family:Consolas,monospace;font-size:11px;">High (0.80)</div>
+                <div style="font-size:11px;font-weight:700;color:#a4262c;">Block</div>
+                <div class="pv-dlp-n">0</div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">PHI groundedness check<small>Custom: response must cite a chart row that exists</small></div>
+                <div class="pv-dlp-scope">Clinical agents</div>
+                <div style="font-family:Consolas,monospace;font-size:11px;">High (0.90)</div>
+                <div style="font-size:11px;font-weight:700;color:#8a6a00;">Hold for review</div>
+                <div class="pv-dlp-n">8</div>
+              </div>
+            </div>
+          </div>
+          <div class="pv-card" style="background:#f0e5ff;border-color:#d8c0f5;">
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#5c2d91" style="flex-shrink:0;margin-top:2px;"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:#323130;">How shields fit into the Copilot stack</div>
+                <div style="font-size:12.5px;color:#323130;line-height:1.55;margin-top:4px;">
+                  Prompt Shields runs <em>between</em> Copilot's grounding and its response generation. Even if Entra Conditional Access let the user in, even if Purview labels permit the data, Prompt Shields can still suppress the response if it detects an injection attempt inside the grounded documents themselves. Every suppression flows to <b>Purview Activity Explorer</b> and creates a Defender XDR alert.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="adm-learn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01" stroke-linecap="round"/></svg>
+            <span>Learn more:</span>
+            <a href="#">Prompt Shields for Copilot</a>
+            <span class="sep">·</span>
+            <a href="#">Tuning sensitivity thresholds</a>
+            <span class="sep">·</span>
+            <a href="#">Custom categories with trainable classifiers</a>
+          </div>
+        </div>
+
+      </div></div></div>
+  </div>
+
   <!-- ========== POWER BI ========== -->
   <div id="app-powerbi" class="app-shell">
     <div class="app-topbar powerbi">
@@ -11780,6 +12227,8 @@ function openApp(app, context) {
   if (app === 'purview') { switchPvTab('overview'); renderPvAiChart(); }
   if (app === 'entra')   { switchEntraTab('home');  renderEntraChart(); }
   if (app === 'defender'){ switchDfTab('incidents'); }
+  if (app === 'intune')        { switchInTab('overview'); }
+  if (app === 'contentsafety') { switchAcsTab('overview'); }
   // Show tips per app
   const tips = {
     outlook: "In Outlook, click the Copilot logo (top-right) to triage your 147-message inbox. Or click any email to read it.",
@@ -15896,6 +16345,20 @@ function switchPvTab(which) {
   if (pane) pane.classList.add('active');
   // Lazily render the AI Hub chart so bars size correctly after the pane becomes visible
   if (which === 'aihub') renderPvAiChart();
+}
+
+// ============ INTUNE / AI CONTENT SAFETY — tab switchers (scoped per app shell) ============
+function switchInTab(which) {
+  const shell = document.getElementById('app-intune'); if (!shell) return;
+  shell.querySelectorAll('.aa-tab').forEach(t => t.classList.toggle('active', t.dataset.aatab === which));
+  shell.querySelectorAll('.aa-pane').forEach(p => p.classList.remove('active'));
+  shell.querySelector('#in-pane-' + which)?.classList.add('active');
+}
+function switchAcsTab(which) {
+  const shell = document.getElementById('app-contentsafety'); if (!shell) return;
+  shell.querySelectorAll('.aa-tab').forEach(t => t.classList.toggle('active', t.dataset.aatab === which));
+  shell.querySelectorAll('.aa-pane').forEach(p => p.classList.remove('active'));
+  shell.querySelector('#acs-pane-' + which)?.classList.add('active');
 }
 
 // ============ DEFENDER FOR CLOUD APPS — tab switcher ============
