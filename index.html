@@ -3308,6 +3308,131 @@ body.dark .aa-tab.active { background: #323130; color: #f3f2f1; }
 .app-topbar.intune { background: #0078d4; color: #fff; }
 .app-topbar.intune .app-title small { display: block; font-size: 10.5px; font-weight: 400; opacity: 0.75; letter-spacing: 0.3px; margin-top: -2px; }
 
+/* ============ ADMIN CENTER — Copilot section tabs ============ */
+.adm-tabs {
+  display: flex; gap: 2px;
+  border-bottom: 1px solid #edebe9;
+  margin: -8px -40px 24px;
+  padding: 0 40px;
+  background: #fff;
+}
+.adm-tab {
+  padding: 11px 16px 10px; font-size: 13px; font-weight: 600;
+  color: #605e5c; cursor: pointer;
+  border-bottom: 2px solid transparent;
+  display: inline-flex; align-items: center; gap: 7px;
+  white-space: nowrap;
+}
+.adm-tab:hover { color: #323130; }
+.adm-tab.active { color: #0078d4; border-bottom-color: #0078d4; }
+.adm-tab .adm-tab-badge {
+  background: #0078d4; color: #fff; font-size: 9.5px; font-weight: 700;
+  padding: 1px 6px; border-radius: 9px; margin-left: 2px;
+}
+.adm-tab .adm-tab-badge.warn { background: #c19c00; }
+.adm-tab .adm-tab-badge.ok   { background: #107c10; }
+.adm-pane { display: none; animation: admFade 0.2s ease; }
+.adm-pane.active { display: block; }
+@keyframes admFade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* Settings rows with toggles */
+.adm-set-section {
+  background: #fff; border: 1px solid #edebe9; border-radius: 4px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+.adm-set-h {
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid #edebe9;
+}
+.adm-set-h h3 { font-size: 14px; font-weight: 600; color: #323130; margin: 0 0 3px; }
+.adm-set-h p { font-size: 12px; color: #605e5c; margin: 0; line-height: 1.4; }
+.adm-set-row {
+  display: grid; grid-template-columns: 1fr 60px;
+  gap: 16px; align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid #edebe9;
+}
+.adm-set-row:last-child { border-bottom: none; }
+.adm-set-row .lbl { font-size: 13px; color: #323130; font-weight: 600; }
+.adm-set-row .lbl small { display: block; color: #605e5c; font-weight: 400; font-size: 11.5px; margin-top: 3px; line-height: 1.5; }
+.adm-set-row .lbl .pill-inline {
+  display: inline-block; font-size: 9.5px; font-weight: 600;
+  padding: 2px 7px; border-radius: 2px; margin-left: 6px;
+  vertical-align: 1px; text-transform: uppercase; letter-spacing: 0.4px;
+}
+.adm-set-row .lbl .pill-inline.req { background: #fde7e9; color: #a4262c; border: 1px solid #f5c2c7; }
+.adm-set-row .lbl .pill-inline.rec { background: #eff6fc; color: #0078d4; border: 1px solid #c7e0f4; }
+.adm-set-row .lbl .pill-inline.new { background: #f0e5ff; color: #5c2d91; border: 1px solid #d8c0f5; }
+
+/* Toggle switch */
+.adm-toggle {
+  width: 44px; height: 22px; border-radius: 11px;
+  background: #c7c6c4; cursor: pointer; position: relative;
+  transition: background 0.18s; flex-shrink: 0;
+}
+.adm-toggle::after {
+  content: ''; position: absolute; top: 2px; left: 2px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+  transition: transform 0.18s;
+}
+.adm-toggle.on { background: #107c10; }
+.adm-toggle.on::after { transform: translateX(22px); }
+.adm-toggle.warn-on { background: #c19c00; }
+.adm-toggle.warn-on::after { transform: translateX(22px); }
+.adm-toggle.danger-on { background: #d13438; }
+.adm-toggle.danger-on::after { transform: translateX(22px); }
+
+/* Dropdown control */
+.adm-set-row .adm-select {
+  font-size: 12.5px; padding: 5px 10px; border: 1px solid #c7c6c4;
+  border-radius: 2px; background: #fff; color: #323130; min-width: 180px;
+  text-align: left; cursor: pointer;
+}
+.adm-set-row.dropdown-row { grid-template-columns: 1fr auto; }
+
+/* License assignment table */
+.adm-lic-row {
+  display: grid; grid-template-columns: 1.4fr 0.7fr 0.8fr 0.8fr 0.7fr;
+  gap: 10px; align-items: center;
+  padding: 10px 14px;
+  background: #fff; border-bottom: 1px solid #edebe9;
+  font-size: 12.5px;
+}
+.adm-lic-row.head {
+  background: #faf9f8; padding: 7px 14px;
+  font-size: 10.5px; font-weight: 600; color: #605e5c;
+  text-transform: uppercase; letter-spacing: 0.6px;
+}
+.adm-lic-row .lic-name { color: #323130; font-weight: 600; }
+.adm-lic-row .lic-name small { display: block; color: #605e5c; font-weight: 400; font-size: 10.5px; margin-top: 1px; }
+
+/* SharePoint Advanced Management — reuse aa-* shell */
+.app-topbar.sam { background: #0c5e5e; color: #fff; }
+.app-topbar.sam .app-title small { display: block; font-size: 10.5px; font-weight: 400; opacity: 0.75; letter-spacing: 0.3px; margin-top: -2px; }
+.sam-stat-bar {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #e8f4f4 0%, #f0e5ff 100%);
+  border: 1px solid #b8d8d8; border-radius: 4px;
+  margin-bottom: 16px;
+}
+.sam-stat .lbl { font-size: 10.5px; font-weight: 700; color: #0c5e5e; text-transform: uppercase; letter-spacing: 0.7px; }
+.sam-stat .v { font-size: 22pt; font-weight: 300; color: #0c5e5e; line-height: 1.05; margin: 2px 0; letter-spacing: -0.5px; }
+.sam-stat .s { font-size: 11px; color: #605e5c; }
+
+body.dark .adm-tabs { background: #252423; border-bottom-color: #323130; }
+body.dark .adm-tab { color: #a19f9d; }
+body.dark .adm-tab.active { color: #6bb6ff; border-bottom-color: #6bb6ff; }
+body.dark .adm-set-section { background: #252423; border-color: #323130; }
+body.dark .adm-set-h h3 { color: #f3f2f1; }
+body.dark .adm-set-row .lbl { color: #f3f2f1; }
+body.dark .adm-set-row { border-bottom-color: #323130; }
+body.dark .adm-lic-row { background: #252423; border-bottom-color: #323130; color: #f3f2f1; }
+body.dark .adm-lic-row.head { background: #1f1e1d; color: #a19f9d; }
+body.dark .adm-lic-row .lic-name { color: #f3f2f1; }
+
 .app-topbar.powerbi { background: linear-gradient(180deg, #f2c811 0%, #b79507 100%); color: #242424; }
 .app-topbar.powerbi .app-title { color: #242424; }
 .app-topbar.powerbi .back { color: #242424; }
@@ -5440,6 +5565,7 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
           <div class="waffle-app" onclick="closeWaffle(); openApp('entra')"><div class="wa-box" style="background:linear-gradient(135deg,#32bcad,#0078d4 50%,#0b2461);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2L3 8v8c0 4 3.8 5.5 9 6 5.2-.5 9-2 9-6V8l-9-6z"/></svg></div><span>Entra</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('defender')"><div class="wa-box" style="background:linear-gradient(135deg,#0078d4,#003a6a);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2L3 6v6c0 5.5 3.8 10.3 9 11 5.2-.7 9-5.5 9-11V6l-9-4zm0 4l5 2v4c0 3.5-2.4 6.7-5 7.4-2.6-.7-5-3.9-5-7.4V8l5-2z"/></svg></div><span>Defender</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('intune')"><div class="wa-box" style="background:linear-gradient(135deg,#0078d4,#005ea3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><rect x="3" y="4" width="18" height="14" rx="1.5" opacity="0.9"/><rect x="9" y="20" width="6" height="1.5"/></svg></div><span>Intune</span></div>
+          <div class="waffle-app" onclick="closeWaffle(); openApp('sam')"><div class="wa-box" style="background:linear-gradient(135deg,#0c5e5e,#063838);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><rect x="3" y="3" width="18" height="18" rx="2" opacity="0.92"/><path d="M7 8h10M7 12h10M7 16h7" stroke="#0c5e5e" stroke-width="2" stroke-linecap="round" fill="none"/></svg></div><span>SP Admin</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('powerbi')"><div class="wa-box" style="background:linear-gradient(135deg,#f2c811,#b79507);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M3 21h4V9H3zm7 0h4V3h-4zm7 0h4v-8h-4z"/></svg></div><span>Power BI</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('studio')"><div class="wa-box" style="background:linear-gradient(135deg,#7441e8,#4a1fa0);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3 5 5 1-4 4 1 6-5-3-5 3 1-6-4-4 5-1z"/></svg></div><span>Studio</span></div>
           <div class="waffle-app" onclick="closeWaffle(); openApp('shifts')"><div class="wa-box" style="background:linear-gradient(135deg,#00b4a4,#007b6e);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M7 2v3H5v15h14V5h-2V2h-2v3H9V2H7zm-2 8h14v9H5z"/></svg></div><span>Shifts</span></div>
@@ -6418,6 +6544,28 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
         </div>
       </div>
 
+      <div class="adm-tabs">
+        <div class="adm-tab active" data-admtab="insights" onclick="switchAdmTab('insights')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><path d="M3 17l5-7 4 5 4-3 5 5"/><path d="M3 21h18"/></svg>
+          Copilot insights
+        </div>
+        <div class="adm-tab" data-admtab="settings" onclick="switchAdmTab('settings')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4 12H1M23 12h-3M5 5l2 2M19 19l-2-2M5 19l2-2M19 5l-2 2"/></svg>
+          Copilot settings
+        </div>
+        <div class="adm-tab" data-admtab="licenses" onclick="switchAdmTab('licenses')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 10h18M7 15h4"/></svg>
+          License assignments
+          <span class="adm-tab-badge warn">13</span>
+        </div>
+        <div class="adm-tab" data-admtab="sharing" onclick="switchAdmTab('sharing')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="14" height="14"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 11l6-4M9 13l6 4"/></svg>
+          Sharing controls
+        </div>
+      </div>
+
+      <div class="adm-pane active" id="adm-pane-insights">
+
       <div class="adm-kpis">
         <div class="adm-kpi">
           <div class="adm-kpi-lbl">Active users</div>
@@ -6545,6 +6693,340 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
             <tr><td>34 min ago</td><td>Dr. R. Chen</td><td>Word</td><td>Review draft</td><td>Blue Shield appeal</td><td>${labelChip('phi')}</td><td class="ok">✓</td></tr>
           </tbody>
         </table>
+      </div>
+
+      </div><!-- /adm-pane-insights -->
+
+      <!-- ============ COPILOT SETTINGS ============ -->
+      <div class="adm-pane" id="adm-pane-settings">
+        <div class="pv-cmd-bar" style="margin-bottom:14px;">
+          <div class="pv-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg>Save changes</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11a8 8 0 10-2.4 5.6L20 19" stroke-linecap="round"/><path d="M20 14v5h-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Reset to defaults</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>Change history</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>Export config</div>
+        </div>
+
+        <div class="pv-card" style="background:#eff6fc;border-color:#c7e0f4;margin-bottom:14px;">
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#0078d4" style="flex-shrink:0;margin-top:2px;"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <div style="font-size:12.5px;color:#323130;line-height:1.55;">
+              <b>Tenant-wide Copilot configuration.</b> These toggles apply to all 2,847 licensed users. Group-scoped exceptions can be defined per setting (right column). Audit trail of every change is in <b>Purview Audit log</b>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Grounding & data sources -->
+        <div class="adm-set-section">
+          <div class="adm-set-h">
+            <h3>Grounding &amp; data sources</h3>
+            <p>What Copilot can read from when generating a response.</p>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Microsoft Graph grounding (tenant content)<span class="pill-inline req">Required</span><small>SharePoint, OneDrive, Outlook, Teams, OneNote, Loop · ACL-trimmed per user. Cannot be disabled — this is what Copilot grounds on.</small></div>
+            <div class="adm-toggle on" style="opacity:0.5;cursor:not-allowed;" title="Always-on for M365 Copilot"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Web grounding (Bing search)<small>Allows Copilot to search the public web in addition to tenant data. Disabled at Easy Health pending governance council review of clinical-search appropriateness.</small></div>
+            <div class="adm-toggle"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Restricted SharePoint Search<span class="pill-inline rec">Recommended for rollout</span><small>Limits Copilot grounding to a curated allowlist of 142 SharePoint sites until oversharing scan is fully clean. Configured in <b>Purview → Restricted Search</b>.</small></div>
+            <div class="adm-toggle warn-on"></div>
+          </div>
+          <div class="adm-set-row dropdown-row">
+            <div class="lbl">Sensitivity-label gating<small>Whether Copilot honors sensitivity labels when retrieving content. Strict = honor encryption + access scope; Audit-only = log but allow.</small></div>
+            <button class="adm-select">Strict (honor labels) ▾</button>
+          </div>
+        </div>
+
+        <!-- Plugins & connectors -->
+        <div class="adm-set-section">
+          <div class="adm-set-h">
+            <h3>Plugins &amp; connectors</h3>
+            <p>Extensions and partner connectors that can act inside Copilot.</p>
+          </div>
+          <div class="adm-set-row dropdown-row">
+            <div class="lbl">Plugin allowlist mode<small>How Copilot decides which plugins users may install or invoke.</small></div>
+            <button class="adm-select">Admin-curated allowlist only ▾</button>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Microsoft-published plugins<small>Bing, Loop, Whiteboard, Forms — auto-allowed</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Third-party verified plugins<small>ServiceNow, Salesforce, Atlassian, etc. · admin must approve each</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">User-installable plugins (unrestricted)<small>If on, any user can install any Microsoft-marketplace plugin without approval. Off here per governance council.</small></div>
+            <div class="adm-toggle"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Custom plugins / Power Platform connectors<small>Power Apps and Power Automate flows callable from Copilot</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row dropdown-row">
+            <div class="lbl">Approved plugin list<small>5 active · Epic SMART, Salesforce Agentforce, ServiceNow Now Assist, Adobe Sign, DocuSign</small></div>
+            <button class="adm-select">View 5 approved · 12 pending ▾</button>
+          </div>
+        </div>
+
+        <!-- Copilot Pages & Pages canvas -->
+        <div class="adm-set-section">
+          <div class="adm-set-h">
+            <h3>Copilot Pages &amp; collaborative canvases</h3>
+            <p>Multi-user AI-generated workspaces shared via Loop.</p>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Copilot Pages enabled<small>Users can create AI-generated pages and share them with colleagues</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row dropdown-row">
+            <div class="lbl">Default sharing scope for new Pages<small>Who a new Page is shared with by default</small></div>
+            <button class="adm-select">Specific people only ▾</button>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Block "share with anyone" link on Pages<small>Pages cannot be made public-link accessible</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Pages inherit source-content sensitivity<small>If a Page draws from PHI-labeled docs, the Page itself becomes PHI-labeled</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+        </div>
+
+        <!-- Transcripts, retention, agents -->
+        <div class="adm-set-section">
+          <div class="adm-set-h">
+            <h3>Transcripts, history &amp; retention</h3>
+            <p>How long Copilot interactions are kept and where they live.</p>
+          </div>
+          <div class="adm-set-row dropdown-row">
+            <div class="lbl">Prompt &amp; response retention<small>Retention applies to the M365 substrate copies of every Copilot interaction. HIPAA minimum 6 yr.</small></div>
+            <button class="adm-select">7 years (HIPAA-aligned) ▾</button>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Conversation history visible to user<small>Users can see and replay their own past Copilot conversations in the side pane</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Allow user to delete history<small>Users can clear their own history (but admin Audit retains it)</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Meeting transcripts feed Copilot recap<small>Teams meetings with transcription enabled are searchable + summarizable by Copilot</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+        </div>
+
+        <!-- Agents -->
+        <div class="adm-set-section">
+          <div class="adm-set-h">
+            <h3>Copilot agents</h3>
+            <p>Who can build, publish, and use custom Copilot Studio agents.</p>
+          </div>
+          <div class="adm-set-row dropdown-row">
+            <div class="lbl">Who can build agents in Copilot Studio<small>Default of "Admins only" + 12 approved agent-builder licenses (Easy Health governance council members)</small></div>
+            <button class="adm-select">Admins + designated builders ▾</button>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Agents must use Entra Agent ID<span class="pill-inline req">Required</span><small>Mandates that every published agent has a workload identity. Enforced in Entra CA-005.</small></div>
+            <div class="adm-toggle on" style="opacity:0.5;cursor:not-allowed;"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">User auto-install agents from Microsoft store<small>Allow users to install agents like "Career Coach" without admin approval</small></div>
+            <div class="adm-toggle"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Block agents from leaving tenant data residency<small>Agents must keep grounding + responses in West US 3 region</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ LICENSE ASSIGNMENTS ============ -->
+      <div class="adm-pane" id="adm-pane-licenses">
+        <div class="pv-cmd-bar" style="margin-bottom:14px;">
+          <div class="pv-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>Assign licenses</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7h12M6 12h12M6 17h12"/><circle cx="3" cy="7" r="1"/><circle cx="3" cy="12" r="1"/><circle cx="3" cy="17" r="1"/></svg>Group-based</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7" stroke-linecap="round"/></svg>Export</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>Reclaim unused</div>
+        </div>
+
+        <div class="pv-ah-kpis" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 14px;">
+          <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Purchased</div><div class="pv-ah-kpi-v">2,847</div><div class="pv-ah-kpi-s">renew Feb 2027</div></div>
+          <div class="pv-ah-kpi ok"><div class="pv-ah-kpi-lbl">Assigned</div><div class="pv-ah-kpi-v">2,834</div><div class="pv-ah-kpi-s good">99.5% allocated</div></div>
+          <div class="pv-ah-kpi warn"><div class="pv-ah-kpi-lbl">Available</div><div class="pv-ah-kpi-v">13</div><div class="pv-ah-kpi-s warn">awaiting Wave 3</div></div>
+          <div class="pv-ah-kpi"><div class="pv-ah-kpi-lbl">Monthly spend</div><div class="pv-ah-kpi-v">$85,410</div><div class="pv-ah-kpi-s">$30/seat × 2,847</div></div>
+        </div>
+
+        <div class="pv-card" style="padding:0;">
+          <div style="padding: 16px 18px 10px;"><div class="adm-card-title">Microsoft 365 Copilot — assignments by group</div><div class="adm-card-sub">Group-based assignment via dynamic Entra groups · users join the group → Entra assigns license within 8 hours</div></div>
+          <div class="adm-lic-row head"><div>Group</div><div>Assigned</div><div>Used 30d</div><div>Mode</div><div>Trend</div></div>
+          <div class="adm-lic-row">
+            <div class="lic-name">Clinical — Nursing<small>Group: grp-clinical-nursing · dynamic membership</small></div>
+            <div style="font-family:Consolas,monospace;font-weight:600;">1,062</div>
+            <div style="font-family:Consolas,monospace;color:#107c10;font-weight:600;">98.3%</div>
+            <div><span class="en-pill info">Group · dynamic</span></div>
+            <div style="color:#107c10;font-size:11px;font-weight:600;">▲ steady</div>
+          </div>
+          <div class="adm-lic-row">
+            <div class="lic-name">Clinical — Physicians<small>Group: grp-clinical-md</small></div>
+            <div style="font-family:Consolas,monospace;font-weight:600;">461</div>
+            <div style="font-family:Consolas,monospace;color:#107c10;font-weight:600;">96.4%</div>
+            <div><span class="en-pill info">Group · dynamic</span></div>
+            <div style="color:#107c10;font-size:11px;font-weight:600;">▲ +4 last week</div>
+          </div>
+          <div class="adm-lic-row">
+            <div class="lic-name">Revenue cycle &amp; billing<small>Group: grp-revcycle</small></div>
+            <div style="font-family:Consolas,monospace;font-weight:600;">184</div>
+            <div style="font-family:Consolas,monospace;color:#107c10;font-weight:600;">94.6%</div>
+            <div><span class="en-pill info">Group</span></div>
+            <div style="color:#605e5c;font-size:11px;">— flat</div>
+          </div>
+          <div class="adm-lic-row">
+            <div class="lic-name">IT &amp; Security<small>Group: grp-it-sec</small></div>
+            <div style="font-family:Consolas,monospace;font-weight:600;">142</div>
+            <div style="font-family:Consolas,monospace;color:#107c10;font-weight:600;">100%</div>
+            <div><span class="en-pill info">Group</span></div>
+            <div style="color:#605e5c;font-size:11px;">— flat</div>
+          </div>
+          <div class="adm-lic-row">
+            <div class="lic-name">Executive &amp; admin<small>Group: grp-exec-admin</small></div>
+            <div style="font-family:Consolas,monospace;font-weight:600;">48</div>
+            <div style="font-family:Consolas,monospace;color:#107c10;font-weight:600;">100%</div>
+            <div><span class="en-pill info">Group</span></div>
+            <div style="color:#605e5c;font-size:11px;">— flat</div>
+          </div>
+          <div class="adm-lic-row">
+            <div class="lic-name">Case management<small>Group: grp-casemgmt</small></div>
+            <div style="font-family:Consolas,monospace;font-weight:600;">94</div>
+            <div style="font-family:Consolas,monospace;color:#8a6a00;font-weight:600;">88.2%</div>
+            <div><span class="en-pill info">Group</span></div>
+            <div style="color:#8a6a00;font-size:11px;font-weight:600;">⚠ low engagement</div>
+          </div>
+          <div class="adm-lic-row">
+            <div class="lic-name">Research &amp; clinical trials<small>Group: grp-research</small></div>
+            <div style="font-family:Consolas,monospace;font-weight:600;">66</div>
+            <div style="font-family:Consolas,monospace;color:#8a6a00;font-weight:600;">84.8%</div>
+            <div><span class="en-pill info">Group</span></div>
+            <div style="color:#8a6a00;font-size:11px;font-weight:600;">⚠ low engagement</div>
+          </div>
+          <div class="adm-lic-row">
+            <div class="lic-name">HR &amp; finance (Wave 3)<small>Group: grp-corp-backoffice · staged Apr 28</small></div>
+            <div style="font-family:Consolas,monospace;font-weight:600;">624</div>
+            <div style="font-family:Consolas,monospace;color:#605e5c;">activates today</div>
+            <div><span class="en-pill warn">Staged · Wave 3</span></div>
+            <div style="color:#0078d4;font-size:11px;font-weight:600;">▲ go-live today</div>
+          </div>
+          <div class="adm-lic-row">
+            <div class="lic-name">Ops, facilities, patient svc<small>Group: grp-ops-svc · Wave 3</small></div>
+            <div style="font-family:Consolas,monospace;font-weight:600;">153</div>
+            <div style="font-family:Consolas,monospace;color:#605e5c;">activates today</div>
+            <div><span class="en-pill warn">Staged · Wave 3</span></div>
+            <div style="color:#0078d4;font-size:11px;font-weight:600;">▲ go-live today</div>
+          </div>
+        </div>
+
+        <div class="pv-card" style="margin-top:14px;background:#fff4ce;border-color:#f5d98a;">
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#8a6a00" style="flex-shrink:0;margin-top:2px;"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <div style="font-size:12.5px;color:#323130;line-height:1.55;">
+              <b>Reclaim opportunity:</b> 8 users (Case management + Research) under 90% utilization for 60+ days. Potential annual reclaim: <b style="color:#107c10;">$2,880</b>. Enroll in coaching cohort before reclaiming, or de-assign and reallocate to Wave 4 candidates.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SHARING CONTROLS ============ -->
+      <div class="adm-pane" id="adm-pane-sharing">
+        <div class="pv-cmd-bar" style="margin-bottom:14px;">
+          <div class="pv-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9"/></svg>Save changes</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>Open SharePoint admin</div>
+          <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>Sharing report</div>
+        </div>
+
+        <div class="pv-card" style="background:#eff6fc;border-color:#c7e0f4;margin-bottom:14px;">
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#0078d4" style="flex-shrink:0;margin-top:2px;"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <div style="font-size:12.5px;color:#323130;line-height:1.55;">
+              <b>Why sharing controls matter for Copilot:</b> oversharing is the #1 reason Copilot surfaces content it shouldn't. The settings below are tenant-wide defaults · individual sites can be tightened via SharePoint Advanced Management. Loose settings here = more Copilot exposure.
+            </div>
+          </div>
+        </div>
+
+        <div class="adm-set-section">
+          <div class="adm-set-h">
+            <h3>External sharing (tenant-wide)</h3>
+            <p>How users can share content outside the Easy Health tenant.</p>
+          </div>
+          <div class="adm-set-row dropdown-row">
+            <div class="lbl">SharePoint &amp; OneDrive external sharing<small>Strictest setting honored across both. Patient-facing sites use a sub-policy.</small></div>
+            <button class="adm-select">Existing guests only ▾</button>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">"Anyone" links (no sign-in)<span class="pill-inline req">Disabled</span><small>Anonymous public links · permanently off · cannot be enabled without governance approval</small></div>
+            <div class="adm-toggle" style="opacity:0.5;cursor:not-allowed;"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Default link type for new shares<small>What permission level is selected by default in the share dialog</small></div>
+            <button class="adm-select">Specific people · view only ▾</button>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Re-authentication for guests<small>External users prompted to re-authenticate every 14 days</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Allowed domains for guest invites<small>Allowlist · 47 BAA-signed partners (United, BCBS, Anthem, Epic, etc.)</small></div>
+            <button class="adm-select">47 allowed domains ▾</button>
+          </div>
+        </div>
+
+        <div class="adm-set-section">
+          <div class="adm-set-h">
+            <h3>OneDrive — personal sharing</h3>
+            <p>What individual users can do with files in their OneDrive.</p>
+          </div>
+          <div class="adm-set-row dropdown-row">
+            <div class="lbl">Default sharing for new OneDrive files<small>What "Copy link" creates by default</small></div>
+            <button class="adm-select">People with existing access ▾</button>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Block sync to non-domain-joined PCs<small>OneDrive sync only allowed on Intune-compliant devices</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Block download on unmanaged web access<small>Read-only experience for OneDrive on personal browsers</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Notify owner when sharing with external user<small>Email + Teams card to file owner</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+        </div>
+
+        <div class="adm-set-section">
+          <div class="adm-set-h">
+            <h3>Teams meetings &amp; chat</h3>
+            <p>External access in Teams that touches Copilot recap and chat summarization.</p>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">External chat with non-federated tenants<small>Federated to BAA partners only · 47 allowed</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Meeting recordings retained<small>Auto-saved in OneDrive · 90-day retention · feed Copilot recap</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Meeting transcripts default-on for clinical channels<small>Required for Copilot meeting recap to work · governance approved</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+          <div class="adm-set-row">
+            <div class="lbl">Block Copilot from external-only meetings<small>Meetings with no Easy Health attendees do not reach Copilot</small></div>
+            <div class="adm-toggle on"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -10747,6 +11229,398 @@ body.dark .tsx-disclaim { background: #2a2515; border-color: #5c4a00; color: #f0
 
       </div></div></div>
   </div>
+
+  <!-- ========== SHAREPOINT ADVANCED MANAGEMENT ========== -->
+  <div id="app-sam" class="app-shell">
+    <div class="app-topbar sam">
+      <div class="back" onclick="goHome()">☰</div>
+      <div class="app-waffle-launcher" title="Microsoft 365">
+        <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+      </div>
+      <div class="app-title">
+        <svg class="app-title-logo" width="20" height="20" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#0c5e5e"/><path d="M7 8h10M7 12h10M7 16h7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="18" cy="6" r="3" fill="#9af3e5"/></svg>
+        <span>SharePoint Advanced Management<small>Data Access Governance · Easy Health</small></span>
+      </div>
+      <div class="adm-search" style="margin-left:24px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.5-4.5" stroke-linecap="round"/></svg><span>Search sites, reports, content rules…</span></div>
+      <div class="adm-chrome">
+        <div class="adm-dir-picker"><small>TENANT</small><div>easyhealth.sharepoint.com ▾</div></div>
+        <div class="adm-chrome-btn copilot-glow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a3 3 0 00-3 3v1H7a2 2 0 00-2 2v4a7 7 0 0014 0V8a2 2 0 00-2-2h-2V5a3 3 0 00-3-3z"/></svg></div>
+        <div class="adm-chrome-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 16V11a6 6 0 1112 0v5l2 2H4l2-2zM9 20a3 3 0 006 0" stroke-linejoin="round"/></svg><span class="adm-chrome-badge">3</span></div>
+        <div class="adm-chrome-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="avatar" style="background:#c8a55b;color:#003865;margin-left:6px;">DK</div>
+      </div>
+    </div>
+    <div class="aa-body"><div class="aa-shell">
+      <div class="aa-rail">
+        <div class="aa-tabs">
+          <div class="aa-tab active" data-aatab="overview" onclick="switchSamTab('overview')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l9-8 9 8v9a1 1 0 01-1 1h-5v-7h-6v7H4a1 1 0 01-1-1v-9z"/></svg>
+            Overview
+          </div>
+        </div>
+        <div class="aa-rail-group">Data Access Governance</div>
+        <div class="aa-tabs">
+          <div class="aa-tab" data-aatab="oversharing" onclick="switchSamTab('oversharing')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 11l6-4M9 13l6 4"/></svg>
+            Oversharing reports
+            <span class="aa-tab-badge warn">7</span>
+          </div>
+          <div class="aa-tab" data-aatab="sensitivity" onclick="switchSamTab('sensitivity')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="11" width="12" height="9" rx="1"/><path d="M9 11V8a3 3 0 016 0v3"/></svg>
+            Content with sensitivity labels
+          </div>
+          <div class="aa-tab" data-aatab="permission-changes" onclick="switchSamTab('permission-changes')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2" stroke-linecap="round"/></svg>
+            Permission changes
+          </div>
+        </div>
+        <div class="aa-rail-group">Site lifecycle</div>
+        <div class="aa-tabs">
+          <div class="aa-tab" data-aatab="inactive" onclick="switchSamTab('inactive')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+            Inactive sites
+            <span class="aa-tab-badge warn">142</span>
+          </div>
+          <div class="aa-tab" style="opacity:0.75;cursor:default;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M8 9h8M8 13h8"/></svg>
+            Site lifecycle policies
+          </div>
+        </div>
+        <div class="aa-rail-group">Configure</div>
+        <div class="aa-tabs">
+          <div class="aa-tab" data-aatab="restricted" onclick="switchSamTab('restricted')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5" stroke-linecap="round"/></svg>
+            Restricted SharePoint Search
+            <span class="aa-tab-badge ok">ON</span>
+          </div>
+          <div class="aa-tab" style="opacity:0.75;cursor:default;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v12H4z"/><path d="M9 6v12"/></svg>
+            Block download policies
+          </div>
+        </div>
+      </div>
+      <div class="aa-main">
+
+        <!-- ========== OVERVIEW ========== -->
+        <div class="aa-pane active" id="sam-pane-overview">
+          <div class="pv-bread"><span>SharePoint admin</span><span class="pv-bc-sep">›</span><span class="pv-bc-last">SharePoint Advanced Management</span></div>
+          <div class="pv-page-title">
+            <div>
+              <h1>SharePoint Advanced Management</h1>
+              <p>Data-access governance for the 2,391 sites Copilot can ground on. Find oversharing, retire inactive sites, and restrict where Copilot can search — all the controls that keep Copilot from surfacing what it shouldn't.</p>
+            </div>
+            <div class="pv-page-meta">
+              <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">SAM license</div>
+              <div style="font-size:14pt;font-weight:600;color:#0c5e5e;line-height:1.05;margin:2px 0;">Active</div>
+              <div>included with Copilot</div>
+            </div>
+          </div>
+
+          <div class="sam-stat-bar">
+            <div class="sam-stat"><div class="lbl">SharePoint sites</div><div class="v">2,391</div><div class="s">2,247 active · 142 inactive · 2 archived</div></div>
+            <div class="sam-stat"><div class="lbl">Oversharing flags</div><div class="v" style="color:#a4262c;">7</div><div class="s">2 critical · 2 high · 3 monitor</div></div>
+            <div class="sam-stat"><div class="lbl">Items with sensitivity labels</div><div class="v">3.96M</div><div class="s">98.4% of files labeled</div></div>
+            <div class="sam-stat"><div class="lbl">Restricted Search</div><div class="v" style="color:#107c10;">142</div><div class="s">sites in Copilot allowlist</div></div>
+          </div>
+
+          <div class="pv-ah-grid">
+            <div class="pv-card">
+              <div class="adm-card-head"><div><div class="adm-card-title">Top recommendations</div><div class="adm-card-sub">Action items ordered by Copilot-exposure risk</div></div></div>
+              <div style="display:flex;flex-direction:column;gap:8px;font-size:12.5px;">
+                <div style="padding:10px 12px;background:#fde7e9;border:1px solid #f5c2c7;border-left:3px solid #d13438;border-radius:2px;">
+                  <b style="color:#a4262c;">2 sites flagged "Everyone except external" with PHI inside</b>
+                  <div style="font-size:11.5px;color:#605e5c;margin-top:3px;line-height:1.5;">HR-Total-Rewards (1,247 files · comp letters) and Legal-M&amp;A (84 files · acquisition drafts). Copilot can surface these to anyone in the tenant. <a href="#" style="color:#0078d4;text-decoration:none;font-weight:600;">Restrict access ›</a></div>
+                </div>
+                <div style="padding:10px 12px;background:#fff4ce;border:1px solid #f5d98a;border-left:3px solid #c19c00;border-radius:2px;">
+                  <b style="color:#8a6a00;">142 inactive sites · last activity &gt; 12 months</b>
+                  <div style="font-size:11.5px;color:#605e5c;margin-top:3px;line-height:1.5;">Copilot may surface stale or out-of-date content. Recommend archive policy or delete after owner notice. <a href="#" style="color:#0078d4;text-decoration:none;font-weight:600;">Bulk archive ›</a></div>
+                </div>
+                <div style="padding:10px 12px;background:#eff6fc;border:1px solid #c7e0f4;border-left:3px solid #0078d4;border-radius:2px;">
+                  <b style="color:#0078d4;">RevenueCycle-Shared · auto-labeling 84% complete</b>
+                  <div style="font-size:11.5px;color:#605e5c;margin-top:3px;line-height:1.5;">8,812 files · auto-label PHI policy in progress. Adds the site to Copilot allowlist when ≥ 95%. <a href="#" style="color:#0078d4;text-decoration:none;font-weight:600;">Track progress ›</a></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pv-card">
+              <div class="adm-card-head"><div><div class="adm-card-title">SAM features active</div><div class="adm-card-sub">All Copilot-relevant SAM controls</div></div></div>
+              <div style="font-size:12.5px;color:#323130;line-height:1.7;">
+                <div style="display:grid;grid-template-columns:auto 1fr;gap:10px;padding:6px 0;border-bottom:1px solid #edebe9;"><span class="en-pill ok">On</span><div><b>Data Access Governance reports</b><div style="font-size:11px;color:#605e5c;">site-level oversharing, sensitivity coverage, permission churn</div></div></div>
+                <div style="display:grid;grid-template-columns:auto 1fr;gap:10px;padding:6px 0;border-bottom:1px solid #edebe9;"><span class="en-pill ok">On</span><div><b>Restricted SharePoint Search</b><div style="font-size:11px;color:#605e5c;">142-site allowlist · Wave 3 mode</div></div></div>
+                <div style="display:grid;grid-template-columns:auto 1fr;gap:10px;padding:6px 0;border-bottom:1px solid #edebe9;"><span class="en-pill ok">On</span><div><b>Restricted access control (RAC)</b><div style="font-size:11px;color:#605e5c;">specific groups only · 14 sites scoped this way</div></div></div>
+                <div style="display:grid;grid-template-columns:auto 1fr;gap:10px;padding:6px 0;border-bottom:1px solid #edebe9;"><span class="en-pill ok">On</span><div><b>Block download policy</b><div style="font-size:11px;color:#605e5c;">PHI-labeled content · unmanaged browsers</div></div></div>
+                <div style="display:grid;grid-template-columns:auto 1fr;gap:10px;padding:6px 0;border-bottom:1px solid #edebe9;"><span class="en-pill ok">On</span><div><b>Site lifecycle (inactive site policy)</b><div style="font-size:11px;color:#605e5c;">12 months no activity → owner attestation</div></div></div>
+                <div style="display:grid;grid-template-columns:auto 1fr;gap:10px;padding:6px 0;"><span class="en-pill ok">On</span><div><b>Conditional Access for SPO</b><div style="font-size:11px;color:#605e5c;">CA-003 + CA-011 wired through</div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="adm-learn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01" stroke-linecap="round"/></svg>
+            <span>Learn more:</span>
+            <a href="#">SharePoint Advanced Management overview</a>
+            <span class="sep">·</span>
+            <a href="#">Data Access Governance reports</a>
+            <span class="sep">·</span>
+            <a href="#">Prepare SharePoint for Copilot rollout</a>
+          </div>
+        </div>
+
+        <!-- ========== OVERSHARING ========== -->
+        <div class="aa-pane" id="sam-pane-oversharing">
+          <div class="pv-bread"><span>SharePoint admin</span><span class="pv-bc-sep">›</span><span>SAM</span><span class="pv-bc-sep">›</span><span>Reports</span><span class="pv-bc-sep">›</span><span class="pv-bc-last">Oversharing</span></div>
+          <div class="pv-page-title">
+            <div>
+              <h1>Oversharing reports</h1>
+              <p>Sites that Copilot can read for any tenant user. Each site here is a candidate to <em>break</em> Copilot's "you only see what you have permission to see" promise — because too many people have permission.</p>
+            </div>
+            <div class="pv-page-meta">
+              <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Sites flagged</div>
+              <div style="font-size:20pt;font-weight:300;color:#a4262c;line-height:1.05;margin:2px 0;">7</div>
+              <div>2 critical · pending action</div>
+            </div>
+          </div>
+          <div class="pv-cmd-bar">
+            <div class="pv-cmd-btn primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11a8 8 0 10-2.4 5.6L20 19" stroke-linecap="round"/></svg>Re-scan tenant</div>
+            <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M5 10l7 7 7-7" stroke-linecap="round"/></svg>Export</div>
+            <div class="pv-cmd-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/></svg>Notify owners</div>
+            <div class="pv-cmd-btn sep"></div>
+            <div class="pv-cmd-filter">Severity: all ▾</div>
+          </div>
+          <div class="pv-card" style="padding:0;">
+            <div class="pv-dlp-policies">
+              <div class="pv-dlp-row head"><div>Site</div><div>Why flagged</div><div>Items at risk</div><div>Owner</div><div>Severity</div></div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/HR-Total-Rewards<small>Compensation Letters folder</small></div>
+                <div class="pv-dlp-scope">"Everyone except external" + PHI/Confidential labels detected</div>
+                <div style="font-family:Consolas,monospace;font-weight:600;">1,247 files</div>
+                <div>a.morales@easyhealth</div>
+                <div><span class="en-pill bad">Critical</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/Legal-M&amp;A<small>Project Mockingbird drafts</small></div>
+                <div class="pv-dlp-scope">"All clinical staff" group used as access · 1,834 users</div>
+                <div style="font-family:Consolas,monospace;font-weight:600;">84 files</div>
+                <div>r.garcia@easyhealth</div>
+                <div><span class="en-pill bad">Critical</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/Oncology-PolicyArchive<small>Retired protocol drafts</small></div>
+                <div class="pv-dlp-scope">Shared "Everyone except external" · low PHI risk but stale content</div>
+                <div style="font-family:Consolas,monospace;font-weight:600;">342 files</div>
+                <div>k.lee@easyhealth</div>
+                <div><span class="en-pill warn">High</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/RevenueCycle-Shared<small>auto-labeling in progress</small></div>
+                <div class="pv-dlp-scope">84% labeled PHI · 16% unlabeled · auto-label finishes Apr 30</div>
+                <div style="font-family:Consolas,monospace;font-weight:600;">1,396 unlabeled</div>
+                <div>j.ramos@easyhealth</div>
+                <div><span class="en-pill warn">High</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/IT-Vendor-Docs<small>contracts + SOWs</small></div>
+                <div class="pv-dlp-scope">External guests have read · 22 BAA-partner accounts</div>
+                <div style="font-family:Consolas,monospace;font-weight:600;">428 files</div>
+                <div>r.martinez@easyhealth</div>
+                <div><span class="en-pill warn">Monitor</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/Marketing-PatientStories<small>media releases</small></div>
+                <div class="pv-dlp-scope">"Anyone with link" remnants from 2024 (3 links)</div>
+                <div style="font-family:Consolas,monospace;font-weight:600;">14 files</div>
+                <div>f.taylor@easyhealth</div>
+                <div><span class="en-pill warn">Monitor</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/Research-PI-Drafts<small>working manuscripts</small></div>
+                <div class="pv-dlp-scope">"Everyone in org" used as default · should be PI-team only</div>
+                <div style="font-family:Consolas,monospace;font-weight:600;">218 files</div>
+                <div>k.obrien@easyhealth</div>
+                <div><span class="en-pill warn">Monitor</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== INACTIVE SITES ========== -->
+        <div class="aa-pane" id="sam-pane-inactive">
+          <div class="pv-bread"><span>SharePoint admin</span><span class="pv-bc-sep">›</span><span>SAM</span><span class="pv-bc-sep">›</span><span class="pv-bc-last">Inactive sites</span></div>
+          <div class="pv-page-title">
+            <div>
+              <h1>Inactive sites</h1>
+              <p>142 sites with no user activity in &gt; 12 months. Stale sites are a Copilot risk because they keep surfacing outdated content. Owner attestation required to keep alive.</p>
+            </div>
+          </div>
+          <div class="pv-card" style="padding:0;">
+            <div class="pv-dlp-policies">
+              <div class="pv-dlp-row head"><div>Site</div><div>Last activity</div><div>Files</div><div>Owner status</div><div>State</div></div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/Project-Phoenix-2023<small>Decommissioned project</small></div>
+                <div class="pv-dlp-scope">2024-04-12 · 12 months</div>
+                <div style="font-family:Consolas,monospace;font-weight:600;">684</div>
+                <div style="font-size:11.5px;">Owner left org · orphaned</div>
+                <div><span class="en-pill bad">Archive recommended</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/Q1-2024-PR<small>quarterly comms archive</small></div>
+                <div class="pv-dlp-scope">2024-03-30 · 13 months</div>
+                <div style="font-family:Consolas,monospace;font-weight:600;">142</div>
+                <div style="font-size:11.5px;">Owner notified · 4 days ago</div>
+                <div><span class="en-pill warn">Awaiting attestation</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/Vendor-Selection-2023<small>RFP archive</small></div>
+                <div class="pv-dlp-scope">2024-02-08 · 14 months</div>
+                <div style="font-family:Consolas,monospace;font-weight:600;">412</div>
+                <div style="font-size:11.5px;">Attestation due · in 3 days</div>
+                <div><span class="en-pill warn">Awaiting attestation</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/Old-Onboarding-2022<small>predates current onboarding flow</small></div>
+                <div class="pv-dlp-scope">2023-06-14 · 22 months</div>
+                <div style="font-family:Consolas,monospace;font-weight:600;">88</div>
+                <div style="font-size:11.5px;">Owner attested "delete"</div>
+                <div><span class="en-pill ok">Scheduled delete</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">… 138 more inactive sites</div>
+                <div class="pv-dlp-scope">12-36 months stale</div>
+                <div style="font-family:Consolas,monospace;font-weight:600;">~22K total</div>
+                <div style="font-size:11.5px;">Bulk-notify available</div>
+                <div><span class="en-pill neutral">Pending</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== SENSITIVITY LABEL COVERAGE ========== -->
+        <div class="aa-pane" id="sam-pane-sensitivity">
+          <div class="pv-bread"><span>SharePoint admin</span><span class="pv-bc-sep">›</span><span>SAM</span><span class="pv-bc-sep">›</span><span class="pv-bc-last">Sensitivity coverage</span></div>
+          <div class="pv-page-title">
+            <div>
+              <h1>Content with sensitivity labels — by site</h1>
+              <p>How well-labeled each site is. Copilot trusts the label to gate retrieval. Below 95% coverage = the site shouldn't be in Restricted Search allowlist.</p>
+            </div>
+          </div>
+          <div class="pv-card" style="padding:0;">
+            <div class="pv-dlp-policies">
+              <div class="pv-dlp-row head"><div>Site</div><div>Items</div><div>Labeled</div><div>Top label</div><div>Allowlist</div></div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/oncology-policies</div>
+                <div style="font-family:Consolas,monospace;">2,341</div>
+                <div style="color:#107c10;font-weight:600;">100%</div>
+                <div style="font-size:11px;"><span class="slabel" style="background:#a4262c;color:#fff;padding:2px 7px;border-radius:2px;font-size:10px;">PHI</span> 92%</div>
+                <div><span class="en-pill ok">In allowlist</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/clinical-protocols</div>
+                <div style="font-family:Consolas,monospace;">8,144</div>
+                <div style="color:#107c10;font-weight:600;">99.7%</div>
+                <div style="font-size:11px;"><span class="slabel" style="background:#c19c00;color:#fff;padding:2px 7px;border-radius:2px;font-size:10px;">Confidential</span></div>
+                <div><span class="en-pill ok">In allowlist</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/revcycle-shared</div>
+                <div style="font-family:Consolas,monospace;">8,812</div>
+                <div style="color:#8a6a00;font-weight:600;">84%</div>
+                <div style="font-size:11px;"><span class="slabel" style="background:#a4262c;color:#fff;padding:2px 7px;border-radius:2px;font-size:10px;">PHI</span> 78%</div>
+                <div><span class="en-pill warn">Watching</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/HR-Total-Rewards</div>
+                <div style="font-family:Consolas,monospace;">14,824</div>
+                <div style="color:#a4262c;font-weight:600;">62%</div>
+                <div style="font-size:11px;"><span class="slabel" style="background:#c19c00;color:#fff;padding:2px 7px;border-radius:2px;font-size:10px;">Confidential</span> 41%</div>
+                <div><span class="en-pill bad">Blocked from Copilot</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div class="pv-dlp-name">/sites/research-trials</div>
+                <div style="font-family:Consolas,monospace;">3,082</div>
+                <div style="color:#107c10;font-weight:600;">98.4%</div>
+                <div style="font-size:11px;"><span class="slabel" style="background:#a4262c;color:#fff;padding:2px 7px;border-radius:2px;font-size:10px;">PHI</span></div>
+                <div><span class="en-pill ok">In allowlist</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== PERMISSION CHANGES ========== -->
+        <div class="aa-pane" id="sam-pane-permission-changes">
+          <div class="pv-bread"><span>SharePoint admin</span><span class="pv-bc-sep">›</span><span>SAM</span><span class="pv-bc-sep">›</span><span class="pv-bc-last">Permission changes</span></div>
+          <div class="pv-page-title">
+            <div>
+              <h1>Permission changes — last 30 days</h1>
+              <p>Who broadened or tightened access on which sites. Sudden broadenings can introduce Copilot-exposure risk overnight.</p>
+            </div>
+          </div>
+          <div class="pv-card" style="padding:0;">
+            <div class="pv-dlp-policies">
+              <div class="pv-dlp-row head"><div>When</div><div>Site · change</div><div>By</div><div>Risk delta</div><div>State</div></div>
+              <div class="pv-dlp-row">
+                <div style="font-family:Consolas,monospace;font-size:11px;">2 days ago</div>
+                <div><b>/sites/HR-Total-Rewards</b><small style="font-size:11px;color:#605e5c;display:block;">"Site members" expanded to "Everyone except external"</small></div>
+                <div>a.morales</div>
+                <div><span class="en-pill bad">+ critical</span></div>
+                <div><span class="en-pill warn">Pending review</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div style="font-family:Consolas,monospace;font-size:11px;">5 days ago</div>
+                <div><b>/sites/Legal-M&amp;A</b><small style="font-size:11px;color:#605e5c;display:block;">Added "All clinical staff" group</small></div>
+                <div>r.garcia</div>
+                <div><span class="en-pill bad">+ critical</span></div>
+                <div><span class="en-pill warn">Pending review</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div style="font-family:Consolas,monospace;font-size:11px;">8 days ago</div>
+                <div><b>/sites/clinical-protocols</b><small style="font-size:11px;color:#605e5c;display:block;">Removed unused service account</small></div>
+                <div>r.martinez</div>
+                <div><span class="en-pill ok">- positive</span></div>
+                <div><span class="en-pill ok">Auto-approved</span></div>
+              </div>
+              <div class="pv-dlp-row">
+                <div style="font-family:Consolas,monospace;font-size:11px;">14 days ago</div>
+                <div><b>/sites/research-trials</b><small style="font-size:11px;color:#605e5c;display:block;">Tightened to PI-only · removed "All staff"</small></div>
+                <div>k.obrien</div>
+                <div><span class="en-pill ok">- positive</span></div>
+                <div><span class="en-pill ok">Auto-approved</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== RESTRICTED SEARCH (mirror of Purview) ========== -->
+        <div class="aa-pane" id="sam-pane-restricted">
+          <div class="pv-bread"><span>SharePoint admin</span><span class="pv-bc-sep">›</span><span>SAM</span><span class="pv-bc-sep">›</span><span class="pv-bc-last">Restricted SharePoint Search</span></div>
+          <div class="pv-page-title">
+            <div>
+              <h1>Restricted SharePoint Search <span style="font-size:10px;font-weight:600;letter-spacing:0.5px;background:#dff6dd;color:#107c10;padding:2px 8px;border-radius:2px;border:1px solid #a1e0a1;margin-left:6px;vertical-align:4px;text-transform:uppercase;">Enabled</span></h1>
+              <p>This is the same configuration as Purview's Restricted Search tab — both surfaces edit the same allowlist. Use whichever portal your team prefers.</p>
+            </div>
+            <div class="pv-page-meta">
+              <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;">Sites in allowlist</div>
+              <div style="font-size:20pt;font-weight:300;color:#0c5e5e;line-height:1.05;margin:2px 0;">142 / 2,391</div>
+              <div>5.9% of tenant</div>
+            </div>
+          </div>
+          <div class="pv-card" style="background:#fff4ce;border-color:#f5d98a;">
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#8a6a00" style="flex-shrink:0;margin-top:2px;"><path d="M12 2L2 20h20L12 2z"/></svg>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:#323130;">Tip: keep RSS on through Wave 4</div>
+                <div style="font-size:12.5px;color:#323130;line-height:1.55;margin-top:4px;">
+                  Easy Health's plan is to disable Restricted Search after Wave 4 (Jun 30) once the 7 oversharing flags are resolved and HR-Total-Rewards + Legal-M&amp;A are properly scoped. Until then, Copilot grounds only on the 142-site allowlist visible in Purview.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pv-card">
+            <div class="adm-card-head"><div><div class="adm-card-title">Edit allowlist</div><div class="adm-card-sub">Synchronized with Purview · 142 sites · same source-of-truth</div></div><div class="en-card-link">Open in Purview ›</div></div>
+          </div>
+        </div>
+
+      </div></div></div>
+  </div>
   <!-- ========== POWER BI ========== -->
   <div id="app-powerbi" class="app-shell">
     <div class="app-topbar powerbi">
@@ -12080,6 +12954,10 @@ function openApp(app, context) {
   if (app === 'entra')   { switchEntraTab('home');  renderEntraChart(); }
   if (app === 'defender'){ switchDfTab('incidents'); }
   if (app === 'intune')        { switchInTab('overview'); }
+  if (app === 'sam')           { switchSamTab('overview'); }
+  if (app === 'admin') { /* default to insights tab if not yet picked */
+    const t = document.querySelector('.adm-tab.active'); if (!t) switchAdmTab('insights');
+  }
   // Show tips per app
   const tips = {
     outlook: "In Outlook, click the Copilot logo (top-right) to triage your 147-message inbox. Or click any email to read it.",
@@ -16205,6 +17083,35 @@ function switchInTab(which) {
   shell.querySelectorAll('.aa-pane').forEach(p => p.classList.remove('active'));
   shell.querySelector('#in-pane-' + which)?.classList.add('active');
 }
+
+// ============ SHAREPOINT ADVANCED MANAGEMENT — tab switcher ============
+function switchSamTab(which) {
+  const shell = document.getElementById('app-sam'); if (!shell) return;
+  shell.querySelectorAll('.aa-tab').forEach(t => t.classList.toggle('active', t.dataset.aatab === which));
+  shell.querySelectorAll('.aa-pane').forEach(p => p.classList.remove('active'));
+  shell.querySelector('#sam-pane-' + which)?.classList.add('active');
+}
+
+// ============ ADMIN CENTER — Copilot section tabs ============
+function switchAdmTab(which) {
+  document.querySelectorAll('.adm-tab').forEach(t => t.classList.toggle('active', t.dataset.admtab === which));
+  document.querySelectorAll('.adm-pane').forEach(p => p.classList.remove('active'));
+  document.getElementById('adm-pane-' + which)?.classList.add('active');
+}
+
+// Click a toggle on Copilot Settings or Sharing pages to flip its visual state.
+// Pure UI — no real persistence. Skips toggles marked disabled (opacity: 0.5 + cursor:not-allowed).
+document.addEventListener('click', function(e) {
+  const t = e.target.closest('.adm-toggle');
+  if (!t) return;
+  if (t.style.cursor === 'not-allowed') return;
+  // Cycle: off → on. (Different toggle classes carry their own "on" colors.)
+  if (t.classList.contains('on') || t.classList.contains('warn-on') || t.classList.contains('danger-on')) {
+    t.classList.remove('on', 'warn-on', 'danger-on');
+  } else {
+    t.classList.add('on');
+  }
+});
 
 // ============ DEFENDER FOR CLOUD APPS — tab switcher ============
 function switchDfTab(which) {
